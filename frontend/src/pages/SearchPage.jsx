@@ -1,15 +1,13 @@
 import Navbar from "@components/Navbar";
 import React from "react";
 
-function Library() {
+export default function SearchPage() {
   return (
     <div>
-      <h1>library</h1>
+      <h1>Search</h1>
       <div className="navPageContainer">
         <Navbar />
       </div>
     </div>
   );
 }
-
-export default Library;

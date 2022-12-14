@@ -7,11 +7,74 @@
 }
 
 body {
-  background: #010D18;
+  background: #010d18;
   font-family: "Poppins", sans-serif;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 li {
   list-style-type: none;
-}/*# sourceMappingURL=index.css.map */
+}
+
+.navContainer {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.linkList {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.link {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginLogo {
+  position: absolute;
+  top: 20;
+}
+
+.loginImg {
+  height: 250px;
+}
+
+.loginTitle {
+  padding-top: 10px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.inputContainer {
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.loginInput {
+  height: 25px;
+  width: 250px;
+  border-radius: 8px;
+  border-color: #006dce;
+}
+
+.loginButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.loginButton {
+  height: 25px;
+  width: 80px;
+  border-radius: 10px;
+} /*# sourceMappingURL=index.css.map */

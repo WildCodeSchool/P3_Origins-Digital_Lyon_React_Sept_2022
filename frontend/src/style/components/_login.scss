@@ -1,0 +1,46 @@
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginLogo {
+  position: absolute;
+  top: 20;
+}
+
+.loginImg {
+  height: 250px;
+}
+
+.loginTitle {
+  padding-top: 10px;
+  color: $white;
+  text-align: center;
+}
+
+.inputContainer {
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.loginInput {
+  height: 25px;
+  width: 250px;
+  border-radius: 8px;
+  border-color: $color-1;
+}
+
+.loginButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.loginButton {
+  height: 25px;
+  width: 80px;
+  border-radius: 10px;
+}
