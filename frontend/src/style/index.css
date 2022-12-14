@@ -1,7 +1,5 @@
-@font-face {
-  font-family: "font-1";
-  src: url(../assets/fonts/JosefinSans-Medium.ttf);
-}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -10,7 +8,7 @@
 
 body {
   background: #010D18;
-  font-family: "font-1", sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #FFFFFF;
 }
 
