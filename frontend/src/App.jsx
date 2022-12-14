@@ -1,8 +1,9 @@
 import Home from "./pages/Home";
+import "./style/index.css";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Home />
       <p>coucou</p>
     </div>
