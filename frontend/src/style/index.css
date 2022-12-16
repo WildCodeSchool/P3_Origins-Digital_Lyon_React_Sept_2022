@@ -35,7 +35,7 @@ li {
 .loginContainer {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  gap: 20px;
 }
 
 .loginLogoContainer {
@@ -91,8 +91,8 @@ li {
 .formContainer {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
+  gap: 10px;
 }
 
 .eyeContainer {
@@ -100,7 +100,7 @@ li {
   width: 25px;
   position: absolute;
   right: 25%;
-  top: 43.5%;
+  bottom: 47.6%;
   color: #010d18;
 }
 
