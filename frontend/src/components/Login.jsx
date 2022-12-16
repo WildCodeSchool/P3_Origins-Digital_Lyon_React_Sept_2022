@@ -1,33 +1,52 @@
 /* eslint-disable no-restricted-syntax */
 import React, { useState } from "react";
+import { BiHide, BiShow } from "react-icons/bi";
 import loginImg from "../asset/image/loginImg.jpeg";
 import logo from "../asset/image/logo.svg";
 
 export default function Login() {
   const [userName, setUserName] = useState("");
   const [userPassword, setUserPassword] = useState("");
+  const [hidden, setHidden] = useState(true);
+
+  const handleShow = () => setHidden(!hidden);
 
   return (
     <div className="loginContainer">
       <div>
         <img className="loginImg" src={loginImg} alt="loginImg" />
       </div>
-      <img className="loginLogo" src={logo} alt="logo" />
-      <div className="inputContainer">
-        <h2 className="loginTitle">Login</h2>
-        <label htmlFor="input">Username</label>
-        <input
-          className="loginInput"
-          onChange={(e) => setUserName(e.target.value)}
-          type="text"
-          placeholder="Username"
-        />
-        <label htmlFor="input">Password</label>
-        <input
-          className="loginInput"
-          onChange={(e) => setUserPassword(e.target.value)}
-          type="password"
-        />
+      <div className="loginLogoContainer">
+        <img className="loginLogo" src={logo} alt="logo" />
+      </div>
+      <h2 className="loginTitle">Login</h2>
+      <div className="formContainer">
+        <div className="inputContainer">
+          <label htmlFor="input">Username</label>
+          <input
+            className="loginInput"
+            onChange={(e) => setUserName(e.target.value)}
+            type="text"
+            placeholder="Username"
+          />
+        </div>
+        <div className="inputContainer">
+          <label htmlFor="input">Password</label>
+          <div className="passwordContainer">
+            <input
+              className="loginInput"
+              onChange={(e) => setUserPassword(e.target.value)}
+              type={hidden ? "password" : "text"}
+            />
+            <div className="eyeContainer">
+              {hidden ? (
+                <BiHide className="eyes" onClick={handleShow} />
+              ) : (
+                <BiShow className="eyes" onClick={handleShow} />
+              )}
+            </div>
+          </div>
+        </div>
         <div className="loginButtonContainer">
           <button
             type="button"

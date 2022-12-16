@@ -35,13 +35,24 @@ li {
 .loginContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-evenly;
+}
+
+.loginLogoContainer {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: 27%;
+  left: 44%;
+  background-color: #010d18;
+  border: 1px solid #010d18;
+  border-radius: 1rem;
+  box-shadow: slategray;
 }
 
 .loginLogo {
-  position: absolute;
-  top: 20;
+  height: 100%;
+  width: 100%;
 }
 
 .loginImg {
@@ -54,7 +65,6 @@ li {
 }
 
 .inputContainer {
-  height: 30vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -62,7 +72,7 @@ li {
 
 .loginInput {
   height: 25px;
-  width: 250px;
+  width: 200px;
   border-radius: 8px;
   border-color: #006dce;
 }
@@ -76,4 +86,25 @@ li {
   height: 25px;
   width: 80px;
   border-radius: 10px;
-}/*# sourceMappingURL=index.css.map */
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.eyeContainer {
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  right: 25%;
+  top: 43.5%;
+  color: #010d18;
+}
+
+.eyes {
+  height: 100%;
+  width: 100%;
+} /*# sourceMappingURL=index.css.map */
