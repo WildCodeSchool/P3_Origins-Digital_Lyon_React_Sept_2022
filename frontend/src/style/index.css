@@ -74,4 +74,97 @@ li {
   color: #006dce;
   font-size: 0.8rem;
   padding: 8px;
+}
+
+.navContainer {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.linkList {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.link {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.loginLogoContainer {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: 27%;
+  left: 44%;
+  background-color: #010d18;
+  border: 1px solid #010d18;
+  border-radius: 1rem;
+  box-shadow: slategray;
+}
+
+.loginLogo {
+  height: 100%;
+  width: 100%;
+}
+
+.loginImg {
+  height: 250px;
+}
+
+.loginTitle {
+  color: #ffffff;
+  text-align: center;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.loginInput {
+  height: 25px;
+  width: 200px;
+  border-radius: 8px;
+  border-color: #006dce;
+}
+
+.loginButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.loginButton {
+  height: 25px;
+  width: 80px;
+  border-radius: 10px;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.eyeContainer {
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  right: 25%;
+  top: 43.5%;
+  color: #010d18;
+}
+
+.eyes {
+  height: 100%;
+  width: 100%;
 } /*# sourceMappingURL=index.css.map */

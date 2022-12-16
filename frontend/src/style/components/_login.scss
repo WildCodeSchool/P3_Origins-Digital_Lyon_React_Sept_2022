@@ -1,0 +1,76 @@
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.loginLogoContainer {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: 27%;
+  left: 44%;
+  background-color: $black;
+  border: 1px solid $black;
+  border-radius: 1rem;
+  box-shadow: slategray;
+}
+
+.loginLogo {
+  height: 100%;
+  width: 100%;
+}
+
+.loginImg {
+  height: 250px;
+}
+
+.loginTitle {
+  color: $white;
+  text-align: center;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.loginInput {
+  height: 25px;
+  width: 200px;
+  border-radius: 8px;
+  border-color: $color-1;
+}
+
+.loginButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.loginButton {
+  height: 25px;
+  width: 80px;
+  border-radius: 10px;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.eyeContainer {
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  right: 25%;
+  top: 43.5%;
+  color: $black;
+}
+
+.eyes {
+  height: 100%;
+  width: 100%;
+}

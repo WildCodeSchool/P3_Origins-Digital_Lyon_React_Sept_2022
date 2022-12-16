@@ -1,0 +1,15 @@
+.navContainer {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.linkList {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.link {
+  text-decoration: none;
+  color: $white;
+}

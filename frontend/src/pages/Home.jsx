@@ -1,10 +1,15 @@
 import React from "react";
-import VideoPlay from "../components/VideoPlay";
+import Navbar from "../components/Navbar";
+import Carrousel from "../components/Carrousel";
 
 function Home() {
   return (
     <div>
-      <VideoPlay />
+      <Navbar />
+      <Carrousel />
+      <div>
+        <h3>Catégories</h3>
+      </div>
     </div>
   );
 }
