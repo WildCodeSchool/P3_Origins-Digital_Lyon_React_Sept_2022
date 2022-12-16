@@ -1,0 +1,61 @@
+.video-play-container {
+  .video-play {
+    height: 30vh;
+    width: 95%;
+    background-color: $white;
+    margin: auto;
+    border: 2px solid $color-1;
+    border-radius: 10px;
+  }
+  h2 {
+    margin-left: 2.5%;
+  }
+  .video-description {
+    text-align: left;
+    font-size: 0.9rem;
+    width: 90%;
+    margin: 1.5rem 2.5%;
+  }
+  .date-video {
+    margin-left: 2.5%;
+    color: $color-1;
+  }
+  .interaction {
+    display: flex;
+    justify-content: space-between;
+    margin: 2.5%;
+    .like-share {
+      display: flex;
+      .favorite {
+        background-image: url(../../src/asset/image/heart.svg);
+      }
+      .playlist {
+        background-image: url(../../src/asset/image/playlist.svg);
+      }
+      .share {
+        background-image: url(../../src/asset/image/share.svg);
+      }
+      li {
+        background-repeat: no-repeat;
+        background-size: center;
+        height: 2rem;
+        width: 2rem;
+        margin-left: 1.2rem;
+      }
+    }
+  }
+  .category-play {
+    height: 2rem;
+    color: $white;
+    border: 1px solid $color-1;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h3 {
+      color: $color-1;
+      font-size: 0.8rem;
+      padding: 8px;
+    }
+  }
+}

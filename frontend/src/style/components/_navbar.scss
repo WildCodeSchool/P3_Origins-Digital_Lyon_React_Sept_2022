@@ -1,18 +1,63 @@
-.navContainer {
-  height: 4vh;
-  width: 100%;
-  background-color: blue;
-  position: sticky;
+.navigation {
+  position: fixed;
   bottom: 0;
-  .linkList {
+  height: 5vh;
+  width: 100%;
+  ul {
     display: flex;
-    justify-content: space-between;
-    .link {
-      text-decoration: none;
-      color: $white;
-      .icons {
-        width: 3vh;
-        height: 3vh;
+    justify-content: space-around;
+
+    .home {
+      background-image: url(../../src/asset/image/iconhome.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .profil {
+      background-image: url(../../src/asset/image/user.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .library {
+      background-image: url(../../src/asset/image/bookmark.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .search {
+      background-image: url(../../src/asset/image/search.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    li {
+      height: 5vh;
+      width: 25vw;
+      background-color: $black;
+    }
+  }
+  .nav-active {
+    position: relative;
+
+    &::after {
+      content: "";
+      height: 4px;
+      width: 0;
+      background: $color-1;
+      position: absolute;
+      border-radius: 10px;
+      bottom: 0px;
+      left: 50%;
+      transform: translateX(-50%);
+      -webkit-animation: anim 0.3s ease forwards;
+      animation: anim 0.6s ease forwards;
+
+      @-webkit-keyframes anim {
+        to {
+          width: 100%;
+        }
+      }
+      @keyframes anim {
+        to {
+          width: 100%;
+        }
       }
     }
   }
