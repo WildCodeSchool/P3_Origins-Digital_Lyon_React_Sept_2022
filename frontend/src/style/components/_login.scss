@@ -1,6 +1,10 @@
-.loginContainer {
+@mixin flexCol {
   display: flex;
   flex-direction: column;
+}
+
+.loginContainer {
+  @include flexCol;
   gap: 20px;
 }
 

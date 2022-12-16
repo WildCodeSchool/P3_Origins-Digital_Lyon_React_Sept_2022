@@ -1,5 +1,9 @@
+/*Fonts*/
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap");
+
+/*Colors var*/
 
 $font-1: "Poppins", sans-serif;
 $font-2: "Roboto Condensed", sans-serif;
@@ -8,6 +12,21 @@ $color-1: #006dce;
 $color-2: #00284d;
 $black: #010d18;
 $white: #ffffff;
+
+/*Mixin functions*/
+
+@mixin Page {
+  height: 100vh;
+  overflow: scroll;
+}
+
+@mixin libBox {
+  border: 1px solid;
+  border-radius: 1rem;
+  box-shadow: $color-2 0px 3px 8px;
+}
+
+/*Base style*/
 
 * {
   padding: 0;

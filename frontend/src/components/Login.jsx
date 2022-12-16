@@ -22,12 +22,12 @@ export default function Login() {
       <h2 className="loginTitle">Login</h2>
       <div className="formContainer">
         <div className="inputContainer">
-          <label htmlFor="input">Username</label>
+          <label htmlFor="input">Username or email</label>
           <input
             className="loginInput"
             onChange={(e) => setUserName(e.target.value)}
             type="text"
-            placeholder="Username"
+            placeholder="Username\email"
           />
         </div>
         <div className="inputContainer">

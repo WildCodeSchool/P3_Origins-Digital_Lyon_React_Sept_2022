@@ -9,14 +9,16 @@ import "./style/index.css";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/saved" element={<Library />} />
-        <Route path="/search" element={<SearchPage />} />
-        <Route path="/login" element={<ProfilePage />} />
-      </Routes>
-    </BrowserRouter>
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/saved" element={<Library />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/login" element={<ProfilePage />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
