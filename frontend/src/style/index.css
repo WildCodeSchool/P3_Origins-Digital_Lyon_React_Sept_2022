@@ -17,19 +17,24 @@ li {
 }
 
 .navContainer {
-  bottom: 0;
-  position: absolute;
+  height: 4vh;
   width: 100%;
+  background-color: blue;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
 }
-
-.linkList {
+.navContainer .linkList {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
-
-.link {
+.navContainer .linkList .link {
   text-decoration: none;
   color: #ffffff;
+}
+.navContainer .linkList .link .icons {
+  width: 3vh;
+  height: 3vh;
 }
 
 .loginContainer {
@@ -107,4 +112,31 @@ li {
 .eyes {
   height: 100%;
   width: 100%;
-} /*# sourceMappingURL=index.css.map */
+}
+
+.slider-container {
+  overflow: hidden;
+}
+.slider-container .slider-wrapper {
+  display: block;
+  white-space: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  margin-bottom: -20px;
+  padding-bottom: 30px;
+  padding-left: 5px;
+}
+.slider-container .slider-wrapper .slider-item {
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 150px;
+  display: inline-flex;
+  border-radius: 5px;
+  margin-right: 15px;
+  background-color: pink;
+}
+.slider-container .slider-wrapper .slider-item:last-child {
+  margin-right: 15px;
+}/*# sourceMappingURL=index.css.map */

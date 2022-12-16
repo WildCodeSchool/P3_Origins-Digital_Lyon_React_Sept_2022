@@ -1,15 +1,19 @@
 .navContainer {
-  bottom: 0;
-  position: absolute;
+  height: 4vh;
   width: 100%;
-}
-
-.linkList {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.link {
-  text-decoration: none;
-  color: $white;
+  background-color: blue;
+  position: sticky;
+  bottom: 0;
+  .linkList {
+    display: flex;
+    justify-content: space-between;
+    .link {
+      text-decoration: none;
+      color: $white;
+      .icons {
+        width: 3vh;
+        height: 3vh;
+      }
+    }
+  }
 }
