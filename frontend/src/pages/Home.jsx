@@ -10,9 +10,6 @@ function Home() {
       <Slider />
       <Slider />
       <Slider />
-      <div>
-        <h3>Catégories</h3>
-      </div>
       <Navbar />
     </div>
   );
