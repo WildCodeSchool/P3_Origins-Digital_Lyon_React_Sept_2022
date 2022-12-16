@@ -236,8 +236,8 @@ li {
   display: inline-flex;
   border-radius: 5px;
   margin-right: 15px;
-  background-color: pink;
+  background-color: #006dce;
 }
 .slider-container .slider-wrapper .slider-item:last-child {
   margin-right: 15px;
-}/*# sourceMappingURL=index.css.map */
+} /*# sourceMappingURL=index.css.map */
