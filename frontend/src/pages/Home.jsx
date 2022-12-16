@@ -5,11 +5,16 @@ import Carrousel from "../components/Carrousel";
 function Home() {
   return (
     <div>
-      <Navbar />
+      <Carrousel />
+      <Carrousel />
+      <Carrousel />
+      <Carrousel />
+      <Carrousel />
       <Carrousel />
       <div>
         <h3>Catégories</h3>
       </div>
+      <Navbar />
     </div>
   );
 }
