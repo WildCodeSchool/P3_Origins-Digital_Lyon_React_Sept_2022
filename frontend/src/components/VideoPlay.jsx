@@ -16,9 +16,9 @@ function VideoPlay() {
           <h3>categorie</h3>
         </div>
         <div className="like-share">
-          <li className="favorite"></li>
-          <li className="playlist"></li>
-          <li className="share"></li>
+          <li className="favorite" />
+          <li className="playlist" />
+          <li className="share" />
         </div>
       </div>
     </div>

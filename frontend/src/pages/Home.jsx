@@ -1,5 +1,5 @@
-import VideoPlay from "@components/VideoPlay";
 import React from "react";
+import VideoPlay from "../components/VideoPlay";
 
 function Home() {
   return (
