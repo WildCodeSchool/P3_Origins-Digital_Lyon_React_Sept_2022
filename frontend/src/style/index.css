@@ -45,7 +45,7 @@ li {
 .loginLogoContainer {
   height: 50px;
   width: 50px;
-  position: absolute;
+  position: relative;
   top: 27%;
   left: 44%;
   background-color: #010d18;
@@ -57,10 +57,12 @@ li {
 .loginLogo {
   height: 100%;
   width: 100%;
+  position: absolute;
 }
 
 .loginImg {
   height: 250px;
+  width: 100%;
 }
 
 .loginTitle {
@@ -99,12 +101,16 @@ li {
   gap: 10px;
 }
 
+.passwordContainer {
+  position: relative;
+  display: flex;
+  justify-content: end;
+}
+
 .eyeContainer {
   height: 25px;
   width: 25px;
   position: absolute;
-  right: 25%;
-  bottom: 47.6%;
   color: #010d18;
 }
 
@@ -118,7 +124,6 @@ li {
   overflow: scroll;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
 }
 
 .playlists h3 {
@@ -148,14 +153,18 @@ li {
   box-shadow: #00284d 0px 3px 8px;
 }
 
-.fav {
+.fav h3 {
+  padding-left: 10px;
+  padding-bottom: 20px;
+}
+.fav h2 {
+  padding-left: 10px;
+  padding-bottom: 20px;
+}
+.fav .favContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.fav h3 {
-  align-self: flex-start;
-  padding-left: 10px;
 }
 .fav .favVideoContainer {
   position: relative;
@@ -179,4 +188,4 @@ li {
   width: 30px;
   position: absolute;
   z-index: 99;
-} /*# sourceMappingURL=index.css.map */
+}/*# sourceMappingURL=index.css.map */

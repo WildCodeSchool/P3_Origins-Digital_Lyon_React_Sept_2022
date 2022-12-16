@@ -5,11 +5,13 @@ import Playlists from "../components/Playlists";
 
 function Library() {
   return (
-    <div className="libraryPage">
-      <h2>BIBLIOTHEQUE</h2>
+    <div>
+      <h1>My Library</h1>
+      <div className="libraryPage">
+        <Favorites />
+        <Playlists />
+      </div>
       <Navbar />
-      <Favorites />
-      <Playlists />
     </div>
   );
 }

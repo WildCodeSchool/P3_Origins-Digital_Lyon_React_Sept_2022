@@ -11,7 +11,7 @@
 .loginLogoContainer {
   height: 50px;
   width: 50px;
-  position: absolute;
+  position: relative;
   top: 27%;
   left: 44%;
   background-color: $black;
@@ -23,10 +23,12 @@
 .loginLogo {
   height: 100%;
   width: 100%;
+  position: absolute;
 }
 
 .loginImg {
   height: 250px;
+  width: 100%;
 }
 
 .loginTitle {
@@ -65,12 +67,16 @@
   gap: 10px;
 }
 
+.passwordContainer {
+  position: relative;
+  display: flex;
+  justify-content: end;
+}
+
 .eyeContainer {
   height: 25px;
   width: 25px;
   position: absolute;
-  right: 25%;
-  bottom: 47.6%;
   color: $black;
 }
 
