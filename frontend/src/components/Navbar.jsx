@@ -1,24 +1,34 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { FaUserCircle, FaRegBookmark, FaSearch, FaHome } from "react-icons/fa";
 
-export default function Navbar() {
+function Navbar() {
   return (
-    <div className="navContainer">
-      <ul className="linkList">
-        <NavLink className="link" to="/">
-          <FaHome className="icons" />
+    <div className="navigation">
+      <ul>
+        <NavLink to="/" className={(nav) => (nav.isActive ? "nav-active" : "")}>
+          <li className="home" />
         </NavLink>
-        <NavLink className="link" to="/search">
-          <FaSearch className="icons" />
+        <NavLink
+          to="/search"
+          className={(nav) => (nav.isActive ? "nav-active" : "")}
+        >
+          <li className="search" />
         </NavLink>
-        <NavLink className="link" to="/saved">
-          <FaRegBookmark className="icons" />
+        <NavLink
+          to="/saved"
+          className={(nav) => (nav.isActive ? "nav-active" : "")}
+        >
+          <li className="library" />
         </NavLink>
-        <NavLink className="link" to="/login">
-          <FaUserCircle className="icons" />
+        <NavLink
+          to="/login"
+          className={(nav) => (nav.isActive ? "nav-active" : "")}
+        >
+          <li className="profil" />
         </NavLink>
       </ul>
     </div>
   );
 }
+
+export default Navbar;
