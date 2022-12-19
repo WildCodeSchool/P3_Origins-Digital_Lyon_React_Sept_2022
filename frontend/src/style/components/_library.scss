@@ -1,5 +1,6 @@
 .libraryPage {
-  @include Page;
   display: flex;
   flex-direction: column;
+  gap: 5rem;
+  margin-top: 20px;
 }

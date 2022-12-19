@@ -15,15 +15,23 @@ $white: #ffffff;
 
 /*Mixin functions*/
 
-@mixin Page {
-  height: 100vh;
-  overflow: scroll;
-}
-
 @mixin libBox {
   border: 1px solid;
   border-radius: 1rem;
   box-shadow: $color-2 0px 3px 8px;
+}
+
+@mixin flex-col-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@mixin flex-wrap-center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 /*Base style*/
@@ -38,7 +46,6 @@ body {
   background: $black;
   font-family: $font-1;
   color: $white;
-  // @include verticalCenter;
 }
 li {
   list-style-type: none;

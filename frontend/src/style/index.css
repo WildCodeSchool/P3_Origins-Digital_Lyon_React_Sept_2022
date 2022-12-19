@@ -142,6 +142,10 @@ li {
   }
 }
 
+.backButtonContainer {
+  margin: 10px;
+}
+
 .loginContainer {
   display: flex;
   flex-direction: column;
@@ -226,13 +230,13 @@ li {
 }
 
 .libraryPage {
-  height: 100vh;
-  overflow: scroll;
   display: flex;
   flex-direction: column;
+  gap: 5rem;
+  margin-top: 20px;
 }
 
-.playlists h3 {
+.playlists h2 {
   padding-left: 10px;
   padding-bottom: 20px;
 }
@@ -321,4 +325,60 @@ li {
 }
 .slider-container .slider-wrapper .slider-item:last-child {
   margin-right: 15px;
-} /*# sourceMappingURL=index.css.map */
+}
+
+.videosContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+  margin-right: 5px;
+  gap: 10px;
+}
+
+.boxContainer {
+  border: 1px solid;
+  border-radius: 1rem;
+  box-shadow: #00284d 0px 3px 8px;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  gap: 2%;
+}
+.boxContainer .miniaContainer {
+  height: 100%;
+  width: 40%;
+}
+.boxContainer .miniaContainer img {
+  height: 100%;
+  width: 100%;
+  border-radius: 1rem;
+}
+.boxContainer .vidInfoContainer {
+  height: 100%;
+  width: 60%;
+}
+.boxContainer .vidInfoContainer p {
+  font-size: small;
+  height: 50%;
+  width: 100%;
+  overflow: hidden;
+}
+.boxContainer .vidInfoContainer .categoryContainer {
+  width: 70%;
+  display: flex;
+  gap: 5px;
+  overflow: hidden;
+}
+.boxContainer .vidInfoContainer .categoryContainer .categoryButton {
+  background-color: #010d18;
+  cursor: pointer;
+  height: 20%;
+  width: 100%;
+  border: 2px solid;
+  border-radius: 2rem;
+  color: #006dce;
+}
+.boxContainer .vidInfoContainer .moreLogo {
+  height: 30px;
+  padding: 5px;
+}/*# sourceMappingURL=index.css.map */

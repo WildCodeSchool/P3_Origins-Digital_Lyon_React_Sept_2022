@@ -1,0 +1,45 @@
+.boxContainer {
+  @include libBox;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  gap: 2%;
+  .miniaContainer {
+    height: 100%;
+    width: 40%;
+    img {
+      height: 100%;
+      width: 100%;
+      border-radius: 1rem;
+    }
+  }
+  .vidInfoContainer {
+    height: 100%;
+    width: 60%;
+    p {
+      font-size: small;
+      height: 50%;
+      width: 100%;
+      overflow: hidden;
+    }
+    .categoryContainer {
+      width: 70%;
+      display: flex;
+      gap: 5px;
+      overflow: hidden;
+      .categoryButton {
+        background-color: $black;
+        cursor: pointer;
+        height: 20%;
+        width: 100%;
+        border: 2px solid;
+        border-radius: 2rem;
+        color: $color-1;
+      }
+    }
+    .moreLogo {
+      height: 30px;
+      padding: 5px;
+    }
+  }
+}
