@@ -4,6 +4,7 @@ import Carrousel from "../components/Carrousel";
 import Slider from "../components/Slider";
 import Header from "@components/Header";
 
+
 function Home() {
   return (
     <div>
