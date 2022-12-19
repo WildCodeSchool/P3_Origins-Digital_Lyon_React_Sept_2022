@@ -13,13 +13,7 @@ export default function SearchPage() {
         onChange={(e) => setSearch(e.target.value)}
       />
       <h2>Parcourir tout</h2>
-      <div>
-        {/* Il va y avoir le grid ici avec toutes les catégories */}
-        <section>Catégory ya zebbi</section>
-        <section>Catégory ya zebbi</section>
-        <section>Catégory ya zebbi</section>
-        <section>Catégory ya zebbi</section>
-      </div>
+      <div>{/* Il va y avoir le grid ici avec toutes les catégories */}</div>
       <div className="navPageContainer">
         <Navbar />
       </div>
