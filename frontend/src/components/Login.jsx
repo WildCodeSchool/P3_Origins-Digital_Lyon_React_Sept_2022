@@ -19,7 +19,7 @@ export default function Login() {
       <div className="loginLogoContainer">
         <img className="loginLogo" src={logo} alt="logo" />
       </div>
-      <h2 className="loginTitle">Login</h2>
+      <h2 className="loginTitle">Connectez-vous</h2>
       <div className="formContainer">
         <div className="inputContainer">
           <label htmlFor="input">Username</label>
@@ -27,7 +27,7 @@ export default function Login() {
             className="loginInput"
             onChange={(e) => setUserName(e.target.value)}
             type="text"
-            placeholder="Username"
+            placeholder="adresse-mail ..."
           />
         </div>
         <div className="inputContainer">
@@ -50,14 +50,20 @@ export default function Login() {
         <div className="loginButtonContainer">
           <button
             type="button"
+            className="loginButton"
             onClick={() => {
               console.log(userName);
               console.log(userPassword);
             }}
-            className="loginButton"
           >
-            Login
+            Se connecter
           </button>
+          <div className="test">
+            <h3 className="titleNew">Vous n'avez pas de compte ?</h3>
+            <button type="button" className="registerButton">
+              S'inscrire
+            </button>
+          </div>
         </div>
       </div>
     </div>
