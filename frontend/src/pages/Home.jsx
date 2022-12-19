@@ -6,11 +6,7 @@ function Home() {
   return (
     <div>
       <Carrousel />
-      <Carrousel />
-      <Carrousel />
-      <Carrousel />
-      <Carrousel />
-      <Carrousel />
+
       <div>
         <h3>Catégories</h3>
       </div>
