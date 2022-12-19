@@ -1,7 +1,8 @@
 .navigation {
+  border-top: 1px solid rgba($color-1, 0.4);
   position: fixed;
   bottom: 0;
-  height: 5vh;
+  height: 5.5vh;
   width: 100%;
   ul {
     display: flex;
@@ -28,7 +29,7 @@
       background-position: center;
     }
     li {
-      height: 5vh;
+      height: 5.5vh;
       width: 25vw;
       background-color: $black;
     }

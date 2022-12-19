@@ -1,0 +1,34 @@
+.comment {
+  width: 98%;
+  border: 1px solid rgba($color-1, 0.4);
+  border-radius: 10px;
+  margin: auto;
+  padding-bottom: 8vh;
+  input {
+    width: 90%;
+    margin: 1rem 5%;
+    background-color: $black;
+    border: none;
+    border-bottom: 1px solid rgba($color-1, 0.4);
+  }
+  .comment-author {
+    display: flex;
+    padding: 10px;
+    p {
+      padding-left: 0.7rem;
+    }
+  }
+  .comment-img {
+    height: 6vh;
+    background-color: $color-1;
+    border-radius: 50px;
+    width: 13.2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .comment-message {
+    margin: auto;
+    font-size: 0.7rem;
+  }
+}
