@@ -1,11 +1,11 @@
 import React from "react";
-import Login from "../components/Login";
+import Register from "../components/Register";
 import Navbar from "../components/Navbar";
 
 function ProfilePage() {
   return (
     <div>
-      <Login />
+      <Register />
       <Navbar />
     </div>
   );
