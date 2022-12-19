@@ -5,7 +5,7 @@ function Register() {
     <div className="form">
       <div className="form-body">
         <div className="username">
-          <label className="form__label" for="firstName">
+          <label className="form__label" type="submit">
             First Name{" "}
           </label>
           <input
@@ -16,7 +16,7 @@ function Register() {
           />
         </div>
         <div className="lastname">
-          <label className="form__label" for="lastName">
+          <label className="form__label" type="input">
             Last Name{" "}
           </label>
           <input
@@ -28,7 +28,7 @@ function Register() {
           />
         </div>
         <div className="email">
-          <label className="form__label" for="email">
+          <label className="form__label" type="input">
             Email{" "}
           </label>
           <input
@@ -39,7 +39,7 @@ function Register() {
           />
         </div>
         <div className="password">
-          <label className="form__label" for="password">
+          <label className="form__label" type="input">
             Password{" "}
           </label>
           <input
@@ -50,7 +50,7 @@ function Register() {
           />
         </div>
         <div className="confirm-password">
-          <label className="form__label" for="confirmPassword">
+          <label className="form__label" type="input">
             Confirm Password{" "}
           </label>
           <input
@@ -61,10 +61,8 @@ function Register() {
           />
         </div>
       </div>
-      <div class="footer">
-        <button type="submit" class="btn">
-          Register
-        </button>
+      <div className="footer">
+        <button type="submit">Register</button>
       </div>
     </div>
   );
