@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../asset/image/logo.svg";
 import loginImg from "../asset/image/loginImg.jpeg";
+import Navbar from "./Navbar";
 
 function Register() {
   return (
@@ -59,6 +60,7 @@ function Register() {
           <button type="submit">S'enregistrer</button>
         </div>
       </div>
+      <Navbar />
     </div>
   );
 }

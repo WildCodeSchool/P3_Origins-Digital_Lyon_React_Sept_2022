@@ -8,6 +8,9 @@ function Home() {
   return (
     <div>
       <Header />
+      <div className="titreNews">
+        <h2>NOUVELLES VIDEOS</h2>
+      </div>
       <Carrousel />
       <Slider />
       <Slider />
