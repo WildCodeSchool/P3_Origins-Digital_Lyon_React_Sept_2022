@@ -1,6 +1,7 @@
 /* eslint-disable no-restricted-syntax */
 import React, { useState } from "react";
 import { BiHide, BiShow } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 import loginImg from "../asset/image/loginImg.jpeg";
 import logo from "../asset/image/logo.svg";
 
@@ -10,6 +11,8 @@ export default function Login() {
   const [hidden, setHidden] = useState(true);
 
   const handleShow = () => setHidden(!hidden);
+
+  const navigate = useNavigate();
 
   return (
     <div className="loginContainer">
@@ -52,6 +55,7 @@ export default function Login() {
             type="button"
             className="loginButton"
             onClick={() => {
+              navigate("/user");
               console.log(userName);
               console.log(userPassword);
             }}

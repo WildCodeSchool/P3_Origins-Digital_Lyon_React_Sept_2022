@@ -7,6 +7,7 @@ import ProfilePage from "./pages/ProfilePage";
 import VideoPlayer from "./pages/VideoPlayer";
 import FavPage from "./pages/FavPage";
 import PlaylistPage from "./pages/PlaylistPage";
+import UserSettings from "./pages/UserSettings";
 
 import "./style/index.css";
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/search" element={<SearchPage />} />
         <Route path="/login" element={<ProfilePage />} />
         <Route path="/player" element={<VideoPlayer />} />
+        <Route path="/user" element={<UserSettings />} />
       </Routes>
     </BrowserRouter>
   );

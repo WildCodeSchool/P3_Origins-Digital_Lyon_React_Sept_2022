@@ -1,0 +1,9 @@
+.UserSettingPage {
+  @include flex-col-center;
+  .pdpContainer {
+    .pdp {
+      height: 5vh;
+      width: 50px;
+    }
+  }
+}
