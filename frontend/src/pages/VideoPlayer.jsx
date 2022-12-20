@@ -1,8 +1,8 @@
+import React from "react";
 import Comment from "@components/Comment";
 import Header from "@components/Header";
 import Navbar from "@components/Navbar";
 import Slider from "@components/Slider";
-import React from "react";
 import VideoPlay from "../components/VideoPlay";
 
 function VideoPlayer() {
@@ -14,7 +14,7 @@ function VideoPlayer() {
     message: "This is a great video!",
   };
   return (
-    <div>
+    <div className="player-page">
       <Header />
       <VideoPlay />
       <Navbar />

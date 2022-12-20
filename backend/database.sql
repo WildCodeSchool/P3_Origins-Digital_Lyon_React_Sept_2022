@@ -1,9 +1,7 @@
 USE `Origins_digital` ;
 
 
--- -----------------------------------------------------
--- Table `Origins_digital`.`User`
--- -----------------------------------------------------
+
 DROP TABLE IF EXISTS User;
 CREATE TABLE IF NOT EXISTS User (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -17,9 +15,7 @@ CREATE TABLE IF NOT EXISTS User (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table Videos
--- -----------------------------------------------------
+
 DROP TABLE IF EXISTS Videos;
 CREATE TABLE IF NOT EXISTS Videos (
   `id` INT NOT NULL,
@@ -30,9 +26,7 @@ CREATE TABLE IF NOT EXISTS Videos (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table User_has_playlists
--- -----------------------------------------------------
+
 DROP TABLE IF EXISTS User_has_playlists;
 CREATE TABLE IF NOT EXISTS User_has_playlists (
   `User_id` INT NOT NULL,
@@ -47,9 +41,7 @@ CREATE TABLE IF NOT EXISTS User_has_playlists (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table User_has_favorite
--- -----------------------------------------------------
+
 DROP TABLE IF EXISTS User_has_favorite;
 CREATE TABLE IF NOT EXISTS User_has_favorite (
   `User_id` INT NOT NULL,
@@ -64,9 +56,7 @@ CREATE TABLE IF NOT EXISTS User_has_favorite (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table Category
--- -----------------------------------------------------
+
 DROP TABLE IF EXISTS Category;
 CREATE TABLE IF NOT EXISTS Category (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -75,9 +65,7 @@ CREATE TABLE IF NOT EXISTS Category (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table Videos_has_Category
--- -----------------------------------------------------
+
 DROP TABLE IF EXISTS Videos_has_Category;
 CREATE TABLE IF NOT EXISTS Videos_has_Category (
   `Videos_id` INT NOT NULL,
