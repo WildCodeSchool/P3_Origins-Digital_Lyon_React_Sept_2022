@@ -1,7 +1,11 @@
-.loginContainer {
+@mixin flexCol {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+}
+
+.loginContainer {
+  @include flexCol;
+  gap: 20px;
 }
 
 .loginLogoContainer {
@@ -77,16 +81,20 @@
 .formContainer {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
+  gap: 10px;
+}
+
+.passwordContainer {
+  position: relative;
+  display: flex;
+  justify-content: end;
 }
 
 .eyeContainer {
   height: 25px;
   width: 25px;
   position: absolute;
-  right: 25%;
-  top: 43.5%;
   color: $black;
 }
 
