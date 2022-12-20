@@ -1,28 +1,27 @@
- .pageContainer{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: center;
- }
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
 
- .searchTitle{
-   align-self: auto;
-   margin-top: 12%;
-   margin-bottom: 17px;
-   align-items: flex-start;
+.searchTitle {
+  align-self: auto;
+  margin-top: 12%;
+  margin-bottom: 17px;
+  align-items: flex-start;
+}
 
- }
+.search {
+  display: flex;
+  align-self: center;
+  width: 350px;
+  height: 50px;
+  font-display: center;
+  text-align: center;
+}
 
- .search{
-    display: flex;
-     align-self: center;
-     width: 350px;
-     height: 50px;
-     font-display: center;
-    text-align: center;
- }
- 
- .littleTitle{
-    align-self: center;
- }
+.littleTitle {
+  align-self: center;
+}

@@ -1,0 +1,36 @@
+.fav {
+  h3 {
+    padding-left: 10px;
+    padding-bottom: 20px;
+  }
+  h2 {
+    padding-left: 10px;
+    padding-bottom: 20px;
+  }
+  .favContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .favVideoContainer {
+    position: relative;
+    height: 200px;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include libBox;
+    img {
+      height: 100%;
+      width: 100%;
+      border-radius: 1rem;
+    }
+    .playButton {
+      height: 30px;
+      width: 30px;
+      position: absolute;
+      z-index: 99;
+    }
+  }
+}
