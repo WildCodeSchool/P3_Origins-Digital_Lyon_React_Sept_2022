@@ -17,8 +17,8 @@ function VideoPlayer() {
     <div>
       <Header />
       <VideoPlay />
-      <Navbar />
       <Slider />
+      <Navbar />
       <Comment author={comment.author} message={comment.message} />
     </div>
   );
