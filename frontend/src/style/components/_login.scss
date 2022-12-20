@@ -47,15 +47,25 @@
 .inputContainer {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .loginInput {
   height: 6vh;
-  width: 37vh;
+  width: 80vw;
   border-radius: 8px;
   background-color: #011c33;
   border-color: #012748;
+  color: $white;
+  padding-left: 2%;
+  position: relative;
+  &:focus {
+    outline: none;
+    border-bottom: 1px solid $color-1;
+    &::placeholder {
+      color: transparent;
+    }
+  }
 }
 
 .loginButtonContainer {
@@ -66,7 +76,7 @@
 }
 
 .loginButton {
-  width: 37vh;
+  width: 70vw;
   height: 7vh;
   border-radius: 2vh;
   border: none;
@@ -91,19 +101,24 @@
   justify-content: end;
 }
 
+.passwordContainer {
+  display: flex;
+  align-items: center;
+}
+
 .eyeContainer {
   height: 25px;
   width: 25px;
+  color: $white;
+  right: 2%;
   position: absolute;
-  color: $black;
+  .eyes {
+    height: 100%;
+    width: 100%;
+  }
 }
 
-.eyes {
-  height: 100%;
-  width: 100%;
-}
-
-.test {
+.registerContainer {
   display: flex;
   justify-content: center;
   text-align: center;

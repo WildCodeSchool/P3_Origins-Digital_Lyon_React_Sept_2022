@@ -22,21 +22,18 @@ export default function Login() {
       <h2 className="loginTitle">Connectez-vous</h2>
       <div className="formContainer">
         <div className="inputContainer">
-          <label htmlFor="input">Username or email</label>
           <input
             className="loginInput"
             onChange={(e) => setUserName(e.target.value)}
             type="text"
-            placeholder="adresse-mail ..."
+            placeholder="Email"
           />
-        </div>
-        <div className="inputContainer">
-          <label htmlFor="input">Password</label>
           <div className="passwordContainer">
             <input
               className="loginInput"
               onChange={(e) => setUserPassword(e.target.value)}
               type={hidden ? "password" : "text"}
+              placeholder="Mot de passe"
             />
             <div className="eyeContainer">
               {hidden ? (
@@ -58,8 +55,8 @@ export default function Login() {
           >
             Se connecter
           </button>
-          <div className="test">
-            <h3 className="titleNew">Vous n'avez pas de compte ?</h3>
+          <div className="registerContainer">
+            <h3>Vous n'avez pas de compte ?</h3>
             <button type="button" className="registerButton">
               S'inscrire
             </button>
