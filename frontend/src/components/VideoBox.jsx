@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import { FiMoreVertical } from "react-icons/fi";
 
@@ -23,8 +24,8 @@ export default function VideoBox({
           ))}
         </div>
       </div>
-      <div className="moreLogo">
-        <FiMoreVertical />
+      <div className="moreLogoContainer">
+        <FiMoreVertical className="moreLogo" />
       </div>
     </div>
   );

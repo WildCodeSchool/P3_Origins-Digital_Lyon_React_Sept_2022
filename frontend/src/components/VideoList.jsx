@@ -35,9 +35,9 @@ export default function VideoList() {
   return (
     <div>
       <ul className="videosContainer">
-        {items.map((item, i) => {
+        {items.map((item) => {
           return (
-            <li key={i}>
+            <li key={item.videoName}>
               <VideoBox
                 miniature={item.miniature}
                 videoName={item.videoName}
