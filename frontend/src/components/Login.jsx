@@ -1,6 +1,7 @@
 /* eslint-disable no-restricted-syntax */
 import React, { useState } from "react";
 import { BiHide, BiShow } from "react-icons/bi";
+import { Link } from "react-router-dom";
 import loginImg from "../asset/image/loginImg.jpeg";
 import logo from "../asset/image/logo.svg";
 
@@ -57,9 +58,11 @@ export default function Login() {
           </button>
           <div className="registerContainer">
             <h3>Vous n'avez pas de compte ?</h3>
-            <button type="button" className="registerButton">
-              S'inscrire
-            </button>
+            <Link to="/register">
+              <button type="button" className="registerButton">
+                S'inscrire
+              </button>
+            </Link>
           </div>
         </div>
       </div>
