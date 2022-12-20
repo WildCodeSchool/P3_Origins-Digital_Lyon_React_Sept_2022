@@ -9,31 +9,39 @@
 }
 
 .loginLogoContainer {
-  height: 50px;
-  width: 50px;
-  position: relative;
-  top: 27%;
-  left: 44%;
+  height: 15vh;
+  width: 15vh;
+  position: absolute;
+  top: 18vh;
+  left: 16vh;
   background-color: $black;
   border: 1px solid $black;
-  border-radius: 1rem;
+  border-radius: 2vh;
   box-shadow: slategray;
+  border-color: $color-2;
 }
 
 .loginLogo {
-  height: 100%;
-  width: 100%;
   position: absolute;
+  bottom: 1vh;
+  left: 0rem;
+  height: 120px;
+  width: 128px;
 }
 
 .loginImg {
-  height: 250px;
+  height: 30vh;
   width: 100%;
+  border-radius: 2vh;
+  border: solid 2px;
+  border-color: $color-2;
 }
 
 .loginTitle {
   color: $white;
   text-align: center;
+  margin-top: 4vh;
+  margin-bottom: 5vh;
 }
 
 .inputContainer {
@@ -43,21 +51,31 @@
 }
 
 .loginInput {
-  height: 25px;
-  width: 200px;
+  height: 6vh;
+  width: 37vh;
   border-radius: 8px;
-  border-color: $color-1;
+  background-color: #011c33;
+  border-color: #012748;
 }
 
 .loginButtonContainer {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .loginButton {
-  height: 25px;
-  width: 80px;
-  border-radius: 10px;
+  width: 37vh;
+  height: 7vh;
+  border-radius: 2vh;
+  border: none;
+  color: $white;
+  font-size: 3vh;
+  font-family: $font-1;
+  background-color: $color-1;
+  cursor: pointer;
+  margin-top: 6vh;
 }
 
 .formContainer {
@@ -83,4 +101,20 @@
 .eyes {
   height: 100%;
   width: 100%;
+}
+
+.test {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 2vh;
+  .registerButton {
+    border: none;
+    background: none;
+    color: $white;
+    font-family: $font-1;
+    font-size: large;
+    margin-left: 1vh;
+    text-decoration: underline;
+  }
 }

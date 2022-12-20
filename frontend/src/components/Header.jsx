@@ -1,0 +1,12 @@
+import React from "react";
+
+function Header() {
+  return (
+    <div className="header-container">
+      <div id="logo" />
+      <div className="arrow" />
+    </div>
+  );
+}
+
+export default Header;
