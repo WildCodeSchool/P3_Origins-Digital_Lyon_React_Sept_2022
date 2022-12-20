@@ -1,0 +1,38 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10%;
+  input {
+    height: 6vh;
+    width: 80vw;
+   border-radius: 8px;
+   background-color: #011c33;
+   border-color: #012748;
+   color: $white;
+   padding-left: 2%;
+   position: relative;
+    &:focus{
+    outline: none;
+    border-bottom: 1px solid $color-1;
+    &::placeholder{
+      color: transparent;
+    }
+  }
+  }
+  button {
+    width: 70vW;
+    height: 7vh;
+    border-radius: 2vh;
+    border: none;
+    color: $white;
+    font-size: 3vh;
+    font-family: $font-1;
+    background-color: $color-1;
+    cursor: pointer;
+    margin-top: 6vh;
+  }
+}
+
+
+
