@@ -276,91 +276,32 @@ li {
   width: 100%;
 }
 
-.registerContainer {
+.pageContainer {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.searchTitle {
+  align-self: auto;
+  margin-top: 12%;
+  margin-bottom: 17px;
+  align-items: flex-start;
+}
+
+.search {
+  display: flex;
+  align-self: center;
+  width: 350px;
+  height: 50px;
+  font-display: center;
   text-align: center;
-  margin-top: 2vh;
-}
-.registerContainer .registerButton {
-  border: none;
-  background: none;
-  color: #ffffff;
-  font-family: "Poppins", sans-serif;
-  font-size: large;
-  margin-left: 1vh;
-  text-decoration: underline;
 }
 
-.libraryPage {
-  display: flex;
-  flex-direction: column;
-  gap: 5rem;
-  margin-top: 20px;
-}
-
-.playlists h2 {
-  padding-left: 10px;
-  padding-bottom: 20px;
-}
-.playlists .videoContainer {
-  display: grid;
-  grid-template-columns: repeat(2, 150px);
-  justify-content: center;
-  gap: 30px;
-}
-.playlists .miniatureContainer {
-  height: 70px;
-  width: 130px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-}
-.playlists .miniatureContainer img {
-  height: 100%;
-  width: 100%;
-  margin-bottom: 2px;
-  color: #00284d;
-  border: 1px solid;
-  border-radius: 1rem;
-  box-shadow: #00284d 0px 3px 8px;
-}
-
-.fav h3 {
-  padding-left: 10px;
-  padding-bottom: 20px;
-}
-.fav h2 {
-  padding-left: 10px;
-  padding-bottom: 20px;
-}
-.fav .favContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.fav .favVideoContainer {
-  position: relative;
-  height: 200px;
-  width: 95%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid;
-  border-radius: 1rem;
-  box-shadow: #00284d 0px 3px 8px;
-}
-.fav .favVideoContainer img {
-  height: 100%;
-  width: 100%;
-  border-radius: 1rem;
-}
-.fav .favVideoContainer .playButton {
-  height: 30px;
-  width: 30px;
-  position: absolute;
-  z-index: 99;
+.littleTitle {
+  align-self: center;
 }
 
 .slider-container {
