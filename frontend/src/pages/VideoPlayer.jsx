@@ -1,8 +1,8 @@
-import Comment from "@components/Comment";
-import Header from "@components/Header";
-import Navbar from "@components/Navbar";
-import Slider from "@components/Slider";
 import React from "react";
+import Comment from "../components/Comment";
+import Header from "../components/Header";
+import Navbar from "../components/Navbar";
+import Slider from "../components/Slider";
 import VideoPlay from "../components/VideoPlay";
 
 function VideoPlayer() {
@@ -17,8 +17,8 @@ function VideoPlayer() {
     <div>
       <Header />
       <VideoPlay />
-      <Navbar />
       <Slider />
+      <Navbar />
       <Comment author={comment.author} message={comment.message} />
     </div>
   );
