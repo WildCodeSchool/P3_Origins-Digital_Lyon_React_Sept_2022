@@ -1,5 +1,9 @@
+/*Fonts*/
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap");
+
+/*Colors var*/
 
 $font-1: "Poppins", sans-serif;
 $font-2: "Roboto Condensed", sans-serif;
@@ -8,6 +12,29 @@ $color-1: #006dce;
 $color-2: #00284d;
 $black: #010d18;
 $white: #ffffff;
+
+/*Mixin functions*/
+
+@mixin libBox {
+  border: 1px solid;
+  border-radius: 1rem;
+  box-shadow: $color-2 0px 3px 8px;
+}
+
+@mixin flex-col-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@mixin flex-wrap-center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Base style*/
 
 * {
   padding: 0;
@@ -19,7 +46,6 @@ body {
   background: $black;
   font-family: $font-1;
   color: $white;
-  // @include verticalCenter;
 }
 li {
   list-style-type: none;

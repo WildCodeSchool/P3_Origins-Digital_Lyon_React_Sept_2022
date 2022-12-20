@@ -1,4 +1,6 @@
+/* eslint-disable react/no-array-index-key */
 import React from "react";
+import { Link } from "react-router-dom";
 import LOL from "../asset/1.jpg";
 import LOL2 from "../asset/2.jpg";
 import LOL3 from "../asset/3.jpg";
@@ -24,10 +26,11 @@ function Cards() {
       <div className="container">
         <div className="cards">
           {cards.map((card, i) => (
-            // eslint-disable-next-line react/no-array-index-key
             <div key={i} className="card">
-              <img src={card.image} alt="img" />
-              <h3>{card.title}</h3>
+              <Link to="/player">
+                <img src={card.image} alt="img" />
+                <h3>{card.title}</h3>
+              </Link>
             </div>
           ))}
         </div>
