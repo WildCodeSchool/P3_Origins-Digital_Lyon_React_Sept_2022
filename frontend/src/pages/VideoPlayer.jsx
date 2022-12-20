@@ -1,8 +1,15 @@
 import React from "react";
+<<<<<<< HEAD
 import Comment from "@components/Comment";
 import Header from "@components/Header";
 import Navbar from "@components/Navbar";
 import Slider from "@components/Slider";
+=======
+import Header from "../components/Header";
+import Navbar from "../components/Navbar";
+import Slider from "../components/Slider";
+import Comment from "../components/Comment";
+>>>>>>> 26bd0cc438fda686037edb386cb36bf64d12552c
 import VideoPlay from "../components/VideoPlay";
 
 function VideoPlayer() {

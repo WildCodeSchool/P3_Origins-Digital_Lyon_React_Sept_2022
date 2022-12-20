@@ -19,24 +19,21 @@ export default function Login() {
       <div className="loginLogoContainer">
         <img className="loginLogo" src={logo} alt="logo" />
       </div>
-      <h2 className="loginTitle">Login</h2>
+      <h2 className="loginTitle">Connectez-vous</h2>
       <div className="formContainer">
         <div className="inputContainer">
-          <label htmlFor="input">Username</label>
           <input
             className="loginInput"
             onChange={(e) => setUserName(e.target.value)}
             type="text"
-            placeholder="Username"
+            placeholder="Email"
           />
-        </div>
-        <div className="inputContainer">
-          <label htmlFor="input">Password</label>
           <div className="passwordContainer">
             <input
               className="loginInput"
               onChange={(e) => setUserPassword(e.target.value)}
               type={hidden ? "password" : "text"}
+              placeholder="Mot de passe"
             />
             <div className="eyeContainer">
               {hidden ? (
@@ -50,14 +47,20 @@ export default function Login() {
         <div className="loginButtonContainer">
           <button
             type="button"
+            className="loginButton"
             onClick={() => {
               console.log(userName);
               console.log(userPassword);
             }}
-            className="loginButton"
           >
-            Login
+            Se connecter
           </button>
+          <div className="registerContainer">
+            <h3>Vous n'avez pas de compte ?</h3>
+            <button type="button" className="registerButton">
+              S'inscrire
+            </button>
+          </div>
         </div>
       </div>
     </div>

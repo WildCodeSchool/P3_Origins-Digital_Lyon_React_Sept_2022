@@ -4,10 +4,7 @@ import Navbar from "../components/Navbar";
 export default function SearchPage() {
   return (
     <div>
-      <h1>Search</h1>
-      <div className="navPageContainer">
-        <Navbar />
-      </div>
+      <Navbar />
     </div>
   );
 }

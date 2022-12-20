@@ -19,9 +19,11 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS Videos;
 CREATE TABLE IF NOT EXISTS Videos (
   `id` INT NOT NULL,
-  `link` VARCHAR(300) NOT NULL,
+  `url` VARCHAR(300) NOT NULL,
   `description` TEXT NOT NULL,
-  `creation_date` DATE NOT NULL DEFAULT NOW(),
+  `creation_date` DATETIME NOT NULL DEFAULT NOW(),
+  `img` VARCHAR(300) NOT NULL,
+  `name` VARCHAR(300) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -77,4 +79,22 @@ CREATE TABLE IF NOT EXISTS Videos_has_Category (
   CONSTRAINT `fk_Videos_has_Category_Category1`
     FOREIGN KEY (`Category_id`)
     REFERENCES `origins_digital`.`Category` (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table Videos_has_comments
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS Videos_has_comments;
+CREATE TABLE IF NOT EXISTS Videos_has_comments (
+  `Videos_id` INT NOT NULL,
+  `User_id` INT NOT NULL,
+  `comment` TEXT NOT NULL,
+  PRIMARY KEY (`Videos_id`, `User_id`),
+  CONSTRAINT `fk_Videos_has_User_Videos1`
+    FOREIGN KEY (`Videos_id`)
+    REFERENCES `mydb`.`Videos` (`id`)
+  CONSTRAINT `fk_Videos_has_User_User1`
+    FOREIGN KEY (`User_id`)
+    REFERENCES `mydb`.`User` (`id`)
 ENGINE = InnoDB;
