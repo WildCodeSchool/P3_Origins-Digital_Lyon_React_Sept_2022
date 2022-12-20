@@ -1,7 +1,11 @@
-.loginContainer {
+@mixin flexCol {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+}
+
+.loginContainer {
+  @include flexCol;
+  gap: 20px;
 }
 
 .loginLogoContainer {
@@ -55,10 +59,10 @@
   color: $white;
   padding-left: 2%;
   position: relative;
-  &:focus{
+  &:focus {
     outline: none;
     border-bottom: 1px solid $color-1;
-    &::placeholder{
+    &::placeholder {
       color: transparent;
     }
   }
@@ -87,8 +91,14 @@
 .formContainer {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
+  gap: 10px;
+}
+
+.passwordContainer {
+  position: relative;
+  display: flex;
+  justify-content: end;
 }
 
 .passwordContainer {
@@ -100,15 +110,13 @@
   height: 25px;
   width: 25px;
   color: $white;
-  right: 15%;
+  right: 2%;
   position: absolute;
   .eyes {
     height: 100%;
     width: 100%;
   }
 }
-
-
 
 .registerContainer {
   display: flex;
