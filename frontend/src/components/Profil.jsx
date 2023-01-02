@@ -4,7 +4,7 @@ import CurrentUserContext from "../../contexts/userContext";
 
 function Profil() {
   const navigate = useNavigate();
-  const { user, setUser } = useContext(CurrentUserContext);
+  const { setUser } = useContext(CurrentUserContext);
 
   const handleDisconnection = () => {
     // gestion de la deconnexion
@@ -14,7 +14,9 @@ function Profil() {
   };
   return (
     <div>
-      <button onClick={handleDisconnection}>Se déconnecter</button>
+      <button onClick={handleDisconnection} type="button">
+        Se déconnecter
+      </button>
     </div>
   );
 }

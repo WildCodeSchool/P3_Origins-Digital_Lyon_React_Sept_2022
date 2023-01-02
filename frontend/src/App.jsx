@@ -1,4 +1,3 @@
-import React, { useContext } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from "./pages/Home";
 import Library from "./pages/Library";
@@ -8,12 +7,9 @@ import VideoPlayer from "./pages/VideoPlayer";
 import FavPage from "./pages/FavPage";
 import PlaylistPage from "./pages/PlaylistPage";
 import Register from "./components/Register";
-import CurrentUserContext, {
-  CurrentUserContextProvider,
-} from "../contexts/userContext";
+import { CurrentUserContextProvider } from "../contexts/userContext";
 
 import "./style/index.css";
-import Login from "./components/Login";
 
 function App() {
   return (
