@@ -21,7 +21,7 @@ li {
 }
 
 .video-play-container .video-play {
-  height: 32vh;
+  height: 35vh;
   width: 98%;
   background-color: #ffffff;
   margin: auto;
@@ -78,6 +78,10 @@ li {
   color: #006dce;
   font-size: 0.8rem;
   padding: 8px;
+}
+
+.player-page {
+  min-height: 115vh;
 }
 
 .titreNews {
@@ -276,6 +280,22 @@ li {
   width: 100%;
 }
 
+.registerContainer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 2vh;
+}
+.registerContainer .registerButton {
+  border: none;
+  background: none;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: large;
+  margin-left: 1vh;
+  text-decoration: underline;
+}
+
 .pageContainer {
   display: flex;
   flex-direction: column;
@@ -302,6 +322,77 @@ li {
 
 .littleTitle {
   align-self: center;
+}
+
+.libraryPage {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  margin-top: 20px;
+}
+
+.playlists h2 {
+  padding-left: 10px;
+  padding-bottom: 20px;
+}
+.playlists .videoContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 150px);
+  justify-content: center;
+  gap: 30px;
+}
+.playlists .miniatureContainer {
+  height: 70px;
+  width: 130px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+.playlists .miniatureContainer img {
+  height: 100%;
+  width: 100%;
+  margin-bottom: 2px;
+  color: #00284d;
+  border: 1px solid;
+  border-radius: 1rem;
+  box-shadow: #00284d 0px 3px 8px;
+}
+
+.fav h3 {
+  padding-left: 10px;
+  padding-bottom: 20px;
+}
+.fav h2 {
+  padding-left: 10px;
+  padding-bottom: 20px;
+}
+.fav .favContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.fav .favVideoContainer {
+  position: relative;
+  height: 200px;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+  border-radius: 1rem;
+  box-shadow: #00284d 0px 3px 8px;
+}
+.fav .favVideoContainer img {
+  height: 100%;
+  width: 100%;
+  border-radius: 1rem;
+}
+.fav .favVideoContainer .playButton {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  z-index: 99;
 }
 
 .slider-container {
@@ -405,11 +496,25 @@ li {
   padding-bottom: 8vh;
 }
 .comment input {
+  padding: 0.7rem;
   width: 90%;
   margin: 1rem 5%;
   background-color: #010d18;
   border: none;
   border-bottom: 1px solid rgba(0, 109, 206, 0.4);
+  color: #ffffff;
+}
+.comment input:focus {
+  outline: 1px solid #00284d;
+}
+.comment input:focus::-moz-placeholder {
+  color: transparent;
+}
+.comment input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+.comment input:focus::placeholder {
+  color: transparent;
 }
 .comment .comment-author {
   display: flex;

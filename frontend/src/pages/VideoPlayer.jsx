@@ -14,7 +14,7 @@ function VideoPlayer() {
     message: "This is a great video!",
   };
   return (
-    <div>
+    <div className="player-page">
       <Header />
       <VideoPlay />
       <Slider />

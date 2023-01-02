@@ -1,6 +1,6 @@
 .video-play-container {
   .video-play {
-    height: 32vh;
+    height: 35vh;
     width: 98%;
     background-color: $white;
     margin: auto;
@@ -58,4 +58,7 @@
       padding: 8px;
     }
   }
+}
+.player-page {
+  min-height: 115vh;
 }
