@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS User (
   `lastname` VARCHAR(80) NOT NULL,
   `email` VARCHAR(300) NOT NULL,
   `password` TEXT NOT NULL,
-  `is_admin` TINYINT NOT NULL,
+  `is_admin` TINYINT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE)
 ENGINE = InnoDB;
