@@ -1,65 +1,89 @@
-import React from "react";
-import logo from "../asset/image/logo.svg";
-import loginImg from "../asset/image/loginImg.jpeg";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 
 function Register() {
+  const [email, setEmail] = useState("");
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+  const handleForm = (e) => {
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    const body = JSON.stringify({
+      email,
+      firstname,
+      lastname,
+      password,
+    });
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body,
+    };
+    e.preventDefault();
+    // on créé et on redirige
+    fetch("http://localhost:5000/api/register", requestOptions)
+      .then(() => {
+        navigate("/login");
+      })
+      .catch(console.error);
+  };
+
   return (
-    <div className="formContainer">
-      <div>
-        <img className="loginImg" src={loginImg} alt="loginImg" />
-      </div>
-      <div className="registerLogoContainer">
-        <img className="registerLogo" src={logo} alt="logo" />
-      </div>
-      <div className="form">
-        <div className="form-body">
-          <div className="username">
-            <input
-              className="form__input"
-              type="text"
-              id="firstName"
-              placeholder="Prénom"
-            />
-          </div>
-          <div className="lastname">
-            <input
-              type="text"
-              name=""
-              id="lastName"
-              className="form__input"
-              placeholder="Nom"
-            />
-          </div>
-          <div className="email">
-            <input
-              type="email"
-              id="email"
-              className="form__input"
-              placeholder="Email"
-            />
-          </div>
-          <div className="password">
-            <input
-              className="form__input"
-              type="password"
-              id="password"
-              placeholder="Mot de passe"
-            />
-          </div>
-          <div className="confirm-password">
-            <input
-              className="form__input"
-              type="password"
-              id="confirmPassword"
-              placeholder="Confirmer mot de passe"
-            />
-          </div>
+    <div>
+      <form onSubmit={handleForm}>
+        <div>
+          <label htmlFor="firstname" className="form-label">
+            First Name
+          </label>
+          <input
+            onChange={(e) => setFirstname(e.target.value)}
+            type="firstname"
+            className="form-control"
+            id="firstname"
+          />
         </div>
-        <div className="footer">
-          <button type="submit">S'enregistrer</button>
+        <div>
+          <label htmlFor="lastname" className="form-label">
+            Lastname
+          </label>
+          <input
+            onChange={(e) => setLastname(e.target.value)}
+            type="lastname"
+            className="form-control"
+            id="lastname"
+          />
         </div>
-      </div>
+
+        <div>
+          <label htmlFor="email" className="form-label">
+            Email
+          </label>
+          <input
+            onChange={(e) => setEmail(e.target.value)}
+            type="email"
+            className="form-control"
+            id="email"
+          />
+        </div>
+        <div>
+          <label htmlFor="password" className="form-label">
+            Password
+          </label>
+          <input
+            onChange={(e) => setPassword(e.target.value)}
+            type="password"
+            className="form-control"
+            id="password"
+          />
+        </div>
+        <button type="submit">Inscription</button>
+      </form>
       <Navbar />
     </div>
   );

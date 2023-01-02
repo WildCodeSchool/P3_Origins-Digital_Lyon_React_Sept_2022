@@ -5,11 +5,19 @@
   margin: auto;
   padding-bottom: 8vh;
   input {
+    padding: 0.7rem;
     width: 90%;
     margin: 1rem 5%;
     background-color: $black;
     border: none;
     border-bottom: 1px solid rgba($color-1, 0.4);
+    color: $white;
+    &:focus {
+      outline: 1px solid $color-2;
+      &::placeholder {
+        color: transparent;
+      }
+    }
   }
   .comment-author {
     display: flex;

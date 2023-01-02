@@ -4,7 +4,7 @@ import React from "react";
 function Comment({ author, message }) {
   return (
     <div className="comment">
-      <input type="text" placeholder="Ajouter un commentair..." />
+      <input type="text" placeholder="Ajouter un commentaire..." />
       <div className="comment-author">
         <div className="comment-img">
           <img src={author.avatar} alt={`${author.name}'s avatar`} />
