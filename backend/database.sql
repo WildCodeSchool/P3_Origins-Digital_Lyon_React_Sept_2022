@@ -105,8 +105,8 @@ CREATE TABLE IF NOT EXISTS Videos_has_comments (
   PRIMARY KEY (`Videos_id`, `User_id`),
   CONSTRAINT `fk_Videos_has_User_Videos1`
     FOREIGN KEY (`Videos_id`)
-    REFERENCES `mydb`.`Videos` (`id`)
+    REFERENCES `origins_digital`.`Videos` (`id`),
   CONSTRAINT `fk_Videos_has_User_User1`
     FOREIGN KEY (`User_id`)
-    REFERENCES `mydb`.`User` (`id`)
+    REFERENCES `origins_digital`.`User` (`id`))
 ENGINE = InnoDB;
