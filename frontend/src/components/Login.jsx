@@ -1,71 +1,76 @@
-/* eslint-disable no-restricted-syntax */
-import React, { useState } from "react";
-import { BiHide, BiShow } from "react-icons/bi";
-import { Link } from "react-router-dom";
-import loginImg from "../asset/image/loginImg.jpeg";
-import logo from "../asset/image/logo.svg";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useCurrentUserContext } from "../../contexts/userContext";
 
-export default function Login() {
-  const [userName, setUserName] = useState("");
-  const [userPassword, setUserPassword] = useState("");
-  const [hidden, setHidden] = useState(true);
+function Login() {
+  const { setUser, setToken } = useCurrentUserContext();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleShow = () => setHidden(!hidden);
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    const body = JSON.stringify({
+      email,
+      password,
+    });
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body,
+    };
+
+    if (email && password) {
+      // on appelle le back
+      fetch("http://localhost:5000/api/login", requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+          setUser(result.user);
+          setToken(result.token);
+          navigate("/");
+        })
+        .catch(console.error);
+    } else {
+      setErrorMessage("Please specify email and password");
+    }
+  };
 
   return (
-    <div className="loginContainer">
-      <div>
-        <img className="loginImg" src={loginImg} alt="loginImg" />
-      </div>
-      <div className="loginLogoContainer">
-        <img className="loginLogo" src={logo} alt="logo" />
-      </div>
-      <h2 className="loginTitle">Connectez-vous</h2>
-      <div className="formContainer">
-        <div className="inputContainer">
+    <>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="email" className="form-label">
+            Email
+          </label>
           <input
-            className="loginInput"
-            onChange={(e) => setUserName(e.target.value)}
-            type="text"
-            placeholder="Email"
+            onChange={(e) => setEmail(e.target.value)}
+            type="email"
+            className="form-control"
+            id="email"
           />
-          <div className="passwordContainer">
-            <input
-              className="loginInput"
-              onChange={(e) => setUserPassword(e.target.value)}
-              type={hidden ? "password" : "text"}
-              placeholder="Mot de passe"
-            />
-            <div className="eyeContainer">
-              {hidden ? (
-                <BiHide className="eyes" onClick={handleShow} />
-              ) : (
-                <BiShow className="eyes" onClick={handleShow} />
-              )}
-            </div>
-          </div>
         </div>
-        <div className="loginButtonContainer">
-          <button
-            type="button"
-            className="loginButton"
-            onClick={() => {
-              console.log(userName);
-              console.log(userPassword);
-            }}
-          >
-            Se connecter
-          </button>
-          <div className="registerContainer">
-            <h3>Vous n'avez pas de compte ?</h3>
-            <Link to="/register">
-              <button type="button" className="registerButton">
-                S'inscrire
-              </button>
-            </Link>
-          </div>
+        <div>
+          <label htmlFor="password" className="form-label">
+            Password
+          </label>
+          <input
+            onChange={(e) => setPassword(e.target.value)}
+            type="password"
+            className="form-control"
+            id="password"
+          />
         </div>
-      </div>
-    </div>
+        <button type="submit">Connexion</button>
+      </form>
+      <div>{errorMessage}</div>
+    </>
   );
 }
+
+export default Login;
