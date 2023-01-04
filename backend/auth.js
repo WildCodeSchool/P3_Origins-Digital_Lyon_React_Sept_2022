@@ -47,13 +47,13 @@ const verifyPassword = (req, res) => {
 
 const verifyToken = (req, res, next) => {
   try {
-    const [type, token] = req.headers.authHeader.split(" ");
+    const [type, token] = req.headers.authorization.split(" ");
     if (type !== "Bearer") throw new Error("Only Bearer token allowed");
-    req.payload = jwt.verify(token, JWT_SECRET);
+    req.payloads = jwt.verify(token, JWT_SECRET);
     next();
   } catch (err) {
     console.error(err);
-    res.sendStatus(401);
+    res.status(401).send({ message: "Identification incomplète" });
   }
 };
 

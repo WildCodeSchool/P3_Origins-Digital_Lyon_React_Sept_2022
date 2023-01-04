@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "argon2": "^0.30.2",
+    "axios": "^1.2.2",
     "jsonwebtoken": "^8.5.1"
   }
 }

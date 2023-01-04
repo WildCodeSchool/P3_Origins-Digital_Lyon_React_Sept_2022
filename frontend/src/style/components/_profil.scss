@@ -1,0 +1,60 @@
+.profil-container {
+  height: 100vh;
+  background-color: $color-2;
+  width: 100vw;
+
+  .profil-info {
+    height: 55vh;
+    width: 100%;
+  }
+  p {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 1rem;
+  }
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.5px solid rgba($white, 0.3);
+    border-radius: 5px;
+    padding: 10px;
+    height: 50px;
+    width: 90%;
+    background-color: rgba($black, 0.8);
+    margin: auto;
+    margin-top: 10px;
+  }
+  button {
+    display: block;
+    margin: auto;
+    margin-top: 5vh;
+    height: 50px;
+    width: 90%;
+    padding: 10px;
+    border: none;
+    color: $white;
+    border-radius: 5px;
+    background-color: $color-1;
+  }
+  .avatar-container {
+    height: 45vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .avatar {
+      margin: auto;
+      margin-bottom: 0;
+      background-color: aliceblue;
+      max-height: 100px;
+      max-width: 100px;
+      img {
+        max-height: 100px;
+        max-width: 100px;
+        object-fit: contain;
+      }
+    }
+  }
+}
