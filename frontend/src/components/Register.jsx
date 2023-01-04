@@ -37,7 +37,7 @@ function Register() {
   return (
     <div>
       <form onSubmit={handleForm}>
-        <div>
+        <div className="registerInput">
           <label htmlFor="firstname" className="form-label">
             First Name
           </label>
@@ -48,7 +48,7 @@ function Register() {
             id="firstname"
           />
         </div>
-        <div>
+        <div className="registerInput">
           <label htmlFor="lastname" className="form-label">
             Lastname
           </label>
@@ -59,8 +59,7 @@ function Register() {
             id="lastname"
           />
         </div>
-
-        <div>
+        <div className="registerInput">
           <label htmlFor="email" className="form-label">
             Email
           </label>
@@ -71,7 +70,7 @@ function Register() {
             id="email"
           />
         </div>
-        <div>
+        <div className="registerInput">
           <label htmlFor="password" className="form-label">
             Password
           </label>

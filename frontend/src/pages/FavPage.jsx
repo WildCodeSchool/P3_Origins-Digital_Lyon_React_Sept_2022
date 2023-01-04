@@ -1,4 +1,5 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 import ReturnPageButton from "../components/ReturnPageButton";
 import VideoList from "../components/VideoList";
 
@@ -12,6 +13,7 @@ export default function FavPage() {
       <div className="listContainer">
         <VideoList />
       </div>
+      <Navbar />
     </div>
   );
 }
