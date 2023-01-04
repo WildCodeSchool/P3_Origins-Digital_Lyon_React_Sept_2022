@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import Login from "../components/Login";
 import Navbar from "../components/Navbar";
 // import Register from "../components/Register";
+import CurrentUserContext from "../../contexts/userContext";
+import Profil from "../components/Profil";
 
 function ProfilePage() {
+  const { user } = useContext(CurrentUserContext);
   return (
     <div>
-      <Login />
+      {user.email ? <Profil /> : <Login />}
       <Navbar />
     </div>
   );
