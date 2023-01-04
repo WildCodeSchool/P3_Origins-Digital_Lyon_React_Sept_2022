@@ -27,13 +27,13 @@ const hashPassword = (req, res, next) => {
 
 const verifyPassword = (req, res) => {
   argon2
-    .verify(req.user.hashedPassword, req.body.password, hashingOptions)
+    .verify(req.user.hashePassword, req.body.password, hashingOptions)
     .then((isVerified) => {
       if (isVerified) {
         const token = jwt.sign({ sub: req.user.id }, JWT_SECRET, {
           algorithm: "HS512",
         });
-        delete req.user.hashedPassword;
+        delete req.user.hashePassword;
         res.send({ token, user: req.user });
       } else {
         res.sendStatus(401);
