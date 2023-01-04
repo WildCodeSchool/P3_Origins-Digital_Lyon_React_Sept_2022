@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
+import loginImg from "../asset/image/loginImg.jpeg";
+import logo from "../asset/image/logo.svg";
 
 function Register() {
   const [email, setEmail] = useState("");
@@ -36,54 +38,68 @@ function Register() {
 
   return (
     <div>
-      <form onSubmit={handleForm}>
-        <div>
+      <div>
+        <img className="loginImg" src={loginImg} alt="loginImg" />
+      </div>
+      <div className="loginLogoContainer">
+        <img className="loginLogo" src={logo} alt="logo" />
+      </div>
+      <form className="formContainer" onSubmit={handleForm}>
+        <div className="inputContainer">
           <label htmlFor="firstname" className="form-label">
-            First Name
+            Prénom
           </label>
           <input
             onChange={(e) => setFirstname(e.target.value)}
             type="firstname"
-            className="form-control"
+            className="loginInput"
             id="firstname"
           />
         </div>
-        <div>
+        <div className="inputContainer">
           <label htmlFor="lastname" className="form-label">
-            Lastname
+            Nom
           </label>
           <input
             onChange={(e) => setLastname(e.target.value)}
             type="lastname"
-            className="form-control"
+            className="loginInput"
             id="lastname"
           />
         </div>
-
-        <div>
+        <div className="inputContainer">
           <label htmlFor="email" className="form-label">
             Email
           </label>
           <input
             onChange={(e) => setEmail(e.target.value)}
             type="email"
-            className="form-control"
+            className="loginInput"
             id="email"
           />
         </div>
-        <div>
+        <div className="inputContainer">
           <label htmlFor="password" className="form-label">
-            Password
+            Mot de passe
           </label>
           <input
             onChange={(e) => setPassword(e.target.value)}
             type="password"
-            className="form-control"
+            className="loginInput"
             id="password"
           />
         </div>
-        <button type="submit">Inscription</button>
+        <button className="loginButton" type="submit">
+          Inscription
+        </button>
       </form>
+      <div className="registerContainer">
+        <Link to="/login">
+          <button type="button" className="registerButton">
+            Retour
+          </button>
+        </Link>
+      </div>{" "}
       <Navbar />
     </div>
   );
