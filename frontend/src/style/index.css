@@ -509,13 +509,9 @@ li {
   padding-left: 0.7rem;
 }
 .comment .comment-img {
-  height: 6vh;
-  background-color: #006dce;
-  border-radius: 50px;
-  width: 13.2vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  max-height: 100px;
+  max-width: 100px;
+  margin: auto;
 }
 .comment .comment-message {
   margin: auto;
@@ -688,4 +684,8 @@ li {
 }
 .profil-container .avatar-container .avatar form input {
   display: none;
-} /*# sourceMappingURL=index.css.map */
+}
+
+.test {
+  border: 4px solid white;
+}/*# sourceMappingURL=index.css.map */

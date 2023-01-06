@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Login from "../components/Login";
+import AdminDashboard from "../components/AdminDashboard";
 import Navbar from "../components/Navbar";
-// import Register from "../components/Register";
 import CurrentUserContext from "../../contexts/userContext";
 import Profil from "../components/Profil";
 
@@ -10,6 +10,7 @@ function ProfilePage() {
   return (
     <div>
       {user.email ? <Profil /> : <Login />}
+      {user.is_admin && <AdminDashboard />}
       <Navbar />
     </div>
   );

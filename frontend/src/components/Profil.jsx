@@ -8,6 +8,7 @@ function Profil() {
   const [msg, setMsg] = useState("");
 
   const handleDisconnection = () => {
+    console.warn(user);
     // gestion de la deconnexion
     localStorage.clear();
     setUser({});
