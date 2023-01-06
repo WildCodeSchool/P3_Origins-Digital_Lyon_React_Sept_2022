@@ -27,13 +27,9 @@
     }
   }
   .comment-img {
-    height: 6vh;
-    background-color: $color-1;
-    border-radius: 50px;
-    width: 13.2vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    max-height: 100px;
+    max-width: 100px;
+    margin: auto;
   }
   .comment-message {
     margin: auto;

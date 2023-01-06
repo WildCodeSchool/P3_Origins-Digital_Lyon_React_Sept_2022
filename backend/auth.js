@@ -58,7 +58,7 @@ const verifyToken = (req, res, next) => {
     next();
   } catch (err) {
     console.error(err);
-    res.sendStatus(401);
+    res.status(401).send({ message: "Identification incomplète" });
   }
 };
 
