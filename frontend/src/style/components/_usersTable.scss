@@ -1,0 +1,21 @@
+table {
+  border: 2px solid whitesmoke;
+  h3 {
+    width: 50vw;
+    text-align: center;
+  }
+  tr,
+  td,
+  th {
+    border: 2px solid whitesmoke;
+    text-align: center;
+  }
+  .admin {
+    background-color: $color-1;
+    @include buttonStyle;
+  }
+  .user {
+    background-color: grey;
+    @include buttonStyle;
+  }
+}

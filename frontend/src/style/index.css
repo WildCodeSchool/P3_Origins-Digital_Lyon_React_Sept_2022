@@ -509,13 +509,9 @@ li {
   padding-left: 0.7rem;
 }
 .comment .comment-img {
-  height: 6vh;
-  background-color: #006dce;
-  border-radius: 50px;
-  width: 13.2vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  max-height: 100px;
+  max-width: 100px;
+  margin: auto;
 }
 .comment .comment-message {
   margin: auto;
@@ -620,7 +616,7 @@ li {
 }
 
 .profil-container {
-  height: 100vh;
+  height: 200vh;
   background-color: #00284d;
   width: 100vw;
 }
@@ -688,4 +684,42 @@ li {
 }
 .profil-container .avatar-container .avatar form input {
   display: none;
-} /*# sourceMappingURL=index.css.map */
+}
+
+table {
+  border: 2px solid whitesmoke;
+}
+table h3 {
+  width: 50vw;
+  text-align: center;
+}
+table tr,
+table td,
+table th {
+  border: 2px solid whitesmoke;
+  text-align: center;
+}
+table .admin {
+  background-color: #006dce;
+  display: block;
+  margin: auto;
+  margin-top: 5vh;
+  height: 50px;
+  width: 90%;
+  padding: 10px;
+  border: none;
+  color: #ffffff;
+  border-radius: 5px;
+}
+table .user {
+  background-color: grey;
+  display: block;
+  margin: auto;
+  margin-top: 5vh;
+  height: 50px;
+  width: 90%;
+  padding: 10px;
+  border: none;
+  color: #ffffff;
+  border-radius: 5px;
+}/*# sourceMappingURL=index.css.map */
