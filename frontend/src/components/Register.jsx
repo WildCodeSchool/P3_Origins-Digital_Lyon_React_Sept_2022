@@ -93,9 +93,9 @@ function Register() {
           Inscription
         </button>
       </form>
-      <div className="registerContainer">
+      <div className="returnContainer">
         <Link to="/login">
-          <button type="button" className="registerButton">
+          <button type="button" className="returnButton">
             Retour
           </button>
         </Link>
