@@ -9,6 +9,7 @@ import PlaylistPage from "./pages/PlaylistPage";
 import Register from "./components/Register";
 import { CurrentUserContextProvider } from "../contexts/userContext";
 import Upload from "./components/Upload";
+import UsersTable from "./components/UsersTable";
 
 import "./style/index.css";
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/player" element={<VideoPlayer />} />
           <Route path="/register" element={<Register />} />
           <Route path="/upload" element={<Upload />} />
+          <Route path="/usersManagement" element={<UsersTable />} />
         </Routes>
       </CurrentUserContextProvider>
     </BrowserRouter>
