@@ -8,6 +8,7 @@ function Profil() {
   const [msg, setMsg] = useState("");
 
   const handleDisconnection = () => {
+    console.warn(user);
     // gestion de la deconnexion
     localStorage.clear();
     setUser({});
@@ -73,7 +74,7 @@ function Profil() {
           <li>Nom : {user.lastname}</li>
           <li>Prenom : {user.firstname}</li>
           <li>Email : {user.email}</li>
-          {user.is_admin === 0 ? (
+          {user.is_admin === 1 ? (
             <NavLink to="/upload">
               <button type="button">Upload des video</button>
             </NavLink>
