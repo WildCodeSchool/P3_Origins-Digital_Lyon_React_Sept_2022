@@ -616,7 +616,7 @@ li {
 }
 
 .profil-container {
-  height: 100vh;
+  height: 200vh;
   background-color: #00284d;
   width: 100vw;
 }
@@ -686,6 +686,40 @@ li {
   display: none;
 }
 
-.test {
-  border: 4px solid white;
-}/*# sourceMappingURL=index.css.map */
+table {
+  border: 2px solid whitesmoke;
+}
+table h3 {
+  width: 50vw;
+  text-align: center;
+}
+table tr,
+table td,
+table th {
+  border: 2px solid whitesmoke;
+  text-align: center;
+}
+table .admin {
+  background-color: #006dce;
+  display: block;
+  margin: auto;
+  margin-top: 5vh;
+  height: 50px;
+  width: 90%;
+  padding: 10px;
+  border: none;
+  color: #ffffff;
+  border-radius: 5px;
+}
+table .user {
+  background-color: grey;
+  display: block;
+  margin: auto;
+  margin-top: 5vh;
+  height: 50px;
+  width: 90%;
+  padding: 10px;
+  border: none;
+  color: #ffffff;
+  border-radius: 5px;
+} /*# sourceMappingURL=index.css.map */

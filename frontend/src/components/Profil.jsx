@@ -81,6 +81,9 @@ function Profil() {
           ) : (
             ""
           )}
+          <button type="button" onClick={() => navigate("/usersManagement")}>
+            Gestion des Utilisateurs
+          </button>
           <button onClick={handleDisconnection} type="button">
             Se déconnecter
           </button>

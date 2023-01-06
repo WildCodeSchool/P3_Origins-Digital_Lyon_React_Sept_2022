@@ -4,7 +4,6 @@ import CurrentUserContext from "../../contexts/userContext";
 export default function UsersTable() {
   const [userList, setUserList] = useState([]);
   const [isAdmin, setIsAdmin] = useState(false);
-
   const { token } = useContext(CurrentUserContext);
 
   const body = JSON.stringify({ is_admin: isAdmin });
@@ -38,8 +37,8 @@ export default function UsersTable() {
   }, [userList]);
   return (
     <div>
+      <h3>Liste Utilisateurs</h3>
       <table>
-        <h3>Liste Utilisateurs</h3>
         <tr>
           <th>Prénom</th>
           <th>Nom</th>
@@ -64,18 +63,17 @@ export default function UsersTable() {
                   {user.is_admin ? "Admin" : "Utilisateur"}
                 </button>
               </td>
-              <td>
-                {!user.is_admin ? (
-                  <button
-                    type="button"
-                    onClick={() => {
-                      deleteUser(user.id);
-                    }}
-                  >
-                    X
-                  </button>
-                ) : null}
-              </td>
+              {!user.is_admin ? (
+                <button
+                  className="delete"
+                  type="button"
+                  onClick={() => {
+                    deleteUser(user.id);
+                  }}
+                >
+                  X
+                </button>
+              ) : null}
             </tr>
           );
         })}
