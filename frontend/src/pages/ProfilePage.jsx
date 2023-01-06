@@ -10,8 +10,7 @@ function ProfilePage() {
   return (
     <div>
       {user.email ? <Profil /> : <Login />}
-      {user.is_admin ? <AdminDashboard /> : <Profil />}
-      <AdminDashboard />
+      {user.is_admin && <AdminDashboard />}
       <Navbar />
     </div>
   );
