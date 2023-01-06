@@ -606,7 +606,7 @@ li {
   text-align: center;
   padding-bottom: 1rem;
 }
-.profil-container li {
+.profil-container ul li {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -619,7 +619,7 @@ li {
   margin: auto;
   margin-top: 10px;
 }
-.profil-container button {
+.profil-container ul button {
   display: block;
   margin: auto;
   margin-top: 5vh;
@@ -640,15 +640,25 @@ li {
   flex-direction: column;
 }
 .profil-container .avatar-container .avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 5px;
+  border-radius: 10px;
   margin: auto;
   margin-bottom: 0;
-  background-color: aliceblue;
-  max-height: 100px;
-  max-width: 100px;
 }
 .profil-container .avatar-container .avatar img {
   max-height: 100px;
   max-width: 100px;
-  -o-object-fit: contain;
-  object-fit: contain;
-} /*# sourceMappingURL=index.css.map */
+  margin: auto;
+}
+.profil-container .avatar-container .avatar form {
+  display: flex;
+  flex-direction: column;
+}
+.profil-container .avatar-container .avatar form input {
+  display: none;
+}/*# sourceMappingURL=index.css.map */

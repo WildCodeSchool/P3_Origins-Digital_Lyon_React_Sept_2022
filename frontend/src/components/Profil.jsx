@@ -5,7 +5,7 @@ import CurrentUserContext from "../../contexts/userContext";
 function Profil() {
   const navigate = useNavigate();
   const { user, setUser, token } = useContext(CurrentUserContext);
-  const [msg, setMsg] = useState("Aucun upload effectué");
+  const [msg, setMsg] = useState("");
 
   const handleDisconnection = () => {
     // gestion de la deconnexion
@@ -44,9 +44,7 @@ function Profil() {
           setMsg("Upload échoué !");
         });
     } else {
-      setMsg(
-        "Vous auriez pas oublié un truc ? Le fichier à uploader, par exemple ?"
-      );
+      setMsg("Aucun fichier");
     }
   };
   return (
@@ -57,12 +55,15 @@ function Profil() {
             src={`http://localhost:5000/api/avatars/${user.avatar}`}
             alt="avatar"
           />
+          <form encType="multipart/form-data" onSubmit={handleSubmit}>
+            <label htmlFor="file" className="form-label">
+              Choisir
+            </label>
+            <input type="file" ref={avatarRef} id="file" />
+            <button type="submit">Envoyer</button>
+            <p>{msg}</p>
+          </form>
         </div>
-        <form encType="multipart/form-data" onSubmit={handleSubmit}>
-          <input type="file" ref={avatarRef} />
-          <button type="submit">Envoyer</button>
-        </form>
-        <p>{msg}</p>
       </div>
       <div className="profil-info">
         <p>
