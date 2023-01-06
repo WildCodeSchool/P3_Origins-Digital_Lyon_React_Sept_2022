@@ -2,6 +2,7 @@ const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
 
 const avatarDirectory = process.env.AVATAR_DIRECTORY || "public/";
+const videoDirectory = process.env.AVATAR_DIRECTORY || "public/";
 
 const renameAvatar = (req, res, next) => {
   // TODO : gérer les erreurs
@@ -23,6 +24,26 @@ const renameAvatar = (req, res, next) => {
     }
   );
 };
+const renameVideo = (req, res, next) => {
+  // TODO : gérer les erreurs
+  // On récupère le nom du fichier
+  const { originalname } = req.file;
+
+  // On récupère le nom du fichier
+  const { filename } = req.file;
+
+  // On utilise la fonction rename de fs pour renommer le fichier
+  const uuid = uuidv4();
+  fs.rename(
+    `${videoDirectory}${filename}`,
+    `${videoDirectory}${uuid}-${originalname}`,
+    (err) => {
+      if (err) throw err;
+      req.video = `${uuid}-${originalname}`;
+      next();
+    }
+  );
+};
 
 const sendAvatar = (req, res) => {
   const { fileName } = req.params;
@@ -35,5 +56,16 @@ const sendAvatar = (req, res) => {
     }
   });
 };
+const sendVideo = (req, res) => {
+  const { fileName } = req.params;
 
-module.exports = { renameAvatar, sendAvatar };
+  res.download(videoDirectory + fileName, fileName, (err) => {
+    if (err) {
+      res.status(404).send({
+        message: `Video not found.`,
+      });
+    }
+  });
+};
+
+module.exports = { renameAvatar, sendAvatar, renameVideo, sendVideo };

@@ -86,6 +86,21 @@ const updateAvatar = (req, res) => {
       res.sendStatus(500);
     });
 };
+const updateVideo = (req, res) => {
+  const id = req.payloads.sub;
+  const { video } = req;
+
+  models.user
+    .updateAvatar(id, video)
+    .then(([result]) => {
+      if (result.affectedRows === 0) res.sendStatus(404);
+      else res.status(202).send({ video });
+    })
+    .catch((error) => {
+      console.error(error);
+      res.sendStatus(500);
+    });
+};
 
 module.exports = {
   browse,
@@ -94,4 +109,5 @@ module.exports = {
   edit,
   destroy,
   updateAvatar,
+  updateVideo,
 };

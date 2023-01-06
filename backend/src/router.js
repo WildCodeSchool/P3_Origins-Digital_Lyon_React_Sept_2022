@@ -36,5 +36,13 @@ router.post(
   userControllers.updateAvatar
 );
 router.get("/api/avatars/:fileName", fileControllers.sendAvatar);
+router.post(
+  "/api/videos",
+
+  upload.single("video"),
+  fileControllers.renameVideo,
+  userControllers.updateVideo
+);
+router.get("/api/videos/:fileName", fileControllers.sendVideo);
 
 module.exports = router;

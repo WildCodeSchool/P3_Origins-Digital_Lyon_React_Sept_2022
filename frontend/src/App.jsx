@@ -9,7 +9,6 @@ import PlaylistPage from "./pages/PlaylistPage";
 import Register from "./components/Register";
 import { CurrentUserContextProvider } from "../contexts/userContext";
 import Upload from "./components/Upload";
-
 import "./style/index.css";
 
 function App() {
