@@ -1,5 +1,4 @@
 import React, { useContext, useRef, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
 import CurrentUserContext from "../../contexts/userContext";
 
 function Upload() {
