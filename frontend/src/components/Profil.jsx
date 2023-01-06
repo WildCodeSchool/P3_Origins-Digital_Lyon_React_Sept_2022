@@ -4,9 +4,10 @@ import CurrentUserContext from "../../contexts/userContext";
 
 function Profil() {
   const navigate = useNavigate();
-  const { setUser } = useContext(CurrentUserContext);
+  const { setUser, user } = useContext(CurrentUserContext);
 
   const handleDisconnection = () => {
+    console.warn(user);
     // gestion de la deconnexion
     localStorage.clear();
     setUser({});
