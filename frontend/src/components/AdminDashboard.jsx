@@ -14,14 +14,21 @@ export default function AdminDashboard() {
   });
   myHeaders.append("Content-Type", "application/json");
 
-  const requestOptions = {
+  const PUTrequestOptions = {
     method: "PUT",
     headers: myHeaders,
     body,
   };
+  const DELETErequestOptions = {
+    method: "DELETE",
+    headers: myHeaders,
+  };
 
-  const changeUserStatus = () => {
-    fetch("http://localhost:5000/api/users/1", requestOptions);
+  const changeUserStatus = (id) => {
+    fetch(`http://localhost:5000/api/users/${id}`, PUTrequestOptions);
+  };
+  const deleteUser = (id) => {
+    fetch(`http://localhost:5000/api/users/${id}`, DELETErequestOptions);
   };
 
   useEffect(() => {
@@ -53,11 +60,23 @@ export default function AdminDashboard() {
                     type="button"
                     onClick={() => {
                       setIsAdmin(!isAdmin);
-                      changeUserStatus();
+                      changeUserStatus(user.id);
                     }}
                   >
                     {user.is_admin ? "Admin" : "Utilisateur"}
                   </button>
+                </td>
+                <td>
+                  {!user.is_admin ? (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        deleteUser(user.id);
+                      }}
+                    >
+                      X
+                    </button>
+                  ) : null}
                 </td>
               </tr>
             );
