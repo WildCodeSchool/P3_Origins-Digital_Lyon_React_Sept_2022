@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCurrentUserContext } from "../../contexts/userContext";
+import loginImg from "../asset/image/loginImg.jpeg";
+import logo from "../asset/image/logo.svg";
 
 function Login() {
   const { setUser, setToken } = useCurrentUserContext();
@@ -43,32 +45,49 @@ function Login() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <div>
+      <div>
+        <img className="loginImg" src={loginImg} alt="loginImg" />
+      </div>
+      <div className="loginLogoContainer">
+        <img className="loginLogo" src={logo} alt="logo" />
+      </div>
+      <h2 className="loginTitle">Connectez-vous</h2>
+      <form className="formContainer" onSubmit={handleSubmit}>
+        <div className="inputContainer">
           <label htmlFor="email" className="form-label">
             Email
           </label>
           <input
             onChange={(e) => setEmail(e.target.value)}
             type="email"
-            className="form-control"
+            className="loginInput"
             id="email"
           />
         </div>
-        <div>
+        <div className="inputContainer">
           <label htmlFor="password" className="form-label">
             Password
           </label>
           <input
             onChange={(e) => setPassword(e.target.value)}
             type="password"
-            className="form-control"
+            className="loginInput"
             id="password"
           />
         </div>
-        <button type="submit">Connexion</button>
+        <button className="loginButton" type="submit">
+          Connexion
+        </button>
       </form>
       <div>{errorMessage}</div>
+      <div className="registerContainer">
+        <h3>Vous n'avez pas de compte ?</h3>
+        <Link to="/register">
+          <button type="button" className="registerButton">
+            S'inscrire
+          </button>
+        </Link>
+      </div>{" "}
     </>
   );
 }

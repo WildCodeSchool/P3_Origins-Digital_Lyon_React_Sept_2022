@@ -30,8 +30,6 @@ const read = (req, res) => {
 const add = (req, res) => {
   const user = req.body;
 
-  // on verifie les données
-
   models.user
     .insert(user)
     .then(([result]) => {

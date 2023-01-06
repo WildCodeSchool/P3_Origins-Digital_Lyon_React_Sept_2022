@@ -11,17 +11,17 @@ const hashingOptions = {
 };
 
 const hashPassword = (req, res, next) => {
+  // hash the password using argon2 then call next()
   argon2
     .hash(req.body.password, hashingOptions)
     .then((hashedPassword) => {
       req.body.hashedPassword = hashedPassword;
       delete req.body.password;
-
       next();
     })
     .catch((err) => {
       console.error(err);
-      res.sendStatus(500);
+      res.sendStatus(400);
     });
 };
 
@@ -35,20 +35,25 @@ const verifyPassword = (req, res) => {
         });
         delete req.user.hashedPassword;
         res.send({ token, user: req.user });
-      } else {
-        res.sendStatus(401);
-      }
+      } else res.sendStatus(401);
     })
     .catch((err) => {
+      // do something with err
       console.error(err);
-      res.sendStatus(500);
+      res.sendStatus(400);
     });
 };
 
 const verifyToken = (req, res, next) => {
   try {
-    const [type, token] = req.headers.authorization.split(" ");
+    const autorizationHeader = req.headers.authorization;
+    if (!autorizationHeader)
+      throw new Error("Autorization needed for this route");
+
+    const [type, token] = autorizationHeader.split(" ");
     if (type !== "Bearer") throw new Error("Only Bearer token allowed");
+    if (!token) throw new Error("Token needed");
+
     req.payloads = jwt.verify(token, JWT_SECRET);
     next();
   } catch (err) {

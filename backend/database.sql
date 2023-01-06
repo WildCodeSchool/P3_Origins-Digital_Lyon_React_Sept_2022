@@ -1,12 +1,13 @@
 USE `Origins_digital` ;
 
+
 DROP TABLE IF EXISTS `User`;
 CREATE TABLE IF NOT EXISTS `User` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `firstname` VARCHAR(80) NOT NULL,
   `lastname` VARCHAR(80) NOT NULL,
   `email` VARCHAR(300) NOT NULL,
-  `hashedPassword` varchar(255) NOT NULL,
+  `hashedPassword` VARCHAR(255) NOT NULL,
   `is_admin` TINYINT NULL,
   `avatar` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
