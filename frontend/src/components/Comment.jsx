@@ -1,17 +1,19 @@
 /* eslint-disable react/prop-types */
-import React from "react";
+import React, { useContext } from "react";
+import CurrentUserContext from "../../contexts/userContext";
 
-function Comment({ author, message }) {
+function Comment() {
+  const { user } = useContext(CurrentUserContext);
   return (
     <div className="comment">
       <input type="text" placeholder="Ajouter un commentaire..." />
       <div className="comment-author">
         <div className="comment-img">
-          <img src={author.avatar} alt={`${author.name}'s avatar`} />
+          <img src={user.avatar} alt={`${user.firstname}'s avatar`} />
         </div>
         <div className="comment-content">
-          <p>{author.name}</p>
-          <p className="comment-message">{message}</p>
+          <p>{user.firstname}</p>
+          <p className="comment-message">{}</p>
         </div>
       </div>
     </div>
