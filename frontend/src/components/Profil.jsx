@@ -6,6 +6,10 @@ import CurrentUserContext from "../../contexts/userContext";
 import defaultAvatar from "../asset/image/defaultAvatar.jpeg";
 
 function Profil() {
+  const navigate = useNavigate();
+  const { user, setUser, token } = useContext(CurrentUserContext);
+  const [msg, setMsg] = useState("");
+  const [modifyInfos, setModifyInfos] = useState(false);
   const unlogToast = () =>
     toast.error("Vous êtes déconnecté !", {
       position: "top-center",
@@ -17,9 +21,36 @@ function Profil() {
       progress: undefined,
       theme: "colored",
     });
-  const navigate = useNavigate();
-  const { user, setUser, token } = useContext(CurrentUserContext);
-  const [msg, setMsg] = useState("");
+
+  // Nouvelles infos modifiés par le user
+  const [newUserInfos, setNewUserInfos] = useState({
+    firstname: user.firstname,
+    lastname: user.lastname,
+    email: user.email,
+  });
+
+  const body = JSON.stringify(newUserInfos);
+
+  const myHeaders = new Headers({
+    Authorization: `Bearer ${token}`,
+  });
+  myHeaders.append("Content-Type", "application/json");
+
+  const PUTrequestOptions = {
+    method: "PUT",
+    headers: myHeaders,
+    body,
+  };
+
+  const changeUserStatus = (id) => {
+    fetch(`http://localhost:5000/api/users/${id}`, PUTrequestOptions);
+    setUser({
+      ...user,
+      firstname: newUserInfos.firstname,
+      lastname: newUserInfos.lastname,
+      email: newUserInfos.email,
+    });
+  };
 
   const handleOnError = (e) => {
     e.currentTarget.src = defaultAvatar;
@@ -87,38 +118,102 @@ function Profil() {
       </div>
       <div className="profil-info">
         <p>
-          {user.lastname[0]}.{user.firstname}
+          {user.lastname}.{user.firstname}
         </p>
-        <ul>
-          <li>Nom : {user.lastname}</li>
-          <li>Prenom : {user.firstname}</li>
-          <li>Email : {user.email}</li>
-          {user.is_admin === 1 ? (
-            <div>
-              <button type="button" onClick={() => navigate("/upload")}>
-                Upload des video
-              </button>
-              <button
-                type="button"
-                onClick={() => navigate("/usersManagement")}
-              >
-                Gestion des Utilisateurs
-              </button>
-            </div>
-          ) : (
-            ""
-          )}
-          <button
-            onClick={() => {
-              handleDisconnection();
-              unlogToast();
-            }}
-            type="button"
-          >
 
-            Se déconnecter
+        {modifyInfos ? (
+          <ul>
+            <li>
+              <label htmlFor="mail" name="email">
+                Nom
+              </label>
+              <input
+                type="text"
+                onChange={(e) =>
+                  setNewUserInfos({
+                    ...newUserInfos,
+                    lastname: e.target.value,
+                  })
+                }
+              />
+            </li>
+            <li>
+              <label htmlFor="mail" name="email">
+                Prénom
+              </label>
+              <input
+                type="text"
+                onChange={(e) =>
+                  setNewUserInfos({
+                    ...newUserInfos,
+                    firstname: e.target.value,
+                  })
+                }
+              />
+            </li>
+            <li>
+              <label htmlFor="mail" name="email">
+                Email
+              </label>
+              <input
+                type="text"
+                onChange={(e) =>
+                  setNewUserInfos({
+                    ...newUserInfos,
+                    email: e.target.value,
+                  })
+                }
+              />
+            </li>
+          </ul>
+        ) : (
+          <ul>
+            <li>{user.lastname}</li>
+            <li>{user.firstname}</li>
+            <li>{user.email}</li>
+          </ul>
+        )}
+        {user.is_admin === 1 ? (
+          <button onClick={() => navigate("/upload")} type="button">
+            Upload des videos
           </button>
-        </ul>
+        ) : (
+          ""
+        )}
+        {modifyInfos ? (
+          <button
+            type="button"
+            onClick={() => {
+              setModifyInfos(false);
+              changeUserStatus(user.id);
+            }}
+          >
+            Done
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={() => {
+              setModifyInfos(true);
+            }}
+          >
+            Modifier ses informations
+          </button>
+        )}
+        {user.is_admin ? (
+          <button type="button" onClick={() => navigate("/usersManagement")}>
+            Gestion des Utilisateurs
+          </button>
+        ) : null}
+        <button
+          onClick={() => {
+            handleDisconnection();
+            unlogToast();
+          }}
+          type="button"
+        >
+          Se déconnecter
+        </button>
       </div>
     </div>
   );
