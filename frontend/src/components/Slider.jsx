@@ -1,4 +1,5 @@
 import React from "react";
+import IMG1 from "../asset/4.jpg";
 
 function Slider() {
   return (
@@ -7,11 +8,11 @@ function Slider() {
 
       <div className="slider-container">
         <div className="slider-wrapper">
-          <div className="slider-item">ITEM 01</div>
-          <div className="slider-item">ITEM 02</div>
-          <div className="slider-item">ITEM 03</div>
-          <div className="slider-item">ITEM 04</div>
-          <div className="slider-item">ITEM 05</div>
+          <img className="slider-item" src={IMG1} alt="img1" />
+          <img className="slider-item" src={IMG1} alt="img1" />
+          <img className="slider-item" src={IMG1} alt="img1" />
+          <img className="slider-item" src={IMG1} alt="img1" />
+          <img className="slider-item" src={IMG1} alt="img1" />
         </div>
       </div>
     </div>
