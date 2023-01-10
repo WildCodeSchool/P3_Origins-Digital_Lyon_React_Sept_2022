@@ -37,4 +37,10 @@ router.post(
 );
 router.get("/api/avatars/:fileName", fileControllers.sendAvatar);
 
+// Gestion des videos
+router.get("/api/videos", fileControllers.browseVideos);
+router.get("/api/videos/:id", fileControllers.readVideos);
+router.put("/api/videos/:id", hashPassword, verifyToken);
+router.delete("/api/videos/:id", verifyToken);
+
 module.exports = router;

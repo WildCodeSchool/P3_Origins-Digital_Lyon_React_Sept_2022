@@ -1,5 +1,6 @@
 const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
+const models = require("../models");
 
 const avatarDirectory = process.env.AVATAR_DIRECTORY || "public/";
 
@@ -36,4 +37,31 @@ const sendAvatar = (req, res) => {
   });
 };
 
-module.exports = { renameAvatar, sendAvatar };
+const browseVideos = (req, res) => {
+  models.videos
+    .findAll()
+    .then(([results]) => {
+      res.send(results);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.sendStatus(500);
+    });
+};
+
+const readVideos = (req, res) => {
+  const { id } = req.params;
+
+  models.videos
+    .find(id)
+    .then(([results]) => {
+      if (results[0]) res.send(results[0]);
+      else res.sendStatus(404);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.sendStatus(500);
+    });
+};
+
+module.exports = { renameAvatar, sendAvatar, browseVideos, readVideos };

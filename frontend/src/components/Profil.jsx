@@ -96,7 +96,13 @@ function Profil() {
           {user.is_admin === 1 ? (
             <div>
               <button type="button" onClick={() => navigate("/upload")}>
-                Upload des video
+                Upload de vidéos
+              </button>
+              <button
+                type="button"
+                onClick={() => navigate("/videosManagement")}
+              >
+                Gestion des vidéos
               </button>
               <button
                 type="button"

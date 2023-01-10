@@ -10,6 +10,7 @@ import Register from "./components/Register";
 import { CurrentUserContextProvider } from "../contexts/userContext";
 import Upload from "./components/Upload";
 import UsersTable from "./components/UsersTable";
+import VideosTable from "./components/VideosTable";
 
 import "./style/index.css";
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/upload" element={<Upload />} />
           <Route path="/usersManagement" element={<UsersTable />} />
+          <Route path="/videosManagement" element={<VideosTable />} />
         </Routes>
       </CurrentUserContextProvider>
     </BrowserRouter>
