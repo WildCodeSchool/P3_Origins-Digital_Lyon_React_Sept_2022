@@ -1,12 +1,26 @@
 import React, { useContext, useRef, useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import CurrentUserContext from "../../contexts/userContext";
+import defaultAvatar from "../asset/image/defaultAvatar.jpeg";
 
 function Profil() {
   const navigate = useNavigate();
   const { user, setUser, token } = useContext(CurrentUserContext);
   const [msg, setMsg] = useState("");
   const [modifyInfos, setModifyInfos] = useState(false);
+  const unlogToast = () =>
+    toast.error("Vous êtes déconnecté !", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
 
   // Nouvelles infos modifiés par le user
   const [newUserInfos, setNewUserInfos] = useState({
@@ -36,6 +50,10 @@ function Profil() {
       lastname: newUserInfos.lastname,
       email: newUserInfos.email,
     });
+  };
+
+  const handleOnError = (e) => {
+    e.currentTarget.src = defaultAvatar;
   };
 
   const handleDisconnection = () => {
@@ -86,10 +104,11 @@ function Profil() {
           <img
             src={`http://localhost:5000/api/avatars/${user.avatar}`}
             alt="avatar"
+            onError={handleOnError}
           />
           <form encType="multipart/form-data" onSubmit={handleSubmit}>
             <label htmlFor="file" className="form-label">
-              Choisir
+              Cliquez ici pour changer l'avatar
             </label>
             <input type="file" ref={avatarRef} id="file" />
             <button type="submit">Envoyer</button>
@@ -186,7 +205,13 @@ function Profil() {
             Gestion des Utilisateurs
           </button>
         ) : null}
-        <button onClick={handleDisconnection} type="button">
+        <button
+          onClick={() => {
+            handleDisconnection();
+            unlogToast();
+          }}
+          type="button"
+        >
           Se déconnecter
         </button>
       </div>
