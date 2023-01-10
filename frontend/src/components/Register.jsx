@@ -14,6 +14,7 @@ function Register() {
 
   const navigate = useNavigate();
   const handleForm = (e) => {
+    e.preventDefault();
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -24,13 +25,12 @@ function Register() {
       headers: myHeaders,
       body,
     };
-    e.preventDefault();
     // on créé et on redirige
     fetch("http://localhost:5000/api/register", requestOptions)
       .then(() => {
         navigate("/login");
       })
-      .catch(console.error);
+      .catch((err) => console.error(err));
   };
 
   return (
