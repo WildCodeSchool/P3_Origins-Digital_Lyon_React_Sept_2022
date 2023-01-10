@@ -16,10 +16,9 @@ ENGINE = InnoDB;
 
 DROP TABLE IF EXISTS `Videos`;
 CREATE TABLE IF NOT EXISTS `Videos` (
-  `id` INT NOT NULL,
-  `url` VARCHAR(300) NOT NULL,
+ `id` INT NOT NULL AUTO_INCREMENT,
   `description` TEXT NOT NULL,
-  `creation_date` DATETIME NOT NULL DEFAULT NOW(),
+  `creation_date` DATETIME NULL DEFAULT NOW(),
   `img` VARCHAR(300) NOT NULL,
   `name` VARCHAR(300) NOT NULL,
   PRIMARY KEY (`id`))
