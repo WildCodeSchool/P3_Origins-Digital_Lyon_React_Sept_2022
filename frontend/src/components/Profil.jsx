@@ -6,6 +6,37 @@ function Profil() {
   const navigate = useNavigate();
   const { user, setUser, token } = useContext(CurrentUserContext);
   const [msg, setMsg] = useState("");
+  const [modifyInfos, setModifyInfos] = useState(false);
+
+  // Nouvelles infos modifiés par le user
+  const [newUserInfos, setNewUserInfos] = useState({
+    firstname: user.firstname,
+    lastname: user.lastname,
+    email: user.email,
+  });
+
+  const body = JSON.stringify(newUserInfos);
+
+  const myHeaders = new Headers({
+    Authorization: `Bearer ${token}`,
+  });
+  myHeaders.append("Content-Type", "application/json");
+
+  const PUTrequestOptions = {
+    method: "PUT",
+    headers: myHeaders,
+    body,
+  };
+
+  const changeUserStatus = (id) => {
+    fetch(`http://localhost:5000/api/users/${id}`, PUTrequestOptions);
+    setUser({
+      ...user,
+      firstname: newUserInfos.firstname,
+      lastname: newUserInfos.lastname,
+      email: newUserInfos.email,
+    });
+  };
 
   const handleDisconnection = () => {
     console.warn(user);
@@ -68,26 +99,96 @@ function Profil() {
       </div>
       <div className="profil-info">
         <p>
-          {user.lastname[0]}.{user.firstname}
+          {user.lastname}.{user.firstname}
         </p>
-        <ul>
-          <li>Nom : {user.lastname}</li>
-          <li>Prenom : {user.firstname}</li>
-          <li>Email : {user.email}</li>
-          {user.is_admin === 1 ? (
-            <NavLink to="/upload">
-              <button type="button">Upload des video</button>
-            </NavLink>
-          ) : (
-            ""
-          )}
+
+        {modifyInfos ? (
+          <ul>
+            <li>
+              <label htmlFor="mail" name="email">
+                Nom
+              </label>
+              <input
+                type="text"
+                onChange={(e) =>
+                  setNewUserInfos({
+                    ...newUserInfos,
+                    lastname: e.target.value,
+                  })
+                }
+              />
+            </li>
+            <li>
+              <label htmlFor="mail" name="email">
+                Prénom
+              </label>
+              <input
+                type="text"
+                onChange={(e) =>
+                  setNewUserInfos({
+                    ...newUserInfos,
+                    firstname: e.target.value,
+                  })
+                }
+              />
+            </li>
+            <li>
+              <label htmlFor="mail" name="email">
+                Email
+              </label>
+              <input
+                type="text"
+                onChange={(e) =>
+                  setNewUserInfos({
+                    ...newUserInfos,
+                    email: e.target.value,
+                  })
+                }
+              />
+            </li>
+          </ul>
+        ) : (
+          <ul>
+            <li>{user.lastname}</li>
+            <li>{user.firstname}</li>
+            <li>{user.email}</li>
+          </ul>
+        )}
+        {user.is_admin === 1 ? (
+          <NavLink to="/upload">
+            <button type="button">Upload des videos</button>
+          </NavLink>
+        ) : (
+          ""
+        )}
+        {modifyInfos ? (
+          <button
+            type="button"
+            onClick={() => {
+              setModifyInfos(false);
+              changeUserStatus(user.id);
+            }}
+          >
+            Done
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={() => {
+              setModifyInfos(true);
+            }}
+          >
+            Modifier ses informations
+          </button>
+        )}
+        {user.is_admin ? (
           <button type="button" onClick={() => navigate("/usersManagement")}>
             Gestion des Utilisateurs
           </button>
-          <button onClick={handleDisconnection} type="button">
-            Se déconnecter
-          </button>
-        </ul>
+        ) : null}
+        <button onClick={handleDisconnection} type="button">
+          Se déconnecter
+        </button>
       </div>
     </div>
   );

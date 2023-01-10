@@ -5,7 +5,7 @@ function getStorageValue(key, defaultValue) {
   const saved = localStorage.getItem(key);
   // on la convertis
   const initial = JSON.parse(saved);
-  // on renvoit soit la valeur convertis, soir la valeur donnée par defaut.
+  // on renvoit soit la valeur convertis, soit la valeur donnée par defaut.
   return initial || defaultValue;
 }
 

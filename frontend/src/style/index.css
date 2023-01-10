@@ -624,6 +624,18 @@ li {
   height: 55vh;
   width: 100%;
 }
+.profil-container .profil-info button {
+  display: block;
+  margin: auto;
+  margin-top: 5vh;
+  height: 50px;
+  width: 90%;
+  padding: 10px;
+  border: none;
+  color: #ffffff;
+  border-radius: 5px;
+  background-color: #006dce;
+}
 .profil-container p {
   width: 100%;
   text-align: center;
@@ -641,18 +653,6 @@ li {
   background-color: rgba(1, 13, 24, 0.8);
   margin: auto;
   margin-top: 10px;
-}
-.profil-container ul button {
-  display: block;
-  margin: auto;
-  margin-top: 5vh;
-  height: 50px;
-  width: 90%;
-  padding: 10px;
-  border: none;
-  color: #ffffff;
-  border-radius: 5px;
-  background-color: #006dce;
 }
 .profil-container .avatar-container {
   height: 45vh;
@@ -710,6 +710,7 @@ table .admin {
   border: none;
   color: #ffffff;
   border-radius: 5px;
+  background-color: #006dce;
 }
 table .user {
   background-color: grey;
@@ -722,4 +723,5 @@ table .user {
   border: none;
   color: #ffffff;
   border-radius: 5px;
+  background-color: #006dce;
 }/*# sourceMappingURL=index.css.map */

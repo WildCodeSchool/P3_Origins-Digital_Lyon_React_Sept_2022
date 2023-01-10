@@ -5,22 +5,19 @@ import loginImg from "../asset/image/loginImg.jpeg";
 import logo from "../asset/image/logo.svg";
 
 function Register() {
-  const [email, setEmail] = useState("");
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [password, setPassword] = useState("");
+  const [userRegistered, setUserRegistered] = useState({
+    email: "default@email.com",
+    firstname: "default",
+    lastname: "default",
+    password: "default",
+  });
 
   const navigate = useNavigate();
   const handleForm = (e) => {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
-    const body = JSON.stringify({
-      email,
-      firstname,
-      lastname,
-      password,
-    });
+    const body = JSON.stringify(userRegistered);
 
     const requestOptions = {
       method: "POST",
@@ -50,7 +47,12 @@ function Register() {
             Prénom
           </label>
           <input
-            onChange={(e) => setFirstname(e.target.value)}
+            onChange={(e) =>
+              setUserRegistered({
+                ...userRegistered,
+                firstname: e.target.value,
+              })
+            }
             type="firstname"
             className="loginInput"
             id="firstname"
@@ -61,7 +63,9 @@ function Register() {
             Nom
           </label>
           <input
-            onChange={(e) => setLastname(e.target.value)}
+            onChange={(e) =>
+              setUserRegistered({ ...userRegistered, lastname: e.target.value })
+            }
             type="lastname"
             className="loginInput"
             id="lastname"
@@ -72,7 +76,9 @@ function Register() {
             Email
           </label>
           <input
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) =>
+              setUserRegistered({ ...userRegistered, email: e.target.value })
+            }
             type="email"
             className="loginInput"
             id="email"
@@ -83,7 +89,9 @@ function Register() {
             Mot de passe
           </label>
           <input
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) =>
+              setUserRegistered({ ...userRegistered, password: e.target.value })
+            }
             type="password"
             className="loginInput"
             id="password"
