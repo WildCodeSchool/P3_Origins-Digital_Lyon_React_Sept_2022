@@ -1,4 +1,5 @@
 import React from "react";
+import { ToastContainer } from "react-toastify";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import Carrousel from "../components/Carrousel";
@@ -16,6 +17,7 @@ function Home() {
       <Slider />
       <Slider />
       <Navbar />
+      <ToastContainer />
     </div>
   );
 }

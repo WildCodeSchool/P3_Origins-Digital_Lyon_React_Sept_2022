@@ -43,7 +43,7 @@ const add = (req, res) => {
 
 const edit = (req, res) => {
   const user = req.body;
-  user.id = req.params.id;
+  user.id = parseInt(req.params.id, 10);
 
   models.user
     .update(user)

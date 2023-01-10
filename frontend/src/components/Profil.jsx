@@ -1,11 +1,29 @@
 import React, { useContext, useRef, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 import CurrentUserContext from "../../contexts/userContext";
+import defaultAvatar from "../asset/image/defaultAvatar.jpeg";
 
 function Profil() {
+  const unlogToast = () =>
+    toast.error("Vous êtes déconnecté !", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
   const navigate = useNavigate();
   const { user, setUser, token } = useContext(CurrentUserContext);
   const [msg, setMsg] = useState("");
+
+  const handleOnError = (e) => {
+    e.currentTarget.src = defaultAvatar;
+  };
 
   const handleDisconnection = () => {
     console.warn(user);
@@ -55,10 +73,11 @@ function Profil() {
           <img
             src={`http://localhost:5000/api/avatars/${user.avatar}`}
             alt="avatar"
+            onError={handleOnError}
           />
           <form encType="multipart/form-data" onSubmit={handleSubmit}>
             <label htmlFor="file" className="form-label">
-              Choisir
+              Cliquez ici pour changer l'avatar
             </label>
             <input type="file" ref={avatarRef} id="file" />
             <button type="submit">Envoyer</button>
@@ -75,16 +94,28 @@ function Profil() {
           <li>Prenom : {user.firstname}</li>
           <li>Email : {user.email}</li>
           {user.is_admin === 1 ? (
-            <NavLink to="/upload">
-              <button type="button">Upload des video</button>
-            </NavLink>
+            <div>
+              <button type="button" onClick={() => navigate("/upload")}>
+                Upload des video
+              </button>
+              <button
+                type="button"
+                onClick={() => navigate("/usersManagement")}
+              >
+                Gestion des Utilisateurs
+              </button>
+            </div>
           ) : (
             ""
           )}
-          <button type="button" onClick={() => navigate("/usersManagement")}>
-            Gestion des Utilisateurs
-          </button>
-          <button onClick={handleDisconnection} type="button">
+          <button
+            onClick={() => {
+              handleDisconnection();
+              unlogToast();
+            }}
+            type="button"
+          >
+
             Se déconnecter
           </button>
         </ul>

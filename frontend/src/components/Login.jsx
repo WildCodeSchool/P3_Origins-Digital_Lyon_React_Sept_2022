@@ -1,10 +1,24 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useCurrentUserContext } from "../../contexts/userContext";
 import loginImg from "../asset/image/loginImg.jpeg";
 import logo from "../asset/image/logo.svg";
 
 function Login() {
+  const loginToast = () =>
+    toast.success("Vous êtes connecté !", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+
   const { setUser, setToken } = useCurrentUserContext();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -75,7 +89,7 @@ function Login() {
             id="password"
           />
         </div>
-        <button className="loginButton" type="submit">
+        <button className="loginButton" type="submit" onClick={loginToast}>
           Connexion
         </button>
       </form>
