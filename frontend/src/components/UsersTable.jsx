@@ -14,6 +14,7 @@ export default function UsersTable() {
   });
   myHeaders.append("Content-Type", "application/json");
 
+  // Request options pour la mise à jour de la bdd
   const PUTrequestOptions = {
     method: "PUT",
     headers: myHeaders,
@@ -24,6 +25,7 @@ export default function UsersTable() {
     headers: myHeaders,
   };
 
+  // fonction qui met à jour le status de l'utilisateur avec les PUT options ci-dessus
   const changeUserStatus = (id) => {
     fetch(`http://localhost:5000/api/users/${id}`, PUTrequestOptions);
   };
@@ -41,44 +43,49 @@ export default function UsersTable() {
       <ReturnPageButton />
       <h3>Liste Utilisateurs</h3>
       <table>
-        <tr>
-          <th>Prénom</th>
-          <th>Nom</th>
-          <th>Email</th>
-          <th>Administrateur</th>
-        </tr>
-        {userList.map((user) => {
-          return (
-            <tr key={user.id}>
-              <td>{user.firstname}</td>
-              <td>{user.lastname}</td>
-              <td>{user.email}</td>
-              <td>
-                <button
-                  className={user.is_admin ? "admin" : "user"}
-                  type="button"
-                  onClick={() => {
-                    setIsAdmin(!isAdmin);
-                    changeUserStatus(user.id);
-                  }}
-                >
-                  {user.is_admin ? "Admin" : "Utilisateur"}
-                </button>
-              </td>
-              {!user.is_admin ? (
-                <button
-                  className="delete"
-                  type="button"
-                  onClick={() => {
-                    deleteUser(user.id);
-                  }}
-                >
-                  X
-                </button>
-              ) : null}
-            </tr>
-          );
-        })}
+        <tbody>
+          <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Administrateur</th>
+            <th>Supprimer</th>
+          </tr>
+          {userList.map((user) => {
+            return (
+              <tr key={user.id}>
+                <td>{user.firstname}</td>
+                <td>{user.lastname}</td>
+                <td>{user.email}</td>
+                <td>
+                  <button
+                    className={user.is_admin ? "admin" : "user"}
+                    type="button"
+                    onClick={() => {
+                      setIsAdmin(!isAdmin);
+                      changeUserStatus(user.id);
+                    }}
+                  >
+                    {user.is_admin ? "Admin" : "Utilisateur"}
+                  </button>
+                </td>
+                <td className="deleteCase">
+                  {!user.is_admin ? (
+                    <button
+                      className="deleteBtn"
+                      type="button"
+                      onClick={() => {
+                        deleteUser(user.id);
+                      }}
+                    >
+                      X
+                    </button>
+                  ) : null}
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
     </div>
   );

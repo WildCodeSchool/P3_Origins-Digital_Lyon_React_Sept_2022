@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CurrentUserContext from "../../contexts/userContext";
 
 function Profil() {
@@ -155,9 +155,9 @@ function Profil() {
           </ul>
         )}
         {user.is_admin === 1 ? (
-          <NavLink to="/upload">
-            <button type="button">Upload des videos</button>
-          </NavLink>
+          <button onClick={() => navigate("/upload")} type="button">
+            Upload des videos
+          </button>
         ) : (
           ""
         )}
