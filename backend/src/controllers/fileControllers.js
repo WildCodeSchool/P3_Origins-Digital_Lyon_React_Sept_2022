@@ -72,11 +72,12 @@ const sendAvatar = (req, res) => {
 };
 const uploadVideo = (req, res) => {
   const videoName = req.video;
+  const videos = req.body;
 
   // [videos.name, videos.url, videos.description, videos.img]
 
   models.videos
-    .insert(videoName)
+    .insert(videos, videoName)
     .then(([result]) => {
       res.location(`/api/videos/${result.insertId}`).sendStatus(201);
     })
