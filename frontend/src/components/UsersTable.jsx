@@ -37,7 +37,7 @@ export default function UsersTable() {
     fetch("http://localhost:5000/api/users")
       .then((res) => res.json())
       .then((users) => setUserList(users));
-  }, [userList]);
+  }, [changeUserStatus]);
   return (
     <div>
       <ReturnPageButton />
