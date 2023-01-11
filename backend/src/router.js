@@ -24,7 +24,7 @@ router.post(
 router.get("/api/users", userControllers.browse);
 router.get("/api/users/:id", userControllers.read);
 router.post("/api/users", hashPassword, verifyToken, userControllers.add);
-router.put("/api/users/:id", hashPassword, verifyToken, userControllers.edit);
+router.put("/api/users/:id", verifyToken, userControllers.edit);
 router.delete("/api/users/:id", verifyToken, userControllers.destroy);
 
 // Gestion des avatars
@@ -36,5 +36,11 @@ router.post(
   userControllers.updateAvatar
 );
 router.get("/api/avatars/:fileName", fileControllers.sendAvatar);
+
+// Gestion des videos
+router.get("/api/videos", fileControllers.browseVideos);
+router.get("/api/videos/:id", fileControllers.readVideos);
+router.put("/api/videos/:id", hashPassword, verifyToken);
+router.delete("/api/videos/:id", verifyToken);
 
 module.exports = router;

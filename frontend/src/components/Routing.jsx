@@ -10,6 +10,7 @@ import PlaylistPage from "../pages/PlaylistPage";
 import Register from "./Register";
 import Upload from "./Upload";
 import UsersTable from "./UsersTable";
+import VideosTable from "./VideosTable";
 
 export default function Routing() {
   return (
@@ -24,6 +25,7 @@ export default function Routing() {
       <Route path="/register" element={<Register />} />
       <Route path="/upload" element={<Upload />} />
       <Route path="/usersManagement" element={<UsersTable />} />
+      <Route path="/videosManagement" element={<VideosTable />} />
     </Routes>
   );
 }
