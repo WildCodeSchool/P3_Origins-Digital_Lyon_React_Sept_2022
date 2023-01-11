@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import CurrentUserContext from "../../contexts/userContext";
+import ReturnPageButton from "./ReturnPageButton";
 
 export default function UsersTable() {
   const [videosList, setVideosList] = useState([]);
@@ -26,6 +27,7 @@ export default function UsersTable() {
   }, [videosList]);
   return (
     <div>
+      <ReturnPageButton />
       <h3>Liste Vidéos</h3>
       <table>
         <tr>

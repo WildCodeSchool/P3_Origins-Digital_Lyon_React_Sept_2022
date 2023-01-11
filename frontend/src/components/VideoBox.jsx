@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from "react";
+import PropTypes from "prop-types";
 import { FiMoreVertical } from "react-icons/fi";
 
 export default function VideoBox({
@@ -30,3 +30,5 @@ export default function VideoBox({
     </div>
   );
 }
+
+VideoBox.propTypes = PropTypes.node.isRequired;
