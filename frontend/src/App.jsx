@@ -7,6 +7,7 @@ import VideoPlayer from "./pages/VideoPlayer";
 import FavPage from "./pages/FavPage";
 import PlaylistPage from "./pages/PlaylistPage";
 import Register from "./components/Register";
+import { CurrentVideosContextProvider } from "../contexts/videosContext";
 import { CurrentUserContextProvider } from "../contexts/userContext";
 import Upload from "./components/Upload";
 import "./style/index.css";
@@ -15,17 +16,19 @@ function App() {
   return (
     <BrowserRouter>
       <CurrentUserContextProvider>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/saved" element={<Library />} />
-          <Route path="/favorites" element={<FavPage />} />
-          <Route path="/myPlaylist" element={<PlaylistPage />} />
-          <Route path="/search" element={<SearchPage />} />
-          <Route path="/login" element={<ProfilePage />} />
-          <Route path="/player" element={<VideoPlayer />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/upload" element={<Upload />} />
-        </Routes>
+        <CurrentVideosContextProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/saved" element={<Library />} />
+            <Route path="/favorites" element={<FavPage />} />
+            <Route path="/myPlaylist" element={<PlaylistPage />} />
+            <Route path="/search" element={<SearchPage />} />
+            <Route path="/login" element={<ProfilePage />} />
+            <Route path="/player" element={<VideoPlayer />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/upload" element={<Upload />} />
+          </Routes>
+        </CurrentVideosContextProvider>
       </CurrentUserContextProvider>
     </BrowserRouter>
   );

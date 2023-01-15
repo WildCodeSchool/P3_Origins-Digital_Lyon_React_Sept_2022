@@ -2,11 +2,12 @@ import React, { useContext, useRef, useState } from "react";
 import { Player } from "video-react";
 
 import axios from "axios";
+import CurrentVideosContext from "../../contexts/videosContext";
 import CurrentUserContext from "../../contexts/userContext";
 
 function Upload() {
   const { token } = useContext(CurrentUserContext);
-
+  const { videos, setVideos } = useContext(CurrentVideosContext);
   const [msg, setMsg] = useState("");
 
   const videoRef = useRef(null);
@@ -46,13 +47,31 @@ function Upload() {
     } else {
       setMsg("Aucun fichier");
     }
+    axios
+      .get("http://localhost:5000/api/videos")
+      .then((response) => {
+        setVideos(response.data);
+        console.log(response.data);
+        // utiliser les données récupérées pour mettre à jour votre state ou afficher les vidéos dans votre composant
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
     <div className="profil-container">
       <div className="video-container">
         <div className="video">
-          <Player playsInline src="" />
+          <div>
+            {videos.map((video) => (
+              <Player
+                key={video.id}
+                playsInline
+                src={`http://localhost:5000/api/videos/${video.name}`}
+              />
+            ))}
+          </div>
           <form encType="multipart/form-data" onSubmit={handleSubmit}>
             <label htmlFor="file" className="form-label">
               Choisir
