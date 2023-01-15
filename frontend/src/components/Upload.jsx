@@ -19,6 +19,15 @@ function Upload() {
 
       const formData = new FormData();
       formData.append("videos", videoRef.current.files[0]);
+      formData.append(
+        "description",
+        document.querySelector("#description").value
+      );
+      formData.append("img", document.querySelector("#img").value);
+
+      for (const [key, value] of formData.entries()) {
+        console.warn(`${key}: ${value}`);
+      }
 
       // on appelle le back
       axios
