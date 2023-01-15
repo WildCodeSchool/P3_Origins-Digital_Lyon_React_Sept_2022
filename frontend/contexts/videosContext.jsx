@@ -1,4 +1,5 @@
-import { createContext, useContext, useState } from "react";
+/* eslint-disable react/jsx-no-constructed-context-values */
+import { createContext, useState } from "react";
 import PropTypes from "prop-types";
 
 const CurrentVideosContext = createContext();
