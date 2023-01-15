@@ -37,6 +37,18 @@ $normalfont: 1.28%;
   align-items: center;
 }
 
+@mixin buttonStyle {
+  display: block;
+  margin: auto;
+  height: 50px;
+  width: 90%;
+  padding: 10px;
+  border: none;
+  color: $white;
+  border-radius: 5px;
+  background-color: $color-1;
+}
+
 /*Base style*/
 
 * {

@@ -127,10 +127,10 @@ li {
   width: 25vw;
   background-color: #010d18;
 }
-.navigation .nav-active {
+.navigation .active {
   position: relative;
 }
-.navigation .nav-active::after {
+.navigation .active::after {
   content: "";
   height: 4px;
   width: 0;
@@ -616,13 +616,26 @@ li {
 }
 
 .profil-container {
-  height: 100vh;
+  height: 200vh;
   background-color: #00284d;
   width: 100vw;
 }
 .profil-container .profil-info {
   height: 55vh;
   width: 100%;
+}
+.profil-container .profil-info button {
+  background-color: #006dce;
+  display: block;
+  margin: auto;
+  margin-top: 5vh;
+  height: 50px;
+  width: 90%;
+  padding: 10px;
+  border: none;
+  color: #ffffff;
+  border-radius: 5px;
+  background-color: #006dce;
 }
 .profil-container p {
   width: 100%;
@@ -641,18 +654,6 @@ li {
   background-color: rgba(1, 13, 24, 0.8);
   margin: auto;
   margin-top: 10px;
-}
-.profil-container ul button {
-  display: block;
-  margin: auto;
-  margin-top: 5vh;
-  height: 50px;
-  width: 90%;
-  padding: 10px;
-  border: none;
-  color: #ffffff;
-  border-radius: 5px;
-  background-color: #006dce;
 }
 .profil-container .avatar-container {
   height: 45vh;
@@ -1773,4 +1774,58 @@ body.video-react-full-window .video-react-fullscreen {
 }
 .video-react video::-webkit-media-text-track-container {
   transform: translateY(-30px);
+}
+
+table {
+  border-collapse: collapse;
+  min-width: 400px;
+  border: 1px solid #006dce;
+  box-shadow: 0 5px 15px #00284d;
+}
+table h3 {
+  width: 50vw;
+  text-align: center;
+  margin-left: 20px;
+}
+table td,
+table th {
+  padding: 15px 20px;
+}
+table th {
+  background-color: #006dce;
+  color: #ffffff;
+}
+table tr {
+  text-align: center;
+}
+table td {
+  left: 50%;
+  top: 50%;
+}
+table .deleteBtn {
+  height: 25px;
+  width: 25px;
+  border-radius: 3rem;
+}
+table .admin {
+  display: block;
+  margin: auto;
+  height: 50px;
+  width: 90%;
+  padding: 10px;
+  border: none;
+  color: #ffffff;
+  border-radius: 5px;
+  background-color: #006dce;
+}
+table .user {
+  display: block;
+  margin: auto;
+  height: 50px;
+  width: 90%;
+  padding: 10px;
+  border: none;
+  color: #ffffff;
+  border-radius: 5px;
+  background-color: #006dce;
 } /*# sourceMappingURL=index.css.map */

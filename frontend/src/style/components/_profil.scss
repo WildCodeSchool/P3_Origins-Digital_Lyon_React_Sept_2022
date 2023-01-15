@@ -1,11 +1,24 @@
 .profil-container {
-  height: 100vh;
+  height: 200vh;
   background-color: $color-2;
   width: 100vw;
 
   .profil-info {
     height: 55vh;
     width: 100%;
+    button {
+      background-color: $color-1;
+      display: block;
+      margin: auto;
+      margin-top: 5vh;
+      height: 50px;
+      width: 90%;
+      padding: 10px;
+      border: none;
+      color: $white;
+      border-radius: 5px;
+      background-color: $color-1;
+    }
   }
   p {
     width: 100%;
@@ -25,18 +38,6 @@
       background-color: rgba($black, 0.8);
       margin: auto;
       margin-top: 10px;
-    }
-    button {
-      display: block;
-      margin: auto;
-      margin-top: 5vh;
-      height: 50px;
-      width: 90%;
-      padding: 10px;
-      border: none;
-      color: $white;
-      border-radius: 5px;
-      background-color: $color-1;
     }
   }
   .avatar-container {

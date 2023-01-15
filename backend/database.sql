@@ -1,5 +1,4 @@
-USE `Origins_digital` ;
-
+SET foreign_key_checks = 0;
 
 DROP TABLE IF EXISTS `User`;
 CREATE TABLE IF NOT EXISTS `User` (
@@ -16,7 +15,8 @@ ENGINE = InnoDB;
 
 DROP TABLE IF EXISTS `Videos`;
 CREATE TABLE IF NOT EXISTS `Videos` (
- `id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `url` VARCHAR(300) NOT NULL,
   `description` TEXT NOT NULL,
   `creation_date` DATETIME NULL DEFAULT NOW(),
   `img` VARCHAR(300) NOT NULL,
@@ -83,3 +83,6 @@ CREATE TABLE IF NOT EXISTS `Videos_has_comments` (
     FOREIGN KEY (`User_id`)
     REFERENCES `origins_digital`.`User` (`id`))
 ENGINE = InnoDB;
+
+/* On reactive la verification des clés étrangères*/
+SET foreign_key_checks = 1;
