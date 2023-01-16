@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS `User` (
   `firstname` VARCHAR(80) NOT NULL,
   `lastname` VARCHAR(80) NOT NULL,
   `email` VARCHAR(300) NOT NULL,
-/*password hash par default "password"*/
+/*password hash par default : "password"*/
   `hashedPassword` VARCHAR(255) NOT NULL DEFAULT '$argon2id$v=19$m=65536,t=5,p=1$lcKpgL0a6dCrPnIyv0NMYg$gAyEeuwiBd9KAlcwkDb9WjyZHodEkYwGnBC0oTebpfk',
   `is_admin` TINYINT NULL,
   `avatar` varchar(255) DEFAULT NULL,
@@ -28,7 +28,7 @@ VALUES ("admin", "admin", "admin@email.com", 1),
 DROP TABLE IF EXISTS `Videos`;
 CREATE TABLE IF NOT EXISTS `Videos` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `url` VARCHAR(300) NOT NULL,
+  `url` VARCHAR(300) NOT NULL DEFAULT "test",
   `description` TEXT NOT NULL,
   `creation_date` DATETIME NULL DEFAULT NOW(),
   `img` VARCHAR(300) NOT NULL,

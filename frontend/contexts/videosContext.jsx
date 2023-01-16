@@ -8,9 +8,12 @@ export default CurrentVideosContext;
 
 export function CurrentVideosContextProvider({ children }) {
   const [videos, setVideos] = useState([]);
+  const [index, setIndex] = useState(0);
 
   return (
-    <CurrentVideosContext.Provider value={{ videos, setVideos }}>
+    <CurrentVideosContext.Provider
+      value={{ videos, setVideos, index, setIndex }}
+    >
       {children}
     </CurrentVideosContext.Provider>
   );

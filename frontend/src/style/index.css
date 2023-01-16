@@ -438,6 +438,9 @@ li {
   height: 100%;
   width: 60%;
 }
+.boxContainer .vidInfoContainer .videoTitle {
+  cursor: pointer;
+}
 .boxContainer .vidInfoContainer p {
   font-size: small;
   height: 50%;

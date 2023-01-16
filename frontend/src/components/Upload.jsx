@@ -64,8 +64,8 @@ function Upload() {
 
   return (
     <div className="profil-container">
+      <ReturnPageButton />
       <div className="video-container">
-        <ReturnPageButton />
         <div className="video">
           <div>
             {videos.map((video) => (

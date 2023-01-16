@@ -6,7 +6,7 @@ export default function SearchPage() {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/video")
+    fetch("http://localhost:5000/api/videos")
       .then((res) => res.json())
       .then((videos) => setVideoData(videos));
   });
