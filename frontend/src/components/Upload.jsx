@@ -4,6 +4,7 @@ import { Player } from "video-react";
 import axios from "axios";
 import CurrentVideosContext from "../../contexts/videosContext";
 import CurrentUserContext from "../../contexts/userContext";
+import ReturnPageButton from "./ReturnPageButton";
 
 function Upload() {
   const { token } = useContext(CurrentUserContext);
@@ -64,6 +65,7 @@ function Upload() {
   return (
     <div className="profil-container">
       <div className="video-container">
+        <ReturnPageButton />
         <div className="video">
           <div>
             {videos.map((video) => (
