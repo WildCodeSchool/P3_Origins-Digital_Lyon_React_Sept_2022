@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useState } from "react";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import CurrentUserContext from "../../contexts/userContext";
@@ -10,8 +10,21 @@ function Profil() {
   const { user, setUser, token } = useContext(CurrentUserContext);
   const [msg, setMsg] = useState("");
   const [modifyInfos, setModifyInfos] = useState(false);
+
   const unlogToast = () =>
     toast.error("Vous êtes déconnecté !", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+
+  const saveInfosChangeToast = () =>
+    toast.info("Modifications enregistrées !", {
       position: "top-center",
       autoClose: 2000,
       hideProgressBar: false,
@@ -120,6 +133,27 @@ function Profil() {
         <p>
           {user.lastname}.{user.firstname}
         </p>
+        {modifyInfos ? (
+          <button
+            type="button"
+            onClick={() => {
+              setModifyInfos(false);
+              changeUserStatus(user.id);
+              saveInfosChangeToast();
+            }}
+          >
+            Enregistrer
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={() => {
+              setModifyInfos(true);
+            }}
+          >
+            Modifier mes informations
+          </button>
+        )}
 
         {modifyInfos ? (
           <ul>
@@ -174,31 +208,16 @@ function Profil() {
           </ul>
         )}
         {user.is_admin === 1 ? (
-          <button onClick={() => navigate("/upload")} type="button">
-            Upload des videos
-          </button>
+          <div>
+            <button onClick={() => navigate("/upload")} type="button">
+              Upload des videos
+            </button>
+            <button onClick={() => navigate("/videosManagement")} type="button">
+              Gestion des videos
+            </button>
+          </div>
         ) : (
           ""
-        )}
-        {modifyInfos ? (
-          <button
-            type="button"
-            onClick={() => {
-              setModifyInfos(false);
-              changeUserStatus(user.id);
-            }}
-          >
-            Done
-          </button>
-        ) : (
-          <button
-            type="button"
-            onClick={() => {
-              setModifyInfos(true);
-            }}
-          >
-            Modifier ses informations
-          </button>
         )}
         {user.is_admin ? (
           <button type="button" onClick={() => navigate("/usersManagement")}>
@@ -215,6 +234,7 @@ function Profil() {
           Se déconnecter
         </button>
       </div>
+      <ToastContainer />
     </div>
   );
 }
