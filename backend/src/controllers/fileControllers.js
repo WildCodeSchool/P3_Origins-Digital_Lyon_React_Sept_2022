@@ -38,10 +38,9 @@ const renameAvatar = (req, res, next) => {
   );
 };
 const renameVideo = (req, res, next) => {
-  console.warn(req.file);
   // TODO : gérer les erreurs
   // On récupère le nom du fichier
-  const { originalname } = req.file;
+  const originalname = req.file.originalname.replace(/\s/g, "-");
 
   // On récupère le nom du fichier
   const { filename } = req.file;
@@ -52,6 +51,7 @@ const renameVideo = (req, res, next) => {
     `${videoDirectory}${filename}`,
     `${videoDirectory}${uuid}-${originalname}`,
     (err) => {
+      console.error("rename: ", err);
       if (err) throw err;
       req.video = `${uuid}-${originalname}`;
       next();
@@ -91,6 +91,7 @@ const sendVideo = (req, res) => {
 
   res.download(videoDirectory + fileName, fileName, (err) => {
     if (err) {
+      console.error("error download: ", err);
       res.status(404).send({
         message: `Video not found.`,
       });

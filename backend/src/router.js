@@ -45,7 +45,7 @@ router.post(
   fileControllers.uploadVideo
 );
 
-router.get("/api/videos/:fileName", fileControllers.sendVideo);
 router.get("/api/videos", fileControllers.browse);
+router.get("/api/videos/:fileName", fileControllers.sendVideo);
 
 module.exports = router;
