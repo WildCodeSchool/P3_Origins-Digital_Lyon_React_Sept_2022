@@ -7,15 +7,11 @@ import CurrentVideosContext from "../../contexts/videosContext";
 function VideosFetch() {
   const { setVideos, videos } = useContext(CurrentVideosContext);
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("http://localhost:5000/api/videos");
-        setVideos(response.data);
-      } catch (error) {
-        console.warn(error);
-      }
-    };
-    fetchData();
+    axios
+      .get("http://localhost:5000/api/videos")
+      .then((response) => setVideos(response.data))
+
+      .catch((error) => console.error(error));
   }, []);
   return (
     <div>
