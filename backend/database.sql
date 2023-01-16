@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS `Videos` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `url` VARCHAR(300) NOT NULL,
   `description` TEXT NOT NULL,
-  `creation_date` DATETIME NOT NULL DEFAULT NOW(),
+  `creation_date` DATETIME NULL DEFAULT NOW(),
   `img` VARCHAR(300) NOT NULL,
   `name` VARCHAR(300) NOT NULL,
   PRIMARY KEY (`id`))

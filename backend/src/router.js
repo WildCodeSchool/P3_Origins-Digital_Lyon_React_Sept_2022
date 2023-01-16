@@ -33,14 +33,19 @@ router.post(
   verifyToken,
   upload.single("avatar"),
   fileControllers.renameAvatar,
-  userControllers.updateAvatar
+  fileControllers.updateAvatar
 );
 router.get("/api/avatars/:fileName", fileControllers.sendAvatar);
 
-// Gestion des videos
-router.get("/api/videos", fileControllers.browseVideos);
-router.get("/api/videos/:id", fileControllers.readVideos);
-router.put("/api/videos/:id", hashPassword, verifyToken);
-router.delete("/api/videos/:id", verifyToken);
+router.post(
+  "/api/videos",
+
+  upload.single("videos"),
+  fileControllers.renameVideo,
+  fileControllers.uploadVideo
+);
+
+router.get("/api/videos/:fileName", fileControllers.sendVideo);
+router.get("/api/videos", fileControllers.browse);
 
 module.exports = router;
