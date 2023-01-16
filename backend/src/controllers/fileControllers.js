@@ -79,7 +79,7 @@ const uploadVideo = (req, res) => {
   models.videos
     .insert(videos, videoName)
     .then(([result]) => {
-      res.location(`/api/videos/${result.insertId}`).sendStatus(201);
+      res.location(`/api/videos/${result.insertId}`);
     })
     .catch((error) => {
       console.error(error);
