@@ -9,9 +9,7 @@ function VideosFetch() {
   useEffect(() => {
     axios
       .get("http://localhost:5000/api/videos")
-      .then((response) => setVideos(response.data))
-
-      .catch((error) => console.error(error));
+      .then((response) => setVideos(response.data));
   }, []);
   return (
     <div>
