@@ -1,15 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import Navbar from "../components/Navbar";
+import CurrentVideosContext from "../../contexts/videosContext";
+import VideoBox from "@components/VideoBox";
 
 export default function SearchPage() {
-  const [videoData, setVideoData] = useState([]);
+  const { videos } = useContext(CurrentVideosContext);
   const [search, setSearch] = useState("");
-
-  useEffect(() => {
-    fetch("http://localhost:5000/api/videos")
-      .then((res) => res.json())
-      .then((videos) => setVideoData(videos));
-  });
 
   return (
     <div className="pageContainer">
@@ -26,15 +22,19 @@ export default function SearchPage() {
         />
       </div>
       <ul>
-        {videoData
+        {videos
           .filter((video) => video.video_id === search)
 
-          .map((video) => (
+          .map((video, i) => (
             <li>
-              <data video={video} key={video.id} />
+              <VideoBox
+                videoName={video.name}
+                index={i}
+                description={video.description}
+                key={video.id}
+              />
             </li>
           ))}
-        <h2>Parcourir tout</h2>
       </ul>
 
       <h2 className="littleTitle">Parcourir tout</h2>

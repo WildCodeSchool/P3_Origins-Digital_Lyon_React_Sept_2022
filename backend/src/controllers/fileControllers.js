@@ -91,7 +91,7 @@ const sendVideo = (req, res) => {
 
   res.download(videoDirectory + fileName, fileName, (err) => {
     if (err) {
-      res.status(404).send({
+      res.send({
         message: `Video not found.`,
       });
     }
