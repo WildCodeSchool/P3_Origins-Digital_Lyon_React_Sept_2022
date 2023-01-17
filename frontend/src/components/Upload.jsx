@@ -1,14 +1,13 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
-import { Player } from "video-react";
+import React, { useContext, useRef, useState } from "react";
 
 import axios from "axios";
-import CurrentVideosContext from "../../contexts/videosContext";
+
 import CurrentUserContext from "../../contexts/userContext";
 import ReturnPageButton from "./ReturnPageButton";
 
 function Upload() {
   const { token } = useContext(CurrentUserContext);
-  const { videos, setVideos } = useContext(CurrentVideosContext);
+
   const [msg, setMsg] = useState("");
 
   const videoRef = useRef(null);
@@ -34,11 +33,7 @@ function Upload() {
       // on appelle le back
       axios
         .post("http://localhost:5000/api/videos", formData)
-        .then((response) => response.json())
-        .then((results) => {
-          // maj video
-          console.warn(results);
-
+        .then(() => {
           setMsg("Upload réussi !");
         })
         .catch((error) => {
@@ -49,33 +44,12 @@ function Upload() {
       setMsg("Aucun fichier");
     }
   };
-  useEffect(() => {
-    axios
-      .get("http://localhost:5000/api/videos")
-      .then((response) => {
-        setVideos(response.data);
-        console.warn(response.data);
-        // utiliser les données récupérées pour mettre à jour votre state ou afficher les vidéos dans votre composant
-      })
-      .catch((error) => {
-        console.warn(error);
-      });
-  }, []);
 
   return (
     <div className="profil-container">
       <ReturnPageButton />
       <div className="video-container">
         <div className="video">
-          <div>
-            {videos.map((video) => (
-              <Player
-                key={video.id}
-                playsInline
-                src={`http://localhost:5000/api/videos/${video.name}`}
-              />
-            ))}
-          </div>
           <form encType="multipart/form-data" onSubmit={handleSubmit}>
             <label htmlFor="file" className="form-label">
               Choisir

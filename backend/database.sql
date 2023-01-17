@@ -28,7 +28,7 @@ VALUES ("admin", "admin", "admin@email.com", 1),
 DROP TABLE IF EXISTS `Videos`;
 CREATE TABLE IF NOT EXISTS `Videos` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `url` VARCHAR(300) NOT NULL DEFAULT "test",
+  `url` VARCHAR(300) NULL,
   `description` TEXT NOT NULL,
   `creation_date` DATETIME NULL DEFAULT NOW(),
   `img` VARCHAR(300) NOT NULL,
