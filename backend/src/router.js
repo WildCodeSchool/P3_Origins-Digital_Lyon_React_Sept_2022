@@ -39,13 +39,18 @@ router.get("/api/avatars/:fileName", fileControllers.sendAvatar);
 
 router.post(
   "/api/videos",
-
-  upload.single("videos"),
+  verifyToken,
+  upload.fields([{ name: "video" }, { name: "img" }]),
   fileControllers.renameVideo,
+  fileControllers.renameImgVideo,
   fileControllers.uploadVideo
 );
 
 router.get("/api/videos", fileControllers.browse);
-router.get("/api/videos/:fileName", fileControllers.sendVideo);
+router.get(
+  "/api/videos/:fileName",
+  fileControllers.sendVideo,
+  fileControllers.sendImgVideo
+);
 
 module.exports = router;

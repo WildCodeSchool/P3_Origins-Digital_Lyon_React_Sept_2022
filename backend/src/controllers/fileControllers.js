@@ -4,6 +4,7 @@ const models = require("../models");
 
 const avatarDirectory = process.env.AVATAR_DIRECTORY || "public/";
 const videoDirectory = process.env.AVATAR_DIRECTORY || "public/";
+const imgVideoDirectory = process.env.AVATAR_DIRECTORY || "public/";
 
 const browse = (req, res) => {
   models.videos
@@ -40,10 +41,10 @@ const renameAvatar = (req, res, next) => {
 const renameVideo = (req, res, next) => {
   // TODO : gérer les erreurs
   // On récupère le nom du fichier
-  const originalname = req.file.originalname.replace(/\s/g, "-");
+  const originalname = req.files.video[0].originalname.replace(/\s/g, "-");
 
   // On récupère le nom du fichier
-  const { filename } = req.file;
+  const { filename } = req.files.video[0];
 
   // On utilise la fonction rename de fs pour renommer le fichier
   const uuid = uuidv4();
@@ -54,6 +55,26 @@ const renameVideo = (req, res, next) => {
       console.error("rename: ", err);
       if (err) throw err;
       req.video = `${uuid}-${originalname}`;
+      next();
+    }
+  );
+};
+const renameImgVideo = (req, res, next) => {
+  // TODO : gérer les erreurs
+  // On récupère le nom du fichier
+  const { originalname } = req.files.img[0].replace(/\s/g, "-");
+
+  // On récupère le nom du fichier
+  const { filename } = req.files.img[0];
+
+  // On utilise la fonction rename de fs pour renommer le fichier
+  const uuid = uuidv4();
+  fs.rename(
+    `${imgVideoDirectory}${filename}`,
+    `${imgVideoDirectory}${uuid}-${originalname}`,
+    (err) => {
+      if (err) throw err;
+      req.img = `${uuid}-${originalname}`;
       next();
     }
   );
@@ -73,11 +94,10 @@ const sendAvatar = (req, res) => {
 const uploadVideo = (req, res) => {
   const videoName = req.video;
   const videos = req.body;
-
-  // [videos.name, videos.url, videos.description, videos.img]
+  const imgVideoName = req.img;
 
   models.videos
-    .insert(videos, videoName)
+    .insert(videos, videoName, imgVideoName)
     .then(([result]) => {
       res.status(201).location(`/api/videos/${result.insertId}`).send();
     })
@@ -90,6 +110,16 @@ const sendVideo = (req, res) => {
   const { fileName } = req.params;
 
   res.download(videoDirectory + fileName, fileName, (err) => {
+    if (err) {
+      console.error("error download: ", err);
+    }
+  });
+};
+
+const sendImgVideo = (req, res) => {
+  const { fileName } = req.params;
+
+  res.download(imgVideoDirectory + fileName, fileName, (err) => {
     if (err) {
       console.error("error download: ", err);
     }
@@ -119,4 +149,6 @@ module.exports = {
   updateAvatar,
   uploadVideo,
   browse,
+  renameImgVideo,
+  sendImgVideo,
 };
