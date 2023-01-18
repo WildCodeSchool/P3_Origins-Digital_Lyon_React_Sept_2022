@@ -7,14 +7,15 @@ export default function UsersTable() {
   const [isAdmin, setIsAdmin] = useState(false);
   const { token } = useContext(CurrentUserContext);
 
-  const body = JSON.stringify({ is_admin: isAdmin });
-
   const myHeaders = new Headers({
     Authorization: `Bearer ${token}`,
   });
   myHeaders.append("Content-Type", "application/json");
 
+  const body = JSON.stringify({ is_admin: isAdmin });
+
   // Request options pour la mise à jour de la bdd
+
   const PUTrequestOptions = {
     method: "PUT",
     headers: myHeaders,
@@ -36,8 +37,10 @@ export default function UsersTable() {
   useEffect(() => {
     fetch("http://localhost:5000/api/users")
       .then((res) => res.json())
-      .then((users) => setUserList(users));
-  }, [changeUserStatus]);
+      .then((users) => {
+        setUserList(users);
+      });
+  });
   return (
     <div>
       <ReturnPageButton />

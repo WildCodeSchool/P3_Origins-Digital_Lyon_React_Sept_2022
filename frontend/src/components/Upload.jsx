@@ -1,6 +1,7 @@
 import React, { useContext, useRef, useState } from "react";
 import axios from "axios";
 import CurrentUserContext from "../../contexts/userContext";
+import ReturnPageButton from "./ReturnPageButton";
 
 function Upload() {
   const { token } = useContext(CurrentUserContext);
@@ -43,6 +44,7 @@ function Upload() {
 
   return (
     <div className="profil-container">
+      <ReturnPageButton />
       <div className="video-container">
         <div className="video">
           <form encType="multipart/form-data" onSubmit={handleSubmit}>
@@ -62,7 +64,7 @@ function Upload() {
               <label htmlFor="description" className="form-label">
                 description
               </label>
-              <input type="text" id="description" />
+              <textarea id="description" />
             </div>
             <button type="submit">Envoyer</button>
           </form>

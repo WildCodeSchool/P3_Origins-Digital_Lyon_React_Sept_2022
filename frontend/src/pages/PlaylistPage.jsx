@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import VideoList from "../components/VideoList";
 import ReturnPageButton from "../components/ReturnPageButton";
 import Navbar from "../components/Navbar";
 
-export default function PlaylistPage() {
+export default function PlaylistPage({ videos }) {
   return (
     <div>
       <div className="returnContainer">
@@ -11,7 +12,7 @@ export default function PlaylistPage() {
       </div>
       <h2>My playlist</h2>
       <div>
-        <VideoList />
+        <VideoList videos={videos} />
       </div>
       <Navbar />
     </div>

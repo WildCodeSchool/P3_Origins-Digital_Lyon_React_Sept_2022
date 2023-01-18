@@ -1,15 +1,10 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable react/prop-types */
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
+import VideoBox from "../components/VideoBox";
 
-export default function SearchPage() {
-  const [videoData, setVideoData] = useState([]);
+export default function SearchPage({ videos }) {
   const [search, setSearch] = useState("");
-
-  useEffect(() => {
-    fetch("http://localhost:5000/api/video")
-      .then((res) => res.json())
-      .then((videos) => setVideoData(videos));
-  });
 
   return (
     <div className="pageContainer">
@@ -25,19 +20,40 @@ export default function SearchPage() {
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
-      <ul>
-        {videoData
-          .filter((video) => video.video_id === search)
+      <div>
+        {search === "" ? (
+          <div className="">
+            <h2 className="littleTitle">Parcourir tout</h2>
+            <ul>
+              {videos.map((vid) => {
+                return (
+                  <li key={vid.id}>
+                    <VideoBox video={vid} />
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        ) : (
+          <div>
+            <ul>
+              {videos
+                .filter((video) => video.name.toLowerCase().includes(search))
 
-          .map((video) => (
-            <li>
-              <data video={video} key={video.id} />
-            </li>
-          ))}
-        <h2>Parcourir tout</h2>
-      </ul>
-
-      <h2 className="littleTitle">Parcourir tout</h2>
+                .map((video, i) => (
+                  <li>
+                    <VideoBox
+                      videoName={video.name}
+                      index={i}
+                      description={video.description}
+                      key={video.id}
+                    />
+                  </li>
+                ))}
+            </ul>
+          </div>
+        )}
+      </div>
       <Navbar />
     </div>
   );

@@ -6,9 +6,7 @@ class FileManager extends AbstractManager {
   }
 
   findAll() {
-    return this.connection.query(
-      `select id, name, description, img from  ${this.table}`
-    );
+    return this.connection.query(`select * from  ${this.table}`);
   }
 
   insert(videos, videoName, imgVideoName) {

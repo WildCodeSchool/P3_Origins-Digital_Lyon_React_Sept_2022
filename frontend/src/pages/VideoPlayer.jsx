@@ -4,7 +4,6 @@ import Navbar from "../components/Navbar";
 import Slider from "../components/Slider";
 import Comment from "../components/Comment";
 import VideoPlay from "../components/VideoPlay";
-import VideosFetch from "../components/VideosFetch";
 
 function VideoPlayer() {
   const comment = {
@@ -17,11 +16,10 @@ function VideoPlayer() {
   return (
     <div className="player-page">
       <Header />
+      <Navbar />
       <VideoPlay />
       <Slider />
-      <Navbar />
       <Comment author={comment.author} message={comment.message} />
-      <VideosFetch />
     </div>
   );
 }

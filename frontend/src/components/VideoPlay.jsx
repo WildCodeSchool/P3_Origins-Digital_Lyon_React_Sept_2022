@@ -1,26 +1,25 @@
+/* eslint-disable react/prop-types */
 import React from "react";
+import { Player } from "video-react";
 
-function VideoPlay() {
+function VideoPlay({ video }) {
   return (
     <div className="video-play-container">
-      <div className="video-play" />
-      <h2>name video</h2>
-      <p className="date-video">date</p>
-      <p className="video-description">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ad
-        assumenda asperiores labore, repudiandae explicabo reiciendis tenetur
-        molestiae soluta quam veritatis.
-      </p>
+      <Player
+        height={250}
+        width={300}
+        type="video/mp4"
+        src={`http://localhost:5000/api/videos/${video.url}`}
+      />
+      <h2>{video.name}</h2>
+      <p className="date-video">{video.name}</p>
+      <p className="video-description">{video.description}</p>
       <div className="interaction">
         <div className="category-play">
-          <h3>categorie</h3>
-        </div>
-        <div className="like-share">
-          <li className="favorite" />
-          <li className="playlist" />
-          <li className="share" />
+          <h3>{video.img}</h3>
         </div>
       </div>
+      <div className="like-share">ded</div>
     </div>
   );
 }
