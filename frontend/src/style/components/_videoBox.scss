@@ -16,6 +16,9 @@
   .vidInfoContainer {
     height: 100%;
     width: 60%;
+    .videoTitle {
+      cursor: pointer;
+    }
     p {
       font-size: small;
       height: 50%;

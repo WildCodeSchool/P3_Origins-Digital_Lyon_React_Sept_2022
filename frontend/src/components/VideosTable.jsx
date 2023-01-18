@@ -49,7 +49,7 @@ export default function UsersTable() {
                     deleteVideos(videos.id);
                   }}
                 >
-                  XXXX
+                  X
                 </button>
               </td>
             </tr>

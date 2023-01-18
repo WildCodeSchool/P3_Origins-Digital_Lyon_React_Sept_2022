@@ -1,15 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import Navbar from "../components/Navbar";
+import VideoBox from "../components/VideoBox";
+import CurrentVideosContext from "../../contexts/videosContext";
 
 export default function SearchPage() {
-  const [videoData, setVideoData] = useState([]);
   const [search, setSearch] = useState("");
-
-  useEffect(() => {
-    fetch("http://localhost:5000/api/video")
-      .then((res) => res.json())
-      .then((videos) => setVideoData(videos));
-  });
+  const { videos } = useContext(CurrentVideosContext);
 
   return (
     <div className="pageContainer">
@@ -25,19 +21,46 @@ export default function SearchPage() {
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
-      <ul>
-        {videoData
-          .filter((video) => video.video_id === search)
+      <div>
+        {search === "" ? (
+          <div className="">
+            <h2 className="littleTitle">Parcourir tout</h2>
+            <ul>
+              {videos.map((vid, i) => {
+                return (
+                  <li key={vid.id}>
+                    <VideoBox
+                      videoName={vid.name}
+                      description={vid.description}
+                      category={vid.category}
+                      img={vid.img}
+                      index={i}
+                    />
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        ) : (
+          <div>
+            <ul>
+              {videos
+                .filter((video) => video.name.toLowerCase().includes(search))
 
-          .map((video) => (
-            <li>
-              <data video={video} key={video.id} />
-            </li>
-          ))}
-        <h2>Parcourir tout</h2>
-      </ul>
-
-      <h2 className="littleTitle">Parcourir tout</h2>
+                .map((video, i) => (
+                  <li>
+                    <VideoBox
+                      videoName={video.name}
+                      index={i}
+                      description={video.description}
+                      key={video.id}
+                    />
+                  </li>
+                ))}
+            </ul>
+          </div>
+        )}
+      </div>
       <Navbar />
     </div>
   );

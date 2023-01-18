@@ -6,15 +6,13 @@ class FileManager extends AbstractManager {
   }
 
   findAll() {
-    return this.connection.query(
-      `select id, name, description, img from  ${this.table}`
-    );
+    return this.connection.query(`select * from  ${this.table}`);
   }
 
   insert(videos, videoName) {
     return this.connection.query(
-      `insert into ${this.table} (name, description, img ) values (?, ?, ?)`,
-      [videoName, videos.description, videos.img]
+      `insert into ${this.table} (url, description, img,name ) values (?, ?, ?,?)`,
+      [videoName, videos.description, videos.img, videos.name]
     );
   }
 }
