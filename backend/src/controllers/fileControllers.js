@@ -62,7 +62,7 @@ const renameVideo = (req, res, next) => {
 const renameImgVideo = (req, res, next) => {
   // TODO : gérer les erreurs
   // On récupère le nom du fichier
-  const { originalname } = req.files.img[0].replace(/\s/g, "-");
+  const { originalname } = req.files.img[0].originalname.replace(/\s/g, "-");
 
   // On récupère le nom du fichier
   const { filename } = req.files.img[0];
