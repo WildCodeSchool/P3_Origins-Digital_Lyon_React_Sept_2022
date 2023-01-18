@@ -1,26 +1,30 @@
-import React from "react";
+/* eslint-disable jsx-a11y/media-has-caption */
+import React, { useContext } from "react";
+import { Player } from "video-react";
+import CurrentVideosContext from "../../contexts/videosContext";
 
 function VideoPlay() {
+  const { vid } = useContext(CurrentVideosContext);
+
   return (
     <div className="video-play-container">
-      <div className="video-play" />
-      <h2>name video</h2>
-      <p className="date-video">date</p>
-      <p className="video-description">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ad
-        assumenda asperiores labore, repudiandae explicabo reiciendis tenetur
-        molestiae soluta quam veritatis.
-      </p>
+      <div className="video-play">
+        <Player
+          height={250}
+          width={300}
+          type="video/mp4"
+          src={`http://localhost:5000/api/videos/${vid.url}`}
+        />
+      </div>
+      <h2>{vid.name}</h2>
+      <p className="date-video">{vid.name}</p>
+      <p className="video-description">{vid.description}</p>
       <div className="interaction">
         <div className="category-play">
-          <h3>categorie</h3>
-        </div>
-        <div className="like-share">
-          <li className="favorite" />
-          <li className="playlist" />
-          <li className="share" />
+          <h3>{vid.img}</h3>
         </div>
       </div>
+      <div className="like-share">ded</div>
     </div>
   );
 }

@@ -21,7 +21,6 @@
   font-display: center;
   text-align: center;
 }
-
-.littleTitle {
-  align-self: center;
+.allVids {
+  @include flex-col-center;
 }
