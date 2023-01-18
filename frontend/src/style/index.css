@@ -84,18 +84,12 @@ li {
   min-height: 115vh;
 }
 
-.titreNews {
-  width: 100vw;
-  height: 15px;
-  color: #006dce;
-  padding-bottom: 10%;
-}
-
 .navigation {
+  background: #00284d;
   border-top: 1px solid rgba(0, 109, 206, 0.4);
   position: fixed;
   bottom: 0;
-  height: 5.5vh;
+  height: 7.5vh;
   width: 100%;
 }
 .navigation ul {
@@ -123,18 +117,18 @@ li {
   background-position: center;
 }
 .navigation ul li {
-  height: 5.5vh;
+  height: 7.5vh;
   width: 25vw;
-  background-color: #010d18;
+  background-color: transparent;
 }
 .navigation .active {
   position: relative;
 }
 .navigation .active::after {
   content: "";
-  height: 4px;
+  height: 10px;
   width: 0;
-  background: #006dce;
+  background: #ffffff;
   position: absolute;
   border-radius: 10px;
   bottom: 0px;
@@ -200,6 +194,9 @@ li {
 }
 
 .inputContainer {
+  position: relative;
+  max-width: 50%;
+  left: 5vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -208,9 +205,6 @@ li {
 .loginInput {
   height: 6vh;
   width: 80vw;
-  border-radius: 8px;
-  background-color: #011c33;
-  border-color: #012748;
   color: #ffffff;
   padding-left: 2%;
   position: relative;
@@ -240,6 +234,8 @@ li {
   background-color: #006dce;
   cursor: pointer;
   margin-top: 6vh;
+  position: relative;
+  left: 7vh;
 }
 
 .passwordContainer {
@@ -467,16 +463,13 @@ li {
 }
 
 .header-container {
-  height: 6.2vh;
+  height: 8.2vh;
   width: 100%;
   border-bottom: 1px solid rgba(0, 109, 206, 0.4);
-  margin-bottom: 0.3rem;
-}
-.header-container #logo {
-  height: 6vh;
-  width: 15vw;
-  background-image: url(../../src/asset/image/logo.svg);
-  background-repeat: no-repeat;
+  margin-bottom: 2.3rem;
+  background: #00284d;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .comment {
@@ -1725,4 +1718,22 @@ table .user {
   color: #ffffff;
   border-radius: 5px;
   background-color: #006dce;
+}
+
+.profil-container {
+  background-color: #010d18;
+}
+
+.container-frm {
+  display: grid;
+  place-items: center;
+}
+.container-frm .containerbtn {
+  width: 50vw;
+  height: 5vh;
+  border-radius: 8px;
+  margin: 5vh;
+  color: #ffffff;
+  background-color: #00284d;
+  border: none;
 }/*# sourceMappingURL=index.css.map */
