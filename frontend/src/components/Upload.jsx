@@ -76,7 +76,7 @@ function Upload() {
               <label htmlFor="description" className="form-label">
                 description
               </label>
-              <input type="text" id="description" />
+              <textarea id="description" />
             </div>
             <button type="submit">Envoyer</button>
           </form>

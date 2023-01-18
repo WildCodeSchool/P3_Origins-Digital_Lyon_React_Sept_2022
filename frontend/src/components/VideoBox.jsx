@@ -6,27 +6,31 @@ import PropTypes from "prop-types";
 import { FiMoreVertical } from "react-icons/fi";
 import CurrentVideosContext from "../../contexts/videosContext";
 
-export default function VideoBox({ videoName, description, category, index }) {
-  const { setIndex } = useContext(CurrentVideosContext);
+export default function VideoBox({
+  videoName,
+  description,
+  category,
+  img,
+  index,
+}) {
+  const { setIndex, videos, setVid } = useContext(CurrentVideosContext);
 
   const navigate = useNavigate();
   return (
     <div className="boxContainer">
       <div className="miniaContainer">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Contact-new.svg/1200px-Contact-new.svg.png"
-          alt={videoName}
-        />
+        <img src={img} alt={videoName} />
       </div>
       <div className="vidInfoContainer">
         <h4
           onClick={() => {
             navigate("/player");
             setIndex(index);
+            setVid(videos[index]);
           }}
           className="videoTitle"
         >
-          {videoName.substring(37)}
+          {videoName}
         </h4>
         <p>{description}</p>
         <div className="categoryContainer">

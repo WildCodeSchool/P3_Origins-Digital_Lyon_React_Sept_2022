@@ -305,8 +305,11 @@ li {
   text-align: center;
 }
 
-.littleTitle {
-  align-self: center;
+.allVids {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .libraryPage {
