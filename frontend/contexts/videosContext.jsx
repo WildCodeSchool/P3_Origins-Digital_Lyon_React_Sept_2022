@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
-import { createContext, useState } from "react";
+import { createContext, useMemo, useState } from "react";
 import PropTypes from "prop-types";
 
 const CurrentVideosContext = createContext();
@@ -10,10 +10,12 @@ export function CurrentVideosContextProvider({ children }) {
   const [videos, setVideos] = useState([]);
   const [index, setIndex] = useState(0);
 
+  const value = { videos, setVideos, index, setIndex };
+
+  const valueMemo = useMemo(() => value);
+
   return (
-    <CurrentVideosContext.Provider
-      value={{ videos, setVideos, index, setIndex }}
-    >
+    <CurrentVideosContext.Provider value={valueMemo}>
       {children}
     </CurrentVideosContext.Provider>
   );

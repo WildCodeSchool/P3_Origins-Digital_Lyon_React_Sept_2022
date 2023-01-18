@@ -1,11 +1,14 @@
 import React, { useContext, useState } from "react";
 import Navbar from "../components/Navbar";
 import CurrentVideosContext from "../../contexts/videosContext";
-import VideoBox from "@components/VideoBox";
+import VideoBox from "../components/VideoBox";
+import VideosFetch from "../components/VideosFetch";
 
 export default function SearchPage() {
   const { videos } = useContext(CurrentVideosContext);
   const [search, setSearch] = useState("");
+
+  // console.log(videos);
 
   return (
     <div className="pageContainer">
@@ -21,21 +24,27 @@ export default function SearchPage() {
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
-      <ul>
-        {videos
-          .filter((video) => video.video_id === search)
+      {search === "" ? (
+        <div>
+          <VideosFetch />
+        </div>
+      ) : (
+        <ul>
+          {videos
+            .filter((video) => video.video_id === search)
 
-          .map((video, i) => (
-            <li>
-              <VideoBox
-                videoName={video.name}
-                index={i}
-                description={video.description}
-                key={video.id}
-              />
-            </li>
-          ))}
-      </ul>
+            .map((video, i) => (
+              <li>
+                <VideoBox
+                  videoName={video.name}
+                  index={i}
+                  description={video.description}
+                  key={video.id}
+                />
+              </li>
+            ))}
+        </ul>
+      )}
 
       <h2 className="littleTitle">Parcourir tout</h2>
       <Navbar />
