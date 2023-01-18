@@ -1,22 +1,26 @@
 /* eslint-disable react/prop-types */
-import React from "react";
+import React, { useContext } from "react";
 import { Player } from "video-react";
+import CurrentVideosContext from "../../contexts/videosContext";
 
-function VideoPlay({ video }) {
+function VideoPlay() {
+  const { videos, selectedId } = useContext(CurrentVideosContext);
+
+  const selectedVideo = videos.filter((vid) => vid.id === selectedId);
   return (
     <div className="video-play-container">
       <Player
         height={250}
         width={300}
         type="video/mp4"
-        src={`http://localhost:5000/api/videos/${video.url}`}
+        src={`http://localhost:5000/api/videos/${selectedVideo.url}`}
       />
-      <h2>{video.name}</h2>
-      <p className="date-video">{video.name}</p>
-      <p className="video-description">{video.description}</p>
+      <h2>{selectedVideo.name}</h2>
+      <p className="date-video">{selectedVideo.creation_date}</p>
+      <p className="video-description">{selectedVideo.description}</p>
       <div className="interaction">
         <div className="category-play">
-          <h3>{video.img}</h3>
+          <h3>{selectedVideo.img}</h3>
         </div>
       </div>
       <div className="like-share">ded</div>
