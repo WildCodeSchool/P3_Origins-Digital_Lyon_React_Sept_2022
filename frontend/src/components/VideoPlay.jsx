@@ -8,14 +8,12 @@ function VideoPlay() {
 
   return (
     <div className="video-play-container">
-      <div className="video-play">
-        <Player
-          height={250}
-          width={300}
-          type="video/mp4"
-          src={`http://localhost:5000/api/videos/${vid.url}`}
-        />
-      </div>
+      <Player
+        height={250}
+        width={300}
+        type="video/mp4"
+        src={`http://localhost:5000/api/videos/${vid.url}`}
+      />
       <h2>{vid.name}</h2>
       <p className="date-video">{vid.name}</p>
       <p className="video-description">{vid.description}</p>
