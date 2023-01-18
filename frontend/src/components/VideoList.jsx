@@ -6,9 +6,9 @@ function VideoList({ videos }) {
   return (
     <div>
       <ul className="videosContainer">
-        {videos.map((vid) => (
+        {videos.map((vid, i) => (
           <li key={vid.id}>
-            <VideoBox video={vid} />
+            <VideoBox video={vid} index={i} />
           </li>
         ))}
       </ul>
