@@ -25,6 +25,7 @@ function Upload() {
         document.querySelector("#description").value
       );
       formData.append("img", document.querySelector("#img").value);
+      formData.append("name", document.querySelector("#name").value);
 
       for (const [key, value] of formData.entries()) {
         console.warn(`${key}: ${value}`);
@@ -58,6 +59,12 @@ function Upload() {
 
             <p>{msg}</p>
 
+            <div className="inputContainer">
+              <label htmlFor="name" className="form-label">
+                name
+              </label>
+              <input type="text" id="name" />
+            </div>
             <div className="inputContainer">
               <label htmlFor="img" className="form-label">
                 img
