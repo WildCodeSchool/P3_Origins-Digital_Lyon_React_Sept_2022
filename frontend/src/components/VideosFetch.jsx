@@ -1,16 +1,9 @@
-import axios from "axios";
-import React, { useContext, useEffect } from "react";
+/* eslint-disable react/prop-types */
+
+import React from "react";
 import { Player } from "video-react";
 
-import CurrentVideosContext from "../../contexts/videosContext";
-
-function VideosFetch() {
-  const { setVideos, videos } = useContext(CurrentVideosContext);
-  useEffect(() => {
-    axios
-      .get("http://localhost:5000/api/videos")
-      .then((response) => setVideos(response.data));
-  }, []);
+function VideosFetch({ videos }) {
   return (
     <div>
       <div>
