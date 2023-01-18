@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
-import { createContext, useMemo, useState } from "react";
+import { createContext, useEffect, useMemo, useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 
@@ -12,9 +12,11 @@ export function CurrentVideosContextProvider({ children }) {
   const [vid, setVid] = useState({});
   const [index, setIndex] = useState(0);
 
-  axios
-    .get("http://localhost:5000/api/videos")
-    .then((vids) => setVideos(vids.data));
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/api/videos")
+      .then((vids) => setVideos(vids.data));
+  }, []);
 
   const value = { videos, setVideos, index, setIndex, vid, setVid };
 

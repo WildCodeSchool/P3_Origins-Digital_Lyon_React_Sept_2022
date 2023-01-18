@@ -8,11 +8,11 @@ import "./style/index.css";
 function App() {
   return (
     <Router>
-      <CurrentVideosContextProvider>
-        <CurrentUserContextProvider>
+      <CurrentUserContextProvider>
+        <CurrentVideosContextProvider>
           <Routing />
-        </CurrentUserContextProvider>
-      </CurrentVideosContextProvider>
+        </CurrentVideosContextProvider>
+      </CurrentUserContextProvider>
     </Router>
   );
 }

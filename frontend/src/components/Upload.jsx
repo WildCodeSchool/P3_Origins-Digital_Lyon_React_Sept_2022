@@ -50,8 +50,13 @@ function Upload() {
     <div className="profil-container">
       <ReturnPageButton />
       <div className="video-container">
+        <h1>Upload Des Vidéos</h1>
         <div className="video">
-          <form encType="multipart/form-data" onSubmit={handleSubmit}>
+          <form
+            className="container-frm"
+            encType="multipart/form-data"
+            onSubmit={handleSubmit}
+          >
             <label htmlFor="file" className="form-label">
               Choisir
             </label>
@@ -78,7 +83,9 @@ function Upload() {
               </label>
               <textarea id="description" />
             </div>
-            <button type="submit">Envoyer</button>
+            <button className="containerbtn" type="submit">
+              Appliquer
+            </button>
           </form>
         </div>
       </div>

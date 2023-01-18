@@ -1718,4 +1718,22 @@ table .user {
   color: #ffffff;
   border-radius: 5px;
   background-color: #006dce;
+}
+
+.profil-container {
+  background-color: #010d18;
+}
+
+.container-frm {
+  display: grid;
+  place-items: center;
+}
+.container-frm .containerbtn {
+  width: 50vw;
+  height: 5vh;
+  border-radius: 8px;
+  margin: 5vh;
+  color: #ffffff;
+  background-color: #00284d;
+  border: none;
 }/*# sourceMappingURL=index.css.map */
