@@ -4,7 +4,7 @@ import IMG1 from "../asset/4.jpg";
 function Slider() {
   return (
     <div>
-      <h2>Name</h2>
+      <h2>Category</h2>
 
       <div className="slider-container">
         <div className="slider-wrapper">
