@@ -94,3 +94,12 @@
 .container-img {
   @extend .loginImg;
 }
+
+.container-input {
+  @extend .loginInput;
+  background: $color-2;
+  border: none;
+  width: 70%;
+  height: 100%;
+  margin-left: 3vh;
+}
