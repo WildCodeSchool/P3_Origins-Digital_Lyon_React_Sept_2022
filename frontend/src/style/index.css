@@ -178,7 +178,7 @@ li {
   width: 128px;
 }
 
-.loginImg {
+.loginImg, .container-img {
   height: 30vh;
   width: 100%;
   border-radius: 2vh;
@@ -202,24 +202,24 @@ li {
   justify-content: space-between;
 }
 
-.loginInput {
+.loginInput, .container-input {
   height: 6vh;
   width: 80vw;
   color: #ffffff;
   padding-left: 2%;
   position: relative;
 }
-.loginInput:focus {
+.loginInput:focus, .container-input:focus {
   outline: none;
   border-bottom: 1px solid #006dce;
 }
-.loginInput:focus::-moz-placeholder {
+.loginInput:focus::-moz-placeholder, .container-input:focus::-moz-placeholder {
   color: transparent;
 }
-.loginInput:focus:-ms-input-placeholder {
+.loginInput:focus:-ms-input-placeholder, .container-input:focus:-ms-input-placeholder {
   color: transparent;
 }
-.loginInput:focus::placeholder {
+.loginInput:focus::placeholder, .container-input:focus::placeholder {
   color: transparent;
 }
 
@@ -540,7 +540,7 @@ li {
   width: 128px;
 }
 
-.loginImg {
+.loginImg, .container-img {
   height: 30vh;
   width: 100%;
   border-radius: 2vh;
@@ -553,7 +553,7 @@ li {
   flex-direction: column;
   justify-content: space-between;
 }
-.inputContainer .loginInput {
+.inputContainer .loginInput, .inputContainer .container-input {
   height: 6vh;
   width: 80vw;
   border-radius: 8px;
@@ -563,17 +563,17 @@ li {
   padding-left: 2%;
   position: relative;
 }
-.inputContainer .loginInput:focus {
+.inputContainer .loginInput:focus, .inputContainer .container-input:focus {
   outline: none;
   border-bottom: 1px solid #006dce;
 }
-.inputContainer .loginInput:focus::-moz-placeholder {
+.inputContainer .loginInput:focus::-moz-placeholder, .inputContainer .container-input:focus::-moz-placeholder {
   color: transparent;
 }
-.inputContainer .loginInput:focus:-ms-input-placeholder {
+.inputContainer .loginInput:focus:-ms-input-placeholder, .inputContainer .container-input:focus:-ms-input-placeholder {
   color: transparent;
 }
-.inputContainer .loginInput:focus::placeholder {
+.inputContainer .loginInput:focus::placeholder, .inputContainer .container-input:focus::placeholder {
   color: transparent;
 }
 
@@ -629,11 +629,13 @@ li {
   width: 100%;
 }
 .profil-container .profil-info button {
+  background: linear-gradient(175deg, #011c33 0%, rgba(1, 28, 51, 0) 100%);
+  border-radius: 8px;
   background-color: #006dce;
   display: block;
   margin: auto;
-  margin-top: 5vh;
-  height: 50px;
+  margin-top: 10vh;
+  height: 10vh;
   width: 90%;
   padding: 10px;
   border: none;
@@ -645,6 +647,9 @@ li {
   width: 100%;
   text-align: center;
   padding-bottom: 1rem;
+}
+.profil-container ul {
+  font-family: "Roboto Condensed", sans-serif;
 }
 .profil-container ul li {
   display: flex;
@@ -660,7 +665,7 @@ li {
   margin-top: 10px;
 }
 .profil-container .avatar-container {
-  height: 45vh;
+  height: 5vh;
   width: 100%;
   display: flex;
   align-items: center;
@@ -689,6 +694,31 @@ li {
 }
 .profil-container .avatar-container .avatar form input {
   display: none;
+}
+
+.containerbtn-profil {
+  background: linear-gradient(175deg, #011c33 0%, rgba(1, 28, 51, 0) 100%);
+  border-radius: 8px;
+}
+
+.containerul {
+  margin: 5vh;
+}
+
+.containerName {
+  font-size: 3vh;
+  font-family: "Roboto Condensed", sans-serif;
+  position: relative;
+  top: 7vh;
+  margin-bottom: 4vh;
+}
+
+.container-input {
+  background: #00284d;
+  border: none;
+  width: 70%;
+  height: 100%;
+  margin-left: 3vh;
 }
 
 .video-react .video-react-control:before, .video-react .video-react-big-play-button:before {
