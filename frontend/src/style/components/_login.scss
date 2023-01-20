@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
 }
-
 .loginContainer {
   @include flexCol;
   gap: 20px;
@@ -44,6 +43,9 @@
 }
 
 .inputContainer {
+  position: relative;
+  max-width: 50%;
+  left: 5vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -52,9 +54,6 @@
 .loginInput {
   height: 6vh;
   width: 80vw;
-  border-radius: 8px;
-  background-color: #011c33;
-  border-color: #012748;
   color: $white;
   padding-left: 2%;
   position: relative;
@@ -78,6 +77,8 @@
   background-color: $color-1;
   cursor: pointer;
   margin-top: 6vh;
+  position: relative;
+  left: 7vh;
 }
 
 .passwordContainer {

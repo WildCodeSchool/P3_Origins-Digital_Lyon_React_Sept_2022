@@ -1,0 +1,16 @@
+.profil-container {
+  background-color: $black;
+}
+.container-frm {
+  display: grid;
+  place-items: center;
+  .containerbtn {
+    width: 50vw;
+    height: 5vh;
+    border-radius: 8px;
+    margin: 5vh;
+    color: $white;
+    background-color: $color-2;
+    border: none;
+  }
+}

@@ -1,8 +1,9 @@
 .navigation {
+  background: $color-2;
   border-top: 1px solid rgba($color-1, 0.4);
   position: fixed;
   bottom: 0;
-  height: 5.5vh;
+  height: 7.5vh;
   width: 100%;
   ul {
     display: flex;
@@ -29,9 +30,9 @@
       background-position: center;
     }
     li {
-      height: 5.5vh;
+      height: 7.5vh;
       width: 25vw;
-      background-color: $black;
+      background-color: transparent;
     }
   }
   .active {
@@ -39,9 +40,9 @@
 
     &::after {
       content: "";
-      height: 4px;
+      height: 10px;
       width: 0;
-      background: $color-1;
+      background: $white;
       position: absolute;
       border-radius: 10px;
       bottom: 0px;
