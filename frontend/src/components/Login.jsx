@@ -101,7 +101,7 @@ function Login() {
             S'inscrire
           </button>
         </Link>
-      </div>{" "}
+      </div>
     </>
   );
 }
