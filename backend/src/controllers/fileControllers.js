@@ -6,17 +6,7 @@ const avatarDirectory = process.env.AVATAR_DIRECTORY || "public/";
 const videoDirectory = process.env.AVATAR_DIRECTORY || "public/";
 const imgVideoDirectory = process.env.AVATAR_DIRECTORY || "public/";
 
-const browse = (req, res) => {
-  models.videos
-    .findAll()
-    .then(([results]) => {
-      res.send(results);
-    })
-    .catch((error) => {
-      console.error(error);
-      res.sendStatus(500);
-    });
-};
+// Gestion Avatars
 
 const renameAvatar = (req, res, next) => {
   // TODO : gérer les erreurs
@@ -37,6 +27,91 @@ const renameAvatar = (req, res, next) => {
       next();
     }
   );
+};
+
+const sendAvatar = (req, res) => {
+  const { fileName } = req.params;
+
+  res.download(avatarDirectory + fileName, fileName, (err) => {
+    if (err) {
+      res.status(404).send({
+        message: `Avatar not found.`,
+      });
+    }
+  });
+};
+
+const updateAvatar = (req, res) => {
+  const id = req.payloads.sub;
+  const { avatar } = req;
+
+  models.user
+    .updateAvatar(id, avatar)
+    .then(([result]) => {
+      if (result.affectedRows === 0) res.sendStatus(404);
+      else res.status(202).send({ avatar });
+    })
+    .catch((error) => {
+      console.error(error);
+      res.sendStatus(500);
+    });
+};
+
+// Gestions des Vidéos
+
+const browse = (req, res) => {
+  models.videos
+    .findAll()
+    .then(([results]) => {
+      res.send(results);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.sendStatus(500);
+    });
+};
+
+const read = (req, res) => {
+  const { id } = req.params;
+
+  models.videos
+    .find(id)
+    .then(([results]) => {
+      if (results[0]) res.send(results[0]);
+      else res.sendStatus(404);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.sendStatus(500);
+    });
+};
+
+const destroy = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    // récupération du nom de fichier de la vidéo à supprimer
+    const [results] = await models.videos.find(id);
+    const videoName = results[0].name;
+
+    // suppression de la vidéo dans la base de données
+    const [result] = await models.videos.delete(id);
+    if (result.affectedRows === 0) res.sendStatus(404);
+    else {
+      // suppression du fichier vidéo
+      fs.unlink(`${videoDirectory}${videoName}`, (err) => {
+        if (err) {
+          console.error(err);
+          res.sendStatus(500);
+        } else {
+          res.sendStatus(204);
+        }
+      });
+    }
+  } catch (error) {
+    console.error(error);
+    res.sendStatus(500);
+  }
 };
 const renameVideo = (req, res, next) => {
   // TODO : gérer les erreurs
@@ -62,7 +137,7 @@ const renameVideo = (req, res, next) => {
 const renameImgVideo = (req, res, next) => {
   // TODO : gérer les erreurs
   // On récupère le nom du fichier
-  const { originalname } = req.files.img[0].replace(/\s/g, "-");
+  const { originalname } = req.files.img[0];
 
   // On récupère le nom du fichier
   const { filename } = req.files.img[0];
@@ -80,17 +155,6 @@ const renameImgVideo = (req, res, next) => {
   );
 };
 
-const sendAvatar = (req, res) => {
-  const { fileName } = req.params;
-
-  res.download(avatarDirectory + fileName, fileName, (err) => {
-    if (err) {
-      res.status(404).send({
-        message: `Avatar not found.`,
-      });
-    }
-  });
-};
 const uploadVideo = (req, res) => {
   const videoName = req.video;
   const videos = req.body;
@@ -125,21 +189,6 @@ const sendImgVideo = (req, res) => {
     }
   });
 };
-const updateAvatar = (req, res) => {
-  const id = req.payloads.sub;
-  const { avatar } = req;
-
-  models.user
-    .updateAvatar(id, avatar)
-    .then(([result]) => {
-      if (result.affectedRows === 0) res.sendStatus(404);
-      else res.status(202).send({ avatar });
-    })
-    .catch((error) => {
-      console.error(error);
-      res.sendStatus(500);
-    });
-};
 
 module.exports = {
   renameAvatar,
@@ -149,6 +198,8 @@ module.exports = {
   updateAvatar,
   uploadVideo,
   browse,
+  read,
   renameImgVideo,
   sendImgVideo,
+  destroy,
 };

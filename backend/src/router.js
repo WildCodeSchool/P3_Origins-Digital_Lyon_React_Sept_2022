@@ -52,5 +52,6 @@ router.get(
   fileControllers.sendVideo,
   fileControllers.sendImgVideo
 );
+router.delete("/api/videos/:id", fileControllers.destroy);
 
 module.exports = router;
