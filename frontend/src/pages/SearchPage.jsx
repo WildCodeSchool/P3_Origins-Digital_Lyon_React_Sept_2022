@@ -1,10 +1,13 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import CurrentVideosContext from "../../contexts/videosContext";
 import Navbar from "../components/Navbar";
 import VideoBox from "../components/VideoBox";
 
-export default function SearchPage({ videos }) {
+export default function SearchPage() {
   const [search, setSearch] = useState("");
+
+  const { videos } = useContext(CurrentVideosContext);
 
   return (
     <div className="pageContainer">
@@ -39,14 +42,10 @@ export default function SearchPage({ videos }) {
             <ul>
               {videos
                 .filter((video) => video.name.toLowerCase().includes(search))
-                .map((video, i) => (
-                  <li>
-                    <VideoBox
-                      videoName={video.name}
-                      index={i}
-                      description={video.description}
-                      key={video.id}
-                    />
+
+                .map((video) => (
+                  <li key={video.id}>
+                    <VideoBox />
                   </li>
                 ))}
             </ul>

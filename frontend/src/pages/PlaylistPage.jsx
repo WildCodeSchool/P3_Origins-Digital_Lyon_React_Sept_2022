@@ -4,7 +4,7 @@ import VideoList from "../components/VideoList";
 import ReturnPageButton from "../components/ReturnPageButton";
 import Navbar from "../components/Navbar";
 
-export default function PlaylistPage({ videos }) {
+export default function PlaylistPage() {
   return (
     <div>
       <div className="returnContainer">
@@ -12,7 +12,7 @@ export default function PlaylistPage({ videos }) {
       </div>
       <h2>My playlist</h2>
       <div>
-        <VideoList videos={videos} />
+        <VideoList />
       </div>
       <Navbar />
     </div>

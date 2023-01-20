@@ -7,11 +7,13 @@
     height: 55vh;
     width: 100%;
     button {
+      background: linear-gradient(175deg, #011c33 0%, rgba(1, 28, 51, 0) 100%);
+      border-radius: 8px;
       background-color: $color-1;
       display: block;
       margin: auto;
-      margin-top: 5vh;
-      height: 50px;
+      margin-top: 10vh;
+      height: 10vh;
       width: 90%;
       padding: 10px;
       border: none;
@@ -26,6 +28,7 @@
     padding-bottom: 1rem;
   }
   ul {
+    font-family: $font-2;
     li {
       display: flex;
       align-items: center;
@@ -41,7 +44,7 @@
     }
   }
   .avatar-container {
-    height: 45vh;
+    height: 5vh;
     width: 100%;
     display: flex;
     align-items: center;
@@ -72,4 +75,31 @@
       }
     }
   }
+}
+
+.containerbtn-profil {
+  background: linear-gradient(175deg, #011c33 0%, rgba(1, 28, 51, 0) 100%);
+  border-radius: 8px;
+}
+.containerul {
+  margin: 5vh;
+}
+.containerName {
+  font-size: 3vh;
+  font-family: $font-2;
+  position: relative;
+  top: 7vh;
+  margin-bottom: 4vh;
+}
+.container-img {
+  @extend .loginImg;
+}
+
+.container-input {
+  @extend .loginInput;
+  background: $color-2;
+  border: none;
+  width: 70%;
+  height: 100%;
+  margin-left: 3vh;
 }
