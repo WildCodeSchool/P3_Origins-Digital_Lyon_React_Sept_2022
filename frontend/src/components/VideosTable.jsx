@@ -35,7 +35,7 @@ export default function UsersTable() {
       <input
         className="search-video"
         type="text"
-        placeholder="Rechercher un utilisateur"
+        placeholder="Rechercher une vidéo"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
