@@ -30,31 +30,33 @@ export default function UsersTable() {
       <ReturnPageButton />
       <h3>Liste Vidéos</h3>
       <table>
-        <tr>
-          <th>Vidéos</th>
-          <th>Nom</th>
-          <th>Description</th>
-          <th>Supprimer</th>
-        </tr>
-        {videosList.map((videos) => {
-          return (
-            <tr key={videos.id}>
-              <td>{videos.name}</td>
-              <td>{videos.description}</td>
-              <td>
-                <button
-                  className="delete"
-                  type="button"
-                  onClick={() => {
-                    deleteVideos(videos.id);
-                  }}
-                >
-                  X
-                </button>
-              </td>
-            </tr>
-          );
-        })}
+        <tbody>
+          <tr>
+            <th>Vidéos</th>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Supprimer</th>
+          </tr>
+          {videosList.map((videos) => {
+            return (
+              <tr key={videos.id}>
+                <td>{videos.name}</td>
+                <td>{videos.description}</td>
+                <td>
+                  <button
+                    className="delete"
+                    type="button"
+                    onClick={() => {
+                      deleteVideos(videos.id);
+                    }}
+                  >
+                    X
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
     </div>
   );

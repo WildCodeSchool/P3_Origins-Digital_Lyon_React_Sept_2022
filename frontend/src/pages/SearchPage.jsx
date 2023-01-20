@@ -42,10 +42,14 @@ export default function SearchPage() {
             <ul>
               {videos
                 .filter((video) => video.name.toLowerCase().includes(search))
-
-                .map((video) => (
-                  <li key={video.id}>
-                    <VideoBox />
+                .map((video, i) => (
+                  <li>
+                    <VideoBox
+                      videoName={video.name}
+                      index={i}
+                      description={video.description}
+                      key={video.id}
+                    />
                   </li>
                 ))}
             </ul>
