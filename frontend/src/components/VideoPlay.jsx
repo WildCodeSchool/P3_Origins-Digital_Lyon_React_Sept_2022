@@ -1,25 +1,39 @@
 /* eslint-disable react/prop-types */
-import React from "react";
+import axios from "axios";
+import React, { useContext, useState } from "react";
 import { Player } from "video-react";
+import CurrentVideosContext from "../../contexts/videosContext";
 
-function VideoPlay({ video }) {
+function VideoPlay() {
+  const { selectedName, selectedId } = useContext(CurrentVideosContext);
+
+  const [videoPlayed, setVideoPlayed] = useState([]);
+
+  axios
+    .get(`http://localhost:5000/api/videos/infos/${selectedId}`)
+    .then((response) => {
+      setVideoPlayed(response.data);
+    })
+    .catch((err) => console.error(err));
+
   return (
     <div className="video-play-container">
       <Player
+        poster={videoPlayed.img}
         height={250}
         width={300}
         type="video/mp4"
-        src={`http://localhost:5000/api/videos/${video.url}`}
+        src={`http://localhost:5000/api/videos/${selectedName}`}
       />
-      <h2>{video.name}</h2>
-      <p className="date-video">{video.name}</p>
-      <p className="video-description">{video.description}</p>
+      <h2>{videoPlayed.name}</h2>
+      <p className="date-video">{videoPlayed.creation_date}</p>
+      <p className="video-description">{videoPlayed.description}</p>
       <div className="interaction">
         <div className="category-play">
-          <h3>{video.img}</h3>
+          <h3>Category</h3>
         </div>
       </div>
-      <div className="like-share">ded</div>
+      <div className="like-share">like</div>
     </div>
   );
 }

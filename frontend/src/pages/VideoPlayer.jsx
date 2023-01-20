@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
@@ -13,6 +14,7 @@ function VideoPlayer() {
     },
     message: "This is a great video!",
   };
+
   return (
     <div className="player-page">
       <Header />
