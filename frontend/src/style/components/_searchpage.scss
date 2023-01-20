@@ -4,6 +4,7 @@
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: center;
+  margin-bottom: 7.5vh;
 }
 
 .searchTitle {
@@ -23,4 +24,11 @@
 }
 .allVids {
   @include flex-col-center;
+}
+
+.searchpage-container {
+  margin-top: 2rem;
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
 }

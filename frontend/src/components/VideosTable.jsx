@@ -32,21 +32,21 @@ export default function UsersTable() {
       <table>
         <tbody>
           <tr>
-            <th>Nom</th>
-            <th>Description</th>
+            <th>Id</th>
+            <th>Name</th>
             <th>Supprimer</th>
           </tr>
-          {videosList.map((videos) => {
+          {videosList.map((video) => {
             return (
-              <tr key={videos.id}>
-                <td>{videos.name}</td>
-                <td>{videos.description}</td>
+              <tr key={video.id}>
+                <td>{video.id}</td>
+                <td>{video.name}</td>
                 <td>
                   <button
-                    className="deleteBtn"
                     type="button"
+                    className="admin"
                     onClick={() => {
-                      deleteVideos(videos.id);
+                      deleteVideos(video.id);
                     }}
                   >
                     Supprimer

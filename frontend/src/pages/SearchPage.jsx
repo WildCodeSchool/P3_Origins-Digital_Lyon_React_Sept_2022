@@ -24,31 +24,20 @@ export default function SearchPage() {
         />
       </div>
       <div>
-        {search === "" ? (
-          <div className="">
-            <h2 className="littleTitle">Parcourir tout</h2>
-            <ul>
-              {videos.map((vid) => {
-                return (
-                  <li key={vid.id}>
-                    <VideoBox video={vid} />
-                  </li>
-                );
-              })}
-            </ul>
+        {search !== "" ? (
+          <div className="searchpage-container">
+            {videos
+              .filter((video) => video.name.toLowerCase().includes(search))
+
+              .map((video) => (
+                <VideoBox video={video} key={video.id} />
+              ))}
           </div>
         ) : (
-          <div>
-            <ul>
-              {videos
-                .filter((video) => video.name.toLowerCase().includes(search))
-
-                .map((video) => (
-                  <li key={video.id}>
-                    <VideoBox />
-                  </li>
-                ))}
-            </ul>
+          <div className="searchpage-container">
+            {videos.map((vid) => {
+              return <VideoBox video={vid} key={vid.id} />;
+            })}
           </div>
         )}
       </div>

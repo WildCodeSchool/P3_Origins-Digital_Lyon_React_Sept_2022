@@ -1,7 +1,6 @@
 table {
   border-collapse: collapse;
-  min-width: 400px;
-  border: 1px solid $color-1;
+  width: 100vw;
   box-shadow: 0 5px 15px $color-2;
   h3 {
     width: 50vw;
@@ -10,7 +9,7 @@ table {
   }
   td,
   th {
-    padding: 15px 20px;
+    border: 1px solid $color-1;
   }
   th {
     background-color: $color-1;
