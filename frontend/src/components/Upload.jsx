@@ -93,25 +93,21 @@ function Upload() {
           </label>
           <input type="file" ref={imgRef} id="img" />
 
-          <div className="inputContainer">
-            <label htmlFor="name" className="form-label">
-              Name
-            </label>
-            <input
-              onChange={(e) => setName(e.target.value)}
-              type="text"
-              id="name"
-            />
-          </div>
-          <div className="inputContainer">
-            <label htmlFor="description" className="form-label">
-              description
-            </label>
-            <textarea
-              onChange={(e) => setDescription(e.target.value)}
-              id="description"
-            />
-          </div>
+          <label htmlFor="name" className="form-label">
+            Name
+          </label>
+          <input
+            onChange={(e) => setName(e.target.value)}
+            type="text"
+            id="name"
+          />
+          <label htmlFor="description" className="form-label">
+            description
+          </label>
+          <textarea
+            onChange={(e) => setDescription(e.target.value)}
+            id="description"
+          />
           <button className="containerbtn" type="submit">
             Appliquer
           </button>
