@@ -81,7 +81,7 @@ export default function UsersTable() {
                         deleteUser(user.id);
                       }}
                     >
-                      X
+                      Supprimer
                     </button>
                   ) : null}
                 </td>

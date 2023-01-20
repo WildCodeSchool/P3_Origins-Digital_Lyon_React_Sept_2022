@@ -1,11 +1,45 @@
 import React, { useContext, useRef, useState } from "react";
 import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import CurrentUserContext from "../../contexts/userContext";
 import ReturnPageButton from "./ReturnPageButton";
 
 function Upload() {
+  const uploadToast = () =>
+    toast.success("Upload réussi !", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  const uploadFailedToast = () =>
+    toast.error("Upload échoué !", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  const uploadNoFileToast = () =>
+    toast.warn("Pas de fichiers à Uploader !", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
   const { token } = useContext(CurrentUserContext);
-  const [msg, setMsg] = useState("");
   const [description, setDescription] = useState("");
   const [name, setName] = useState("");
   const videoRef = useRef(null);
@@ -31,61 +65,55 @@ function Upload() {
       axios
         .post(`http://localhost:5000/api/videos`, formData, config)
         .then(() => {
-          setMsg("Upload réussi !");
+          uploadToast();
         })
         .catch((error) => {
           console.error(error);
-          setMsg("Upload échoué !");
+          uploadFailedToast();
         });
     } else {
-      setMsg("Aucun fichier");
+      uploadNoFileToast();
     }
   };
 
   return (
-    <div className="profil-container">
+    <div className="upload-container">
       <ReturnPageButton />
-      <div className="video-container">
+      <div className="upload-video">
         <h1>Upload Des Vidéos</h1>
-        <div className="video">
-          <form encType="multipart/form-data" onSubmit={handleSubmit}>
-            <label htmlFor="video" className="form-label">
-              Choisir la vidéo
-            </label>
-            <input type="file" ref={videoRef} id="video" />
 
-            <label htmlFor="img" className="form-label">
-              Choisir l'image
-            </label>
-            <input type="file" ref={imgRef} id="img" />
+        <form encType="multipart/form-data" onSubmit={handleSubmit}>
+          <label htmlFor="video" className="form-label">
+            Choisir la vidéo
+          </label>
+          <input type="file" ref={videoRef} id="video" />
 
-            <p>{msg}</p>
+          <label htmlFor="img" className="form-label">
+            Choisir l'image
+          </label>
+          <input type="file" ref={imgRef} id="img" />
 
-            <div className="inputContainer">
-              <label htmlFor="name" className="form-label">
-                Name
-              </label>
-              <input
-                onChange={(e) => setName(e.target.value)}
-                type="text"
-                id="name"
-              />
-            </div>
-            <div className="inputContainer">
-              <label htmlFor="description" className="form-label">
-                description
-              </label>
-              <textarea
-                onChange={(e) => setDescription(e.target.value)}
-                id="description"
-              />
-            </div>
-            <button className="containerbtn" type="submit">
-              Appliquer
-            </button>
-          </form>
-        </div>
+          <label htmlFor="name" className="form-label">
+            Name
+          </label>
+          <input
+            onChange={(e) => setName(e.target.value)}
+            type="text"
+            id="name"
+          />
+          <label htmlFor="description" className="form-label">
+            description
+          </label>
+          <textarea
+            onChange={(e) => setDescription(e.target.value)}
+            id="description"
+          />
+          <button className="containerbtn" type="submit">
+            Appliquer
+          </button>
+        </form>
       </div>
+      <ToastContainer />
     </div>
   );
 }

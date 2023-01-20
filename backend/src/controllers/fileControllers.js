@@ -90,9 +90,10 @@ const destroy = async (req, res) => {
   const { id } = req.params;
 
   try {
-    // récupération du nom de fichier de la vidéo à supprimer
+    // récupération du nom de fichier de la vidéo et de l'img à supprimer
     const [results] = await models.videos.find(id);
     const videoName = results[0].name;
+    const imgVideoName = results[0].img;
 
     // suppression de la vidéo dans la base de données
     const [result] = await models.videos.delete(id);
@@ -104,7 +105,15 @@ const destroy = async (req, res) => {
           console.error(err);
           res.sendStatus(500);
         } else {
-          res.sendStatus(204);
+          // suppression du fichier image
+          fs.unlink(`${imgVideoDirectory}${imgVideoName}`, (err1) => {
+            if (err1) {
+              console.error(err1);
+              res.sendStatus(500);
+            } else {
+              res.sendStatus(204);
+            }
+          });
         }
       });
     }

@@ -29,7 +29,6 @@ export default function VideoBox({ video }) {
         >
           {video.name}
         </h4>
-        <p>{video.description}</p>
         <div className="categoryContainer">
           <button className="categoryButton" type="button">
             Category
