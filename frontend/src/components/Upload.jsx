@@ -77,46 +77,45 @@ function Upload() {
   };
 
   return (
-    <div className="profil-container">
+    <div className="upload-container">
       <ReturnPageButton />
-      <div className="video-container">
+      <div className="upload-video">
         <h1>Upload Des Vidéos</h1>
-        <div className="video">
-          <form encType="multipart/form-data" onSubmit={handleSubmit}>
-            <label htmlFor="video" className="form-label">
-              Choisir la vidéo
-            </label>
-            <input type="file" ref={videoRef} id="video" />
 
-            <label htmlFor="img" className="form-label">
-              Choisir l'image
-            </label>
-            <input type="file" ref={imgRef} id="img" />
+        <form encType="multipart/form-data" onSubmit={handleSubmit}>
+          <label htmlFor="video" className="form-label">
+            Choisir la vidéo
+          </label>
+          <input type="file" ref={videoRef} id="video" />
 
-            <div className="inputContainer">
-              <label htmlFor="name" className="form-label">
-                Name
-              </label>
-              <input
-                onChange={(e) => setName(e.target.value)}
-                type="text"
-                id="name"
-              />
-            </div>
-            <div className="inputContainer">
-              <label htmlFor="description" className="form-label">
-                description
-              </label>
-              <textarea
-                onChange={(e) => setDescription(e.target.value)}
-                id="description"
-              />
-            </div>
-            <button className="containerbtn" type="submit">
-              Appliquer
-            </button>
-          </form>
-        </div>
+          <label htmlFor="img" className="form-label">
+            Choisir l'image
+          </label>
+          <input type="file" ref={imgRef} id="img" />
+
+          <div className="inputContainer">
+            <label htmlFor="name" className="form-label">
+              Name
+            </label>
+            <input
+              onChange={(e) => setName(e.target.value)}
+              type="text"
+              id="name"
+            />
+          </div>
+          <div className="inputContainer">
+            <label htmlFor="description" className="form-label">
+              description
+            </label>
+            <textarea
+              onChange={(e) => setDescription(e.target.value)}
+              id="description"
+            />
+          </div>
+          <button className="containerbtn" type="submit">
+            Appliquer
+          </button>
+        </form>
       </div>
       <ToastContainer />
     </div>

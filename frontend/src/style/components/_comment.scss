@@ -27,9 +27,15 @@
     }
   }
   .comment-img {
-    max-height: 100px;
-    max-width: 100px;
-    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      height: 60px;
+      border-radius: 50px;
+      width: 60px;
+    }
   }
   .comment-message {
     margin: auto;

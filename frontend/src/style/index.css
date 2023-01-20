@@ -508,9 +508,14 @@ li {
   padding-left: 0.7rem;
 }
 .comment .comment-img {
-  max-height: 100px;
-  max-width: 100px;
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.comment .comment-img img {
+  height: 60px;
+  border-radius: 50px;
+  width: 60px;
 }
 .comment .comment-message {
   margin: auto;
@@ -1829,20 +1834,90 @@ table .user {
   background-color: #006dce;
 }
 
-.profil-container {
-  background-color: #010d18;
+.upload-container {
+  height: 100%;
 }
-
-.container-frm {
-  display: grid;
-  place-items: center;
+.upload-container .upload-video {
+  height: 100px;
 }
-.container-frm .containerbtn {
-  width: 50vw;
-  height: 5vh;
+.upload-container .upload-video h1 {
+  text-align: center;
+}
+.upload-container .upload-video input,
+.upload-container .upload-video textarea {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 6vh;
   border-radius: 8px;
-  margin: 5vh;
+  background-color: #011c33;
+  border-color: #012748;
   color: #ffffff;
-  background-color: #00284d;
+  padding-left: 2%;
+  position: relative;
+}
+.upload-container .upload-video input:focus,
+.upload-container .upload-video textarea:focus {
+  outline: none;
+  border-bottom: 1px solid #006dce;
+}
+.upload-container .upload-video input:focus::-moz-placeholder,
+.upload-container .upload-video textarea:focus::-moz-placeholder {
+  color: transparent;
+}
+.upload-container .upload-video input:focus:-ms-input-placeholder,
+.upload-container .upload-video textarea:focus:-ms-input-placeholder {
+  color: transparent;
+}
+.upload-container .upload-video input:focus::placeholder,
+.upload-container .upload-video textarea:focus::placeholder {
+  color: transparent;
+}
+.upload-container .upload-video label,
+.upload-container .upload-video textarea {
+  margin: auto;
+}
+.upload-container .upload-video button {
+  margin: auto;
+  width: 100%;
+  height: 7vh;
+  border-radius: 2vh;
   border: none;
+  color: #ffffff;
+  font-size: 3vh;
+  font-family: "Poppins", sans-serif;
+  background-color: #006dce;
+  cursor: pointer;
+  margin-top: 6vh;
+}
+.upload-container .upload-video input::-webkit-file-upload-button {
+  background-color: #011c33;
+  background-position-x: 0%;
+  background-size: 200%;
+  border: 0;
+  border-radius: 8px;
+  color: #fff;
+  padding: 1rem 1.25rem;
+  text-shadow: 0 1px 1px #333;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+.upload-container .upload-video input::file-selector-button {
+  background-color: #011c33;
+  background-position-x: 0%;
+  background-size: 200%;
+  border: 0;
+  border-radius: 8px;
+  color: #fff;
+  padding: 1rem 1.25rem;
+  text-shadow: 0 1px 1px #333;
+  transition: all 0.25s;
+}
+.upload-container .upload-video input::-webkit-file-upload-button:hover {
+  background-position-x: 100%;
+  transform: scale(1.1);
+}
+.upload-container .upload-video input::file-selector-button:hover {
+  background-position-x: 100%;
+  transform: scale(1.1);
 } /*# sourceMappingURL=index.css.map */

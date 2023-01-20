@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import axios from "axios";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Player } from "video-react";
 import CurrentVideosContext from "../../contexts/videosContext";
 
@@ -8,14 +8,14 @@ function VideoPlay() {
   const { selectedName, selectedId } = useContext(CurrentVideosContext);
 
   const [videoPlayed, setVideoPlayed] = useState([]);
-
-  axios
-    .get(`http://localhost:5000/api/videos/infos/${selectedId}`)
-    .then((response) => {
-      setVideoPlayed(response.data);
-    })
-    .catch((err) => console.error(err));
-
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/api/videos/infos/${selectedId}`)
+      .then((response) => {
+        setVideoPlayed(response.data);
+      })
+      .catch((err) => console.error(err));
+  }, []);
   return (
     <div className="video-play-container">
       <Player
