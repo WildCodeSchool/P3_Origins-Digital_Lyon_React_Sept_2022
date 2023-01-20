@@ -39,7 +39,6 @@ export default function SearchPage({ videos }) {
             <ul>
               {videos
                 .filter((video) => video.name.toLowerCase().includes(search))
-
                 .map((video, i) => (
                   <li>
                     <VideoBox
