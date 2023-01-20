@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 import { createContext, useState, useEffect } from "react";
-import PropTypes from "prop-types";
 import axios from "axios";
+import PropTypes from "prop-types";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const CurrentVideosContext = createContext();
 
@@ -9,12 +10,15 @@ export default CurrentVideosContext;
 
 export function CurrentVideosContextProvider({ children }) {
   const [videos, setVideos] = useState([]);
-  const [selectedId, setSelectedId] = useState(0);
+  const [selectedName, setSelectedName] = useLocalStorage("videoName", "");
+  const [selectedId, setSelectedId] = useLocalStorage("videoId", "");
 
   const values = {
     videos,
-    setSelectedId,
+    setSelectedName,
+    selectedName,
     selectedId,
+    setSelectedId,
   };
 
   useEffect(() => {

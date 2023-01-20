@@ -7,7 +7,7 @@ import { FiMoreVertical } from "react-icons/fi";
 import CurrentVideosContext from "../../contexts/videosContext";
 
 export default function VideoBox({ video }) {
-  const { setSelectedId } = useContext(CurrentVideosContext);
+  const { setSelectedName, setSelectedId } = useContext(CurrentVideosContext);
 
   const navigate = useNavigate();
   return (
@@ -19,6 +19,7 @@ export default function VideoBox({ video }) {
         <h4
           onClick={() => {
             navigate("/player");
+            setSelectedName(video.url);
             setSelectedId(video.id);
           }}
           className="videoTitle"

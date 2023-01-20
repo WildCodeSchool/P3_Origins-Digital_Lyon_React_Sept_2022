@@ -5,18 +5,16 @@ import { Player } from "video-react";
 import CurrentVideosContext from "../../contexts/videosContext";
 
 function VideoPlay() {
-  const { selectedId } = useContext(CurrentVideosContext);
+  const { selectedName, selectedId } = useContext(CurrentVideosContext);
 
   const [videoPlayed, setVideoPlayed] = useState([]);
 
   axios
-    .get(`http://localhost:5000/api/videos/${selectedId}`)
+    .get(`http://localhost:5000/api/videos/infos/${selectedId}`)
     .then((response) => {
       setVideoPlayed(response.data);
     })
     .catch((err) => console.error(err));
-
-  // console.log(selectedId, "-", videoPlayed);
 
   return (
     <div className="video-play-container">
@@ -25,7 +23,7 @@ function VideoPlay() {
         height={250}
         width={300}
         type="video/mp4"
-        src={`http://localhost:5000/api/videos/${videoPlayed.url}`}
+        src={`http://localhost:5000/api/videos/${selectedName}`}
       />
       <h2>{videoPlayed.name}</h2>
       <p className="date-video">{videoPlayed.creation_date}</p>
