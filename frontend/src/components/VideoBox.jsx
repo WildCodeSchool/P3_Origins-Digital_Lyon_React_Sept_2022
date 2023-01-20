@@ -13,7 +13,10 @@ export default function VideoBox({ video }) {
   return (
     <div className="boxContainer">
       <div className="miniaContainer">
-        <img src={video.img} alt={video.name} />
+        <img
+          src={`http://localhost:5000/api/videos/${video.img}`}
+          alt={video.name}
+        />
       </div>
       <div className="vidInfoContainer">
         <h4

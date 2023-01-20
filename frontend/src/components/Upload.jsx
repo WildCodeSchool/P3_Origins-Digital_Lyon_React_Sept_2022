@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useState } from "react";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -40,6 +40,8 @@ function Upload() {
       theme: "colored",
     });
   const { token } = useContext(CurrentUserContext);
+  const [description, setDescription] = useState("");
+  const [name, setName] = useState("");
   const videoRef = useRef(null);
   const imgRef = useRef(null);
 
@@ -53,10 +55,8 @@ function Upload() {
       const formData = new FormData();
       formData.append("video", videoRef.current.files[0]);
       formData.append("img", imgRef.current.files[0]);
-      formData.append(
-        "description",
-        document.querySelector("#description").value
-      );
+      formData.append("description", description);
+      formData.append("name", name);
 
       for (const [key, value] of formData.entries()) {
         console.warn(`${key}: ${value}`);
@@ -94,10 +94,23 @@ function Upload() {
             <input type="file" ref={imgRef} id="img" />
 
             <div className="inputContainer">
+              <label htmlFor="name" className="form-label">
+                Name
+              </label>
+              <input
+                onChange={(e) => setName(e.target.value)}
+                type="text"
+                id="name"
+              />
+            </div>
+            <div className="inputContainer">
               <label htmlFor="description" className="form-label">
                 description
               </label>
-              <textarea id="description" />
+              <textarea
+                onChange={(e) => setDescription(e.target.value)}
+                id="description"
+              />
             </div>
             <button className="containerbtn" type="submit">
               Appliquer
