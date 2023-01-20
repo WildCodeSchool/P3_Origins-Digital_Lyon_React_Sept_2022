@@ -24,7 +24,7 @@ export default function UsersTable() {
     fetch("http://localhost:5000/api/videos")
       .then((res) => res.json())
       .then((videos) => setVideosList(videos));
-  }, [videosList]);
+  }, []);
   return (
     <div>
       <ReturnPageButton />
