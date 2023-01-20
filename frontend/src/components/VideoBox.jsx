@@ -19,7 +19,7 @@ export default function VideoBox({ video }) {
         <h4
           onClick={() => {
             navigate("/player");
-            setSelectedId(video.id);
+            setSelectedId(video);
           }}
           className="videoTitle"
         >

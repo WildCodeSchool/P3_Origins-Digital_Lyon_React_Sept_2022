@@ -13,7 +13,7 @@ function VideoPlay() {
         height={250}
         width={300}
         type="video/mp4"
-        src={`http://localhost:5000/api/videos/${selectedVideo.url}`}
+        src={`http://localhost:5000/api/videos/${selectedVideo.name}`}
       />
       <h2>{selectedVideo.name}</h2>
       <p className="date-video">{selectedVideo.creation_date}</p>
