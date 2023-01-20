@@ -19,7 +19,7 @@ function VideoPlay() {
   return (
     <div className="video-play-container">
       <Player
-        poster={`http://localhost:5000/api/videos/${videoPlayed.img}`}
+        autoPlay
         height={250}
         width={300}
         type="video/mp4"
