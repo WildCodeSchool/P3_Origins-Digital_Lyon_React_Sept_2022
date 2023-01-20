@@ -1,11 +1,45 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useRef } from "react";
 import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import CurrentUserContext from "../../contexts/userContext";
 import ReturnPageButton from "./ReturnPageButton";
 
 function Upload() {
+  const uploadToast = () =>
+    toast.success("Upload réussi !", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  const uploadFailedToast = () =>
+    toast.error("Upload échoué !", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  const uploadNoFileToast = () =>
+    toast.warn("Pas de fichiers à Uploader !", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
   const { token } = useContext(CurrentUserContext);
-  const [msg, setMsg] = useState("");
   const videoRef = useRef(null);
   const imgRef = useRef(null);
 
@@ -31,14 +65,14 @@ function Upload() {
       axios
         .post(`http://localhost:5000/api/videos`, formData, config)
         .then(() => {
-          setMsg("Upload réussi !");
+          uploadToast();
         })
         .catch((error) => {
           console.error(error);
-          setMsg("Upload échoué !");
+          uploadFailedToast();
         });
     } else {
-      setMsg("Aucun fichier");
+      uploadNoFileToast();
     }
   };
 
@@ -59,8 +93,6 @@ function Upload() {
             </label>
             <input type="file" ref={imgRef} id="img" />
 
-            <p>{msg}</p>
-
             <div className="inputContainer">
               <label htmlFor="description" className="form-label">
                 description
@@ -73,6 +105,7 @@ function Upload() {
           </form>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }
