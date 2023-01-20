@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import CurrentUserContext from "../../contexts/userContext";
+import Navbar from "./Navbar";
 import ReturnPageButton from "./ReturnPageButton";
 import VideoBox from "./VideoBox";
 
@@ -98,6 +99,7 @@ export default function UsersTable() {
           </div>
         </div>
       )}
+      <Navbar />
     </div>
   );
 }
