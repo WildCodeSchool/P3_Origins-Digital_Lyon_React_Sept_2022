@@ -40,56 +40,52 @@ export default function UsersTable() {
       .then((users) => {
         setUserList(users);
       });
-  });
+  }, []);
   return (
     <div>
       <ReturnPageButton />
       <h3>Liste Utilisateurs</h3>
-      <table>
-        <tbody>
-          <tr>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Email</th>
-            <th>Administrateur</th>
-            <th>Supprimer</th>
-          </tr>
+      <div className="user-table">
+        <div>
           {userList.map((user) => {
             return (
-              <tr key={user.id}>
-                <td>{user.firstname}</td>
-                <td>{user.lastname}</td>
-                <td>{user.email}</td>
-                <td>
-                  <button
-                    className={user.is_admin ? "admin" : "user"}
-                    type="button"
-                    onClick={() => {
-                      setIsAdmin(!isAdmin);
-                      changeUserStatus(user.id);
-                    }}
-                  >
-                    {user.is_admin ? "Admin" : "Utilisateur"}
-                  </button>
-                </td>
-                <td className="deleteCase">
-                  {!user.is_admin ? (
+              <div className="user-list">
+                <ul key={user.id} className="user-info">
+                  <li>{user.firstname}</li>
+                  <li>{user.lastname}</li>
+                  <li>{user.email}</li>
+                </ul>
+                <ul className="user-manage">
+                  <li>#{user.id}</li>
+                  <li>
                     <button
-                      className="deleteBtn"
                       type="button"
                       onClick={() => {
-                        deleteUser(user.id);
+                        setIsAdmin(!isAdmin);
+                        changeUserStatus(user.id);
                       }}
                     >
-                      Supprimer
+                      {user.is_admin ? "Admin" : "Utilisateur"}
                     </button>
-                  ) : null}
-                </td>
-              </tr>
+                  </li>
+                  <li>
+                    {!user.is_admin ? (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          deleteUser(user.id);
+                        }}
+                      >
+                        Supprimer
+                      </button>
+                    ) : null}
+                  </li>
+                </ul>
+              </div>
             );
           })}
-        </tbody>
-      </table>
+        </div>
+      </div>
     </div>
   );
 }

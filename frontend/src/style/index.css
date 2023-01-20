@@ -1884,57 +1884,45 @@ body.video-react-full-window .video-react-fullscreen {
   transform: translateY(-30px);
 }
 
-table {
+.user-table {
   border-collapse: collapse;
   width: 100vw;
   box-shadow: 0 5px 15px #00284d;
 }
-table h3 {
+.user-table .user-list {
+  height: 15vh;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #006dce;
+}
+.user-table .user-list .user-info {
+  position: relative;
+  margin: auto;
+  margin-left: 0.5rem;
+}
+.user-table .user-list h3 {
   width: 50vw;
   text-align: center;
   margin-left: 20px;
 }
-table td,
-table th {
-  border: 1px solid #006dce;
-}
-table th {
-  background-color: #006dce;
+.user-table .user-list ul {
+  width: 100%;
   color: #ffffff;
 }
-table tr {
-  text-align: center;
+.user-table .user-list .user-manage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-table td {
-  left: 50%;
-  top: 50%;
-}
-table .deleteBtn {
-  height: 25px;
-  width: 25px;
-  border-radius: 3rem;
-}
-table .admin {
+.user-table .user-list .user-manage button {
   display: block;
   margin: auto;
-  height: 50px;
-  width: 90%;
-  padding: 10px;
+  padding: 5px;
   border: none;
   color: #ffffff;
   border-radius: 5px;
   background-color: #006dce;
-}
-table .user {
-  display: block;
-  margin: auto;
-  height: 50px;
-  width: 90%;
-  padding: 10px;
-  border: none;
-  color: #ffffff;
-  border-radius: 5px;
-  background-color: #006dce;
+  margin-top: 5px;
 }
 
 .upload-container {
