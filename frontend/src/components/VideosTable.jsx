@@ -32,7 +32,6 @@ export default function UsersTable() {
       <table>
         <tbody>
           <tr>
-            <th>Vidéos</th>
             <th>Nom</th>
             <th>Description</th>
             <th>Supprimer</th>
@@ -44,13 +43,13 @@ export default function UsersTable() {
                 <td>{videos.description}</td>
                 <td>
                   <button
-                    className="delete"
+                    className="deleteBtn"
                     type="button"
                     onClick={() => {
                       deleteVideos(videos.id);
                     }}
                   >
-                    X
+                    Supprimer
                   </button>
                 </td>
               </tr>
