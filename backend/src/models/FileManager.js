@@ -15,6 +15,7 @@ class FileManager extends AbstractManager {
       [videoName, videos.name, videos.description, imgVideoName, videos.promote]
     );
   }
+
   promotedVideo() {
     return this.connection.query(
       `select * from  ${this.table} where promote=1`
