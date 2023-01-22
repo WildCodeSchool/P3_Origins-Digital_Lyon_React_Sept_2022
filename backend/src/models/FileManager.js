@@ -11,8 +11,13 @@ class FileManager extends AbstractManager {
 
   insert(videos, videoName, imgVideoName) {
     return this.connection.query(
-      `insert into ${this.table} (url, name, description, img ) values (?, ?, ?, ?)`,
-      [videoName, videos.name, videos.description, imgVideoName]
+      `insert into ${this.table} (url, name, description, img,promote ) values (?, ?, ?, ?,?)`,
+      [videoName, videos.name, videos.description, imgVideoName, videos.promote]
+    );
+  }
+  promotedVideo() {
+    return this.connection.query(
+      `select * from  ${this.table} where promote=1`
     );
   }
 }

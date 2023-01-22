@@ -189,6 +189,18 @@ const sendVideo = (req, res) => {
   });
 };
 
+const promote = (req, res) => {
+  models.videos
+    .promotedVideo()
+    .then(([results]) => {
+      res.send(results);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.sendStatus(500);
+    });
+};
+
 const sendImgVideo = (req, res) => {
   const { fileName } = req.params;
 
@@ -211,4 +223,5 @@ module.exports = {
   renameImgVideo,
   sendImgVideo,
   destroy,
+  promote,
 };
