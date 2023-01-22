@@ -6,7 +6,8 @@ import { useNavigate } from "react-router-dom";
 import CurrentVideosContext from "../../contexts/videosContext";
 
 export default function VideoBox({ video }) {
-  const { setSelectedName, setSelectedId } = useContext(CurrentVideosContext);
+  const { setSelectedName, setSelectedId, videoDate } =
+    useContext(CurrentVideosContext);
 
   const navigate = useNavigate();
   return (
@@ -15,7 +16,7 @@ export default function VideoBox({ video }) {
         <div className="video-info">
           <div className="video-info-text">
             <p className="video-name medium">{video.name}</p>
-            <p className="video-subtext medium">Date</p>
+            <p className="video-subtext medium">{videoDate(video)}</p>
           </div>
           <button
             type="button"
