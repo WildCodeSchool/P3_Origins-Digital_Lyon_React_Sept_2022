@@ -7,7 +7,7 @@ import Slider from "../components/Slider";
 
 function Home() {
   return (
-    <div>
+    <div className="home-container">
       <Header />
       <Carrousel />
       <Slider />
