@@ -60,7 +60,9 @@
       border-radius: 10px;
       margin: auto;
       margin-bottom: 0;
-
+      .containerAvatar {
+        border-radius: 50vh;
+      }
       img {
         max-height: 100px;
         max-width: 100px;

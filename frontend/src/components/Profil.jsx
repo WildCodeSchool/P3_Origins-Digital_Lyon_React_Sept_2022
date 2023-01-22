@@ -119,6 +119,7 @@ function Profil() {
       <div className="avatar-container">
         <div className="avatar">
           <img
+            className="containerAvatar"
             src={`http://localhost:5000/api/avatars/${user.avatar}`}
             alt="avatar"
             onError={handleOnError}
