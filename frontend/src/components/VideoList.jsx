@@ -7,14 +7,10 @@ function VideoList() {
   const { videos } = useContext(CurrentVideosContext);
 
   return (
-    <div>
-      <ul className="videosContainer">
-        {videos.map((vid) => (
-          <li key={vid.id}>
-            <VideoBox video={vid} />
-          </li>
-        ))}
-      </ul>
+    <div className="videosContainer">
+      {videos.map((vid) => (
+        <VideoBox video={vid} key={vid.id} />
+      ))}
     </div>
   );
 }

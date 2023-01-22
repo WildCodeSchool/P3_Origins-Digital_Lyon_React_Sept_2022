@@ -1,10 +1,9 @@
 .profil-container {
-  height: 200vh;
   background-color: $color-2;
   width: 100vw;
+  margin-bottom: 7.5vh;
 
   .profil-info {
-    height: 55vh;
     width: 100%;
     button {
       background: linear-gradient(175deg, #011c33 0%, rgba(1, 28, 51, 0) 100%);
