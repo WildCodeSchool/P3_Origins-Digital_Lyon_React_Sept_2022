@@ -36,7 +36,6 @@ function VideoPlay() {
           <h3>Category</h3>
         </div>
       </div>
-      <div className="like-share">like</div>
     </div>
   );
 }
