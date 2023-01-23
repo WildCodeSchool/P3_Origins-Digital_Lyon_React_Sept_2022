@@ -28,7 +28,6 @@ export default function SearchPage() {
           <div className="searchpage-container">
             {videos
               .filter((video) => video.name.toLowerCase().includes(search))
-
               .map((video) => (
                 <VideoBox video={video} key={video.id} />
               ))}

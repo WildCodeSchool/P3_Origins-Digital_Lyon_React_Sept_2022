@@ -14,6 +14,7 @@ function VideoPlayer() {
   const backUrl = import.meta.env.VITE_BACKEND_URL;
 
   const [videoPlayed, setVideoPlayed] = useState([]);
+  const [currentVideoComments, setCurrentVideoComments] = useState([]);
 
   useEffect(() => {
     axios
@@ -24,21 +25,18 @@ function VideoPlayer() {
       .catch((err) => console.error(err));
   }, []);
 
-  const comment = {
-    author: {
-      name: "John Doe",
-      avatar: "../../src/asset/image/user.svg",
-    },
-    message: "This is a great video!",
-  };
-
+  useEffect(() => {
+    fetch(`http://localhost:5000/api/videos/infos/${selectedId}`)
+      .then((res) => res.json())
+      .then((videos) => setCurrentVideoComments(videos.comment));
+  }, []);
   return (
     <div className="player-page">
       <Header />
       <Navbar />
       <VideoPlay video={videoPlayed} />
       <Slider />
-      <Comment author={comment.author} message={comment.message} />
+      <Comment currentVideoComments={currentVideoComments} />
     </div>
   );
 }
