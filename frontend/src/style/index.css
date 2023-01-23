@@ -1870,6 +1870,9 @@ body.video-react-full-window .video-react-fullscreen {
   margin-top: 5px;
 }
 
+.upload-container {
+  padding-bottom: 20px;
+}
 .upload-container .file-area {
   width: 100%;
   position: relative;

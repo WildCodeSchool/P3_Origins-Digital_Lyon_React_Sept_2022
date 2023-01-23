@@ -5,9 +5,11 @@ import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import CurrentVideosContext from "../../contexts/videosContext";
 
-export default function VideoBox({ video }) {
+export default function VideoBox({ video, category }) {
   const { setSelectedName, setSelectedId, videoDate } =
     useContext(CurrentVideosContext);
+
+  const selectedCategory = category.find((cat) => cat.id === video.category_id);
 
   const navigate = useNavigate();
   return (
@@ -34,7 +36,7 @@ export default function VideoBox({ video }) {
         src={`http://localhost:5000/api/videos/${video.img}`}
         alt={video.name}
       />
-      <span className="video-time">Category</span>
+      <span className="video-time">{selectedCategory.name}</span>
     </div>
   );
 }
