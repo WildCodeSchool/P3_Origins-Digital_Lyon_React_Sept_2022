@@ -77,8 +77,21 @@ const read = (req, res) => {
   models.videos
     .find(id)
     .then(([results]) => {
-      if (results[0]) res.send(results[0]);
-      else res.sendStatus(404);
+      if (!results[0]) {
+        res.sendStatus(404);
+        return;
+      }
+      const videos = results[0];
+      models.comment
+        .getComments(req.params.id)
+        .then(([videosComments]) => {
+          videos.comment = videosComments;
+          res.send(videos);
+        })
+        .catch((err) => {
+          console.error(err);
+          res.sendStatus(500);
+        });
     })
     .catch((error) => {
       console.error(error);
