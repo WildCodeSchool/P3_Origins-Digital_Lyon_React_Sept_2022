@@ -95,19 +95,21 @@ CREATE TABLE IF NOT EXISTS `Videos_has_Category` (
     REFERENCES `origins_digital`.`Category` (`id`))
 ENGINE = InnoDB;
 
-DROP TABLE IF EXISTS `Videos_has_comments`;
-CREATE TABLE IF NOT EXISTS `Videos_has_comments` (
-  `Videos_id` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `comment` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `content` TEXT NOT NULL,
   `User_id` INT NOT NULL,
-  `comment` TEXT NOT NULL,
-  PRIMARY KEY (`Videos_id`, `User_id`),
-  CONSTRAINT `fk_Videos_has_User_Videos1`
-    FOREIGN KEY (`Videos_id`)
-    REFERENCES `origins_digital`.`Videos` (`id`),
-  CONSTRAINT `fk_Videos_has_User_User1`
+  `Videos_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_comment_User`
     FOREIGN KEY (`User_id`)
-    REFERENCES `origins_digital`.`User` (`id`))
+    REFERENCES `origins_digital`.`User` (`id`),
+  CONSTRAINT `fk_comment_Videos1`
+    FOREIGN KEY (`Videos_id`)
+    REFERENCES `origins_digital`.`Videos` (`id`)
+)
 ENGINE = InnoDB;
+
 
 
 
