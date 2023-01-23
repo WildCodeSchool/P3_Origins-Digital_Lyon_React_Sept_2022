@@ -5,7 +5,8 @@ import { Player } from "video-react";
 import CurrentVideosContext from "../../contexts/videosContext";
 
 function VideoPlay() {
-  const { selectedName, selectedId } = useContext(CurrentVideosContext);
+  const { selectedName, selectedId, videoDate } =
+    useContext(CurrentVideosContext);
 
   const [videoPlayed, setVideoPlayed] = useState([]);
 
@@ -28,14 +29,13 @@ function VideoPlay() {
         src={`http://localhost:5000/api/videos/${selectedName}`}
       />
       <h2>{videoPlayed.name}</h2>
-      <p className="date-video">{videoPlayed.creation_date}</p>
+      <p className="date-video">{videoDate(videoPlayed)}</p>
       <p className="video-description">{videoPlayed.description}</p>
       <div className="interaction">
         <div className="category-play">
           <h3>Category</h3>
         </div>
       </div>
-      <div className="like-share">like</div>
     </div>
   );
 }

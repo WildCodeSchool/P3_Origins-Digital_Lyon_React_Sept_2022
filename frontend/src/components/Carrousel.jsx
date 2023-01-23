@@ -1,35 +1,46 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-
+import axios from "axios";
 import { Carousel } from "react-responsive-carousel";
-import LOL from "../asset/1.jpg";
-import LOL2 from "../asset/2.jpg";
-import LOL3 from "../asset/3.jpg";
+import CurrentVideosContext from "../../contexts/videosContext";
 
 function Carrousel() {
+  const { setSelectedName, setSelectedId } = useContext(CurrentVideosContext);
+
+  const [videosPromoted, setVideoPromoted] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/api/videos/promote`)
+      .then((response) => {
+        setVideoPromoted(response.data);
+      })
+      .catch((err) => console.error(err));
+  }, [setVideoPromoted]);
   return (
     <div>
       <div className="carrouselContainer">
         <Carousel autoPlay infiniteLoop showThumbs="" showStatus="">
-          <Link to="/player">
-            <div>
-              <img src={LOL} alt="LOL" className="carrouselImg" />
-              <p className="legend">Legend 1</p>
-            </div>
-          </Link>
-          <Link to="/player">
-            <div>
-              <img src={LOL2} alt="LOL2" className="carrouselImg" />
-              <p className="legend">Legend 2</p>
-            </div>
-          </Link>
-          <Link to="/player">
-            <div>
-              <img src={LOL3} alt="LOL3" className="carrouselImg" />
-              <p className="legend">Legend 3</p>
-            </div>
-          </Link>
+          {videosPromoted.map((video) => (
+            <Link
+              to="/player"
+              key={video.id}
+              onClick={() => {
+                setSelectedName(video.url);
+                setSelectedId(video.id);
+              }}
+            >
+              <div>
+                <img
+                  src={`http://localhost:5000/api/videos/${video.img}`}
+                  alt={video.name}
+                  className="carrouselImg"
+                />
+                <p className="legend">{video.name}</p>
+              </div>
+            </Link>
+          ))}
         </Carousel>
       </div>
     </div>

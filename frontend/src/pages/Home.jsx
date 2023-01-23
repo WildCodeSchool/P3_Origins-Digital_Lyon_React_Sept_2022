@@ -1,4 +1,5 @@
 import React from "react";
+
 import { ToastContainer } from "react-toastify";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
@@ -7,7 +8,7 @@ import Slider from "../components/Slider";
 
 function Home() {
   return (
-    <div>
+    <div className="home-container">
       <Header />
       <Carrousel />
       <Slider />

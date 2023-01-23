@@ -1,27 +1,21 @@
-.search-user {
+.search-video {
   display: block;
   height: 50px;
   width: 80%;
   margin: auto;
   margin-top: 1rem;
 }
-.user-table {
-  margin-bottom: 7.5vh;
+.video-table {
   border-collapse: collapse;
   width: 100vw;
   box-shadow: 0 5px 15px $color-2;
-  .user-list {
-    height: 15vh;
+  margin-bottom: 7.5vh;
+  .video-list {
+    width: 100%;
+    height: 25vh;
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid $color-1;
-    .user-info {
-      position: relative;
-      margin: auto;
-      margin-left: 0.5rem;
-    }
-    div {
-    }
 
     h3 {
       width: 50vw;
@@ -33,8 +27,9 @@
       width: 100%;
       color: $white;
     }
-    .user-manage {
+    .video-manage {
       display: flex;
+      width: 35%;
       flex-direction: column;
       justify-content: center;
       margin-bottom: 1.5rem;
