@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS `Videos` (
   `creation_date` DATETIME NULL DEFAULT NOW(),
   `img` VARCHAR(300) NOT NULL,
   `name` VARCHAR(300) NOT NULL,
+  `promote` TINYINT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 

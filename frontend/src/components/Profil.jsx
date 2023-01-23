@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import CurrentUserContext from "../../contexts/userContext";
 import defaultAvatar from "../asset/image/defaultAvatar.jpeg";
+import Imglog from "../asset/image/img1.png";
 
 function Profil() {
   const navigate = useNavigate();
@@ -112,6 +113,9 @@ function Profil() {
   };
   return (
     <div className="profil-container">
+      <div>
+        <img className="container-img" src={Imglog} alt="img" />
+      </div>
       <div className="avatar-container">
         <div className="avatar">
           <img
@@ -130,7 +134,7 @@ function Profil() {
         </div>
       </div>
       <div className="profil-info">
-        <p>
+        <p className="containerName">
           {user.lastname}.{user.firstname}
         </p>
         {modifyInfos ? (
@@ -146,6 +150,7 @@ function Profil() {
           </button>
         ) : (
           <button
+            className="containerbtn-profil"
             type="button"
             onClick={() => {
               setModifyInfos(true);
@@ -162,6 +167,7 @@ function Profil() {
                 Nom
               </label>
               <input
+                className="container-input"
                 type="text"
                 onChange={(e) =>
                   setNewUserInfos({
@@ -176,6 +182,7 @@ function Profil() {
                 Prénom
               </label>
               <input
+                className="container-input"
                 type="text"
                 onChange={(e) =>
                   setNewUserInfos({
@@ -190,6 +197,7 @@ function Profil() {
                 Email
               </label>
               <input
+                className="container-input"
                 type="text"
                 onChange={(e) =>
                   setNewUserInfos({
@@ -201,7 +209,7 @@ function Profil() {
             </li>
           </ul>
         ) : (
-          <ul>
+          <ul className="containerul">
             <li>{user.lastname}</li>
             <li>{user.firstname}</li>
             <li>{user.email}</li>
@@ -211,6 +219,18 @@ function Profil() {
           <div>
             <button onClick={() => navigate("/upload")} type="button">
               Upload des videos
+            </button>
+            <button onClick={() => navigate("/videosManagement")} type="button">
+              Gestion des videos
+            </button>
+          </div>
+        ) : (
+          ""
+        )}
+        {user.is_admin === 1 ? (
+          <div>
+            <button onClick={() => navigate("/addcategory")} type="button">
+              Ajouter des Catégories
             </button>
             <button onClick={() => navigate("/videosManagement")} type="button">
               Gestion des videos

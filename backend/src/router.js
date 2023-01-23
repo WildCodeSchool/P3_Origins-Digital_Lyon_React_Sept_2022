@@ -47,7 +47,8 @@ router.post(
 );
 
 router.get("/api/videos", fileControllers.browse);
-router.get("/api/videos/:id", fileControllers.read);
+router.get("/api/videos/promote", fileControllers.promote);
+router.get("/api/videos/infos/:id", fileControllers.read);
 router.get(
   "/api/videos/:fileName",
   fileControllers.sendVideo,

@@ -15,6 +15,13 @@ class CategoryManager extends AbstractManager {
       [name, img, description]
     );
   }
+
+  update(category) {
+    return this.connection.query(`update ${this.table} set ? where id= ?`, [
+      category,
+      category.id,
+    ]);
+  }
 }
 
 module.exports = CategoryManager;

@@ -1,17 +1,16 @@
 /* eslint-disable react/prop-types */
-import React from "react";
+import React, { useContext } from "react";
+import CurrentVideosContext from "../../contexts/videosContext";
 import VideoBox from "./VideoBox";
 
-function VideoList({ videos }) {
+function VideoList() {
+  const { videos } = useContext(CurrentVideosContext);
+
   return (
-    <div>
-      <ul className="videosContainer">
-        {videos.map((vid, i) => (
-          <li key={vid.id}>
-            <VideoBox video={vid} index={i} />
-          </li>
-        ))}
-      </ul>
+    <div className="videosContainer">
+      {videos.map((vid) => (
+        <VideoBox video={vid} key={vid.id} />
+      ))}
     </div>
   );
 }

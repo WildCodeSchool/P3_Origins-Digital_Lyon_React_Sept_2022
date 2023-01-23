@@ -1,10 +1,13 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import CurrentVideosContext from "../../contexts/videosContext";
 import Navbar from "../components/Navbar";
 import VideoBox from "../components/VideoBox";
 
-export default function SearchPage({ videos }) {
+export default function SearchPage() {
   const [search, setSearch] = useState("");
+
+  const { videos } = useContext(CurrentVideosContext);
 
   return (
     <div className="pageContainer">
@@ -21,35 +24,20 @@ export default function SearchPage({ videos }) {
         />
       </div>
       <div>
-        {search === "" ? (
-          <div className="">
-            <h2 className="littleTitle">Parcourir tout</h2>
-            <ul>
-              {videos.map((vid) => {
-                return (
-                  <li key={vid.id}>
-                    <VideoBox video={vid} />
-                  </li>
-                );
-              })}
-            </ul>
+        {search !== "" ? (
+          <div className="searchpage-container">
+            {videos
+              .filter((video) => video.name.toLowerCase().includes(search))
+
+              .map((video) => (
+                <VideoBox video={video} key={video.id} />
+              ))}
           </div>
         ) : (
-          <div>
-            <ul>
-              {videos
-                .filter((video) => video.name.toLowerCase().includes(search))
-                .map((video, i) => (
-                  <li>
-                    <VideoBox
-                      videoName={video.name}
-                      index={i}
-                      description={video.description}
-                      key={video.id}
-                    />
-                  </li>
-                ))}
-            </ul>
+          <div className="searchpage-container">
+            {videos.map((vid) => {
+              return <VideoBox video={vid} key={vid.id} />;
+            })}
           </div>
         )}
       </div>

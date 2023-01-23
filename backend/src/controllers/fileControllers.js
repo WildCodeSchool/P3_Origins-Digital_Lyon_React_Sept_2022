@@ -189,6 +189,18 @@ const sendVideo = (req, res) => {
   });
 };
 
+const promote = (req, res) => {
+  models.videos
+    .promotedVideo()
+    .then(([results]) => {
+      res.send(results);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.sendStatus(500);
+    });
+};
+
 const sendImgVideo = (req, res) => {
   const { fileName } = req.params;
 
@@ -199,21 +211,6 @@ const sendImgVideo = (req, res) => {
   });
 };
 
-// Gestion des catégories
-
-const uploadCategory = (req, res) => {
-  const category = req.body;
-
-  models.category
-    .insert(category)
-    .then(([result]) => {
-      res.status(201).location(`/api/category/${result.insertId}`).send();
-    })
-    .catch((error) => {
-      console.error(error);
-      res.sendStatus(500);
-    });
-};
 module.exports = {
   renameAvatar,
   sendAvatar,
@@ -226,5 +223,5 @@ module.exports = {
   renameImgVideo,
   sendImgVideo,
   destroy,
-  uploadCategory,
+  promote,
 };

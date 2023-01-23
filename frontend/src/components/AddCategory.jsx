@@ -7,9 +7,9 @@ import CurrentUserContext from "../../contexts/userContext";
 import ReturnPageButton from "./ReturnPageButton";
 import Navbar from "./Navbar";
 
-function Upload() {
-  const uploadToast = () =>
-    toast.success("Upload réussi !", {
+function AddCategory() {
+  const categoryToast = () =>
+    toast.success("Catégorie ajoutée !", {
       position: "top-center",
       autoClose: 2000,
       hideProgressBar: false,
@@ -19,8 +19,8 @@ function Upload() {
       progress: undefined,
       theme: "colored",
     });
-  const uploadFailedToast = () =>
-    toast.error("Upload échoué !", {
+  const categoryFailedToast = () =>
+    toast.error("La catégorie n'a pas pu être ajoutée 😞😞😞", {
       position: "top-center",
       autoClose: 2000,
       hideProgressBar: false,
@@ -30,8 +30,8 @@ function Upload() {
       progress: undefined,
       theme: "colored",
     });
-  const uploadNoFileToast = () =>
-    toast.warn("Pas de fichiers à Uploader !", {
+  const categoryNoFileToast = () =>
+    toast.warn(" Il manque l'image de ta catégorie", {
       position: "top-center",
       autoClose: 2000,
       hideProgressBar: false,
@@ -44,39 +44,35 @@ function Upload() {
   const { token } = useContext(CurrentUserContext);
   const [description, setDescription] = useState("");
   const [name, setName] = useState("");
-  const [promote, setPromote] = useState(1);
-  const videoRef = useRef(null);
   const imgRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (videoRef.current.files[0] && imgRef.current.files[0]) {
+    if (imgRef.current.files[0]) {
       const config = {
         headers: { Authorization: `Bearer ${token}` },
       };
 
       const formData = new FormData();
-      formData.append("video", videoRef.current.files[0]);
       formData.append("img", imgRef.current.files[0]);
       formData.append("description", description);
       formData.append("name", name);
-      formData.append("promote", promote);
 
       for (const [key, value] of formData.entries()) {
         console.warn(`${key}: ${value}`);
       }
 
       axios
-        .post(`http://localhost:5000/api/videos`, formData, config)
+        .post(`http://localhost:5000/api/category`, formData, config)
         .then(() => {
-          uploadToast();
+          categoryToast();
         })
         .catch((error) => {
           console.error(error);
-          uploadFailedToast();
+          categoryFailedToast();
         });
     } else {
-      uploadNoFileToast();
+      categoryNoFileToast();
     }
     setName("");
     setDescription("");
@@ -87,21 +83,9 @@ function Upload() {
       <div className="upload-container">
         <ReturnPageButton />
         <h2>
-          <strong> Upload De Vidéo</strong>
+          <strong> Ajout de Catégorie</strong>
         </h2>
         <form encType="multipart/form-data" onSubmit={handleSubmit}>
-          <div className="form-group file-area">
-            <label htmlFor="video" className="form-label">
-              Vidéo
-            </label>
-            <input type="file" ref={videoRef} id="video" required="required" />
-            <div className="file-dummy">
-              <div className="success">
-                Votre fichier a bien été sélectionnée
-              </div>
-              <div className="default">Sélectionner une vidéo</div>
-            </div>
-          </div>
           <div className="form-group file-area">
             <label htmlFor="img" className="form-label">
               Image
@@ -116,7 +100,7 @@ function Upload() {
           </div>
           <div className="form-group">
             <label htmlFor="name" className="form-label">
-              Nom de la vidéo
+              Nom de la Catégorie
             </label>
             <input
               onChange={(e) => setName(e.target.value)}
@@ -138,22 +122,8 @@ function Upload() {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="promote" className="form-label">
-              Mettre en avant
-            </label>
-            <select
-              onChange={(e) => setPromote(e.target.value)}
-              id="promote"
-              className="form-controll "
-              required="required"
-            >
-              <option value={1}>Oui</option>
-              <option value={0}>Non</option>
-            </select>
-          </div>
-          <div className="form-group">
             <button className="containerbtn" type="submit">
-              Télécharger
+              Ajouter
             </button>
           </div>
         </form>
@@ -164,4 +134,4 @@ function Upload() {
   );
 }
 
-export default Upload;
+export default AddCategory;
