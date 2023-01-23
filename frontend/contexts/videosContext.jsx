@@ -2,6 +2,7 @@
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
+import moment from "moment";
 import useLocalStorage from "../hooks/useLocalStorage";
 
 const CurrentVideosContext = createContext();
@@ -12,6 +13,7 @@ export function CurrentVideosContextProvider({ children }) {
   const [videos, setVideos] = useState([]);
   const [selectedName, setSelectedName] = useLocalStorage("videoName", "");
   const [selectedId, setSelectedId] = useLocalStorage("videoId", "");
+  const videoDate = (video) => moment(video.creation_date).fromNow();
 
   const values = {
     videos,
@@ -19,6 +21,7 @@ export function CurrentVideosContextProvider({ children }) {
     selectedName,
     selectedId,
     setSelectedId,
+    videoDate,
   };
 
   useEffect(() => {
