@@ -2,22 +2,22 @@ const AbstractManager = require("./AbstractManager");
 
 class CategoryManager extends AbstractManager {
   constructor() {
-    super({ table: "Category" });
+    super({ table: "category" });
   }
 
   findAll() {
     return this.connection.query(`select * from  ${this.table}`);
   }
 
-  insert(name, img, description) {
+  insert(category) {
     return this.connection.query(
-      `insert into ${this.table} (name,img,description ) values (?, ?, ?)`,
-      [name, img, description]
+      `insert into ${this.table} (name, img, description ) values (?, ?, ?)`,
+      [category.name, category.img, category.description]
     );
   }
 
   update(category) {
-    return this.connection.query(`update ${this.table} set ? where id= ?`, [
+    return this.connection.query(`update ${this.table} set ? where id = ?`, [
       category,
       category.id,
     ]);
