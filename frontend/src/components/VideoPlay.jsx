@@ -4,16 +4,18 @@ import React, { useContext, useState, useEffect } from "react";
 import { Player } from "video-react";
 import CurrentVideosContext from "../../contexts/videosContext";
 
-function VideoPlay() {
-  const { selectedName, selectedId } = useContext(CurrentVideosContext);
+function VideoPlay({ video }) {
+  const { videoDate } = useContext(CurrentVideosContext);
 
-  const [videoPlayed, setVideoPlayed] = useState([]);
+  const backUrl = import.meta.env.VITE_BACKEND_URL;
+
+  const [category, setCategory] = useState({});
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/videos/infos/${selectedId}`)
+      .get(`${backUrl}/api/category/${video.category_id}`)
       .then((response) => {
-        setVideoPlayed(response.data);
+        setCategory(response.data);
       })
       .catch((err) => console.error(err));
   }, []);
@@ -25,17 +27,16 @@ function VideoPlay() {
         height={250}
         width={300}
         type="video/mp4"
-        src={`http://localhost:5000/api/videos/${selectedName}`}
+        src={`http://localhost:5000/api/videos/${video.url}`}
       />
-      <h2>{videoPlayed.name}</h2>
-      <p className="date-video">{videoPlayed.creation_date}</p>
-      <p className="video-description">{videoPlayed.description}</p>
+      <h2>{video.name}</h2>
+      <p className="date-video">{videoDate(video)}</p>
+      <p className="video-description">{video.description}</p>
       <div className="interaction">
         <div className="category-play">
-          <h3>Category</h3>
+          <h3>{category.name}</h3>
         </div>
       </div>
-      <div className="like-share">like</div>
     </div>
   );
 }

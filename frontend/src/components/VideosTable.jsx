@@ -20,7 +20,15 @@ export default function UsersTable() {
   };
 
   const deleteVideo = (id) => {
-    fetch(`http://localhost:5000/api/videos/${id}`, DELETErequestOptions);
+    fetch(`http://localhost:5000/api/videos/${id}`, DELETErequestOptions).then(
+      (res) => {
+        if (res) {
+          fetch("http://localhost:5000/api/videos")
+            .then((response) => response.json())
+            .then((videos) => setVideosList(videos));
+        }
+      }
+    );
   };
 
   useEffect(() => {
@@ -28,6 +36,7 @@ export default function UsersTable() {
       .then((res) => res.json())
       .then((videos) => setVideosList(videos));
   }, []);
+
   return (
     <div className="video-table-container">
       <ReturnPageButton />
@@ -45,8 +54,8 @@ export default function UsersTable() {
             .filter((video) => video.name.toLowerCase().includes(search))
 
             .map((video) => (
-              <div className="video-list" key={video.id}>
-                <ul className="video-info">
+              <div className="video-list">
+                <ul key={video.id} className="video-info">
                   <VideoBox video={video} className="video-box-manage" />
                 </ul>
                 <ul className="video-manage">
