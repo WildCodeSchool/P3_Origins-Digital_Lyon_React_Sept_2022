@@ -28,8 +28,9 @@ li {
   border: 1px solid #006dce;
   border-radius: 5px;
 }
-.video-play-container h2 {
-  margin-left: 2.5%;
+.video-play-container h2,
+.video-play-container p {
+  margin: 3% 2%;
 }
 .video-play-container .video-description {
   text-align: left;
@@ -38,7 +39,6 @@ li {
   margin: 1.5rem 2.5%;
 }
 .video-play-container .date-video {
-  margin-left: 2.5%;
   color: #006dce;
 }
 .video-play-container .interaction {
@@ -95,6 +95,7 @@ li {
   bottom: 0;
   height: 7.5vh;
   width: 100%;
+  z-index: 10;
 }
 .navigation ul {
   display: flex;
@@ -472,6 +473,7 @@ li {
 }
 .video-name.medium,
 .video-subtext.medium {
+  width: 150% !important;
   font-size: 14px;
   line-height: 24px;
 }
@@ -523,8 +525,7 @@ li {
 .header-container {
   height: 8.2vh;
   width: 100%;
-  border-bottom: 1px solid rgba(0, 109, 206, 0.4);
-  margin-bottom: 2.3rem;
+  border-bottom: 1px solid rgba(0, 40, 77, 0.4);
   background: #00284d;
   display: flex;
   justify-content: flex-start;
@@ -665,15 +666,27 @@ li {
 }
 
 .carrouselContainer {
-  position: relative;
-  left: 2vh;
-  width: 90vw;
-  border-radius: 1rem;
-  border: solid 2px;
+  width: 100vw;
+  border-radius: 0.5rem;
+  border: solid 1px;
   border-color: #00284d;
+  margin: auto;
+  margin-bottom: 2rem;
 }
-
-.carrouselImg {
+.carrouselContainer .legend {
+  background-color: rgba(1, 13, 24, 0.8) !important;
+  height: 20% !important;
+  width: 90% !important;
+  font-size: 1.5rem !important;
+  border-radius: 0 !important;
+  margin-left: -50%;
+  opacity: 1 !important;
+  display: none !important;
+}
+.carrouselContainer .legend p {
+  color: #ffffff !important;
+}
+.carrouselContainer .carrouselImg {
   border-radius: 1rem;
 }
 
@@ -1767,6 +1780,7 @@ body.video-react-full-window .video-react-fullscreen {
 }
 
 .user-table {
+  margin-bottom: 7.5vh;
   border-collapse: collapse;
   width: 100vw;
   box-shadow: 0 5px 15px #00284d;
@@ -1820,20 +1834,14 @@ body.video-react-full-window .video-react-fullscreen {
   border-collapse: collapse;
   width: 100vw;
   box-shadow: 0 5px 15px #00284d;
+  margin-bottom: 7.5vh;
 }
 .video-table .video-list {
-  height: 15vh;
+  width: 100%;
+  height: 25vh;
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #006dce;
-}
-.video-table .video-list .video-info {
-  position: relative;
-  margin: auto;
-  margin-left: 1rem;
-}
-.video-table .video-list .video-info .video-box-manage {
-  height: 20vh;
 }
 .video-table .video-list h3 {
   width: 50vw;

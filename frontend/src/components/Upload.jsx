@@ -1,4 +1,5 @@
 import React, { useContext, useRef, useState } from "react";
+
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -43,6 +44,7 @@ function Upload() {
   const { token } = useContext(CurrentUserContext);
   const [description, setDescription] = useState("");
   const [name, setName] = useState("");
+  const [promote, setPromote] = useState(1);
   const videoRef = useRef(null);
   const imgRef = useRef(null);
 
@@ -58,6 +60,7 @@ function Upload() {
       formData.append("img", imgRef.current.files[0]);
       formData.append("description", description);
       formData.append("name", name);
+      formData.append("promote", promote);
 
       for (const [key, value] of formData.entries()) {
         console.warn(`${key}: ${value}`);
@@ -133,6 +136,20 @@ function Upload() {
               className="form-controll "
               required="required"
             />
+          </div>
+          <div className="form-group">
+            <label htmlFor="promote" className="form-label">
+              Mettre en avant
+            </label>
+            <select
+              onChange={(e) => setPromote(e.target.value)}
+              id="promote"
+              className="form-controll "
+              required="required"
+            >
+              <option value={1}>Oui</option>
+              <option value={0}>Non</option>
+            </select>
           </div>
           <div className="form-group">
             <button className="containerbtn" type="submit">

@@ -1,12 +1,26 @@
 .carrouselContainer {
-  position: relative;
-  left: 2vh;
-  width: 90vw;
-  border-radius: 1rem;
-  border: solid 2px;
+  width: 100vw;
+  border-radius: 0.5rem;
+  border: solid 1px;
   border-color: $color-2;
-}
+  margin: auto;
+  margin-bottom: 2rem;
+  .legend {
+    background-color: rgba($color: $black, $alpha: 0.8) !important;
+    height: 20% !important;
+    width: 90% !important;
+    font-size: 1.5rem !important;
+    border-radius: 0 !important;
+    margin-left: -50%;
 
-.carrouselImg {
-  border-radius: 1rem;
+    opacity: 1 !important;
+    p {
+      color: $white !important;
+    }
+    display: none !important;
+  }
+
+  .carrouselImg {
+    border-radius: 1rem;
+  }
 }

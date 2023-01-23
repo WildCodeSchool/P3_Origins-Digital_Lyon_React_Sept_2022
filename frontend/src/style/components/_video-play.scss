@@ -7,8 +7,9 @@
     border: 1px solid $color-1;
     border-radius: 5px;
   }
-  h2 {
-    margin-left: 2.5%;
+  h2,
+  p {
+    margin: 3% 2%;
   }
   .video-description {
     text-align: left;
@@ -17,7 +18,6 @@
     margin: 1.5rem 2.5%;
   }
   .date-video {
-    margin-left: 2.5%;
     color: $color-1;
   }
   .interaction {
