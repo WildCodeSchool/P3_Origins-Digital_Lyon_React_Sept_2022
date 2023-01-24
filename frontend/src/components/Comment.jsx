@@ -64,6 +64,7 @@ function Comment({ currentVideoComments }) {
               alt={`${videosComments.firstname}'s avatar`}
             />
           </div>
+          {videosComments.firstname} : <br />
           {videosComments.content}
         </div>
       ))}

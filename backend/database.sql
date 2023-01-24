@@ -98,6 +98,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `comment` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `content` TEXT NOT NULL,
+  `creation_date` DATETIME NULL DEFAULT NOW(),
   `User_id` INT NOT NULL,
   `Videos_id` INT NOT NULL,
   PRIMARY KEY (`id`),
