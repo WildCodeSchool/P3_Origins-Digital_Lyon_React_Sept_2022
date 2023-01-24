@@ -10,6 +10,7 @@ const { hashPassword, verifyPassword, verifyToken } = require("../auth");
 const authControllers = require("./controllers/authControllers");
 const userControllers = require("./controllers/userControllers");
 const fileControllers = require("./controllers/fileControllers");
+const favoriteControllers = require("./controllers/favoriteControllers");
 const commentsControllers = require("./controllers/commentsControllers");
 
 // Auth
@@ -60,5 +61,8 @@ router.delete("/api/videos/:id", fileControllers.destroy);
 // Gestion des commentaires
 router.put("/api/videos/infos/:id/comments/:id", commentsControllers.edit);
 router.post("/api/videos/infos/:id/comments", commentsControllers.add);
+
+router.post("/api/favoris", favoriteControllers.addFavorite);
+router.get("/api/favoris/:userId", favoriteControllers.getFav);
 
 module.exports = router;

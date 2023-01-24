@@ -10,9 +10,9 @@ const CurrentVideosContext = createContext();
 export default CurrentVideosContext;
 
 export function CurrentVideosContextProvider({ children }) {
-  const [videos, setVideos] = useState([]);
   const [selectedName, setSelectedName] = useLocalStorage("videoName", "");
   const [selectedId, setSelectedId] = useLocalStorage("videoId", "");
+  const [videos, setVideos] = useState([]);
   const videoDate = (video) => moment(video.creation_date).fromNow();
 
   const values = {
