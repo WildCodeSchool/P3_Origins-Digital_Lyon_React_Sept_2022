@@ -227,6 +227,18 @@ function Profil() {
         ) : (
           ""
         )}
+        {user.is_admin === 1 ? (
+          <div>
+            <button onClick={() => navigate("/addcategory")} type="button">
+              Ajouter des Catégories
+            </button>
+            <button onClick={() => navigate("/videosManagement")} type="button">
+              Gestion des videos
+            </button>
+          </div>
+        ) : (
+          ""
+        )}
         {user.is_admin ? (
           <button type="button" onClick={() => navigate("/usersManagement")}>
             Gestion des Utilisateurs
