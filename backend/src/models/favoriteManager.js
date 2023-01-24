@@ -21,6 +21,13 @@ class favoriteManager extends AbstractManager {
           WHERE user.id = ${userId}`
     );
   }
+
+  deleteFav(userId, videoId) {
+    return this.connection.query(
+      "DELETE FROM User_has_favorite WHERE user_id = ? and videos_id = ?",
+      [userId, videoId]
+    );
+  }
 }
 
 module.exports = favoriteManager;

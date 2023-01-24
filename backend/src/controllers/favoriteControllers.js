@@ -27,8 +27,20 @@ const getFav = (req, res) => {
       res.sendStatus(500);
     });
 };
+const deleteFavorite = (req, res) => {
+  const { userId, videoId } = req.params;
+  models.User_has_favorite.deleteFav(userId, videoId)
+    .then(() => {
+      res.sendStatus(204);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.sendStatus(500);
+    });
+};
 
 module.exports = {
   addFavorite,
   getFav,
+  deleteFavorite,
 };

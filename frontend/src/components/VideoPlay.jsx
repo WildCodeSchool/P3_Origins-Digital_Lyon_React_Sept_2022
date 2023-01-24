@@ -12,6 +12,16 @@ function VideoPlay() {
 
   const [videoPlayed, setVideoPlayed] = useState([]);
 
+  const [favortieVideos, setFavoriteVideos] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/api/favoris/${user.id}`)
+      .then((res) => res.json())
+      .then((videos) => {
+        setFavoriteVideos(videos);
+      });
+  }, []);
+
   useEffect(() => {
     axios
       .get(`http://localhost:5000/api/videos/infos/${selectedId}`)
@@ -21,21 +31,27 @@ function VideoPlay() {
       .catch((err) => console.error(err));
   }, []);
 
-  const addFavorite = async (userId, videoId) => {
-    try {
-      if (!userId || !videoId) {
-        throw new Error("userId and videoId are required");
+  const toggleFavorite = async (userId, videoId) => {
+    if (favortieVideos.find((video) => video.id === videoId)) {
+      try {
+        await axios.delete(
+          `http://localhost:5000/api/favoris/${userId}/${videoId}`
+        );
+      } catch (err) {
+        console.error(
+          `Erreur lors de la suppression du favori: ${err.message}`
+        );
       }
-      if (typeof userId !== "number" || typeof videoId !== "number") {
-        throw new Error("userId and videoId should be integers");
+    } else {
+      try {
+        const response = await axios.post("http://localhost:5000/api/favoris", {
+          user_id: userId,
+          videos_id: videoId,
+        });
+        console.warn(response.data);
+      } catch (err) {
+        console.error(`Erreur lors de l'ajout du favori: ${err.message}`);
       }
-      const response = await axios.post("http://localhost:5000/api/favoris", {
-        user_id: userId,
-        videos_id: videoId,
-      });
-      console.warn(response.data);
-    } catch (err) {
-      console.warn(err.message);
     }
   };
 
@@ -58,7 +74,7 @@ function VideoPlay() {
         <div className="like-share">
           <button
             type="button"
-            onClick={() => addFavorite(user.id, selectedId)}
+            onClick={() => toggleFavorite(user.id, selectedId)}
           >
             <li className="favorite" />
           </button>

@@ -64,5 +64,9 @@ router.post("/api/videos/infos/:id/comments", commentsControllers.add);
 
 router.post("/api/favoris", favoriteControllers.addFavorite);
 router.get("/api/favoris/:userId", favoriteControllers.getFav);
+router.delete(
+  "/api/favoris/:userId/:videoId",
+  favoriteControllers.deleteFavorite
+);
 
 module.exports = router;
