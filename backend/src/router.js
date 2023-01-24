@@ -65,7 +65,4 @@ router.get(
 );
 router.delete("/api/videos/:id", fileControllers.destroy);
 
-// Gestion des catégories
-router.post("/api/category");
-
 module.exports = router;
