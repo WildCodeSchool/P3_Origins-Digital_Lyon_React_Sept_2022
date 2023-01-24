@@ -37,6 +37,11 @@ function VideoPlay() {
         await axios.delete(
           `http://localhost:5000/api/favoris/${userId}/${videoId}`
         );
+        fetch(`http://localhost:5000/api/favoris/${user.id}`)
+          .then((res) => res.json())
+          .then((videos) => {
+            setFavoriteVideos(videos);
+          });
       } catch (err) {
         console.error(
           `Erreur lors de la suppression du favori: ${err.message}`
@@ -48,6 +53,11 @@ function VideoPlay() {
           user_id: userId,
           videos_id: videoId,
         });
+        fetch(`http://localhost:5000/api/favoris/${user.id}`)
+          .then((res) => res.json())
+          .then((videos) => {
+            setFavoriteVideos(videos);
+          });
         console.warn(response.data);
       } catch (err) {
         console.error(`Erreur lors de l'ajout du favori: ${err.message}`);
@@ -76,7 +86,13 @@ function VideoPlay() {
             type="button"
             onClick={() => toggleFavorite(user.id, selectedId)}
           >
-            <li className="favorite" />
+            <li
+              className={
+                favortieVideos.find((video) => video.id === selectedId)
+                  ? "favorite "
+                  : "no-favorite "
+              }
+            />
           </button>
         </div>
       </div>
