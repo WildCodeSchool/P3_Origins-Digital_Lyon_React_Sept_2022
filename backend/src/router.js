@@ -12,6 +12,9 @@ const userControllers = require("./controllers/userControllers");
 const fileControllers = require("./controllers/fileControllers");
 const categoryControllers = require("./controllers/categoryControllers");
 
+const commentsControllers = require("./controllers/commentsControllers");
+
+
 // Auth
 router.post("/api/register", hashPassword, userControllers.add);
 
@@ -64,5 +67,9 @@ router.get(
   fileControllers.sendImgVideo
 );
 router.delete("/api/videos/:id", fileControllers.destroy);
+
+// Gestion des commentaires
+router.put("/api/videos/infos/:id/comments/:id", commentsControllers.edit);
+router.post("/api/videos/infos/:id/comments", commentsControllers.add);
 
 module.exports = router;
