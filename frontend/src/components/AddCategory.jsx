@@ -5,6 +5,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ReturnPageButton from "./ReturnPageButton";
 import Navbar from "./Navbar";
+import CategoryTable from "./CategoryTable";
 
 function AddCategory() {
   const categoryToast = () =>
@@ -103,6 +104,7 @@ function AddCategory() {
             </button>
           </div>
         </form>
+        <CategoryTable />
         <Navbar />
       </div>
       <ToastContainer />
