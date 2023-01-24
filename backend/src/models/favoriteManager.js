@@ -14,7 +14,7 @@ class favoriteManager extends AbstractManager {
 
   findFavs(userId) {
     return this.connection.query(
-      `SELECT videos.url, videos.description, videos.creation_date, videos.img, videos.name, videos.promote
+      `SELECT videos.id,videos.url, videos.description, videos.creation_date, videos.img, videos.name, videos.promote
           FROM videos
           JOIN user_has_favorite ON videos.id = user_has_favorite.videos_id
           JOIN user ON user_has_favorite.User_id = user.id
