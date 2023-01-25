@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState, useContext } from "react";
 import CurrentUserContext from "../../contexts/userContext";
 import Navbar from "./Navbar";
@@ -9,6 +10,13 @@ export default function UsersTable() {
   const [videosList, setVideosList] = useState([]);
   const { token } = useContext(CurrentUserContext);
   const [search, setSearch] = useState("");
+  const [isPromote, setIsPromote] = useState(false);
+
+  useEffect(() => {
+    fetch(`${BACKEND_URL}/api/videos`)
+      .then((res) => res.json())
+      .then((videos) => setVideosList(videos));
+  }, []);
 
   const myHeaders = new Headers({
     Authorization: `Bearer ${token}`,
@@ -32,11 +40,20 @@ export default function UsersTable() {
     );
   };
 
-  useEffect(() => {
-    fetch(`${BACKEND_URL}/api/videos`)
-      .then((res) => res.json())
-      .then((videos) => setVideosList(videos));
-  }, []);
+  const updatePromote = (id) => {
+    setIsPromote(!isPromote);
+    axios
+      .post(`${BACKEND_URL}/api/videos/promote/${id}`, {
+        promote: isPromote,
+      })
+      .then((res) => {
+        if (res) {
+          fetch(`${BACKEND_URL}/api/videos`)
+            .then((response) => response.json())
+            .then((videos) => setVideosList(videos));
+        }
+      });
+  };
 
   return (
     <div className="video-table-container">
@@ -63,16 +80,22 @@ export default function UsersTable() {
                   <li>#{video.id}</li>
 
                   <li>
-                    {!video.is_admin ? (
-                      <button
-                        type="button"
-                        onClick={() => {
-                          deleteVideo(video.id);
-                        }}
-                      >
-                        Supprimer
-                      </button>
-                    ) : null}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        deleteVideo(video.id);
+                      }}
+                    >
+                      Supprimer
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        updatePromote(video.id);
+                      }}
+                    >
+                      {video.promote ? "Oui" : "Non"}
+                    </button>
                   </li>
                 </ul>
               </div>
@@ -91,16 +114,24 @@ export default function UsersTable() {
                     <li>#{video.id}</li>
 
                     <li>
-                      {!video.is_admin ? (
-                        <button
-                          type="button"
-                          onClick={() => {
-                            deleteVideo(video.id);
-                          }}
-                        >
-                          Supprimer
-                        </button>
-                      ) : null}
+                      <button
+                        type="button"
+                        onClick={() => {
+                          deleteVideo(video.id);
+                        }}
+                      >
+                        Supprimer
+                      </button>
+
+                      <h5>Mise en avant</h5>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          updatePromote(video.id);
+                        }}
+                      >
+                        {video.promote ? "Oui" : "Non"}
+                      </button>
                     </li>
                   </ul>
                 </div>
