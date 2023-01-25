@@ -22,7 +22,10 @@ function VideoPlayer() {
       <Navbar />
       <VideoPlay />
       <Slider />
-      <Comment currentVideoComments={currentVideoComments} />
+      <Comment
+        currentVideoComments={currentVideoComments}
+        setCurrentVideoComments={setCurrentVideoComments}
+      />
     </div>
   );
 }
