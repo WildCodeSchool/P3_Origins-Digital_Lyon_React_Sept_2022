@@ -1,5 +1,5 @@
 import React from "react";
-import IMG1 from "../asset/4.jpg";
+import DefaultImageSlider from "../asset/4.jpg";
 
 function Slider() {
   return (
@@ -8,11 +8,11 @@ function Slider() {
 
       <div className="slider-container">
         <div className="slider-wrapper">
-          <img className="slider-item" src={IMG1} alt="img1" />
-          <img className="slider-item" src={IMG1} alt="img1" />
-          <img className="slider-item" src={IMG1} alt="img1" />
-          <img className="slider-item" src={IMG1} alt="img1" />
-          <img className="slider-item" src={IMG1} alt="img1" />
+          <img className="slider-item" src={DefaultImageSlider} alt="img1" />
+          <img className="slider-item" src={DefaultImageSlider} alt="img1" />
+          <img className="slider-item" src={DefaultImageSlider} alt="img1" />
+          <img className="slider-item" src={DefaultImageSlider} alt="img1" />
+          <img className="slider-item" src={DefaultImageSlider} alt="img1" />
         </div>
       </div>
     </div>
