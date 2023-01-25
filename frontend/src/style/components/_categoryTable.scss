@@ -1,17 +1,11 @@
 table {
-  height: 500px;
-  width: 80%;
   thead {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    .tableTitle {
-      width: 100%;
+    th {
+      display: flex;
+      justify-content: center;
     }
   }
-  .tbody {
-    tr {
-      height: 80px;
-    }
+  td {
+    width: 25%;
   }
 }

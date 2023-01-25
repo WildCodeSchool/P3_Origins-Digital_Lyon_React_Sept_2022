@@ -20,7 +20,7 @@ function CategoryTable() {
       .get(`${backUrl}/api/category`)
       .then((res) => setAllCategory(res.data))
       .catch((err) => console.error(err));
-  }, []);
+  }, [modif, setModif]);
 
   const deleteCategory = (id) => {
     axios
@@ -45,6 +45,7 @@ function CategoryTable() {
           {categoryColumns.map((col, i) => (
             <td key={i}>{col}</td>
           ))}
+          <td>Modifier</td>
           <td>Delete</td>
         </tr>
         {allCategory.map((cat) => (
@@ -65,9 +66,35 @@ function CategoryTable() {
               )}
             </td>
             <td className="imgContainer">
-              <img className="categoryImg" src={cat.img} alt={cat.name} />
+              {modif ? (
+                <input
+                  type="text"
+                  onChange={(e) =>
+                    setModifiedCategory({
+                      ...modifiedCategory,
+                      img: e.target.value,
+                    })
+                  }
+                />
+              ) : (
+                cat.img
+              )}
             </td>
-            <td>{cat.description}</td>
+            <td>
+              {modif ? (
+                <input
+                  type="text"
+                  onChange={(e) =>
+                    setModifiedCategory({
+                      ...modifiedCategory,
+                      description: e.target.value,
+                    })
+                  }
+                />
+              ) : (
+                cat.description
+              )}
+            </td>
             <td>
               {modif ? (
                 <button
