@@ -10,6 +10,8 @@ const CurrentVideosContext = createContext();
 export default CurrentVideosContext;
 
 export function CurrentVideosContextProvider({ children }) {
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
   const [videos, setVideos] = useState([]);
 
   const [selectedName, setSelectedName] = useLocalStorage("videoName", "");
@@ -27,7 +29,7 @@ export function CurrentVideosContextProvider({ children }) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/videos")
+      .get(`${BACKEND_URL}/api/videos`)
       .then((response) => {
         setVideos(response.data);
       })

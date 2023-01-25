@@ -7,6 +7,8 @@ import defaultAvatar from "../asset/image/defaultAvatar.jpeg";
 import Imglog from "../asset/image/img1.png";
 
 function Profil() {
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
   const navigate = useNavigate();
   const { user, setUser, token } = useContext(CurrentUserContext);
   const [msg, setMsg] = useState("");
@@ -57,7 +59,7 @@ function Profil() {
   };
 
   const changeUserStatus = (id) => {
-    fetch(`http://localhost:5000/api/users/${id}`, PUTrequestOptions);
+    fetch(`${BACKEND_URL}/api/users/${id}`, PUTrequestOptions);
     setUser({
       ...user,
       firstname: newUserInfos.firstname,
@@ -96,7 +98,7 @@ function Profil() {
         body: formData,
       };
       // on appelle le back
-      fetch("http://localhost:5000/api/avatars", requestOptions)
+      fetch(`${BACKEND_URL}/api/avatars`, requestOptions)
         .then((response) => response.json())
         .then((results) => {
           // maj avatar
@@ -119,7 +121,7 @@ function Profil() {
       <div className="avatar-container">
         <div className="avatar">
           <img
-            src={`http://localhost:5000/api/avatars/${user.avatar}`}
+            src={`${BACKEND_URL}/api/avatars/${user.avatar}`}
             alt="avatar"
             onError={handleOnError}
           />
@@ -135,7 +137,7 @@ function Profil() {
       </div>
       <div className="profil-info">
         <p className="containerName">
-          {user.lastname}.{user.firstname}
+          {user.firstname} {user.lastname}
         </p>
         {modifyInfos ? (
           <button

@@ -7,7 +7,7 @@ import Navbar from "./Navbar";
 import CategoryTable from "./CategoryTable";
 
 function AddCategory() {
-  const backUrl = import.meta.env.VITE_BACKEND_URL;
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const categoryToast = () =>
     toast.success("Catégorie ajoutée !", {
       position: "top-center",
@@ -39,7 +39,7 @@ function AddCategory() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`${backUrl}/api/category`, category)
+      .post(`${BACKEND_URL}/api/category`, category)
       .then(() => {
         categoryToast();
       })

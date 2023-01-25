@@ -8,6 +8,12 @@ function CategoryTable() {
 
   const categoryColumns = ["Name", "image", "description"];
   const [allCategory, setAllCategory] = useState([]);
+  const [modif, setModif] = useState(false);
+  const [modifiedCategory, setModifiedCategory] = useState({
+    name: "",
+    img: "",
+    description: "",
+  });
 
   useEffect(() => {
     axios
@@ -19,6 +25,12 @@ function CategoryTable() {
   const deleteCategory = (id) => {
     axios
       .delete(`${backUrl}/api/category/${id}`)
+      .then((res) => console.log(res))
+      .catch((err) => console.error(err));
+  };
+  const modifyCategory = (id) => {
+    axios
+      .put(`${backUrl}/api/category/${id}`, modifiedCategory)
       .then((res) => console.log(res))
       .catch((err) => console.error(err));
   };
@@ -37,11 +49,47 @@ function CategoryTable() {
         </tr>
         {allCategory.map((cat) => (
           <tr key={cat.id}>
-            <td>{cat.name}</td>
+            <td>
+              {modif ? (
+                <input
+                  type="text"
+                  onChange={(e) =>
+                    setModifiedCategory({
+                      ...modifiedCategory,
+                      name: e.target.value,
+                    })
+                  }
+                />
+              ) : (
+                cat.name
+              )}
+            </td>
             <td className="imgContainer">
               <img className="categoryImg" src={cat.img} alt={cat.name} />
             </td>
             <td>{cat.description}</td>
+            <td>
+              {modif ? (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setModif(false);
+                    modifyCategory(cat.id);
+                  }}
+                >
+                  Done
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setModif(true);
+                  }}
+                >
+                  Modifier
+                </button>
+              )}
+            </td>
             <td>
               <button type="button" onClick={() => deleteCategory(cat.id)}>
                 X

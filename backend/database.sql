@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS `User` (
   `firstname` VARCHAR(80) NOT NULL,
   `lastname` VARCHAR(80) NOT NULL,
   `email` VARCHAR(300) NOT NULL,
-  `hashedPassword` VARCHAR(255) NOT NULL DEFAULT ,
+  `hashedPassword` VARCHAR(255) NOT NULL,
   `is_admin` TINYINT NULL,
   `avatar` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -82,22 +82,10 @@ INSERT INTO `Category` (name,description,img) VALUES
 ("Fortnite","Fortnite est un jeu de battle royale « joueur contre joueur » avec un maximum de 100 joueurs, jouant seul, en équipe de deux, de trois ou à quatre.","https://www.webwise.ie/wp-content/uploads/2018/04/BattleRoyale.png"),
 ("Counter-Strike: Global Offensive","FValorant est un jeu vidéo free-to-play de tir à la première personne en multijoueur développé et édité par Riot Games.Dans le mode de jeu principal, deux équipes de cinq joueurs s'affrontent et les agents utilisent un système économique pour acheter des utilitaires et des armes. Une équipe est en attaque et une est en défense : l'équipe attaquante dispose d'une bombe qu'elle doit poser sur un site. Si elle est suffisamment protégée et qu'elle explose, les attaquants gagnent un point. En revanche, si l'équipe en défense réussit à désamorcer la bombe ou si le temps est écoulé, ce sont eux qui gagnent un point.","https://cdn.akamai.steamstatic.com/steam/apps/730/capsule_616x353.jpg?t=1641233427");
 
--- DROP TABLE IF EXISTS `Videos_has_Category`;
--- CREATE TABLE IF NOT EXISTS `Videos_has_Category` (
---   `Videos_id` INT NOT NULL,
---   `Category_id` INT NOT NULL,
---   PRIMARY KEY (`Videos_id`, `Category_id`),
---   CONSTRAINT `fk_Videos_has_Category_Videos1`
---     FOREIGN KEY (`Videos_id`)
---     REFERENCES `origins_digital`.`Videos` (`id`),
---   CONSTRAINT `fk_Videos_has_Category_Category1`
---     FOREIGN KEY (`Category_id`)
---     REFERENCES `origins_digital`.`Category` (`id`))
--- ENGINE = InnoDB;
-
 CREATE TABLE IF NOT EXISTS `comment` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `content` TEXT NOT NULL,
+  `creation_date` DATETIME NULL DEFAULT NOW(),
   `User_id` INT NOT NULL,
   `Videos_id` INT NOT NULL,
   PRIMARY KEY (`id`),
