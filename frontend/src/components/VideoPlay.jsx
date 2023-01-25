@@ -5,7 +5,7 @@ import { Player } from "video-react";
 import CurrentVideosContext from "../../contexts/videosContext";
 
 function VideoPlay({ video }) {
-  const { videoDate, selectedCategoryId } = useContext(CurrentVideosContext);
+  const { videoDate } = useContext(CurrentVideosContext);
 
   const backUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -13,12 +13,12 @@ function VideoPlay({ video }) {
 
   useEffect(() => {
     axios
-      .get(`${backUrl}/api/category/${selectedCategoryId}`)
+      .get(`${backUrl}/api/category/${video.category_id}`)
       .then((response) => {
         setCategory(response.data);
       })
       .catch((err) => console.error(err));
-  }, []);
+  }, [video]);
 
   return (
     <div className="video-play-container">
