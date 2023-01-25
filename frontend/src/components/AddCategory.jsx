@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -8,6 +7,7 @@ import Navbar from "./Navbar";
 import CategoryTable from "./CategoryTable";
 
 function AddCategory() {
+  const backUrl = import.meta.env.VITE_BACKEND_URL;
   const categoryToast = () =>
     toast.success("Catégorie ajoutée !", {
       position: "top-center",
@@ -39,7 +39,7 @@ function AddCategory() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:5000/api/category", category)
+      .post(`${backUrl}/api/category`, category)
       .then(() => {
         categoryToast();
       })
