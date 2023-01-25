@@ -14,7 +14,6 @@ const categoryControllers = require("./controllers/categoryControllers");
 
 const commentsControllers = require("./controllers/commentsControllers");
 
-
 // Auth
 router.post("/api/register", hashPassword, userControllers.add);
 

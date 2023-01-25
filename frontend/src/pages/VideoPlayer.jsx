@@ -9,7 +9,6 @@ import Navbar from "../components/Navbar";
 import Slider from "../components/Slider";
 import Comment from "../components/Comment";
 import VideoPlay from "../components/VideoPlay";
-import CurrentVideosContext from "../../contexts/videosContext";
 
 function VideoPlayer() {
   const { selectedId } = useContext(CurrentVideosContext);
@@ -17,6 +16,7 @@ function VideoPlayer() {
   const backUrl = import.meta.env.VITE_BACKEND_URL;
 
   const [videoPlayed, setVideoPlayed] = useState([]);
+  const [currentVideoComments, setCurrentVideoComments] = useState([]);
 
   useEffect(() => {
     axios
@@ -26,17 +26,6 @@ function VideoPlayer() {
       })
       .catch((err) => console.error(err));
   }, []);
-
-  const comment = {
-    author: {
-      name: "John Doe",
-      avatar: "../../src/asset/image/user.svg",
-    },
-    message: "This is a great video!",
-  };
-
-  const [currentVideoComments, setCurrentVideoComments] = useState([]);
-
 
   useEffect(() => {
     fetch(`http://localhost:5000/api/videos/infos/${selectedId}`)
