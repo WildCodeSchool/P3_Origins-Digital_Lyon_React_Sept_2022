@@ -137,7 +137,7 @@ function Profil() {
       </div>
       <div className="profil-info">
         <p className="containerName">
-          {user.lastname}.{user.firstname}
+          {user.firstname} {user.lastname}
         </p>
         {modifyInfos ? (
           <button
