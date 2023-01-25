@@ -26,15 +26,22 @@
     margin: 2.5%;
     .like-share {
       display: flex;
+      button {
+        background: none;
+        border: none;
+      }
       .favorite {
-        background-image: url(../../src/asset/image/heart.svg);
+        background-image: url(../../src/asset/image/fav.png);
       }
-      .playlist {
-        background-image: url(../../src/asset/image/playlist.svg);
+      .no-favorite {
+        background-image: url(../../src/asset/image/unfav.png);
       }
-      .share {
-        background-image: url(../../src/asset/image/share.svg);
+      .no-favorite,
+      .favorite {
+        margin-right: 1rem;
+        background-size: cover;
       }
+
       li {
         background-repeat: no-repeat;
         background-size: center;

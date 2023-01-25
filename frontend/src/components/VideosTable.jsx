@@ -5,6 +5,7 @@ import ReturnPageButton from "./ReturnPageButton";
 import VideoBox from "./VideoBox";
 
 export default function UsersTable() {
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const [videosList, setVideosList] = useState([]);
   const { token } = useContext(CurrentUserContext);
   const [search, setSearch] = useState("");
@@ -20,10 +21,10 @@ export default function UsersTable() {
   };
 
   const deleteVideo = (id) => {
-    fetch(`http://localhost:5000/api/videos/${id}`, DELETErequestOptions).then(
+    fetch(`${BACKEND_URL}/api/videos/${id}`, DELETErequestOptions).then(
       (res) => {
         if (res) {
-          fetch("http://localhost:5000/api/videos")
+          fetch(`${BACKEND_URL}/api/videos`)
             .then((response) => response.json())
             .then((videos) => setVideosList(videos));
         }
@@ -32,7 +33,7 @@ export default function UsersTable() {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/videos")
+    fetch(`${BACKEND_URL}/api/videos`)
       .then((res) => res.json())
       .then((videos) => setVideosList(videos));
   }, []);

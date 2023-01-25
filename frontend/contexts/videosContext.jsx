@@ -10,7 +10,11 @@ const CurrentVideosContext = createContext();
 export default CurrentVideosContext;
 
 export function CurrentVideosContextProvider({ children }) {
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
   const [videos, setVideos] = useState([]);
+  const [selectedCategoryId, setSelectedCategoryId] = useState(0);
+
   const [selectedName, setSelectedName] = useLocalStorage("videoName", "");
   const [selectedId, setSelectedId] = useLocalStorage("videoId", "");
   const videoDate = (video) => moment(video.creation_date).fromNow();
@@ -22,11 +26,13 @@ export function CurrentVideosContextProvider({ children }) {
     selectedId,
     setSelectedId,
     videoDate,
+    selectedCategoryId,
+    setSelectedCategoryId,
   };
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/videos")
+      .get(`${BACKEND_URL}/api/videos`)
       .then((response) => {
         setVideos(response.data);
       })

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useContext, useState } from "react";
 import CurrentVideosContext from "../../contexts/videosContext";
 import Navbar from "../components/Navbar";
@@ -28,7 +27,6 @@ export default function SearchPage() {
           <div className="searchpage-container">
             {videos
               .filter((video) => video.name.toLowerCase().includes(search))
-
               .map((video) => (
                 <VideoBox video={video} key={video.id} />
               ))}

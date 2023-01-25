@@ -10,6 +10,10 @@ const { hashPassword, verifyPassword, verifyToken } = require("../auth");
 const authControllers = require("./controllers/authControllers");
 const userControllers = require("./controllers/userControllers");
 const fileControllers = require("./controllers/fileControllers");
+const categoryControllers = require("./controllers/categoryControllers");
+
+const favoriteControllers = require("./controllers/favoriteControllers");
+const commentsControllers = require("./controllers/commentsControllers");
 
 // Auth
 router.post("/api/register", hashPassword, userControllers.add);
@@ -19,6 +23,14 @@ router.post(
   authControllers.getUserByEmailWithPasswordAndPassToNext,
   verifyPassword
 );
+
+// Gestion des categories
+
+router.get("/api/category", categoryControllers.browse);
+router.get("/api/category/:id", categoryControllers.read);
+router.post("/api/category", categoryControllers.add);
+router.put("/api/category/:id", categoryControllers.edit);
+router.delete("/api/category/:id", categoryControllers.destroy);
 
 // Gestion des users
 router.get("/api/users", userControllers.browse);
@@ -55,5 +67,16 @@ router.get(
   fileControllers.sendImgVideo
 );
 router.delete("/api/videos/:id", fileControllers.destroy);
+
+// Gestion des commentaires
+router.put("/api/videos/infos/:id/comments/:id", commentsControllers.edit);
+router.post("/api/videos/infos/:id/comments", commentsControllers.add);
+
+router.post("/api/favoris", favoriteControllers.addFavorite);
+router.get("/api/favoris/:userId", favoriteControllers.getFav);
+router.delete(
+  "/api/favoris/:userId/:videoId",
+  favoriteControllers.deleteFavorite
+);
 
 module.exports = router;

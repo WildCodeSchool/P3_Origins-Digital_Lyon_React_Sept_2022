@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
@@ -8,6 +8,8 @@ import ReturnPageButton from "./ReturnPageButton";
 import Navbar from "./Navbar";
 
 function Upload() {
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
   const uploadToast = () =>
     toast.success("Upload réussi !", {
       position: "top-center",
@@ -44,6 +46,8 @@ function Upload() {
   const { token } = useContext(CurrentUserContext);
   const [description, setDescription] = useState("");
   const [name, setName] = useState("");
+  const [categoryId, setCategoryId] = useState([0]);
+  const [categoryList, setCategoryList] = useState([]);
   const [promote, setPromote] = useState(1);
   const videoRef = useRef(null);
   const imgRef = useRef(null);
@@ -61,13 +65,14 @@ function Upload() {
       formData.append("description", description);
       formData.append("name", name);
       formData.append("promote", promote);
+      formData.append("category_id", categoryId);
 
       for (const [key, value] of formData.entries()) {
         console.warn(`${key}: ${value}`);
       }
 
       axios
-        .post(`http://localhost:5000/api/videos`, formData, config)
+        .post(`${BACKEND_URL}/api/videos`, formData, config)
         .then(() => {
           uploadToast();
         })
@@ -81,6 +86,13 @@ function Upload() {
     setName("");
     setDescription("");
   };
+
+  useEffect(() => {
+    axios
+      .get(`${BACKEND_URL}/api/category`)
+      .then((res) => setCategoryList(res.data))
+      .catch((e) => console.error(e));
+  }, []);
 
   return (
     <>
@@ -125,6 +137,24 @@ function Upload() {
               className="form-controll"
               required="required"
             />
+          </div>
+          <div className="form-group">
+            <label htmlFor="name" className="form-label">
+              Categorie de la vidéo
+            </label>
+            <select
+              onChange={(e) => setCategoryId(e.target.value)}
+              id="category"
+              className="form-controll "
+              required="required"
+            >
+              <option>---------Selectionnez une catégorie----------</option>
+              {categoryList.map((cat) => (
+                <option key={cat.id} value={cat.id}>
+                  {cat.name}
+                </option>
+              ))}
+            </select>
           </div>
           <div className="form-group">
             <label htmlFor="description" className="form-label">

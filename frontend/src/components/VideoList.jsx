@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useContext } from "react";
 import CurrentVideosContext from "../../contexts/videosContext";
 import VideoBox from "./VideoBox";
