@@ -1,13 +1,10 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CurrentVideosContext from "../../contexts/videosContext";
 
 export default function VideoBox({ video }) {
-  const backUrl = import.meta.env.VITE_BACKEND_URL;
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
   const { setSelectedName, setSelectedId, videoDate, setSelectedCategoryId } =
     useContext(CurrentVideosContext);
@@ -16,7 +13,7 @@ export default function VideoBox({ video }) {
 
   useEffect(() => {
     axios
-      .get(`${backUrl}/api/category/${video.category_id}`)
+      .get(`${BACKEND_URL}/api/category/${video.category_id}`)
       .then((res) => {
         setSelectedCategory(res.data);
         setSelectedCategoryId(res.data.id);
@@ -46,10 +43,7 @@ export default function VideoBox({ video }) {
           />
         </div>
       </div>
-      <img
-        src={`http://localhost:5000/api/videos/${video.img}`}
-        alt={video.name}
-      />
+      <img src={`${BACKEND_URL}/api/videos/${video.img}`} alt={video.name} />
       <span className="video-time">{selectedCategory.name}</span>
     </div>
   );

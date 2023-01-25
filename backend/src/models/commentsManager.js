@@ -8,10 +8,11 @@ class commentsManager extends AbstractManager {
 
   getComments(videoId) {
     return this.connection.query(
-      `SELECT comment.id, comment.content, comment.User_id, comment.Videos_id, user.firstname, user.lastname, user.avatar
+      `SELECT comment.id, comment.content, comment.creation_date, comment.User_id, comment.Videos_id, user.firstname, user.lastname, user.avatar
       FROM ${this.table}
       JOIN user on ${this.table}.User_id = user.id 
-      WHERE Videos_id = ?`,
+      WHERE Videos_id = ?
+      ORDER BY comment.creation_date DESC`,
       [videoId]
     );
   }

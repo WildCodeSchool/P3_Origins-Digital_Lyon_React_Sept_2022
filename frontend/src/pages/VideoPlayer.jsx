@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import CurrentVideosContext from "../../contexts/videosContext";
@@ -11,6 +9,8 @@ import Comment from "../components/Comment";
 import VideoPlay from "../components/VideoPlay";
 
 function VideoPlayer() {
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
   const { selectedId } = useContext(CurrentVideosContext);
 
   const backUrl = import.meta.env.VITE_BACKEND_URL;
@@ -28,7 +28,7 @@ function VideoPlayer() {
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/videos/infos/${selectedId}`)
+    fetch(`${BACKEND_URL}/api/videos/infos/${selectedId}`)
       .then((res) => res.json())
       .then((videos) => setCurrentVideoComments(videos.comment));
   }, []);
@@ -38,7 +38,10 @@ function VideoPlayer() {
       <Navbar />
       <VideoPlay video={videoPlayed} />
       <Slider />
-      <Comment currentVideoComments={currentVideoComments} />
+      <Comment
+        currentVideoComments={currentVideoComments}
+        setCurrentVideoComments={setCurrentVideoComments}
+      />
     </div>
   );
 }

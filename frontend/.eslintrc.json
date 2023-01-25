@@ -18,6 +18,7 @@
 
   "plugins": ["react", "import"],
   "rules": {
+    "react/prop-types": "off",
     "no-console": "off",
     "no-restricted-syntax": [
       "error",

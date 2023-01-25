@@ -8,7 +8,7 @@ import ReturnPageButton from "./ReturnPageButton";
 import Navbar from "./Navbar";
 
 function Upload() {
-  const backUrl = import.meta.env.VITE_BACKEND_URL;
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
   const uploadToast = () =>
     toast.success("Upload réussi !", {
@@ -72,7 +72,7 @@ function Upload() {
       }
 
       axios
-        .post(`http://localhost:5000/api/videos`, formData, config)
+        .post(`${BACKEND_URL}/api/videos`, formData, config)
         .then(() => {
           uploadToast();
         })
@@ -89,7 +89,7 @@ function Upload() {
 
   useEffect(() => {
     axios
-      .get(`${backUrl}/api/category`)
+      .get(`${BACKEND_URL}/api/category`)
       .then((res) => setCategoryList(res.data))
       .catch((e) => console.error(e));
   }, []);
