@@ -1,13 +1,28 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import React, { useContext } from "react";
+import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CurrentVideosContext from "../../contexts/videosContext";
 
 export default function VideoBox({ video }) {
-  const { setSelectedName, setSelectedId, videoDate } =
+  const backUrl = import.meta.env.VITE_BACKEND_URL;
+
+  const { setSelectedName, setSelectedId, videoDate, setSelectedCategoryId } =
     useContext(CurrentVideosContext);
+
+  const [selectedCategory, setSelectedCategory] = useState({});
+
+  useEffect(() => {
+    axios
+      .get(`${backUrl}/api/category/${video.category_id}`)
+      .then((res) => {
+        setSelectedCategory(res.data);
+        setSelectedCategoryId(res.data.id);
+      })
+      .catch((e) => console.error(e));
+  }, []);
 
   const navigate = useNavigate();
   return (
@@ -26,6 +41,7 @@ export default function VideoBox({ video }) {
               navigate("/player");
               setSelectedName(video.url);
               setSelectedId(video.id);
+              setSelectedCategoryId(video.category_id);
             }}
           />
         </div>
@@ -34,7 +50,7 @@ export default function VideoBox({ video }) {
         src={`http://localhost:5000/api/videos/${video.img}`}
         alt={video.name}
       />
-      <span className="video-time">Category</span>
+      <span className="video-time">{selectedCategory.name}</span>
     </div>
   );
 }

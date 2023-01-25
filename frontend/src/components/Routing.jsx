@@ -11,6 +11,7 @@ import Register from "./Register";
 import Upload from "./Upload";
 import UsersTable from "./UsersTable";
 import VideosTable from "./VideosTable";
+import AddCategory from "./AddCategory";
 
 export default function Routing() {
   return (
@@ -26,6 +27,7 @@ export default function Routing() {
       <Route path="/upload" element={<Upload />} />
       <Route path="/usersManagement" element={<UsersTable />} />
       <Route path="/videosManagement" element={<VideosTable />} />
+      <Route path="/addCategory" element={<AddCategory />} />
     </Routes>
   );
 }

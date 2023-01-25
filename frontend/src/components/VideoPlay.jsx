@@ -5,14 +5,23 @@ import { Player } from "video-react";
 import CurrentVideosContext from "../../contexts/videosContext";
 import CurrentUserContext from "../../contexts/userContext";
 
-function VideoPlay() {
+function VideoPlay({ video }) {
   const { selectedName, selectedId, videoDate } =
     useContext(CurrentVideosContext);
   const { user } = useContext(CurrentUserContext);
-
+  const [category, setCategory] = useState({});
   const [videoPlayed, setVideoPlayed] = useState([]);
 
   const [favortieVideos, setFavoriteVideos] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/api/videos/infos/${selectedId}`)
+      .then((response) => {
+        setVideoPlayed(response.data);
+      })
+      .catch((err) => console.error(err));
+  }, []);
 
   useEffect(() => {
     fetch(`http://localhost:5000/api/favoris/${user.id}`)
@@ -24,15 +33,15 @@ function VideoPlay() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/videos/infos/${selectedId}`)
+      .get(`http://localhost:5000/api/category/${video.category_id}`)
       .then((response) => {
-        setVideoPlayed(response.data);
+        setCategory(response.data);
       })
       .catch((err) => console.error(err));
   }, []);
 
   const toggleFavorite = async (userId, videoId) => {
-    if (favortieVideos.find((video) => video.id === videoId)) {
+    if (favortieVideos.find((videos) => videos.id === videoId)) {
       try {
         await axios.delete(
           `http://localhost:5000/api/favoris/${userId}/${videoId}`
@@ -69,17 +78,18 @@ function VideoPlay() {
     <div className="video-play-container">
       <Player
         poster={`http://localhost:5000/api/videos/${videoPlayed.img}`}
+        autoPlay
         height={250}
         width={300}
         type="video/mp4"
         src={`http://localhost:5000/api/videos/${selectedName}`}
       />
-      <h2>{videoPlayed.name}</h2>
-      <p className="date-video">{videoDate(videoPlayed)}</p>
-      <p className="video-description">{videoPlayed.description}</p>
+      <h2>{video.name}</h2>
+      <p className="date-video">{videoDate(video)}</p>
+      <p className="video-description">{video.description}</p>
       <div className="interaction">
         <div className="category-play">
-          <h3>Category</h3>
+          <h3>{category.name}</h3>
         </div>
         <div className="like-share">
           <button
@@ -88,7 +98,7 @@ function VideoPlay() {
           >
             <li
               className={
-                favortieVideos.find((video) => video.id === selectedId)
+                favortieVideos.find((videos) => videos.id === selectedId)
                   ? "favorite "
                   : "no-favorite "
               }
