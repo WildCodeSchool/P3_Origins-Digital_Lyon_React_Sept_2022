@@ -7,6 +7,8 @@ import loginImg from "../asset/image/loginImg.jpeg";
 import logo from "../asset/image/logo.svg";
 
 function Login() {
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
   const loginToast = () =>
     toast.success("Vous êtes connecté !", {
       position: "top-center",
@@ -44,7 +46,7 @@ function Login() {
 
     if (email && password) {
       // on appelle le back
-      fetch("http://localhost:5000/api/login", requestOptions)
+      fetch(`${BACKEND_URL}/api/login`, requestOptions)
         .then((response) => response.json())
         .then((result) => {
           setUser(result.user);

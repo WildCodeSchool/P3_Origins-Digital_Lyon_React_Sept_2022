@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import axios from "axios";
 import React, { useContext, useState, useEffect } from "react";
 import { Player } from "video-react";
@@ -6,6 +5,8 @@ import CurrentVideosContext from "../../contexts/videosContext";
 import CurrentUserContext from "../../contexts/userContext";
 
 function VideoPlay({ video }) {
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
   const { selectedName, selectedId, videoDate } =
     useContext(CurrentVideosContext);
   const { user } = useContext(CurrentUserContext);
@@ -16,7 +17,7 @@ function VideoPlay({ video }) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/videos/infos/${selectedId}`)
+      .get(`${BACKEND_URL}/api/videos/infos/${selectedId}`)
       .then((response) => {
         setVideoPlayed(response.data);
       })
@@ -24,7 +25,7 @@ function VideoPlay({ video }) {
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/favoris/${user.id}`)
+    fetch(`${BACKEND_URL}/api/favoris/${user.id}`)
       .then((res) => res.json())
       .then((videos) => {
         setFavoriteVideos(videos);
@@ -33,7 +34,7 @@ function VideoPlay({ video }) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/category/${video.category_id}`)
+      .get(`${BACKEND_URL}/api/category/${video.category_id}`)
       .then((response) => {
         setCategory(response.data);
       })
@@ -43,10 +44,8 @@ function VideoPlay({ video }) {
   const toggleFavorite = async (userId, videoId) => {
     if (favortieVideos.find((videos) => videos.id === videoId)) {
       try {
-        await axios.delete(
-          `http://localhost:5000/api/favoris/${userId}/${videoId}`
-        );
-        fetch(`http://localhost:5000/api/favoris/${user.id}`)
+        await axios.delete(`${BACKEND_URL}/api/favoris/${userId}/${videoId}`);
+        fetch(`${BACKEND_URL}/api/favoris/${user.id}`)
           .then((res) => res.json())
           .then((videos) => {
             setFavoriteVideos(videos);
@@ -58,11 +57,11 @@ function VideoPlay({ video }) {
       }
     } else {
       try {
-        const response = await axios.post("http://localhost:5000/api/favoris", {
+        const response = await axios.post(`${BACKEND_URL}/api/favoris`, {
           user_id: userId,
           videos_id: videoId,
         });
-        fetch(`http://localhost:5000/api/favoris/${user.id}`)
+        fetch(`${BACKEND_URL}/api/favoris/${user.id}`)
           .then((res) => res.json())
           .then((videos) => {
             setFavoriteVideos(videos);
@@ -77,12 +76,12 @@ function VideoPlay({ video }) {
   return (
     <div className="video-play-container">
       <Player
-        poster={`http://localhost:5000/api/videos/${videoPlayed.img}`}
+        poster={`${BACKEND_URL}/api/videos/${videoPlayed.img}`}
         autoPlay
         height={250}
         width={300}
         type="video/mp4"
-        src={`http://localhost:5000/api/videos/${selectedName}`}
+        src={`${BACKEND_URL}/api/videos/${selectedName}`}
       />
       <h2>{video.name}</h2>
       <p className="date-video">{videoDate(video)}</p>

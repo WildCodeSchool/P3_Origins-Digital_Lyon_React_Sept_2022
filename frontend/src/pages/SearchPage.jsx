@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useContext, useState } from "react";
 import CurrentVideosContext from "../../contexts/videosContext";
 import Navbar from "../components/Navbar";

@@ -4,6 +4,8 @@ import Navbar from "./Navbar";
 import ReturnPageButton from "./ReturnPageButton";
 
 export default function UsersTable() {
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
   const [userList, setUserList] = useState([]);
   const [isAdmin, setIsAdmin] = useState(false);
   const [search, setSearch] = useState("");
@@ -40,21 +42,19 @@ export default function UsersTable() {
   // fonction qui met à jour le status de l'utilisateur avec les PUT options ci-dessus
   const changeUserStatus = (id) => {
     setIsAdmin(!isAdmin);
-    fetch(`http://localhost:5000/api/users/${id}`, PUTrequestOptions).then(
-      (res) => {
-        if (res) {
-          fetch("http://localhost:5000/api/users")
-            .then((response) => response.json())
-            .then((user) => setUserList(user));
-        }
+    fetch(`${BACKEND_URL}/api/users/${id}`, PUTrequestOptions).then((res) => {
+      if (res) {
+        fetch(`${BACKEND_URL}/api/users`)
+          .then((response) => response.json())
+          .then((user) => setUserList(user));
       }
-    );
+    });
   };
   const deleteUser = (id) => {
-    fetch(`http://localhost:5000/api/users/${id}`, DELETErequestOptions).then(
+    fetch(`${BACKEND_URL}/api/users/${id}`, DELETErequestOptions).then(
       (res) => {
         if (res) {
-          fetch("http://localhost:5000/api/users")
+          fetch(`${BACKEND_URL}/api/users`)
             .then((response) => response.json())
             .then((user) => setUserList(user));
         }
@@ -63,7 +63,7 @@ export default function UsersTable() {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/users")
+    fetch(`${BACKEND_URL}/api/users`)
       .then((res) => res.json())
       .then((users) => {
         setUserList(users);

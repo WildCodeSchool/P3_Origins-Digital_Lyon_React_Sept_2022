@@ -6,13 +6,15 @@ import { Carousel } from "react-responsive-carousel";
 import CurrentVideosContext from "../../contexts/videosContext";
 
 function Carrousel() {
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
   const { setSelectedName, setSelectedId } = useContext(CurrentVideosContext);
 
   const [videosPromoted, setVideoPromoted] = useState([]);
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/videos/promote`)
+      .get(`${BACKEND_URL}/api/videos/promote`)
       .then((response) => {
         setVideoPromoted(response.data);
       })
@@ -33,7 +35,7 @@ function Carrousel() {
             >
               <div>
                 <img
-                  src={`http://localhost:5000/api/videos/${video.img}`}
+                  src={`${BACKEND_URL}/api/videos/${video.img}`}
                   alt={video.name}
                   className="carrouselImg"
                 />

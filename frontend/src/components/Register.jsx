@@ -5,6 +5,8 @@ import loginImg from "../asset/image/loginImg.jpeg";
 import logo from "../asset/image/logo.svg";
 
 function Register() {
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
   const [userRegistered, setUserRegistered] = useState({
     email: "default@email.com",
     firstname: "default",
@@ -26,7 +28,7 @@ function Register() {
       body,
     };
     // on créé et on redirige
-    fetch("http://localhost:5000/api/register", requestOptions)
+    fetch(`${BACKEND_URL}/api/register`, requestOptions)
       .then(() => {
         navigate("/login");
       })
