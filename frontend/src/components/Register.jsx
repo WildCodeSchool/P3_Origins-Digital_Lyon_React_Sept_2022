@@ -6,6 +6,8 @@ import logo from "../asset/image/logo.svg";
 
 function Register() {
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const [userRegistered, setUserRegistered] = useState({
     email: "default@email.com",
@@ -27,12 +29,16 @@ function Register() {
       headers: myHeaders,
       body,
     };
-    // on créé et on redirige
-    fetch(`${BACKEND_URL}/api/register`, requestOptions)
-      .then(() => {
-        navigate("/login");
-      })
-      .catch((err) => console.error(err));
+
+    if (confirmPassword === userRegistered.password) {
+      fetch(`${BACKEND_URL}/api/register`, requestOptions)
+        .then(() => {
+          navigate("/login");
+        })
+        .catch((err) => console.error(err));
+    } else {
+      setErrorMessage("Vos mot de passe ne correspondent pas");
+    }
   };
 
   return (
@@ -99,6 +105,18 @@ function Register() {
             id="password"
           />
         </div>
+        <div className="inputContainer">
+          <label htmlFor="password" className="form-label">
+            Confiremer votre mot de passe
+          </label>
+          <input
+            type="password"
+            className="loginInput"
+            id="password"
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+        </div>
+        <p>{errorMessage}</p>
         <button className="loginButton" type="submit">
           Inscription
         </button>
