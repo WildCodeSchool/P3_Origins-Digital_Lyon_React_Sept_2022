@@ -10,7 +10,6 @@ export default function UsersTable() {
   const [videosList, setVideosList] = useState([]);
   const { token } = useContext(CurrentUserContext);
   const [search, setSearch] = useState("");
-  const [isPromote, setIsPromote] = useState(false);
 
   useEffect(() => {
     fetch(`${BACKEND_URL}/api/videos`)
@@ -40,17 +39,16 @@ export default function UsersTable() {
     );
   };
 
-  const updatePromote = (id) => {
-    setIsPromote(!isPromote);
+  const updatePromote = (video) => {
     axios
-      .post(`${BACKEND_URL}/api/videos/promote/${id}`, {
-        promote: isPromote,
+      .post(`${BACKEND_URL}/api/videos/promote/${video.id}`, {
+        promote: !video.promote,
       })
       .then((res) => {
         if (res) {
-          fetch(`${BACKEND_URL}/api/videos`)
-            .then((response) => response.json())
-            .then((videos) => setVideosList(videos));
+          axios
+            .get(`${BACKEND_URL}/api/videos`)
+            .then((videos) => setVideosList(videos.data));
         }
       });
   };
@@ -91,7 +89,7 @@ export default function UsersTable() {
                     <button
                       type="button"
                       onClick={() => {
-                        updatePromote(video.id);
+                        updatePromote(video);
                       }}
                     >
                       {video.promote ? "Oui" : "Non"}
@@ -127,7 +125,7 @@ export default function UsersTable() {
                       <button
                         type="button"
                         onClick={() => {
-                          updatePromote(video.id);
+                          updatePromote(video);
                         }}
                       >
                         {video.promote ? "Oui" : "Non"}
