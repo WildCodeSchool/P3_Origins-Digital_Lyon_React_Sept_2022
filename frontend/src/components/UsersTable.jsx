@@ -78,19 +78,6 @@ export default function UsersTable() {
     <div className="user-table-container">
       <ReturnPageButton />
       <h3>Liste Utilisateurs</h3>
-      <label htmlFor="search-option" className="form-label">
-        Rechercher par :
-      </label>
-      <select
-        onChange={(e) => setSearchOption(e.target.value)}
-        id="search-option"
-      >
-        <option value="firstname">firstname</option>
-        <option value="lastname">lastname</option>
-        <option value="email">email</option>
-        <option value="id">id</option>
-      </select>
-
       <input
         className="search-user"
         type="text"
@@ -98,6 +85,21 @@ export default function UsersTable() {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
+      <div className="select-input">
+        <label htmlFor="search-option" className="form-label">
+          Rechercher par :
+        </label>
+        <select
+          onChange={(e) => setSearchOption(e.target.value)}
+          id="search-option"
+        >
+          <option value="firstname">firstname</option>
+          <option value="lastname">lastname</option>
+          <option value="email">email</option>
+          <option value="id">id</option>
+        </select>
+      </div>
+
       {search !== "" ? (
         <div className="user-table">
           {userList
@@ -132,7 +134,9 @@ export default function UsersTable() {
                       >
                         Supprimer
                       </button>
-                    ) : null}
+                    ) : (
+                      <button type="button">Supprimer</button>
+                    )}
                   </li>
                 </ul>
               </div>
@@ -171,7 +175,11 @@ export default function UsersTable() {
                         >
                           Supprimer
                         </button>
-                      ) : null}
+                      ) : (
+                        <button type="button" className="not-delete-btn">
+                          Supprimer
+                        </button>
+                      )}
                     </li>
                   </ul>
                 </div>
