@@ -14,15 +14,6 @@ CREATE TABLE IF NOT EXISTS `User` (
 ENGINE = InnoDB;
 
 
-/*Remplissage de la table user avec des users factice*/
-
-INSERT INTO `User`(firstname, lastname, email, is_admin)
-VALUES ("admin", "admin", "admin@email.com", 1),
-("John", "Doe", "johndoe@email.com", 0),
-("Guy", "Chauveau", "guy@email.com", 0),
-("Sabine", "De Sousa", "sabine@email.com", 0),
-("Bernard", "Roche", "bernard@email.com", 0),
-("Dorothée", "Maillet", "dorothée@email.com", 0);
 
 DROP TABLE IF EXISTS `Videos`;
 CREATE TABLE IF NOT EXISTS `Videos` (

@@ -99,8 +99,8 @@ li {
 }
 
 .navigation {
-  background: #00284d;
-  border-top: 1px solid rgba(0, 109, 206, 0.4);
+  background: #010d18;
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
   position: fixed;
   bottom: 0;
   height: 7.5vh;
@@ -315,6 +315,7 @@ li {
   height: 50px;
   font-display: center;
   text-align: center;
+  border-radius: 0.5rem;
 }
 
 .allVids {
@@ -331,31 +332,52 @@ li {
   flex-wrap: wrap;
 }
 
+.little-title {
+  margin-top: 12%;
+}
+
 .libraryPage {
   display: flex;
   flex-direction: column;
   gap: 5rem;
   margin-top: 20px;
+  margin-top: 12%;
 }
 
-.playlists h2 {
+.library-title {
+  margin-top: 12%;
+  margin-left: 4%;
+}
+
+.playlists {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 7.5vh;
+}
+
+h2 {
   padding-left: 10px;
   padding-bottom: 20px;
 }
-.playlists .videoContainer {
+
+.videoContainer {
   display: grid;
   grid-template-columns: repeat(2, 150px);
   justify-content: center;
   gap: 30px;
 }
-.playlists .miniatureContainer {
-  height: 70px;
-  width: 130px;
+
+.miniatureContainer {
+  border: none;
+  background-color: #010d18;
   cursor: pointer;
   display: flex;
   flex-direction: column;
 }
-.playlists .miniatureContainer img {
+.miniatureContainer img {
   height: 100%;
   width: 100%;
   margin-bottom: 2px;
@@ -363,6 +385,15 @@ li {
   border: 1px solid;
   border-radius: 1rem;
   box-shadow: #00284d 0px 3px 8px;
+}
+
+h5 {
+  color: white;
+}
+
+.button-playlist {
+  background: none;
+  border: none;
 }
 
 .fav h3 {
@@ -728,27 +759,24 @@ li {
 }
 
 .profil-container {
-  background-color: #00284d;
+  background-color: #010d18;
   width: 100vw;
-  margin-bottom: 7.5vh;
+  margin-bottom: 8.5vh;
 }
 .profil-container .profil-info {
   width: 100%;
 }
 .profil-container .profil-info button {
-  background: linear-gradient(175deg, #011c33 0%, rgba(1, 28, 51, 0) 100%);
+  background: linear-gradient(180deg, #00284d 0%, rgba(1, 28, 51, 0) 100%);
   border-radius: 8px;
-  background-color: #006dce;
   display: block;
   margin: auto;
-  margin-top: 10vh;
+  margin-top: 3vh;
   height: 10vh;
-  width: 90%;
+  width: 87%;
   padding: 10px;
-  border: none;
   color: #ffffff;
-  border-radius: 5px;
-  background-color: #006dce;
+  border: 2px solid #052e52;
 }
 .profil-container p {
   width: 100%;
@@ -804,7 +832,7 @@ li {
 }
 
 .containerbtn-profil {
-  background: linear-gradient(175deg, #011c33 0%, rgba(1, 28, 51, 0) 100%);
+  background: linear-gradient(175deg, #00284d 0%, rgba(1, 28, 51, 0) 100%);
   border-radius: 8px;
 }
 
