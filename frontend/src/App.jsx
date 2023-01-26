@@ -1,13 +1,19 @@
-import Home from "./pages/Home";
+import { BrowserRouter as Router } from "react-router-dom";
+import { CurrentUserContextProvider } from "../contexts/userContext";
+import { CurrentVideosContextProvider } from "../contexts/videosContext";
+import Routing from "./components/Routing";
 
-import "./App.css";
+import "./style/index.css";
 
 function App() {
   return (
-    <div className="App">
-      <Home />
-      <p>coucou</p>
-    </div>
+    <Router>
+      <CurrentVideosContextProvider>
+        <CurrentUserContextProvider>
+          <Routing />
+        </CurrentUserContextProvider>
+      </CurrentVideosContextProvider>
+    </Router>
   );
 }
 

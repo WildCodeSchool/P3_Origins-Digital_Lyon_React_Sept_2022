@@ -1,0 +1,42 @@
+.playlists {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 7.5vh;
+}
+
+h2 {
+  padding-left: 10px;
+  padding-bottom: 20px;
+}
+.videoContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 150px);
+  justify-content: center;
+  gap: 30px;
+}
+.miniatureContainer {
+  border: none;
+  background-color: $black;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  img {
+    height: 100%;
+    width: 100%;
+    margin-bottom: 2px;
+    color: $color-2;
+    @include libBox();
+  }
+}
+
+h5 {
+  color: white;
+}
+
+.button-playlist {
+  background: none;
+  border: none;
+}

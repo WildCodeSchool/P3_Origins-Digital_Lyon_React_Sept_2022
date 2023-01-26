@@ -1,36 +1,25 @@
-import Counter from "../components/Counter";
-import logo from "../assets/logo.svg";
+import React from "react";
 
-export default function Home() {
+import { ToastContainer } from "react-toastify";
+import Header from "../components/Header";
+import Navbar from "../components/Navbar";
+import Carrousel from "../components/Carrousel";
+import Slider from "../components/Slider";
+import SliderLastVideos from "../components/SliderLastVideos";
+import SliderCategory from "../components/SliderCategory";
+
+function Home({ setSelectedCategory }) {
   return (
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>Hello Vite + React !</p>
-
-      <Counter />
-
-      <p>
-        Edit <code>App.jsx</code> and save to test HMR updates.
-      </p>
-      <p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        {" | "}
-        <a
-          className="App-link"
-          href="https://vitejs.dev/guide/features.html"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Vite Docs
-        </a>
-      </p>
-    </header>
+    <div className="home-container">
+      <Header />
+      <Carrousel />
+      <SliderCategory setSelectedCategory={setSelectedCategory} />
+      <SliderLastVideos />
+      <Slider />
+      <Navbar />
+      <ToastContainer />
+    </div>
   );
 }
+
+export default Home;

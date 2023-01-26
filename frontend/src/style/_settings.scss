@@ -1,0 +1,67 @@
+/*Fonts*/
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@1,200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap");
+
+/*Colors var*/
+
+$font-1: "Nunito", sans-serif;
+$font-2: "Roboto Condensed", sans-serif;
+
+$color-1: #006dce;
+$color-2: #00284d;
+$black: #010d18;
+$white: #ffffff;
+$bigTitleSize: 2.5%;
+$littleTitleSize: 2.1%;
+$normalfont: 1.28%;
+
+/*Mixin functions*/
+
+@mixin libBox {
+  border: 1px solid;
+  border-radius: 1rem;
+  box-shadow: $color-2 0px 3px 8px;
+}
+
+@mixin flex-col-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@mixin flex-wrap-center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin buttonStyle {
+  display: block;
+  margin: auto;
+  height: 50px;
+  width: 90%;
+  padding: 10px;
+  border: none;
+  color: $white;
+  border-radius: 5px;
+  background-color: $color-1;
+}
+
+/*Base style*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: $black;
+  font-family: $font-1;
+  color: $white;
+}
+li {
+  list-style-type: none;
+}

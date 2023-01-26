@@ -1,0 +1,101 @@
+.profil-container {
+  background-color: $black;
+  width: 100vw;
+  margin-bottom: 8.5vh;
+
+  .profil-info {
+    width: 100%;
+    button {
+      background: linear-gradient(180deg, $color-2 0%, rgba(1, 28, 51, 0) 100%);
+      border-radius: 8px;
+      display: block;
+      margin: auto;
+      margin-top: 3vh;
+      height: 6vh;
+      width: 87%;
+      padding: 10px;
+      color: $white;
+      border: 2px solid #052e52;
+    }
+  }
+  p {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  ul {
+    font-family: $font-2;
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 0.5px solid rgba($white, 0.3);
+      border-radius: 5px;
+      padding: 10px;
+      height: 50px;
+      width: 90%;
+      background-color: rgba($black, 0.8);
+      margin: auto;
+      margin-top: 10px;
+    }
+  }
+  .avatar-container {
+    height: 5vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .avatar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 100%;
+      padding: 5px;
+      border-radius: 10px;
+      margin: auto;
+      margin-bottom: 0;
+
+      img {
+        max-height: 100px;
+        max-width: 100px;
+        margin: auto;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        input {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.containerbtn-profil {
+  background: linear-gradient(175deg, $color-2 0%, rgba(1, 28, 51, 0) 100%);
+  border-radius: 8px;
+}
+.containerul {
+  margin: 5vh;
+}
+.containerName {
+  font-size: 3vh;
+  font-family: $font-2;
+  position: relative;
+  top: 7vh;
+  margin-bottom: 4vh;
+}
+.container-img {
+  @extend .loginImg;
+}
+
+.container-input {
+  @extend .loginInput;
+  background: $color-2;
+  border: none;
+  width: 70%;
+  height: 100%;
+  margin-left: 3vh;
+}

@@ -1,0 +1,67 @@
+.navigation {
+  background: $black;
+  border-top: 1px solid rgba($white, 0.4);
+  position: fixed;
+  bottom: 0;
+  height: 7.5vh;
+  width: 100%;
+  z-index: 10;
+  ul {
+    display: flex;
+    justify-content: space-around;
+
+    .home {
+      background-image: url(../../src/asset/image/iconhome.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .profil {
+      background-image: url(../../src/asset/image/user.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .library {
+      background-image: url(../../src/asset/image/bookmark.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .search {
+      background-image: url(../../src/asset/image/search.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    li {
+      height: 7.5vh;
+      width: 25vw;
+      background-color: transparent;
+    }
+  }
+  .active {
+    position: relative;
+
+    &::after {
+      content: "";
+      height: 10px;
+      width: 0;
+      background: $white;
+      position: absolute;
+      border-radius: 10px;
+      bottom: 0px;
+      left: 50%;
+      transform: translateX(-50%);
+      -webkit-animation: anim 0.3s ease forwards;
+      animation: anim 0.6s ease forwards;
+
+      @-webkit-keyframes anim {
+        to {
+          width: 100%;
+        }
+      }
+      @keyframes anim {
+        to {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

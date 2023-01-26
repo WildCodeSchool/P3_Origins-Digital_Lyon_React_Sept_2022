@@ -1,0 +1,136 @@
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Navbar from "./Navbar";
+import loginImg from "../asset/image/loginImg.jpeg";
+import logo from "../asset/image/logo.svg";
+
+function Register() {
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const [userRegistered, setUserRegistered] = useState({
+    email: "default@email.com",
+    firstname: "default",
+    lastname: "default",
+    password: "default",
+  });
+
+  const navigate = useNavigate();
+  const handleForm = (e) => {
+    e.preventDefault();
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    const body = JSON.stringify(userRegistered);
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body,
+    };
+
+    if (confirmPassword === userRegistered.password) {
+      fetch(`${BACKEND_URL}/api/register`, requestOptions)
+        .then(() => {
+          navigate("/login");
+        })
+        .catch((err) => console.error(err));
+    } else {
+      setErrorMessage("Vos mot de passe ne correspondent pas");
+    }
+  };
+
+  return (
+    <div>
+      <div>
+        <img className="loginImg" src={loginImg} alt="loginImg" />
+      </div>
+      <div className="loginLogoContainer">
+        <img className="loginLogo" src={logo} alt="logo" />
+      </div>
+      <form className="formContainer" onSubmit={handleForm}>
+        <div className="inputContainer">
+          <label htmlFor="firstname" className="form-label">
+            Prénom
+          </label>
+          <input
+            onChange={(e) =>
+              setUserRegistered({
+                ...userRegistered,
+                firstname: e.target.value,
+              })
+            }
+            type="firstname"
+            className="loginInput"
+            id="firstname"
+          />
+        </div>
+        <div className="inputContainer">
+          <label htmlFor="lastname" className="form-label">
+            Nom
+          </label>
+          <input
+            onChange={(e) =>
+              setUserRegistered({ ...userRegistered, lastname: e.target.value })
+            }
+            type="lastname"
+            className="loginInput"
+            id="lastname"
+          />
+        </div>
+        <div className="inputContainer">
+          <label htmlFor="email" className="form-label">
+            Email
+          </label>
+          <input
+            onChange={(e) =>
+              setUserRegistered({ ...userRegistered, email: e.target.value })
+            }
+            type="email"
+            className="loginInput"
+            id="email"
+          />
+        </div>
+        <div className="inputContainer">
+          <label htmlFor="password" className="form-label">
+            Mot de passe
+          </label>
+          <input
+            onChange={(e) =>
+              setUserRegistered({ ...userRegistered, password: e.target.value })
+            }
+            type="password"
+            className="loginInput"
+            id="password"
+          />
+        </div>
+        <div className="inputContainer">
+          <label htmlFor="password" className="form-label">
+            Confiremer votre mot de passe
+          </label>
+          <input
+            type="password"
+            className="loginInput"
+            id="password"
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+        </div>
+        <p>{errorMessage}</p>
+        <button className="loginButton" type="submit">
+          Inscription
+        </button>
+      </form>
+      <div className="returnContainer">
+        <Link to="/login">
+          <button type="button" className="returnButton">
+            Retour
+          </button>
+        </Link>
+      </div>{" "}
+      <Navbar />
+    </div>
+  );
+}
+
+export default Register;

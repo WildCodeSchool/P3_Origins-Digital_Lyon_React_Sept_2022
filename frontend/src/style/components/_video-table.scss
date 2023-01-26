@@ -1,0 +1,51 @@
+.search-video {
+  display: block;
+  height: 50px;
+  width: 80%;
+  margin: auto;
+  margin-top: 1rem;
+}
+.video-table {
+  border-collapse: collapse;
+  width: 100vw;
+  box-shadow: 0 5px 15px $color-2;
+  margin-bottom: 7.5vh;
+  .video-list {
+    width: 100%;
+    height: 25vh;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid $color-1;
+
+    h3 {
+      width: 50vw;
+      text-align: center;
+      margin-left: 20px;
+    }
+    h5 {
+      margin-top: 10%;
+    }
+
+    ul {
+      width: 100%;
+      color: $white;
+    }
+    .video-manage {
+      display: flex;
+      width: 35%;
+      flex-direction: column;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      button {
+        display: block;
+        margin: auto;
+        padding: 5px;
+        border: none;
+        color: $white;
+        border-radius: 5px;
+        background-color: $color-1;
+        margin-top: 5px;
+      }
+    }
+  }
+}
