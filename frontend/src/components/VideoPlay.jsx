@@ -9,7 +9,7 @@ function VideoPlay({ video }) {
 
   const { selectedName, selectedId, videoDate } =
     useContext(CurrentVideosContext);
-  const { user } = useContext(CurrentUserContext);
+  const { user, token } = useContext(CurrentUserContext);
   const [category, setCategory] = useState({});
   const [videoPlayed, setVideoPlayed] = useState([]);
 
@@ -57,10 +57,19 @@ function VideoPlay({ video }) {
       }
     } else {
       try {
-        const response = await axios.post(`${BACKEND_URL}/api/favoris`, {
-          user_id: userId,
-          videos_id: videoId,
-        });
+        const response = await axios.post(
+          `${BACKEND_URL}/api/favoris`,
+          {
+            user_id: userId,
+            videos_id: videoId,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
         fetch(`${BACKEND_URL}/api/favoris/${user.id}`)
           .then((res) => res.json())
           .then((videos) => {

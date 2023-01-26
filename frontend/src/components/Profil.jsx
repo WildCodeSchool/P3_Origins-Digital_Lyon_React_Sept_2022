@@ -153,10 +153,10 @@ function Profil() {
           </form>
         </div>
       </div>
+      <p className="containerName">
+        {user.firstname} {user.lastname}
+      </p>
       <div className="profil-info">
-        <p className="containerName">
-          {user.firstname} {user.lastname}
-        </p>
         {modifyInfos ? (
           <button
             type="button"
