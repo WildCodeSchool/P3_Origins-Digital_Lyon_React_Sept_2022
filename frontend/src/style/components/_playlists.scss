@@ -7,7 +7,6 @@
   margin-bottom: 7.5vh;
 }
 
-
 h2 {
   padding-left: 10px;
   padding-bottom: 20px;
@@ -17,11 +16,10 @@ h2 {
   grid-template-columns: repeat(2, 150px);
   justify-content: center;
   gap: 30px;
-  
 }
 .miniatureContainer {
   border: none;
-background-color: $black;
+  background-color: $black;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -34,10 +32,11 @@ background-color: $black;
   }
 }
 
-h5{
-color: white;  }
+h5 {
+  color: white;
+}
 
-.button-playlist{
+.button-playlist {
   background: none;
   border: none;
 }
