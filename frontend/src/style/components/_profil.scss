@@ -1,24 +1,21 @@
 .profil-container {
-  background-color: $color-2;
+  background-color: $black;
   width: 100vw;
   margin-bottom: 7.5vh;
 
   .profil-info {
     width: 100%;
     button {
-      background: linear-gradient(175deg, #011c33 0%, rgba(1, 28, 51, 0) 100%);
+      background: linear-gradient(180deg, #011C33 0%, rgba(1, 28, 51, 0) 100%);
       border-radius: 8px;
-      background-color: $color-1;
       display: block;
       margin: auto;
-      margin-top: 10vh;
+      margin-top: 3vh;
       height: 10vh;
-      width: 90%;
+      width: 87%;
       padding: 10px;
-      border: none;
       color: $white;
-      border-radius: 5px;
-      background-color: $color-1;
+      border: 2px solid #052e52;
     }
   }
   p {

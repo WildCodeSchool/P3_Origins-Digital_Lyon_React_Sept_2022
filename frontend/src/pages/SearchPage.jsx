@@ -23,6 +23,9 @@ export default function SearchPage() {
         />
       </div>
       <div>
+        <h2 className="little-title">Parcourir tout </h2>
+      </div>
+      <div>
         {search !== "" ? (
           <div className="searchpage-container">
             {videos
