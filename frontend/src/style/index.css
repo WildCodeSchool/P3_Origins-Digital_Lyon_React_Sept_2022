@@ -28,11 +28,14 @@ li {
   border: 1px solid #006dce;
   border-radius: 5px;
 }
-.video-play-container h2,
+.video-play-container h2 {
+  margin-top: 1.5rem;
+}
 .video-play-container p {
-  margin: 5% 3%;
+  margin: 0% 3%;
 }
 .video-play-container .video-description {
+  min-height: 10vh;
   text-align: left;
   font-size: 0.9rem;
   width: 90%;
@@ -103,7 +106,7 @@ li {
   border-top: 1px solid rgba(255, 255, 255, 0.4);
   position: fixed;
   bottom: 0;
-  height: 7.5vh;
+  height: 7vh;
   width: 100%;
   z-index: 10;
 }
@@ -141,7 +144,7 @@ li {
 }
 .navigation .active::after {
   content: "";
-  height: 10px;
+  height: 8px;
   width: 0;
   background: #ffffff;
   position: absolute;
@@ -163,8 +166,11 @@ li {
   }
 }
 
-.backButtonContainer {
-  margin: 10px;
+.backButton {
+  position: relative;
+  background: none;
+  border: none;
+  margin: 1.5rem 1rem;
 }
 
 .loginContainer {
@@ -293,19 +299,13 @@ li {
 }
 
 .pageContainer {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 7.5vh;
-}
-
-.searchTitle {
-  align-self: auto;
-  margin-top: 12%;
-  margin-bottom: 17px;
-  align-items: flex-start;
 }
 
 .search {
@@ -343,10 +343,8 @@ li {
   margin-top: 20px;
   margin-top: 12%;
 }
-
-.library-title {
-  margin-top: 12%;
-  margin-left: 4%;
+.libraryPage h2 {
+  margin: auto;
 }
 
 .playlists {
@@ -436,9 +434,6 @@ h5 {
 .slider-container {
   overflow: hidden;
   padding: 2%;
-}
-.slider-container h2 {
-  margin: 0.4rem;
 }
 .slider-container .slider-wrapper {
   display: block;

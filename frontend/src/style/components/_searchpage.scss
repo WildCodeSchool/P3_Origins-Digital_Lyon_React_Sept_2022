@@ -1,17 +1,11 @@
 .pageContainer {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 7.5vh;
-}
-
-.searchTitle {
-  align-self: auto;
-  margin-top: 12%;
-  margin-bottom: 17px;
-  align-items: flex-start;
 }
 
 .search {
