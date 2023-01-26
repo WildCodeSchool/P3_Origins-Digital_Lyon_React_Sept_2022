@@ -15,20 +15,18 @@ function Slider() {
       .catch((err) => console.error(err));
   }, [setVideosSlider]);
   return (
-    <div>
+    <div className="slider-container">
       <h2>Category</h2>
 
-      <div className="slider-container">
-        <div className="slider-wrapper">
-          {videosSlider.map((video) => (
-            <img
-              key={video.id}
-              className="slider-item"
-              src={`${BACKEND_URL}/api/videos/${video.img}`}
-              alt="imgOfSlider"
-            />
-          ))}
-        </div>
+      <div className="slider-wrapper">
+        {videosSlider.map((video) => (
+          <img
+            key={video.id}
+            className="slider-item"
+            src={`${BACKEND_URL}/api/videos/${video.img}`}
+            alt="imgOfSlider"
+          />
+        ))}
       </div>
     </div>
   );
