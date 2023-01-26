@@ -9,14 +9,14 @@ export default function SearchPage({ selectedCategory, setSelectedCategory }) {
 
   const [search, setSearch] = useState("");
   const [categories, setCategories] = useState([]);
-  const { videos } = useContext(CurrentVideosContext);
+  const { videos, setVideos } = useContext(CurrentVideosContext);
 
   useEffect(() => {
     axios
       .get(`${BACKEND_URL}/api/category/`)
       .then((data) => setCategories(data.data))
       .catch((err) => console.error(err));
-  }, []);
+  }, [setVideos]);
   return (
     <div className="pageContainer">
       <div className="searchTitle">

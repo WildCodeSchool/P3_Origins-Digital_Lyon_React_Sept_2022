@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState, useContext } from "react";
 import CurrentUserContext from "../../contexts/userContext";
 import Navbar from "./Navbar";
@@ -7,7 +8,6 @@ export default function UsersTable() {
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
   const [userList, setUserList] = useState([]);
-  const [isAdmin, setIsAdmin] = useState(false);
   const [search, setSearch] = useState("");
   const [searchOption, setSearchOption] = useState("");
   const filterOption = searchOption || "firstname";
@@ -25,30 +25,35 @@ export default function UsersTable() {
   });
   myHeaders.append("Content-Type", "application/json");
 
-  const body = JSON.stringify({ is_admin: isAdmin });
-
   // Request options pour la mise à jour de la bdd
 
-  const PUTrequestOptions = {
-    method: "PUT",
-    headers: myHeaders,
-    body,
-  };
   const DELETErequestOptions = {
     method: "DELETE",
     headers: myHeaders,
   };
 
   // fonction qui met à jour le status de l'utilisateur avec les PUT options ci-dessus
-  const changeUserStatus = (id) => {
-    setIsAdmin(!isAdmin);
-    fetch(`${BACKEND_URL}/api/users/${id}`, PUTrequestOptions).then((res) => {
-      if (res) {
-        fetch(`${BACKEND_URL}/api/users`)
-          .then((response) => response.json())
-          .then((user) => setUserList(user));
-      }
-    });
+  const updateUsetStatus = (user) => {
+    axios
+      .put(
+        `${BACKEND_URL}/api/users/${user.id}`,
+        {
+          is_admin: !user.is_admin,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((res) => {
+        if (res) {
+          axios
+            .get(`${BACKEND_URL}/api/users`)
+            .then((users) => setUserList(users.data));
+        }
+      });
   };
   const deleteUser = (id) => {
     fetch(`${BACKEND_URL}/api/users/${id}`, DELETErequestOptions).then(
@@ -73,19 +78,6 @@ export default function UsersTable() {
     <div className="user-table-container">
       <ReturnPageButton />
       <h3>Liste Utilisateurs</h3>
-      <label htmlFor="search-option" className="form-label">
-        Rechercher par :
-      </label>
-      <select
-        onChange={(e) => setSearchOption(e.target.value)}
-        id="search-option"
-      >
-        <option value="firstname">firstname</option>
-        <option value="lastname">lastname</option>
-        <option value="email">email</option>
-        <option value="id">id</option>
-      </select>
-
       <input
         className="search-user"
         type="text"
@@ -93,6 +85,21 @@ export default function UsersTable() {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
+      <div className="select-input">
+        <label htmlFor="search-option" className="form-label">
+          Rechercher par :
+        </label>
+        <select
+          onChange={(e) => setSearchOption(e.target.value)}
+          id="search-option"
+        >
+          <option value="firstname">firstname</option>
+          <option value="lastname">lastname</option>
+          <option value="email">email</option>
+          <option value="id">id</option>
+        </select>
+      </div>
+
       {search !== "" ? (
         <div className="user-table">
           {userList
@@ -111,7 +118,7 @@ export default function UsersTable() {
                     <button
                       type="button"
                       onClick={() => {
-                        changeUserStatus(user.id);
+                        updateUsetStatus(user);
                       }}
                     >
                       {user.is_admin ? "Admin" : "Utilisateur"}
@@ -127,7 +134,9 @@ export default function UsersTable() {
                       >
                         Supprimer
                       </button>
-                    ) : null}
+                    ) : (
+                      <button type="button">Supprimer</button>
+                    )}
                   </li>
                 </ul>
               </div>
@@ -150,8 +159,7 @@ export default function UsersTable() {
                       <button
                         type="button"
                         onClick={() => {
-                          setIsAdmin(!isAdmin);
-                          changeUserStatus(user.id);
+                          updateUsetStatus(user);
                         }}
                       >
                         {user.is_admin ? "Admin" : "Utilisateur"}
@@ -167,7 +175,11 @@ export default function UsersTable() {
                         >
                           Supprimer
                         </button>
-                      ) : null}
+                      ) : (
+                        <button type="button" className="not-delete-btn">
+                          Supprimer
+                        </button>
+                      )}
                     </li>
                   </ul>
                 </div>
