@@ -41,9 +41,18 @@ export default function UsersTable() {
 
   const updatePromote = (video) => {
     axios
-      .post(`${BACKEND_URL}/api/videos/promote/${video.id}`, {
-        promote: !video.promote,
-      })
+      .post(
+        `${BACKEND_URL}/api/videos/promote/${video.id}`,
+        {
+          promote: !video.promote,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      )
       .then((res) => {
         if (res) {
           axios

@@ -783,10 +783,7 @@ h5 {
   text-align: center;
   margin-bottom: 4rem;
 }
-.profil-container ul {
-  font-family: "Roboto Condensed", sans-serif;
-}
-.profil-container ul li {
+.profil-container .modify-info input {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -794,9 +791,16 @@ h5 {
   border-radius: 5px;
   padding: 10px;
   height: 50px;
-  width: 90%;
+  width: 88%;
   background-color: rgba(1, 13, 24, 0.8);
   margin: auto;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+.profil-container .modify-info label {
+  display: block;
+  text-align: center;
   margin-top: 10px;
 }
 .profil-container .avatar-container {

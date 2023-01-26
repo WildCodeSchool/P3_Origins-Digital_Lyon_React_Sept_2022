@@ -18,14 +18,14 @@
       border: 2px solid #052e52;
     }
   }
+
   p {
     width: 100%;
     text-align: center;
     margin-bottom: 4rem;
   }
-  ul {
-    font-family: $font-2;
-    li {
+  .modify-info {
+    input {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -33,9 +33,16 @@
       border-radius: 5px;
       padding: 10px;
       height: 50px;
-      width: 90%;
+      width: 88%;
       background-color: rgba($black, 0.8);
       margin: auto;
+      margin-top: 10px;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+    label {
+      display: block;
+      text-align: center;
       margin-top: 10px;
     }
   }
