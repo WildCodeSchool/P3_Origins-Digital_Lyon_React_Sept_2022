@@ -6,8 +6,7 @@ CREATE TABLE IF NOT EXISTS `User` (
   `firstname` VARCHAR(80) NOT NULL,
   `lastname` VARCHAR(80) NOT NULL,
   `email` VARCHAR(300) NOT NULL,
-/*password hash par default : "password"*/
-  `hashedPassword` VARCHAR(255) NOT NULL DEFAULT '$argon2id$v=19$m=65536,t=5,p=1$lcKpgL0a6dCrPnIyv0NMYg$gAyEeuwiBd9KAlcwkDb9WjyZHodEkYwGnBC0oTebpfk',
+  `hashedPassword` VARCHAR(255) NOT NULL,
   `is_admin` TINYINT NULL,
   `avatar` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),

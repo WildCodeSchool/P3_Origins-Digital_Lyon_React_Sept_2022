@@ -1,13 +1,22 @@
-import React, { useContext, useState } from "react";
+import axios from "axios";
+import React, { useContext, useState, useEffect } from "react";
 import CurrentVideosContext from "../../contexts/videosContext";
 import Navbar from "../components/Navbar";
 import VideoBox from "../components/VideoBox";
 
-export default function SearchPage() {
-  const [search, setSearch] = useState("");
+export default function SearchPage({ selectedCategory, setSelectedCategory }) {
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
+  const [search, setSearch] = useState("");
+  const [categories, setCategories] = useState([]);
   const { videos } = useContext(CurrentVideosContext);
 
+  useEffect(() => {
+    axios
+      .get(`${BACKEND_URL}/api/category/`)
+      .then((data) => setCategories(data.data))
+      .catch((err) => console.error(err));
+  }, []);
   return (
     <div className="pageContainer">
       <div className="searchTitle">
@@ -22,6 +31,22 @@ export default function SearchPage() {
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
+      <form className="center">
+        <label htmlFor="category-select">
+          Filtrer par catégorie{" "}
+          <select
+            id="category-select"
+            onChange={(e) => setSelectedCategory(e.target.value)}
+          >
+            <option value="">---</option>
+            {categories.map((category) => (
+              <option key={category.id} value={category.id}>
+                {category.name}
+              </option>
+            ))}
+          </select>
+        </label>
+      </form>
       <div>
         {search !== "" ? (
           <div className="searchpage-container">
@@ -33,12 +58,19 @@ export default function SearchPage() {
           </div>
         ) : (
           <div className="searchpage-container">
-            {videos.map((vid) => {
-              return <VideoBox video={vid} key={vid.id} />;
-            })}
+            {videos
+              .filter(
+                (video) =>
+                  selectedCategory.length === 0 ||
+                  String(video.category_id) === selectedCategory
+              )
+              .map((video) => {
+                return <VideoBox video={video} key={video.id} />;
+              })}
           </div>
         )}
       </div>
+
       <Navbar />
     </div>
   );

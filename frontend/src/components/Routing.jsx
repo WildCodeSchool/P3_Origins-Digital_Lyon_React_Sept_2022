@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "../pages/Home";
 import Library from "../pages/Library";
@@ -14,13 +14,26 @@ import VideosTable from "./VideosTable";
 import AddCategory from "./AddCategory";
 
 export default function Routing() {
+  const [selectedCategory, setSelectedCategory] = useState("");
+
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route
+        path="/"
+        element={<Home setSelectedCategory={setSelectedCategory} />}
+      />
       <Route path="/saved" element={<Library />} />
       <Route path="/favorites" element={<FavPage />} />
       <Route path="/myPlaylist" element={<PlaylistPage />} />
-      <Route path="/search" element={<SearchPage />} />
+      <Route
+        path="/search"
+        element={
+          <SearchPage
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+          />
+        }
+      />
       <Route path="/login" element={<ProfilePage />} />
       <Route path="/player" element={<VideoPlayer />} />
       <Route path="/register" element={<Register />} />

@@ -25,7 +25,7 @@ class FileManager extends AbstractManager {
 
   promotedVideo() {
     return this.connection.query(
-      `select * from  ${this.table} where promote=1`
+      `select * from  ${this.table} where promote=1 ORDER BY creation_date DESC LIMIT 10`
     );
   }
 
