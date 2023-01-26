@@ -67,6 +67,24 @@ function Profil() {
       email: newUserInfos.email,
     });
   };
+  const newUserLastname = (e) => {
+    setNewUserInfos({
+      ...newUserInfos,
+      lastname: e.target.value,
+    });
+  };
+  const newUserFirstname = (e) => {
+    setNewUserInfos({
+      ...newUserInfos,
+      firstname: e.target.value,
+    });
+  };
+  const newUseremail = (e) => {
+    setNewUserInfos({
+      ...newUserInfos,
+      email: e.target.value,
+    });
+  };
 
   const handleOnError = (e) => {
     e.currentTarget.src = defaultAvatar;
@@ -171,12 +189,7 @@ function Profil() {
               <input
                 className="container-input"
                 type="text"
-                onChange={(e) =>
-                  setNewUserInfos({
-                    ...newUserInfos,
-                    lastname: e.target.value,
-                  })
-                }
+                onChange={(e) => newUserLastname(e)}
               />
             </li>
             <li>
@@ -186,12 +199,7 @@ function Profil() {
               <input
                 className="container-input"
                 type="text"
-                onChange={(e) =>
-                  setNewUserInfos({
-                    ...newUserInfos,
-                    firstname: e.target.value,
-                  })
-                }
+                onChange={(e) => newUserFirstname(e)}
               />
             </li>
             <li>
@@ -201,12 +209,7 @@ function Profil() {
               <input
                 className="container-input"
                 type="text"
-                onChange={(e) =>
-                  setNewUserInfos({
-                    ...newUserInfos,
-                    email: e.target.value,
-                  })
-                }
+                onChange={(e) => newUseremail(e)}
               />
             </li>
           </ul>

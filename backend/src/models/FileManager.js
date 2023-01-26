@@ -28,6 +28,13 @@ class FileManager extends AbstractManager {
       `select * from  ${this.table} where promote=1 ORDER BY creation_date DESC LIMIT 10`
     );
   }
+
+  updatePromote(videos) {
+    return this.connection.query(
+      `update ${this.table} set promote= ? where id = ?`,
+      [videos.promote, videos.id]
+    );
+  }
 }
 
 module.exports = FileManager;

@@ -34,12 +34,12 @@ function VideoPlay({ video }) {
 
   useEffect(() => {
     axios
-      .get(`${BACKEND_URL}/api/category/${video.category_id}`)
+      .get(`${BACKEND_URL}/api/category/${videoPlayed.category_id}`)
       .then((response) => {
         setCategory(response.data);
       })
       .catch((err) => console.error(err));
-  }, []);
+  }, [videoPlayed]);
 
   const toggleFavorite = async (userId, videoId) => {
     if (favortieVideos.find((videos) => videos.id === videoId)) {
@@ -78,7 +78,7 @@ function VideoPlay({ video }) {
       <Player
         poster={`${BACKEND_URL}/api/videos/${videoPlayed.img}`}
         autoPlay
-        height={250}
+        height={450}
         width={300}
         type="video/mp4"
         src={`${BACKEND_URL}/api/videos/${selectedName}`}

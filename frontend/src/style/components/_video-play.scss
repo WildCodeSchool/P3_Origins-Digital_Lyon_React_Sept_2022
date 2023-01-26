@@ -9,13 +9,18 @@
   }
   h2,
   p {
-    margin: 3% 2%;
+    margin: 5% 3%;
   }
+
   .video-description {
     text-align: left;
     font-size: 0.9rem;
     width: 90%;
-    margin: 1.5rem 2.5%;
+    margin: 1rem 3.5%;
+    margin-bottom: 7%;
+    font-size: 0.8rem;
+    line-height: 1rem;
+    word-spacing: 1px;
   }
   .date-video {
     color: $color-1;

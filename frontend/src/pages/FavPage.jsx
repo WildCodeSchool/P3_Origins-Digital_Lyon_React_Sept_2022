@@ -17,14 +17,15 @@ export default function FavPage() {
       });
   }, []);
   return (
-    <div>
-      <div className="returnContainer">
-        <ReturnPageButton />
-      </div>
+    <div className="favorite-page-container">
+      <ReturnPageButton />
+
       <h2>My Favorites</h2>
-      <div className="listContainer">
+      <div className="favorite-container">
         {favortieVideos.map((video) => (
-          <VideoBox video={video} key={video.id} />
+          <div className="favorite-box" key={video.id}>
+            <VideoBox video={video} />
+          </div>
         ))}
       </div>
     </div>

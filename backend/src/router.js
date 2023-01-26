@@ -57,9 +57,10 @@ router.post(
   fileControllers.renameImgVideo,
   fileControllers.uploadVideo
 );
+router.get("/api/videos/promote", fileControllers.promote);
+router.post("/api/videos/promote/:id", fileControllers.editPromote);
 
 router.get("/api/videos", fileControllers.browse);
-router.get("/api/videos/promote", fileControllers.promote);
 router.get("/api/videos/infos/:id", fileControllers.read);
 router.get(
   "/api/videos/:fileName",
