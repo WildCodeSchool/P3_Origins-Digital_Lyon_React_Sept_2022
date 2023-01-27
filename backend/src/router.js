@@ -47,12 +47,7 @@ router.post(
   fileControllers.renameAvatar,
   fileControllers.updateAvatar
 );
-router.get(
-  "/api/avatars/:fileName",
-  hashPassword,
-  verifyToken,
-  fileControllers.sendAvatar
-);
+router.get("/api/avatars/:fileName", fileControllers.sendAvatar);
 
 router.post(
   "/api/videos",

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import VideoBox from "../components/VideoBox";
 import ReturnPageButton from "../components/ReturnPageButton";
 import CurrentUserContext from "../../contexts/userContext";
+import Navbar from "../components/Navbar";
 
 export default function FavPage() {
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
@@ -20,7 +21,7 @@ export default function FavPage() {
     <div className="favorite-page-container">
       <ReturnPageButton />
 
-      <h2>My Favorites</h2>
+      <h2>Favoris</h2>
       <div className="favorite-container">
         {favortieVideos.map((video) => (
           <div className="favorite-box" key={video.id}>
@@ -28,6 +29,7 @@ export default function FavPage() {
           </div>
         ))}
       </div>
+      <Navbar />
     </div>
   );
 }
