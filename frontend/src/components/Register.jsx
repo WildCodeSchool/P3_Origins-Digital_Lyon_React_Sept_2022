@@ -102,7 +102,6 @@ function Register() {
             }
             type="password"
             className="loginInput"
-            id="password"
           />
         </div>
         <div className="inputContainer">
@@ -112,7 +111,6 @@ function Register() {
           <input
             type="password"
             className="loginInput"
-            id="password"
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </div>
