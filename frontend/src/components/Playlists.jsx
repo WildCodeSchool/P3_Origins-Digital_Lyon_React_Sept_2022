@@ -12,25 +12,25 @@ export default function Playlists() {
     <div className="playlists">
       <h2>Mes playlists</h2>
       <div className="videoContainer">
-        <button type="button" onClick={goList}>
+        <button type="button" onClick={goList} className="button-playlist">
           <div className="miniatureContainer">
             <img src={COD} alt="cod" />
             <h5>Playlist #1</h5>
           </div>
         </button>
-        <button type="button" onClick={goList}>
+        <button type="button" onClick={goList} className="button-playlist">
           <div className="miniatureContainer">
             <img src={TFT} alt="tft" />
             <h5>Playlist #2</h5>
           </div>
         </button>
-        <button type="button" onClick={goList}>
+        <button type="button" onClick={goList} className="button-playlist">
           <div className="miniatureContainer">
             <img src={StreetFighter} alt="streetFighter" />
             <h5>Playlist #3</h5>
           </div>
         </button>
-        <button type="button" onClick={goList}>
+        <button type="button" onClick={goList} className="button-playlist">
           <div className="miniatureContainer">
             <img src={RL} alt="rocket-league" />
             <h5>Playlist #4</h5>

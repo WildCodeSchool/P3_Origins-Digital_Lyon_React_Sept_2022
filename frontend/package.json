@@ -10,7 +10,7 @@
     "fix": "prettier --write . && eslint --fix --ext .jsx ."
   },
   "dependencies": {
-    "axios": "^1.2.2",
+    "axios": "^1.2.5",
     "dotenv": "^16.0.3",
     "moment": "^2.29.4",
     "moment-locale-fr": "^1.0.0",

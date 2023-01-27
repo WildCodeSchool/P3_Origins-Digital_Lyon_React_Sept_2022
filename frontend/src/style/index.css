@@ -28,11 +28,14 @@ li {
   border: 1px solid #006dce;
   border-radius: 5px;
 }
-.video-play-container h2,
+.video-play-container h2 {
+  margin-top: 1.5rem;
+}
 .video-play-container p {
-  margin: 5% 3%;
+  margin: 0% 3%;
 }
 .video-play-container .video-description {
+  min-height: 10vh;
   text-align: left;
   font-size: 0.9rem;
   width: 90%;
@@ -99,11 +102,11 @@ li {
 }
 
 .navigation {
-  background: #00284d;
-  border-top: 1px solid rgba(0, 109, 206, 0.4);
+  background: #010d18;
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
   position: fixed;
   bottom: 0;
-  height: 7.5vh;
+  height: 7vh;
   width: 100%;
   z-index: 10;
 }
@@ -141,7 +144,7 @@ li {
 }
 .navigation .active::after {
   content: "";
-  height: 10px;
+  height: 8px;
   width: 0;
   background: #ffffff;
   position: absolute;
@@ -163,8 +166,11 @@ li {
   }
 }
 
-.backButtonContainer {
-  margin: 10px;
+.backButton {
+  position: relative;
+  background: none;
+  border: none;
+  margin: 1.5rem 1rem;
 }
 
 .loginContainer {
@@ -293,19 +299,13 @@ li {
 }
 
 .pageContainer {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 7.5vh;
-}
-
-.searchTitle {
-  align-self: auto;
-  margin-top: 12%;
-  margin-bottom: 17px;
-  align-items: flex-start;
 }
 
 .search {
@@ -315,6 +315,7 @@ li {
   height: 50px;
   font-display: center;
   text-align: center;
+  border-radius: 0.5rem;
 }
 
 .allVids {
@@ -331,31 +332,50 @@ li {
   flex-wrap: wrap;
 }
 
+.little-title {
+  margin-top: 12%;
+}
+
 .libraryPage {
   display: flex;
   flex-direction: column;
   gap: 5rem;
   margin-top: 20px;
+  margin-top: 12%;
+}
+.libraryPage h2 {
+  margin: auto;
 }
 
-.playlists h2 {
+.playlists {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 7.5vh;
+}
+
+h2 {
   padding-left: 10px;
   padding-bottom: 20px;
 }
-.playlists .videoContainer {
+
+.videoContainer {
   display: grid;
   grid-template-columns: repeat(2, 150px);
   justify-content: center;
   gap: 30px;
 }
-.playlists .miniatureContainer {
-  height: 70px;
-  width: 130px;
+
+.miniatureContainer {
+  border: none;
+  background-color: #010d18;
   cursor: pointer;
   display: flex;
   flex-direction: column;
 }
-.playlists .miniatureContainer img {
+.miniatureContainer img {
   height: 100%;
   width: 100%;
   margin-bottom: 2px;
@@ -363,6 +383,15 @@ li {
   border: 1px solid;
   border-radius: 1rem;
   box-shadow: #00284d 0px 3px 8px;
+}
+
+h5 {
+  color: white;
+}
+
+.button-playlist {
+  background: none;
+  border: none;
 }
 
 .fav h3 {
@@ -405,9 +434,6 @@ li {
 .slider-container {
   overflow: hidden;
   padding: 2%;
-}
-.slider-container h2 {
-  margin: 0.4rem;
 }
 .slider-container .slider-wrapper {
   display: block;
@@ -728,37 +754,31 @@ li {
 }
 
 .profil-container {
-  background-color: #00284d;
+  background-color: #010d18;
   width: 100vw;
-  margin-bottom: 7.5vh;
+  margin-bottom: 8.5vh;
 }
 .profil-container .profil-info {
   width: 100%;
 }
 .profil-container .profil-info button {
-  background: linear-gradient(175deg, #011c33 0%, rgba(1, 28, 51, 0) 100%);
+  background: linear-gradient(180deg, #00284d 0%, rgba(1, 28, 51, 0) 100%);
   border-radius: 8px;
-  background-color: #006dce;
   display: block;
   margin: auto;
-  margin-top: 10vh;
-  height: 10vh;
-  width: 90%;
+  margin-top: 3vh;
+  height: 6vh;
+  width: 87%;
   padding: 10px;
-  border: none;
   color: #ffffff;
-  border-radius: 5px;
-  background-color: #006dce;
+  border: 2px solid #052e52;
 }
 .profil-container p {
   width: 100%;
   text-align: center;
-  padding-bottom: 1rem;
+  margin-bottom: 4rem;
 }
-.profil-container ul {
-  font-family: "Roboto Condensed", sans-serif;
-}
-.profil-container ul li {
+.profil-container .modify-info input {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -766,9 +786,16 @@ li {
   border-radius: 5px;
   padding: 10px;
   height: 50px;
-  width: 90%;
+  width: 88%;
   background-color: rgba(1, 13, 24, 0.8);
   margin: auto;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+.profil-container .modify-info label {
+  display: block;
+  text-align: center;
   margin-top: 10px;
 }
 .profil-container .avatar-container {
@@ -807,7 +834,7 @@ li {
 }
 
 .containerbtn-profil {
-  background: linear-gradient(175deg, #011c33 0%, rgba(1, 28, 51, 0) 100%);
+  background: linear-gradient(175deg, #00284d 0%, rgba(1, 28, 51, 0) 100%);
   border-radius: 8px;
 }
 

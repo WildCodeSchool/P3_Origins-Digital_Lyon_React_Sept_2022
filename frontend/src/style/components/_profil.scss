@@ -1,34 +1,31 @@
 .profil-container {
-  background-color: $color-2;
+  background-color: $black;
   width: 100vw;
-  margin-bottom: 7.5vh;
+  margin-bottom: 8.5vh;
 
   .profil-info {
     width: 100%;
     button {
-      background: linear-gradient(175deg, #011c33 0%, rgba(1, 28, 51, 0) 100%);
+      background: linear-gradient(180deg, $color-2 0%, rgba(1, 28, 51, 0) 100%);
       border-radius: 8px;
-      background-color: $color-1;
       display: block;
       margin: auto;
-      margin-top: 10vh;
-      height: 10vh;
-      width: 90%;
+      margin-top: 3vh;
+      height: 6vh;
+      width: 87%;
       padding: 10px;
-      border: none;
       color: $white;
-      border-radius: 5px;
-      background-color: $color-1;
+      border: 2px solid #052e52;
     }
   }
+
   p {
     width: 100%;
     text-align: center;
-    padding-bottom: 1rem;
+    margin-bottom: 4rem;
   }
-  ul {
-    font-family: $font-2;
-    li {
+  .modify-info {
+    input {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -36,9 +33,16 @@
       border-radius: 5px;
       padding: 10px;
       height: 50px;
-      width: 90%;
+      width: 88%;
       background-color: rgba($black, 0.8);
       margin: auto;
+      margin-top: 10px;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+    label {
+      display: block;
+      text-align: center;
       margin-top: 10px;
     }
   }
@@ -79,7 +83,7 @@
 }
 
 .containerbtn-profil {
-  background: linear-gradient(175deg, #011c33 0%, rgba(1, 28, 51, 0) 100%);
+  background: linear-gradient(175deg, $color-2 0%, rgba(1, 28, 51, 0) 100%);
   border-radius: 8px;
 }
 .containerul {

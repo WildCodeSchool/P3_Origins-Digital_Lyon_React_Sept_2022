@@ -153,10 +153,10 @@ function Profil() {
           </form>
         </div>
       </div>
+      <p className="containerName">
+        {user.firstname} {user.lastname}
+      </p>
       <div className="profil-info">
-        <p className="containerName">
-          {user.firstname} {user.lastname}
-        </p>
         {modifyInfos ? (
           <button
             type="button"
@@ -181,73 +181,55 @@ function Profil() {
         )}
 
         {modifyInfos ? (
-          <ul>
-            <li>
-              <label htmlFor="mail" name="email">
-                Nom
-              </label>
-              <input
-                className="container-input"
-                type="text"
-                onChange={(e) => newUserLastname(e)}
-              />
-            </li>
-            <li>
-              <label htmlFor="mail" name="email">
-                Prénom
-              </label>
-              <input
-                className="container-input"
-                type="text"
-                onChange={(e) => newUserFirstname(e)}
-              />
-            </li>
-            <li>
-              <label htmlFor="mail" name="email">
-                Email
-              </label>
-              <input
-                className="container-input"
-                type="text"
-                onChange={(e) => newUseremail(e)}
-              />
-            </li>
-          </ul>
-        ) : (
-          <ul className="containerul">
-            <li>{user.lastname}</li>
-            <li>{user.firstname}</li>
-            <li>{user.email}</li>
-          </ul>
-        )}
+          <div className="modify-info">
+            <label htmlFor="mail" name="email">
+              Nom
+            </label>
+            <input
+              className="container-input"
+              type="text"
+              onChange={(e) => newUserLastname(e)}
+            />
+
+            <label htmlFor="mail" name="email">
+              Prénom
+            </label>
+            <input
+              className="container-input"
+              type="text"
+              onChange={(e) => newUserFirstname(e)}
+            />
+
+            <label htmlFor="mail" name="email">
+              Email
+            </label>
+            <input
+              className="container-input"
+              type="text"
+              onChange={(e) => newUseremail(e)}
+            />
+          </div>
+        ) : null}
         {user.is_admin === 1 ? (
-          <div>
+          <div className="admin-button">
             <button onClick={() => navigate("/upload")} type="button">
               Upload des videos
             </button>
             <button onClick={() => navigate("/videosManagement")} type="button">
               Gestion des videos
             </button>
-          </div>
-        ) : (
-          ""
-        )}
-        {user.is_admin === 1 ? (
-          <div>
+
             <button onClick={() => navigate("/addcategory")} type="button">
               Ajouter des Catégories
             </button>
             <button onClick={() => navigate("/videosManagement")} type="button">
               Gestion des videos
             </button>
+
+            <button type="button" onClick={() => navigate("/usersManagement")}>
+              Gestion des Utilisateurs
+            </button>
           </div>
-        ) : (
-          ""
-        )}
-        {user.is_admin ? (
-          <button type="button" onClick={() => navigate("/usersManagement")}>
-            Gestion des Utilisateurs
-          </button>
         ) : null}
         <button
           onClick={() => {

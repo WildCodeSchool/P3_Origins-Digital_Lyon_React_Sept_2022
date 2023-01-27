@@ -7,20 +7,11 @@ import ReturnPageButton from "../components/ReturnPageButton";
 
 function Library() {
   return (
-    <div>
-      <div className="libraryContainer">
-        <ReturnPageButton />
-        <h1>My Library</h1>
-        <div className="libraryPage">
-          <div>
-            <Favorites />
-            <Link to="/favorites">
-              <button className="btn " type="button">
-                View All
-              </button>
-            </Link>
-          </div>
-        </div>
+    <div className="libraryContainer">
+      <ReturnPageButton />
+      <h2>Bibliothèque</h2>
+      <div className="libraryPage">
+        <Favorites />
         <Playlists />
       </div>
       <Navbar />
