@@ -103,6 +103,11 @@ function Login() {
             S'inscrire
           </button>
         </Link>
+        <Link to="/forgotPassword">
+          <button type="button" className="registerButton">
+            Mot de passe oubliée ?
+          </button>
+        </Link>
       </div>
     </>
   );

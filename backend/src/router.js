@@ -15,6 +15,9 @@ const categoryControllers = require("./controllers/categoryControllers");
 const favoriteControllers = require("./controllers/favoriteControllers");
 const commentsControllers = require("./controllers/commentsControllers");
 
+const passwordControllers = require("./controllers/passwordControllers");
+const mailControllers = require("./controllers/mailControllers");
+
 // Auth
 router.post("/api/register", hashPassword, userControllers.add);
 
@@ -91,6 +94,26 @@ router.get("/api/favoris/:userId", favoriteControllers.getFav);
 router.delete(
   "/api/favoris/:userId/:videoId",
   favoriteControllers.deleteFavorite
+);
+
+router.post(
+  "/api/forgottenpassword",
+  passwordControllers.verifyEmail,
+  passwordControllers.generatePasswordToken,
+  mailControllers.sendForgottenPassword
+);
+router.post(
+  "/api/resetpassword",
+  passwordControllers.verifyTokenPassword,
+  hashPassword,
+  passwordControllers.resetPassword
+);
+
+// Reset email
+router.post(
+  "/api/forgottenemail",
+  passwordControllers.verifyEmail,
+  mailControllers.sendForgottenEmail
 );
 
 module.exports = router;
