@@ -57,9 +57,14 @@ router.post(
   fileControllers.renameImgVideo,
   fileControllers.uploadVideo
 );
+router.get("/api/videos/promote", fileControllers.promote);
+router.post(
+  "/api/videos/promote/:id",
+  verifyToken,
+  fileControllers.editPromote
+);
 
 router.get("/api/videos", fileControllers.browse);
-router.get("/api/videos/promote", fileControllers.promote);
 router.get("/api/videos/infos/:id", fileControllers.read);
 router.get(
   "/api/videos/:fileName",
@@ -70,9 +75,18 @@ router.delete("/api/videos/:id", fileControllers.destroy);
 
 // Gestion des commentaires
 router.put("/api/videos/infos/:id/comments/:id", commentsControllers.edit);
-router.post("/api/videos/infos/:id/comments", commentsControllers.add);
+router.post(
+  "/api/videos/infos/:id/comments",
+  verifyToken,
+  commentsControllers.add
+);
 
-router.post("/api/favoris", favoriteControllers.addFavorite);
+router.post(
+  "/api/favoris",
+
+  verifyToken,
+  favoriteControllers.addFavorite
+);
 router.get("/api/favoris/:userId", favoriteControllers.getFav);
 router.delete(
   "/api/favoris/:userId/:videoId",

@@ -8,7 +8,7 @@ function Library() {
   return (
     <div className="libraryContainer">
       <ReturnPageButton />
-      <h1>My Library</h1>
+      <h2>Bibliothèque</h2>
       <div className="libraryPage">
         <Favorites />
         <Playlists />

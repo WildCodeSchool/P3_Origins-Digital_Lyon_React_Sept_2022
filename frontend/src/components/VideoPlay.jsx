@@ -9,7 +9,7 @@ function VideoPlay({ video }) {
 
   const { selectedName, selectedId, videoDate } =
     useContext(CurrentVideosContext);
-  const { user } = useContext(CurrentUserContext);
+  const { user, token } = useContext(CurrentUserContext);
   const [category, setCategory] = useState({});
   const [videoPlayed, setVideoPlayed] = useState([]);
 
@@ -34,12 +34,12 @@ function VideoPlay({ video }) {
 
   useEffect(() => {
     axios
-      .get(`${BACKEND_URL}/api/category/${video.category_id}`)
+      .get(`${BACKEND_URL}/api/category/${videoPlayed.category_id}`)
       .then((response) => {
         setCategory(response.data);
       })
       .catch((err) => console.error(err));
-  }, []);
+  }, [videoPlayed]);
 
   const toggleFavorite = async (userId, videoId) => {
     if (favortieVideos.find((videos) => videos.id === videoId)) {
@@ -57,10 +57,19 @@ function VideoPlay({ video }) {
       }
     } else {
       try {
-        const response = await axios.post(`${BACKEND_URL}/api/favoris`, {
-          user_id: userId,
-          videos_id: videoId,
-        });
+        const response = await axios.post(
+          `${BACKEND_URL}/api/favoris`,
+          {
+            user_id: userId,
+            videos_id: videoId,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
         fetch(`${BACKEND_URL}/api/favoris/${user.id}`)
           .then((res) => res.json())
           .then((videos) => {
@@ -78,7 +87,7 @@ function VideoPlay({ video }) {
       <Player
         poster={`${BACKEND_URL}/api/videos/${videoPlayed.img}`}
         autoPlay
-        height={250}
+        height={450}
         width={300}
         type="video/mp4"
         src={`${BACKEND_URL}/api/videos/${selectedName}`}

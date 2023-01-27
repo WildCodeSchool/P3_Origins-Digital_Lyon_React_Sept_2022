@@ -214,6 +214,22 @@ const promote = (req, res) => {
     });
 };
 
+const editPromote = (req, res) => {
+  const videos = req.body;
+  videos.id = parseInt(req.params.id, 10);
+
+  models.videos
+    .updatePromote(videos)
+    .then(([result]) => {
+      if (result.affectedRows === 0) res.sendStatus(404);
+      else res.sendStatus(204);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.sendStatus(500);
+    });
+};
+
 const sendImgVideo = (req, res) => {
   const { fileName } = req.params;
 
@@ -237,4 +253,5 @@ module.exports = {
   sendImgVideo,
   destroy,
   promote,
+  editPromote,
 };

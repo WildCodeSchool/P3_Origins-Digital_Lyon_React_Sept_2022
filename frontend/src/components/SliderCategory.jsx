@@ -15,26 +15,24 @@ function SliderCategory({ setSelectedCategory }) {
       .catch((err) => console.error(err));
   }, [setCategorySlider]);
   return (
-    <div>
+    <div className="slider-container">
       <h2>Catégories</h2>
 
-      <div className="slider-container">
-        <div className="slider-wrapper">
-          {categorySlider.map((category) => (
-            <Link
-              to="/search"
-              onClick={() => setSelectedCategory(String(category.id))}
+      <div className="slider-wrapper">
+        {categorySlider.map((category) => (
+          <Link
+            to="/search"
+            onClick={() => setSelectedCategory(String(category.id))}
+            key={category.id}
+          >
+            <img
               key={category.id}
-            >
-              <img
-                key={category.id}
-                className="slider-item"
-                src={category.img}
-                alt="imgOfSlider"
-              />
-            </Link>
-          ))}
-        </div>
+              className="slider-item"
+              src={category.img}
+              alt="imgOfSlider"
+            />
+          </Link>
+        ))}
       </div>
     </div>
   );

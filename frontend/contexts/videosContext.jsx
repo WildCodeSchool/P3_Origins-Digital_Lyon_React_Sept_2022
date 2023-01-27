@@ -2,7 +2,7 @@
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
-import moment from "moment";
+import moment from "moment-with-locales-es6";
 import useLocalStorage from "../hooks/useLocalStorage";
 
 const CurrentVideosContext = createContext();
@@ -11,12 +11,13 @@ export default CurrentVideosContext;
 
 export function CurrentVideosContextProvider({ children }) {
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
-
   const [videos, setVideos] = useState([]);
 
   const [selectedName, setSelectedName] = useLocalStorage("videoName", "");
   const [selectedId, setSelectedId] = useLocalStorage("videoId", "");
-  const videoDate = (video) => moment(video.creation_date).fromNow();
+
+  const videoDate = (video) =>
+    moment(video.creation_date).locale("fr").fromNow();
 
   const values = {
     videos,

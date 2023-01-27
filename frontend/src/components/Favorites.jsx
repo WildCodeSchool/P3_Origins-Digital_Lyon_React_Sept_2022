@@ -6,7 +6,7 @@ import Fortnite from "../asset/image/fortnite_minia.jpg";
 export default function Favorites() {
   return (
     <div className="fav">
-      <h2>Favorites</h2>
+      <h2>Favoris</h2>
       <NavLink to="/favorites">
         <div className="favContainer">
           <div role="navigation" className="favVideoContainer">

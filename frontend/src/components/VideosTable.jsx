@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState, useContext } from "react";
 import CurrentUserContext from "../../contexts/userContext";
 import Navbar from "./Navbar";
@@ -9,6 +10,12 @@ export default function UsersTable() {
   const [videosList, setVideosList] = useState([]);
   const { token } = useContext(CurrentUserContext);
   const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    fetch(`${BACKEND_URL}/api/videos`)
+      .then((res) => res.json())
+      .then((videos) => setVideosList(videos));
+  }, []);
 
   const myHeaders = new Headers({
     Authorization: `Bearer ${token}`,
@@ -32,11 +39,28 @@ export default function UsersTable() {
     );
   };
 
-  useEffect(() => {
-    fetch(`${BACKEND_URL}/api/videos`)
-      .then((res) => res.json())
-      .then((videos) => setVideosList(videos));
-  }, []);
+  const updatePromote = (video) => {
+    axios
+      .post(
+        `${BACKEND_URL}/api/videos/promote/${video.id}`,
+        {
+          promote: !video.promote,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((res) => {
+        if (res) {
+          axios
+            .get(`${BACKEND_URL}/api/videos`)
+            .then((videos) => setVideosList(videos.data));
+        }
+      });
+  };
 
   return (
     <div className="video-table-container">
@@ -55,24 +79,30 @@ export default function UsersTable() {
             .filter((video) => video.name.toLowerCase().includes(search))
 
             .map((video) => (
-              <div className="video-list">
-                <ul key={video.id} className="video-info">
+              <div className="video-list" key={video.id}>
+                <ul className="video-info">
                   <VideoBox video={video} className="video-box-manage" />
                 </ul>
                 <ul className="video-manage">
                   <li>#{video.id}</li>
 
                   <li>
-                    {!video.is_admin ? (
-                      <button
-                        type="button"
-                        onClick={() => {
-                          deleteVideo(video.id);
-                        }}
-                      >
-                        Supprimer
-                      </button>
-                    ) : null}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        deleteVideo(video.id);
+                      }}
+                    >
+                      Supprimer
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        updatePromote(video);
+                      }}
+                    >
+                      {video.promote ? "Oui" : "Non"}
+                    </button>
                   </li>
                 </ul>
               </div>
@@ -91,16 +121,24 @@ export default function UsersTable() {
                     <li>#{video.id}</li>
 
                     <li>
-                      {!video.is_admin ? (
-                        <button
-                          type="button"
-                          onClick={() => {
-                            deleteVideo(video.id);
-                          }}
-                        >
-                          Supprimer
-                        </button>
-                      ) : null}
+                      <button
+                        type="button"
+                        onClick={() => {
+                          deleteVideo(video.id);
+                        }}
+                      >
+                        Supprimer
+                      </button>
+
+                      <h5>Mise en avant</h5>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          updatePromote(video);
+                        }}
+                      >
+                        {video.promote ? "Oui" : "Non"}
+                      </button>
                     </li>
                   </ul>
                 </div>

@@ -1,9 +1,9 @@
 .navigation {
-  background: $color-2;
-  border-top: 1px solid rgba($color-1, 0.4);
+  background: $black;
+  border-top: 1px solid rgba($white, 0.4);
   position: fixed;
   bottom: 0;
-  height: 7.5vh;
+  height: 7vh;
   width: 100%;
   z-index: 10;
   ul {
@@ -41,7 +41,7 @@
 
     &::after {
       content: "";
-      height: 10px;
+      height: 8px;
       width: 0;
       background: $white;
       position: absolute;

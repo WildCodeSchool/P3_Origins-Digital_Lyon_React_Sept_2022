@@ -7,15 +7,23 @@
     border: 1px solid $color-1;
     border-radius: 5px;
   }
-  h2,
-  p {
-    margin: 3% 2%;
+  h2 {
+    margin-top: 1.5rem;
   }
+  p {
+    margin: 0% 3%;
+  }
+
   .video-description {
+    min-height: 10vh;
     text-align: left;
     font-size: 0.9rem;
     width: 90%;
-    margin: 1.5rem 2.5%;
+    margin: 1rem 3.5%;
+    margin-bottom: 7%;
+    font-size: 0.8rem;
+    line-height: 1rem;
+    word-spacing: 1px;
   }
   .date-video {
     color: $color-1;

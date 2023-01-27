@@ -14,15 +14,6 @@ CREATE TABLE IF NOT EXISTS `User` (
 ENGINE = InnoDB;
 
 
-/*Remplissage de la table user avec des users factice*/
-
-INSERT INTO `User`(firstname, lastname, email, is_admin, hashedPassword)
-VALUES ("admin", "admin", "admin@email.com", 1, '$argon2id$v=19$m=65536,t=5,p=1$lcKpgL0a6dCrPnIyv0NMYg$gAyEeuwiBd9KAlcwkDb9WjyZHodEkYwGnBC0oTebpfk'),
-("John", "Doe", "johndoe@email.com", 0, '$argon2id$v=19$m=65536,t=5,p=1$lcKpgL0a6dCrPnIyv0NMYg$gAyEeuwiBd9KAlcwkDb9WjyZHodEkYwGnBC0oTebpfk'),
-("Guy", "Chauveau", "guy@email.com", 0, '$argon2id$v=19$m=65536,t=5,p=1$lcKpgL0a6dCrPnIyv0NMYg$gAyEeuwiBd9KAlcwkDb9WjyZHodEkYwGnBC0oTebpfk'),
-("Sabine", "De Sousa", "sabine@email.com", 0, '$argon2id$v=19$m=65536,t=5,p=1$lcKpgL0a6dCrPnIyv0NMYg$gAyEeuwiBd9KAlcwkDb9WjyZHodEkYwGnBC0oTebpfk'),
-("Bernard", "Roche", "bernard@email.com", 0, '$argon2id$v=19$m=65536,t=5,p=1$lcKpgL0a6dCrPnIyv0NMYg$gAyEeuwiBd9KAlcwkDb9WjyZHodEkYwGnBC0oTebpfk'),
-("Dorothée", "Maillet", "dorothée@email.com", 0, '$argon2id$v=19$m=65536,t=5,p=1$lcKpgL0a6dCrPnIyv0NMYg$gAyEeuwiBd9KAlcwkDb9WjyZHodEkYwGnBC0oTebpfk');
 
 DROP TABLE IF EXISTS `Videos`;
 CREATE TABLE IF NOT EXISTS `Videos` (

@@ -18,29 +18,27 @@ function SliderLastVideos() {
       .catch((err) => console.error(err));
   }, [setVideosSlider]);
   return (
-    <div>
+    <div className="slider-container">
       <h2>Derniers ajouts</h2>
 
-      <div className="slider-container">
-        <div className="slider-wrapper">
-          {videosSlider.map((video) => (
-            <Link
-              to="/player"
+      <div className="slider-wrapper">
+        {videosSlider.map((video) => (
+          <Link
+            to="/player"
+            key={video.id}
+            onClick={() => {
+              setSelectedName(video.url);
+              setSelectedId(video.id);
+            }}
+          >
+            <img
               key={video.id}
-              onClick={() => {
-                setSelectedName(video.url);
-                setSelectedId(video.id);
-              }}
-            >
-              <img
-                key={video.id}
-                className="slider-item"
-                src={`${BACKEND_URL}/api/videos/${video.img}`}
-                alt="imgOfSlider"
-              />
-            </Link>
-          ))}
-        </div>
+              className="slider-item"
+              src={`${BACKEND_URL}/api/videos/${video.img}`}
+              alt="imgOfSlider"
+            />
+          </Link>
+        ))}
       </div>
     </div>
   );

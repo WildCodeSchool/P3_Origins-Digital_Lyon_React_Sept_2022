@@ -94,8 +94,8 @@ function Login() {
         <button className="loginButton" type="submit" onClick={loginToast}>
           Connexion
         </button>
+        {errorMessage !== "" ? <div>{errorMessage}</div> : ""}
       </form>
-      <div>{errorMessage}</div>
       <div className="registerContainer">
         <h3>Vous n'avez pas de compte ?</h3>
         <Link to="/register">
