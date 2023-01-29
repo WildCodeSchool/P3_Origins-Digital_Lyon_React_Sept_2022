@@ -5,10 +5,11 @@
   margin: auto;
   margin-bottom: 2rem;
   .legend {
-    background-color: rgba($color: $black, $alpha: 0.8) !important;
+    font-family: $font-2;
+    background-color: rgba($color: $black, $alpha: 0.4) !important;
     height: 20% !important;
     width: 90% !important;
-    font-size: 1.5rem !important;
+    font-size: 1.2rem !important;
     border-radius: 0 !important;
     margin-left: -50%;
 
@@ -16,7 +17,6 @@
     p {
       color: $white !important;
     }
-    display: none !important;
   }
 
   .carrouselImg {
