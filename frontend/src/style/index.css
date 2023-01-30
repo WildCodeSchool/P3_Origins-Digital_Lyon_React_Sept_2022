@@ -489,7 +489,7 @@ h5 {
   width: 100%;
   height: 100%;
   background: linear-gradient(0deg, rgba(0, 16, 34, 0.8) 0%, rgba(240, 244, 253, 0.2) 90%);
-  padding: 12px;
+  padding: 8px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -2169,6 +2169,32 @@ body.video-react-full-window .video-react-fullscreen {
 }
 .favorite-page-container .favorite-container .favorite-box {
   width: 50%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+}
+.favorite-page-container .favorite-container .favorite-box .favContainer {
+  width: 100%;
+  height: 20%;
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: none;
+  border: none;
+}
+.favorite-page-container .favorite-container .favorite-box .favContainer .favorite {
+  background-image: url(../../src/asset/image/fav.png);
+}
+.favorite-page-container .favorite-container .favorite-box .favContainer .no-favorite {
+  background-image: url(../../src/asset/image/unfav.png);
+}
+.favorite-page-container .favorite-container .favorite-box .favContainer .no-favorite,
+.favorite-page-container .favorite-container .favorite-box .favContainer .favorite {
+  height: 45px;
+  width: 45px;
+  margin: 0;
+  background-size: cover;
 }
 
 table {
