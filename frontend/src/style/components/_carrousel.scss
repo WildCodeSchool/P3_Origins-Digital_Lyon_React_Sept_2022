@@ -5,18 +5,19 @@
   margin: auto;
   margin-bottom: 2rem;
   .legend {
-    background-color: rgba($color: $black, $alpha: 0.8) !important;
-    height: 20% !important;
-    width: 90% !important;
-    font-size: 1.5rem !important;
+    background-color: rgba($color: $black, $alpha: 0.7) !important;
+    height: 15% !important;
+    width: 100% !important;
+    font-size: 1rem !important;
+    text-align: left !important;
     border-radius: 0 !important;
-    margin-left: -50%;
+    margin-left: -50% !important;
+    font-family: $font-1 !important;
+    opacity: 0.9 !important;
+    padding-left: 15px !important;
 
-    opacity: 1 !important;
     p {
-      color: $white !important;
     }
-    display: none !important;
   }
 
   .carrouselImg {
