@@ -27,34 +27,34 @@
       rgba(240, 244, 253, 0.2) 90%
     );
     padding: 8px;
-  
+
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     justify-content: flex-end;
   }
-  
+
   .video-info-text {
     width: calc(100% - 40px);
-  
+
     p {
       margin: 0;
     }
   }
-  
+
   .video-name,
   .video-subtext {
     color: #fff;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-  
+
     &.medium {
       width: 150% !important;
       font-size: 14px;
       line-height: 24px;
     }
-  
+
     &.tiny {
       font-size: 12px;
       line-height: 16px;
@@ -81,7 +81,7 @@
     top: 12px;
     color: #fff;
   }
-  
+
   .btn-play {
     border-radius: 50%;
     background-color: #fff;
@@ -97,5 +97,4 @@
     margin-top: 50%;
     margin-left: 35%;
   }
-  
 }

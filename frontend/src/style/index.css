@@ -35,7 +35,7 @@ li {
   margin: 0% 3%;
 }
 .video-play-container .video-description {
-  min-height: 10vh;
+  min-height: 5vh;
   text-align: left;
   font-size: 0.9rem;
   width: 90%;
@@ -630,35 +630,59 @@ h5 {
 .comment .comment-author p {
   padding: 0.7rem;
   width: 90%;
-  margin: 1rem 5%;
+  font-size: 0.8rem;
   background-color: #010d18;
+  font-family: "Roboto Condensed", sans-serif;
   border: none;
   color: #ffffff;
 }
 .comment .comment-img {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+.comment .comment-img h4 {
+  width: 100%;
+  font-size: 1rem;
+  text-align: center;
+  align-self: baseline;
+  font-family: "Roboto Condensed", sans-serif;
+  margin-top: 5px;
+}
 .comment .comment-img img {
-  height: 50px;
-  border-radius: 50px;
-  width: 50px;
-  margin-left: 5px;
+  height: 40px;
+  border-radius: 40px;
+  width: 40px;
+  margin: 5px;
+}
+.comment .comment-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.comment .comment-content h5 {
+  font-size: 0.7rem;
+  margin: 2px;
+  color: rgba(0, 109, 206, 0.8);
+  padding-left: 0.7rem;
+  font-family: "Roboto Condensed", sans-serif;
+  align-self: baseline;
 }
 .comment .comment-message {
   margin: auto;
   font-size: 0.7rem;
 }
 .comment button {
-  display: block;
-  margin: auto;
+  position: relative;
   padding: 5px;
   border: none;
-  color: #ffffff;
-  border-radius: 5px;
-  background-color: #006dce;
-  margin-top: 5px;
+  background: none;
+}
+.comment button img {
+  height: 15px;
+  width: 15px;
 }
 
 .modal-buttons {
