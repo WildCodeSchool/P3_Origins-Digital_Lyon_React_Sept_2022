@@ -222,10 +222,6 @@ function Profil() {
             <button onClick={() => navigate("/addcategory")} type="button">
               Ajouter des Catégories
             </button>
-            <button onClick={() => navigate("/videosManagement")} type="button">
-              Gestion des videos
-            </button>
-
             <button type="button" onClick={() => navigate("/usersManagement")}>
               Gestion des Utilisateurs
             </button>

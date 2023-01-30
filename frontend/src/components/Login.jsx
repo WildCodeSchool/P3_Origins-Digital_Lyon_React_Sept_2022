@@ -97,10 +97,15 @@ function Login() {
         {errorMessage !== "" ? <div>{errorMessage}</div> : ""}
       </form>
       <div className="registerContainer">
-        <h3>Vous n'avez pas de compte ?</h3>
+        <h3 className="noAccountTitle">Vous n'avez pas de compte ?</h3>
         <Link to="/register">
           <button type="button" className="registerButton">
             S'inscrire
+          </button>
+        </Link>
+        <Link to="/forgotPassword">
+          <button type="button" className="registerButton">
+            Mot de passe oubliée ?
           </button>
         </Link>
       </div>

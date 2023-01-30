@@ -51,6 +51,27 @@ class UserManager extends AbstractManager {
       [avatar, id]
     );
   }
+
+  updatePasswordToken(user) {
+    return this.connection.query(
+      `update ${this.table} set passwordToken = ?  where id = ?`,
+      [user.passwordToken, user.id]
+    );
+  }
+
+  updatePasswordAfterReset(user) {
+    return this.connection.query(
+      `update ${this.table} set hashedPassword = ?, passwordToken = NULL  where id = ?`,
+      [user.hashedPassword, user.id]
+    );
+  }
+
+  selectToken(passwordToken) {
+    return this.connection.query(
+      `select id from ${this.table} where passwordToken = ?`,
+      [passwordToken]
+    );
+  }
 }
 
 module.exports = UserManager;

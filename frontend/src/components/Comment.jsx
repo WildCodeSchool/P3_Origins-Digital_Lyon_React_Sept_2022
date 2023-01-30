@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 import Modal from "react-modal";
 import CurrentUserContext from "../../contexts/userContext";
 import CurrentVideosContext from "../../contexts/videosContext";
+import defaultAvatar from "../asset/image/defaultAvatar.jpeg";
 
 function Comment({ currentVideoComments, setCurrentVideoComments }) {
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
@@ -75,6 +76,10 @@ function Comment({ currentVideoComments, setCurrentVideoComments }) {
       }
     });
   };
+  const handleOnError = (e) => {
+    e.currentTarget.src = defaultAvatar;
+  };
+
   Modal.defaultStyles.overlay.backgroundColor = "#333333AA";
   Modal.defaultStyles.content.backgroundColor = "#222222CC";
   Modal.defaultStyles.content.border = "#333333CC";
@@ -87,6 +92,7 @@ function Comment({ currentVideoComments, setCurrentVideoComments }) {
             <img
               src={`${BACKEND_URL}/api/avatars/${user.avatar}`}
               alt={`${user.firstname}'s avatar`}
+              onError={handleOnError}
             />
           </div>
           <input

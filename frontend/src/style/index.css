@@ -79,18 +79,17 @@ li {
   margin-left: 1.2rem;
 }
 .video-play-container .category-play {
-  height: 2rem;
-  color: #ffffff;
-  border: 1px solid #006dce;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  z-index: 1;
+  border-radius: 10px;
+  padding: 4px 12px;
+  background-color: #006dce;
+  font-size: 10px;
+  color: #fff;
 }
 .video-play-container .category-play h3 {
-  color: #006dce;
-  font-size: 0.8rem;
-  padding: 8px;
+  width: 100%;
+  height: 100%;
+  margin: 5px;
 }
 
 .player-page {
@@ -284,9 +283,16 @@ li {
 
 .registerContainer {
   display: flex;
-  justify-content: center;
-  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
   margin-top: 2vh;
+}
+.registerContainer .noAccountTitle {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
 .registerContainer .registerButton {
   border: none;
@@ -294,7 +300,6 @@ li {
   color: #ffffff;
   font-family: "Nunito", sans-serif;
   font-size: large;
-  margin-left: 1vh;
   text-decoration: underline;
 }
 
@@ -307,15 +312,20 @@ li {
   align-items: center;
   margin-bottom: 7.5vh;
 }
-
-.search {
+.pageContainer input,
+.pageContainer select {
   display: flex;
   align-self: center;
-  width: 350px;
-  height: 50px;
+  width: 300px;
+  height: 35px;
   font-display: center;
   text-align: center;
-  border-radius: 0.5rem;
+  border-radius: 10px;
+  outline: none;
+}
+.pageContainer input :focus,
+.pageContainer select :focus {
+  border: 1px solid #006dce;
 }
 
 .allVids {
@@ -436,7 +446,8 @@ h5 {
   padding: 2%;
 }
 .slider-container .slider-wrapper {
-  display: block;
+  width: 100%;
+  display: flex;
   white-space: nowrap;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -489,7 +500,7 @@ h5 {
   width: 100%;
   height: 100%;
   background: linear-gradient(0deg, rgba(0, 16, 34, 0.8) 0%, rgba(240, 244, 253, 0.2) 90%);
-  padding: 12px;
+  padding: 8px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -633,6 +644,7 @@ h5 {
   height: 50px;
   border-radius: 50px;
   width: 50px;
+  margin-left: 5px;
 }
 .comment .comment-message {
   margin: auto;
@@ -778,17 +790,16 @@ h5 {
   margin-bottom: 2rem;
 }
 .carrouselContainer .legend {
-  background-color: rgba(1, 13, 24, 0.8) !important;
-  height: 20% !important;
-  width: 90% !important;
-  font-size: 1.5rem !important;
+  background-color: rgba(1, 13, 24, 0.7) !important;
+  height: 15% !important;
+  width: 100% !important;
+  font-size: 1rem !important;
+  text-align: left !important;
   border-radius: 0 !important;
-  margin-left: -50%;
-  opacity: 1 !important;
-  display: none !important;
-}
-.carrouselContainer .legend p {
-  color: #ffffff !important;
+  margin-left: -50% !important;
+  font-family: "Nunito", sans-serif !important;
+  opacity: 0.9 !important;
+  padding-left: 15px !important;
 }
 .carrouselContainer .carrouselImg {
   border-radius: 1rem;
@@ -862,6 +873,7 @@ h5 {
   max-height: 100px;
   max-width: 100px;
   margin: auto;
+  border-radius: 50px;
 }
 .profil-container .avatar-container .avatar form {
   display: flex;
@@ -2210,6 +2222,72 @@ body.video-react-full-window .video-react-fullscreen {
 }
 .favorite-page-container .favorite-container .favorite-box {
   width: 50%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+}
+.favorite-page-container .favorite-container .favorite-box .favContainer {
+  width: 100%;
+  height: 20%;
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: none;
+  border: none;
+}
+.favorite-page-container .favorite-container .favorite-box .favContainer .favorite {
+  background-image: url(../../src/asset/image/fav.png);
+}
+.favorite-page-container .favorite-container .favorite-box .favContainer .no-favorite {
+  background-image: url(../../src/asset/image/unfav.png);
+}
+.favorite-page-container .favorite-container .favorite-box .favContainer .no-favorite,
+.favorite-page-container .favorite-container .favorite-box .favContainer .favorite {
+  height: 45px;
+  width: 45px;
+  margin: 0;
+  background-size: cover;
+}
+
+.forgot-password-container {
+  margin-top: 3rem;
+  height: 85vh;
+  width: 100vw;
+}
+.forgot-password-container h2 {
+  margin-bottom: 3rem;
+}
+.forgot-password-container label {
+  display: none;
+}
+.forgot-password-container input {
+  height: 5vh;
+  display: block;
+  margin: auto;
+  width: 80%;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.forgot-password-container p {
+  width: 100%;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+.forgot-password-container button {
+  padding: 8px 30px;
+  color: #053777;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 11px;
+  border: 0;
+  text-shadow: 0 1px 2px #fff;
+  width: 50%;
+  margin: 0 25%;
+  cursor: pointer;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 table {
@@ -2285,4 +2363,8 @@ h3 {
 .column {
   margin-right: 15px;
   width: 25%;
+}
+
+.profilPageContainer {
+  height: 105vh;
 }/*# sourceMappingURL=index.css.map */

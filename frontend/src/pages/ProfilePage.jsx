@@ -7,7 +7,7 @@ import Profil from "../components/Profil";
 function ProfilePage() {
   const { user } = useContext(CurrentUserContext);
   return (
-    <div>
+    <div className="profilPageContainer">
       {user.email ? <Profil /> : <Login />}
       <Navbar />
     </div>
