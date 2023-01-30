@@ -1,3 +1,4 @@
+import ReturnPageButton from "@components/ReturnPageButton";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -26,7 +27,7 @@ function ResetPassword() {
       .then((response) => {
         console.warn("checkValidToken", response);
         if (response.status !== 200) {
-          navigate("/");
+          navigate("/login");
         }
       })
       .catch((error) => {
@@ -77,44 +78,43 @@ function ResetPassword() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Modifier votre mot de passe</h2>
-      <div>
-        {/* label and input */}
-        <div>
-          <label htmlFor="email" name="email">
-            Email
-          </label>
-          <input
-            type="password"
-            required
-            value={password}
-            onChange={handleChangePassword}
-            id="password"
-            name="password"
-            placeholder="Entrez votre nouveau mot de passe"
-          />
-        </div>
-      </div>
-      <div>
-        <div>
-          <label htmlFor="password" name="password">
-            Password
-          </label>
+    <>
+      <ReturnPageButton />
+      <form onSubmit={handleSubmit} className="forgot-password-container">
+        <h2>Modifier votre mot de passe</h2>
 
-          <input
-            type="password"
-            required
-            value={passwordVerification}
-            onChange={verifyPassword}
-            id="passwordCheck"
-            name="passwordCheck"
-            placeholder="Confirmer votre nouveau mot de passe"
-          />
-        </div>{" "}
-      </div>
-      <button type="submit">Sauvegarder</button>
-    </form>
+        {/* label and input */}
+
+        <label htmlFor="email" name="email">
+          Mot de passe
+        </label>
+        <input
+          type="password"
+          required
+          value={password}
+          onChange={handleChangePassword}
+          id="password"
+          name="password"
+          placeholder="Entrez votre nouveau mot de passe"
+        />
+
+        <label htmlFor="password" name="password">
+          Confirmez le mot de passe
+        </label>
+
+        <input
+          type="password"
+          required
+          value={passwordVerification}
+          onChange={verifyPassword}
+          id="passwordCheck"
+          name="passwordCheck"
+          placeholder="Confirmer votre nouveau mot de passe"
+        />
+
+        <button type="submit">Sauvegarder</button>
+      </form>
+    </>
   );
 }
 

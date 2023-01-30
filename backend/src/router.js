@@ -116,4 +116,10 @@ router.post(
   mailControllers.sendForgottenEmail
 );
 
+router.post(
+  "/api/passwordReset",
+  passwordControllers.verifyTokenPassword,
+  (req, res) => res.sendStatus(200)
+);
+
 module.exports = router;

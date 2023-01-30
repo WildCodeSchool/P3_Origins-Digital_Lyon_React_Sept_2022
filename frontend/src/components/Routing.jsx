@@ -44,7 +44,10 @@ export default function Routing() {
       <Route path="/videosManagement" element={<VideosTable />} />
       <Route path="/addCategory" element={<AddCategory />} />
       <Route path="/forgotpassword" element={<ForgottenPassword />} />
-      <Route path="/api/resetpassword" element={<ResetPassword />} />
+      <Route
+        path="/api/resetpassword/:passwordToken"
+        element={<ResetPassword />}
+      />
     </Routes>
   );
 }

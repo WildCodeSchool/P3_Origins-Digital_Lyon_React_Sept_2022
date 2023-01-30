@@ -61,7 +61,7 @@ class UserManager extends AbstractManager {
 
   updatePasswordAfterReset(user) {
     return this.connection.query(
-      `update${this.table} set hashedPassword = ?, passwordToken = NULL  where id = ?`,
+      `update ${this.table} set hashedPassword = ?, passwordToken = NULL  where id = ?`,
       [user.hashedPassword, user.id]
     );
   }

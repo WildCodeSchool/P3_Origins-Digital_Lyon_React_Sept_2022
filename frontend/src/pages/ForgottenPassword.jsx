@@ -1,3 +1,4 @@
+import ReturnPageButton from "@components/ReturnPageButton";
 import React, { useState } from "react";
 
 const { VITE_BACKEND_URL } = import.meta.env;
@@ -34,33 +35,29 @@ function ForgottenPassword() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>
-        Mot de passe oublié ?
-        <span>
-          <p>Entrez votre adresse mail de connexion</p>
-        </span>
-      </h2>
-      <div>
-        <div>
-          <label htmlFor="email" name="email">
-            Email
-          </label>
-          <input
-            type="email"
-            pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
-            placeholder="Entrez votre addresse email"
-            required
-            value={email}
-            onChange={handleChangeEmail}
-            id="email"
-            name="email"
-          />
-        </div>
-      </div>
-      {/* onClick : send email to the adress mail entered. */}
-      <button type="submit">Envoyer</button>
-    </form>
+    <>
+      <ReturnPageButton />
+      <form onSubmit={handleSubmit} className="forgot-password-container">
+        <h2>Réinitialisez votre mot de passe</h2>
+        <p>Entrez votre adresse mail de connexion : </p>
+        <label htmlFor="email" name="email">
+          Email
+        </label>
+        <input
+          type="email"
+          pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
+          placeholder="john@doe.com"
+          required
+          value={email}
+          onChange={handleChangeEmail}
+          id="email"
+          name="email"
+        />
+
+        {/* onClick : send email to the adress mail entered. */}
+        <button type="submit">Envoyer</button>
+      </form>
+    </>
   );
 }
 
