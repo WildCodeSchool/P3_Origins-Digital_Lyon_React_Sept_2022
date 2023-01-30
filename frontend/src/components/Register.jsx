@@ -102,17 +102,15 @@ function Register() {
             }
             type="password"
             className="loginInput"
-            id="password"
           />
         </div>
         <div className="inputContainer">
           <label htmlFor="password" className="form-label">
-            Confiremer votre mot de passe
+            Confirmer votre mot de passe
           </label>
           <input
             type="password"
             className="loginInput"
-            id="password"
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </div>

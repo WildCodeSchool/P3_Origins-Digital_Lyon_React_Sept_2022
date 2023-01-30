@@ -1,5 +1,5 @@
-import ReturnPageButton from "@components/ReturnPageButton";
 import React, { useState } from "react";
+import ReturnPageButton from "../components/ReturnPageButton";
 
 const { VITE_BACKEND_URL } = import.meta.env;
 

@@ -1,6 +1,6 @@
-import ReturnPageButton from "@components/ReturnPageButton";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import ReturnPageButton from "../components/ReturnPageButton";
 
 function ResetPassword() {
   /* Toast */

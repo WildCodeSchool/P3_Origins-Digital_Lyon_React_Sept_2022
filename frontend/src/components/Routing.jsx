@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import ResetPassword from "@pages/ResetPassword";
+import ResetPassword from "../pages/ResetPassword";
 import Home from "../pages/Home";
 import Library from "../pages/Library";
 import SearchPage from "../pages/SearchPage";

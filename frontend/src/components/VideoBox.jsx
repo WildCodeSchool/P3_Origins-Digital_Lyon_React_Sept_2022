@@ -6,7 +6,7 @@ import CurrentVideosContext from "../../contexts/videosContext";
 export default function VideoBox({ video }) {
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
-  const { setSelectedName, setSelectedId, videoDate, setSelectedCategoryId } =
+  const { setSelectedName, setSelectedId, videoDate } =
     useContext(CurrentVideosContext);
 
   const [selectedCategory, setSelectedCategory] = useState({});
@@ -16,7 +16,6 @@ export default function VideoBox({ video }) {
       .get(`${BACKEND_URL}/api/category/${video.category_id}`)
       .then((res) => {
         setSelectedCategory(res.data);
-        setSelectedCategoryId(res.data.id);
       })
       .catch((e) => console.error(e));
   }, []);
@@ -38,7 +37,6 @@ export default function VideoBox({ video }) {
               navigate("/player");
               setSelectedName(video.url);
               setSelectedId(video.id);
-              setSelectedCategoryId(video.category_id);
             }}
           />
         </div>
