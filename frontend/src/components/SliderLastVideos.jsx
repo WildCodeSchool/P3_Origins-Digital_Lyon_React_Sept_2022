@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import CurrentVideosContext from "../../contexts/videosContext";
+import VideoBox from "./VideoBox";
 
 function SliderLastVideos() {
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
@@ -23,21 +24,9 @@ function SliderLastVideos() {
 
       <div className="slider-wrapper">
         {videosSlider.map((video) => (
-          <Link
-            to="/player"
-            key={video.id}
-            onClick={() => {
-              setSelectedName(video.url);
-              setSelectedId(video.id);
-            }}
-          >
-            <img
-              key={video.id}
-              className="slider-item"
-              src={`${BACKEND_URL}/api/videos/${video.img}`}
-              alt="imgOfSlider"
-            />
-          </Link>
+          <div key={video.id}>
+            <VideoBox video={video} />
+          </div>
         ))}
       </div>
     </div>

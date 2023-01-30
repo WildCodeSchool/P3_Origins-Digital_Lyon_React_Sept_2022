@@ -36,12 +36,11 @@ export default function SearchPage({ selectedCategory, setSelectedCategory }) {
         </div>
         <form className="center">
           <label htmlFor="category-select">
-            Filtrer par catégorie{" "}
             <select
               id="category-select"
               onChange={(e) => setSelectedCategory(e.target.value)}
             >
-              <option value="">---</option>
+              <option value="">Catégorie</option>
               {categories.map((category) => (
                 <option key={category.id} value={category.id}>
                   {category.name}
