@@ -80,6 +80,11 @@ router.post(
   verifyToken,
   commentsControllers.add
 );
+router.delete(
+  "/api/videos/infos/:id/comments",
+  verifyToken,
+  commentsControllers.destroy
+);
 
 router.post(
   "/api/favoris",

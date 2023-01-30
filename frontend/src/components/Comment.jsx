@@ -41,6 +41,29 @@ function Comment({ currentVideoComments, setCurrentVideoComments }) {
       });
   };
 
+  const myHeaders = new Headers({
+    Authorization: `Bearer ${token}`,
+  });
+  myHeaders.append("Content-Type", "application/json");
+
+  const DELETErequestOptions = {
+    method: "DELETE",
+    headers: myHeaders,
+  };
+
+  const deleteComment = () => {
+    fetch(
+      `${BACKEND_URL}/api/videos/infos/${selectedId}/comments/`,
+      DELETErequestOptions
+    ).then((res) => {
+      if (res) {
+        fetch(`${BACKEND_URL}/api/videos/infos/${selectedId}`)
+          .then((response) => response.json())
+          .then((videos) => setCurrentVideoComments(videos.comment));
+      }
+    });
+  };
+
   return (
     <div className="comment">
       <form onSubmit={handleSubmit} className="comment-form">
@@ -70,6 +93,16 @@ function Comment({ currentVideoComments, setCurrentVideoComments }) {
             />
           </div>
           <p>{videosComments.content}</p>
+          {user.is_admin === 1 ? (
+            <button
+              type="button"
+              onClick={() => {
+                deleteComment(videosComments.id);
+              }}
+            >
+              Supprimer
+            </button>
+          ) : null}
         </div>
       ))}
     </div>

@@ -644,6 +644,16 @@ h5 {
   margin: auto;
   font-size: 0.7rem;
 }
+.comment button {
+  display: block;
+  margin: auto;
+  padding: 5px;
+  border: none;
+  color: #ffffff;
+  border-radius: 5px;
+  background-color: #006dce;
+  margin-top: 5px;
+}
 
 .loginLogoContainer {
   height: 15vh;
