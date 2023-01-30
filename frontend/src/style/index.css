@@ -471,6 +471,7 @@ h5 {
   height: 20vh;
   position: relative;
   margin: 5vw;
+  z-index: 0;
 }
 .image-wrapper img {
   width: 100%;
@@ -482,8 +483,7 @@ h5 {
 .image-wrapper:hover img {
   transform: scale(1.125);
 }
-
-.image-overlay {
+.image-wrapper .image-overlay {
   position: absolute;
   z-index: 1;
   width: 100%;
@@ -495,46 +495,41 @@ h5 {
   align-items: flex-end;
   justify-content: flex-end;
 }
-
-.video-info-text {
+.image-wrapper .video-info-text {
   width: calc(100% - 40px);
 }
-.video-info-text p {
+.image-wrapper .video-info-text p {
   margin: 0;
 }
-
-.video-name,
-.video-subtext {
+.image-wrapper .video-name,
+.image-wrapper .video-subtext {
   color: #fff;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.video-name.medium,
-.video-subtext.medium {
+.image-wrapper .video-name.medium,
+.image-wrapper .video-subtext.medium {
   width: 150% !important;
   font-size: 14px;
   line-height: 24px;
 }
-.video-name.tiny,
-.video-subtext.tiny {
+.image-wrapper .video-name.tiny,
+.image-wrapper .video-subtext.tiny {
   font-size: 12px;
   line-height: 16px;
 }
-
-.video-info {
+.image-wrapper .video-info {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column-reverse;
   justify-content: space-between;
 }
-
-.video-subtext {
+.image-wrapper .video-subtext {
   opacity: 0.8;
 }
-
-.video-time {
+.image-wrapper .video-time {
   position: absolute;
   z-index: 1;
   border-radius: 10px;
@@ -545,8 +540,7 @@ h5 {
   top: 12px;
   color: #fff;
 }
-
-.btn-play {
+.image-wrapper .btn-play {
   border-radius: 50%;
   background-color: #fff;
   border: none;
@@ -653,6 +647,43 @@ h5 {
   border-radius: 5px;
   background-color: #006dce;
   margin-top: 5px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10%;
+}
+.modal-buttons .close_btn {
+  display: block;
+  margin: auto;
+  padding: 5px;
+  border: none;
+  color: #ffffff;
+  border-radius: 5px;
+  background-color: #006dce;
+  margin-top: 5px;
+}
+.modal-buttons .delete_btn {
+  display: block;
+  margin: auto;
+  padding: 5px;
+  border: none;
+  color: #ffffff;
+  border-radius: 5px;
+  background-color: red;
+  margin-top: 5px;
+}
+
+.Modal {
+  position: fixed;
+  height: auto;
+  bottom: auto;
+  width: 80vw;
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
 }
 
 .loginLogoContainer {

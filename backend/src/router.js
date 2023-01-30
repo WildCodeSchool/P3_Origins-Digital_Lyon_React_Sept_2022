@@ -81,7 +81,7 @@ router.post(
   commentsControllers.add
 );
 router.delete(
-  "/api/videos/infos/:id/comments",
+  "/api/videos/infos/:id/comments/:id",
   verifyToken,
   commentsControllers.destroy
 );

@@ -89,27 +89,5 @@ CREATE TABLE IF NOT EXISTS `comment` (
 )
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `user_video_resume` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `User_id` INT NOT NULL,
-  `Videos_id` INT NOT NULL,
-  `position` INT NOT NULL,
-  `timestamp` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  INDEX `fk_user_video_resume_User1_idx` (`User_id` ASC) VISIBLE,
-  INDEX `fk_user_video_resume_Videos1_idx` (`Videos_id` ASC) VISIBLE,
-  CONSTRAINT `fk_user_video_resume_User1`
-    FOREIGN KEY (`User_id`)
-    REFERENCES `origins_digital`.`User` (`id`),
-  CONSTRAINT `fk_user_video_resume_Videos1`
-    FOREIGN KEY (`Videos_id`)
-    REFERENCES `origins_digital`.`Videos` (`id`))
-ENGINE = InnoDB;
-
-
-
-
-
-
 /* On reactive la verification des clés étrangères*/
 SET foreign_key_checks = 1;

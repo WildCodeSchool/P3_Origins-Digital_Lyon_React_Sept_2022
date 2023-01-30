@@ -78,3 +78,39 @@
     margin-top: 5px;
   }
 }
+
+  .modal-buttons {
+   display: flex;
+   justify-content: space-around;
+   padding-top: 10%;
+   .close_btn{
+    display: block;
+    margin: auto;
+    padding: 5px;
+    border: none;
+    color: $white;
+    border-radius: 5px;
+    background-color: $color-1;
+    margin-top: 5px;
+  
+   } 
+   .delete_btn{
+    display: block;
+    margin: auto;
+    padding: 5px;
+    border: none;
+    color: $white;
+    border-radius: 5px;
+    background-color: red;
+    margin-top: 5px;
+   }
+  }
+.Modal{
+position: fixed;  height: auto;
+  bottom: auto;
+  width: 80vw;
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+}
