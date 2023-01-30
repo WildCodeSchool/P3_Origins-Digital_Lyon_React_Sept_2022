@@ -106,12 +106,14 @@
 
 .registerContainer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   text-align: center;
   margin-top: 2vh;
   .registerButton {
     border: none;
     background: none;
+    margin: 0.7rem;
     color: $white;
     font-family: $font-1;
     font-size: large;

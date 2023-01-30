@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS `User` (
   `hashedPassword` VARCHAR(255) NOT NULL,
   `is_admin` TINYINT NULL,
   `avatar` varchar(255) DEFAULT NULL,
+  `passwordToken` varchar(200),
   PRIMARY KEY (`id`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE)
 ENGINE = InnoDB;
