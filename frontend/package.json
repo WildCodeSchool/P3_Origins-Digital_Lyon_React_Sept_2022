@@ -10,6 +10,8 @@
     "fix": "prettier --write . && eslint --fix --ext .jsx ."
   },
   "dependencies": {
+    "@react-spring/web": "^9.6.1",
+    "@use-gesture/react": "^10.2.24",
     "axios": "^1.2.5",
     "dotenv": "^16.0.3",
     "moment": "^2.29.4",
@@ -20,10 +22,12 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-icons": "^4.7.1",
+    "react-modal": "^3.16.1",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.4.5",
     "react-select": "^5.7.0",
     "react-toastify": "^9.1.1",
+    "reactplosive-modal": "^1.0.5",
     "sass": "^1.56.2",
     "template-fullstack": "file:..",
     "video-react": "^0.16.0"

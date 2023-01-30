@@ -89,10 +89,5 @@ CREATE TABLE IF NOT EXISTS `comment` (
 )
 ENGINE = InnoDB;
 
-
-
-
-
-
 /* On reactive la verification des clés étrangères*/
 SET foreign_key_checks = 1;
