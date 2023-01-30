@@ -22,27 +22,26 @@ export default function SearchPage({ selectedCategory, setSelectedCategory }) {
     <>
       <ReturnPageButton />
       <div className="pageContainer">
-        <div className="searchTitle">
-          <h2>Recherche</h2>
-        </div>
-        <div>
+        <h2>Recherche</h2>
+        <form className="center">
           <input
             className="search"
             type="text"
-            placeholder="Que souhaitez vous regarder"
+            placeholder="Rechercher"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-        </div>
-        <form className="center">
+
           <label htmlFor="category-select">
             <select
               id="category-select"
               onChange={(e) => setSelectedCategory(e.target.value)}
             >
-              <option value="">Catégorie</option>
+              <option value="" className="options">
+                Catégorie
+              </option>
               {categories.map((category) => (
-                <option key={category.id} value={category.id}>
+                <option key={category.id} value={category.id} className="item">
                   {category.name}
                 </option>
               ))}

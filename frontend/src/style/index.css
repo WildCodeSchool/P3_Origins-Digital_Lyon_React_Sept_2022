@@ -290,18 +290,22 @@ li {
 .registerContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  text-align: center;
+  align-items: center;
+  gap: 10px;
   margin-top: 2vh;
+}
+.registerContainer .noAccountTitle {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
 .registerContainer .registerButton {
   border: none;
   background: none;
-  margin: 0.7rem;
   color: #ffffff;
   font-family: "Nunito", sans-serif;
   font-size: large;
-  margin-left: 1vh;
   text-decoration: underline;
 }
 
@@ -314,15 +318,20 @@ li {
   align-items: center;
   margin-bottom: 7.5vh;
 }
-
-.search {
+.pageContainer input,
+.pageContainer select {
   display: flex;
   align-self: center;
-  width: 350px;
-  height: 50px;
+  width: 300px;
+  height: 35px;
   font-display: center;
   text-align: center;
-  border-radius: 0.5rem;
+  border-radius: 10px;
+  outline: none;
+}
+.pageContainer input :focus,
+.pageContainer select :focus {
+  border: 1px solid #006dce;
 }
 
 .allVids {
@@ -2453,4 +2462,8 @@ h3 {
 .column {
   margin-right: 15px;
   width: 25%;
+}
+
+.profilPageContainer {
+  height: 105vh;
 } /*# sourceMappingURL=index.css.map */
