@@ -6,6 +6,7 @@ const multer = require("multer");
 const upload = multer({ dest: process.env.AVATAR_DIRECTORY });
 
 const { hashPassword, verifyPassword, verifyToken } = require("../auth");
+const { validateUser } = require("./validators");
 
 const authControllers = require("./controllers/authControllers");
 const userControllers = require("./controllers/userControllers");
@@ -19,7 +20,7 @@ const passwordControllers = require("./controllers/passwordControllers");
 const mailControllers = require("./controllers/mailControllers");
 
 // Auth
-router.post("/api/register", hashPassword, userControllers.add);
+router.post("/api/register", validateUser, hashPassword, userControllers.add);
 
 router.post(
   "/api/login",
@@ -38,7 +39,13 @@ router.delete("/api/category/:id", categoryControllers.destroy);
 // Gestion des users
 router.get("/api/users", userControllers.browse);
 router.get("/api/users/:id", userControllers.read);
-router.post("/api/users", hashPassword, verifyToken, userControllers.add);
+router.post(
+  "/api/users",
+  validateUser,
+  hashPassword,
+  verifyToken,
+  userControllers.add
+);
 router.put("/api/users/:id", verifyToken, userControllers.edit);
 router.delete("/api/users/:id", verifyToken, userControllers.destroy);
 

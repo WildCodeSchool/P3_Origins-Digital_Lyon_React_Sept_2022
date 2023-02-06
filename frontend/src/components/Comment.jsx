@@ -20,7 +20,7 @@ function Comment({ currentVideoComments, setCurrentVideoComments }) {
   }
 
   const { user, token } = useContext(CurrentUserContext);
-  const { selectedId } = useContext(CurrentVideosContext);
+  const { selectedId, videoDate } = useContext(CurrentVideosContext);
   const [comment, setComment] = useState("");
 
   const handleSubmit = (e) => {
@@ -113,8 +113,12 @@ function Comment({ currentVideoComments, setCurrentVideoComments }) {
                 src={`${BACKEND_URL}/api/avatars/${videosComments.avatar}`}
                 alt={`${videosComments.firstname}'s avatar`}
               />
+              <h4>{videosComments.firstname}</h4>
             </div>
-            <p>{videosComments.content}</p>
+            <div className="comment-content">
+              <p>{videosComments.content}</p>
+              <h5>{videoDate(videosComments.creation_date)}</h5>
+            </div>
             {user.is_admin === 1 ? (
               <button
                 type="button"
@@ -123,7 +127,10 @@ function Comment({ currentVideoComments, setCurrentVideoComments }) {
                   setGetComId(videosComments.id);
                 }}
               >
-                Supprimer
+                <img
+                  src="../../src/asset/image/delete.png"
+                  alt="delete comment"
+                />
               </button>
             ) : null}
           </div>
