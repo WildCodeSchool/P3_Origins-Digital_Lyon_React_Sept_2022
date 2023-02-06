@@ -23,7 +23,15 @@ function Carrousel() {
   return (
     <div>
       <div className="carrouselContainer">
-        <Carousel autoPlay infiniteLoop showThumbs="" showStatus="">
+        <Carousel
+          autoPlay
+          infiniteLoop
+          showThumbs=""
+          showStatus=""
+          dynamicHeight="false"
+          interval="5000"
+          transitionTime="500"
+        >
           {videosPromoted.map((video) => (
             <Link
               to="/player"
