@@ -2,14 +2,14 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@1,200&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap"); /*Colors var*/
 
-/*Colors var*/
-
-$font-1: "Nunito", sans-serif;
+$font-1: "Questrial";
 $font-2: "Roboto Condensed", sans-serif;
 
 $color-1: #006dce;
-$color-2: #00284d;
+$color-2: #011c33;
+$color-3: orangered;
 $black: #010d18;
 $white: #ffffff;
 $bigTitleSize: 2.5%;
@@ -21,7 +21,7 @@ $normalfont: 1.28%;
 @mixin libBox {
   border: 1px solid;
   border-radius: 1rem;
-  box-shadow: $color-2 0px 3px 8px;
+  box-shadow: $color-3 0px 3px 8px;
 }
 
 @mixin flex-col-center {

@@ -70,20 +70,30 @@ function Login() {
       <h2 className="loginTitle">Connectez-vous</h2>
       <form className="formContainer" onSubmit={handleSubmit}>
         <div className="inputContainer">
-          <label htmlFor="email" className="form-label">
-            Email
-          </label>
+          <div className="tfrfr">
+            <div className="headerline" />
+            <label htmlFor="email" className="form_mail">
+              Email
+            </label>
+            <div className="headerline" />
+          </div>
+
           <input
             onChange={(e) => setEmail(e.target.value)}
             type="email"
-            className="loginInput"
+            className="loginmail"
             id="email"
           />
         </div>
         <div className="inputContainer">
-          <label htmlFor="password" className="form-label">
-            Password
-          </label>
+          <div className="tfrfr">
+            <div className="headerLine" />
+            <label htmlFor="password" className="form_pass">
+              Password
+            </label>
+            <div className="headerLine" />
+          </div>
+
           <input
             onChange={(e) => setPassword(e.target.value)}
             type="password"

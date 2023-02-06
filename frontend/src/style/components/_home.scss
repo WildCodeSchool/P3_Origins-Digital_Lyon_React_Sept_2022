@@ -1,3 +1,17 @@
 .home-container {
+  height: 1000px;
   margin-bottom: 7.5vh;
+  .testctn {
+    position: absolute;
+    z-index: -1;
+    overflow: hidden;
+    bottom: 6vh;
+    .imgctn {
+      max-width: 500%;
+      position: relative;
+      left: -95vh;
+      z-index: -1;
+      opacity: 0.2;
+    }
+  }
 }

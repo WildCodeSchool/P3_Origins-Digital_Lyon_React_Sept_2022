@@ -74,7 +74,7 @@
   color: $white;
   font-size: 3vh;
   font-family: $font-1;
-  background-color: $color-1;
+  background-color: orangered;
   cursor: pointer;
   margin-top: 6vh;
   position: relative;
@@ -117,5 +117,52 @@
     font-size: large;
     margin-left: 1vh;
     text-decoration: underline;
+  }
+}
+
+.formContainer {
+  .inputContainer {
+    .form_mail {
+      font-size: large;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      left: 7vh;
+      padding-bottom: 2vh;
+    }
+    .loginmail {
+      @extend .loginInput;
+    }
+    .form_pass {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      left: 7vh;
+      padding-bottom: 2vh;
+      padding-top: 3vh;
+      font-size: large;
+    }
+  }
+}
+.tfrfr {
+  display: flex;
+  justify-content: center;
+  .headerline {
+    position: relative;
+    left: 7vh;
+    height: 1px;
+    flex: 1;
+    background-color: orangered;
+    top: 1vh;
+    opacity: 0.33;
+  }
+  .headerLine {
+    position: relative;
+    left: 7vh;
+    height: 1px;
+    flex: 1;
+    background-color: orangered;
+    top: 4vh;
+    opacity: 0.33;
   }
 }

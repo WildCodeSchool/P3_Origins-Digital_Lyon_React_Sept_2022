@@ -1,5 +1,5 @@
 .navigation {
-  background: $black;
+  background: $color-2;
   border-top: 1px solid rgba($white, 0.4);
   position: fixed;
   bottom: 0;
@@ -43,7 +43,7 @@
       content: "";
       height: 8px;
       width: 0;
-      background: $white;
+      background: $color-3;
       position: absolute;
       border-radius: 10px;
       bottom: 0px;
