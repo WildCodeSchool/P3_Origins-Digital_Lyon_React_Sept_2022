@@ -739,6 +739,10 @@ h5 {
   height: 120px;
   width: 128px;
 }
+.loginLogoContainer p {
+  width: 100vw;
+  text-align: center;
+}
 
 .loginImg, .container-img {
   height: 30vh;
@@ -804,6 +808,13 @@ h5 {
   font-size: large;
   margin-left: 1vh;
   text-decoration: underline;
+}
+
+.error-message {
+  text-align: center;
+  width: 90%;
+  color: brown;
+  margin: 1rem;
 }
 
 .carrouselContainer {

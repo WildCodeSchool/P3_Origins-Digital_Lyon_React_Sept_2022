@@ -10,10 +10,13 @@
     "fix": "prettier --write . && eslint --fix --ext .jsx ."
   },
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
     "@react-spring/web": "^9.6.1",
     "@use-gesture/react": "^10.2.24",
     "axios": "^1.2.5",
     "dotenv": "^16.0.3",
+    "joi": "^17.7.0",
+    "joi-browser": "^13.4.0",
     "moment": "^2.29.4",
     "moment-locale-fr": "^1.0.0",
     "moment-with-locales-es6": "^1.0.1",
