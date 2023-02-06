@@ -46,25 +46,96 @@
     p {
       padding: 0.7rem;
       width: 90%;
-      margin: 1rem 5%;
+      font-size: 0.8rem;
       background-color: $black;
+      font-family: $font-2;
       border: none;
       color: $white;
     }
   }
   .comment-img {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    h4 {
+      width: 100%;
+      font-size: 1rem;
+      text-align: center;
+      align-self: baseline;
+      font-family: $font-2;
+      margin-top: 5px;
+    }
 
     img {
-      height: 50px;
-      border-radius: 50px;
-      width: 50px;
+      height: 40px;
+      border-radius: 40px;
+      width: 40px;
+      margin: 5px;
+    }
+  }
+  .comment-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    h5 {
+      font-size: 0.7rem;
+      margin: 2px;
+      color: rgba($color-1, 0.8);
+      padding-left: 0.7rem;
+      font-family: $font-2;
+      align-self: baseline;
     }
   }
   .comment-message {
     margin: auto;
     font-size: 0.7rem;
   }
+  button {
+    position: relative;
+    padding: 5px;
+    border: none;
+    background: none;
+    img {
+      height: 15px;
+      width: 15px;
+    }
+  }
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10%;
+  .close_btn {
+    display: block;
+    margin: auto;
+    padding: 5px;
+    border: none;
+    color: $white;
+    border-radius: 5px;
+    background-color: $color-1;
+    margin-top: 5px;
+  }
+  .delete_btn {
+    display: block;
+    margin: auto;
+    padding: 5px;
+    border: none;
+    color: $white;
+    border-radius: 5px;
+    background-color: red;
+    margin-top: 5px;
+  }
+}
+.Modal {
+  position: fixed;
+  height: auto;
+  bottom: auto;
+  width: 80vw;
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
 }

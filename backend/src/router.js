@@ -6,6 +6,7 @@ const multer = require("multer");
 const upload = multer({ dest: process.env.AVATAR_DIRECTORY });
 
 const { hashPassword, verifyPassword, verifyToken } = require("../auth");
+const { validateUser } = require("./validators");
 
 const authControllers = require("./controllers/authControllers");
 const userControllers = require("./controllers/userControllers");
@@ -15,8 +16,11 @@ const categoryControllers = require("./controllers/categoryControllers");
 const favoriteControllers = require("./controllers/favoriteControllers");
 const commentsControllers = require("./controllers/commentsControllers");
 
+const passwordControllers = require("./controllers/passwordControllers");
+const mailControllers = require("./controllers/mailControllers");
+
 // Auth
-router.post("/api/register", hashPassword, userControllers.add);
+router.post("/api/register", validateUser, hashPassword, userControllers.add);
 
 router.post(
   "/api/login",
@@ -35,7 +39,13 @@ router.delete("/api/category/:id", categoryControllers.destroy);
 // Gestion des users
 router.get("/api/users", userControllers.browse);
 router.get("/api/users/:id", userControllers.read);
-router.post("/api/users", hashPassword, verifyToken, userControllers.add);
+router.post(
+  "/api/users",
+  validateUser,
+  hashPassword,
+  verifyToken,
+  userControllers.add
+);
 router.put("/api/users/:id", verifyToken, userControllers.edit);
 router.delete("/api/users/:id", verifyToken, userControllers.destroy);
 
@@ -47,12 +57,7 @@ router.post(
   fileControllers.renameAvatar,
   fileControllers.updateAvatar
 );
-router.get(
-  "/api/avatars/:fileName",
-  hashPassword,
-  verifyToken,
-  fileControllers.sendAvatar
-);
+router.get("/api/avatars/:fileName", fileControllers.sendAvatar);
 
 router.post(
   "/api/videos",
@@ -85,6 +90,11 @@ router.post(
   verifyToken,
   commentsControllers.add
 );
+router.delete(
+  "/api/videos/infos/:id/comments/:id",
+  verifyToken,
+  commentsControllers.destroy
+);
 
 router.post(
   "/api/favoris",
@@ -96,6 +106,32 @@ router.get("/api/favoris/:userId", favoriteControllers.getFav);
 router.delete(
   "/api/favoris/:userId/:videoId",
   favoriteControllers.deleteFavorite
+);
+
+router.post(
+  "/api/forgottenpassword",
+  passwordControllers.verifyEmail,
+  passwordControllers.generatePasswordToken,
+  mailControllers.sendForgottenPassword
+);
+router.post(
+  "/api/resetpassword",
+  passwordControllers.verifyTokenPassword,
+  hashPassword,
+  passwordControllers.resetPassword
+);
+
+// Reset email
+router.post(
+  "/api/forgottenemail",
+  passwordControllers.verifyEmail,
+  mailControllers.sendForgottenEmail
+);
+
+router.post(
+  "/api/passwordReset",
+  passwordControllers.verifyTokenPassword,
+  (req, res) => res.sendStatus(200)
 );
 
 module.exports = router;

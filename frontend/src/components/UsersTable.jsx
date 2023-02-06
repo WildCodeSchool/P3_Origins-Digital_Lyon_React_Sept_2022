@@ -1,11 +1,22 @@
 import axios from "axios";
 import React, { useEffect, useState, useContext } from "react";
+import Modal from "react-modal";
 import CurrentUserContext from "../../contexts/userContext";
 import Navbar from "./Navbar";
 import ReturnPageButton from "./ReturnPageButton";
 
 export default function UsersTable() {
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [getUserId, setGetUserId] = useState(0);
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   const [userList, setUserList] = useState([]);
   const [search, setSearch] = useState("");
@@ -170,7 +181,8 @@ export default function UsersTable() {
                         <button
                           type="button"
                           onClick={() => {
-                            deleteUser(user.id);
+                            openModal();
+                            setGetUserId(user.id);
                           }}
                         >
                           Supprimer
@@ -189,6 +201,38 @@ export default function UsersTable() {
         </div>
       )}
       <Navbar />
+      <Modal
+        ariaHideApp={false}
+        isOpen={modalIsOpen}
+        contentLabel="Modal"
+        style={{
+          content: {
+            height: "auto",
+            bottom: "auto",
+            width: "80vw",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+          },
+        }}
+      >
+        <p>Voulez-vous vraiment supprimer cet utilisateur ?</p>
+        <div className="modal-buttons">
+          <button type="button" onClick={closeModal} className="close_btn">
+            Fermer
+          </button>
+          <button
+            className="delete_btn"
+            type="button"
+            onClick={() => {
+              deleteUser(getUserId);
+              closeModal();
+            }}
+          >
+            Supprimer
+          </button>
+        </div>
+      </Modal>
     </div>
   );
 }

@@ -14,6 +14,10 @@
     height: 120px;
     width: 128px;
   }
+  p {
+    width: 100vw;
+    text-align: center;
+  }
 }
 
 .loginImg {
@@ -74,4 +78,10 @@
     margin-left: 1vh;
     text-decoration: underline;
   }
+}
+.error-message {
+  text-align: center;
+  width: 90%;
+  color: brown;
+  margin: 1rem;
 }

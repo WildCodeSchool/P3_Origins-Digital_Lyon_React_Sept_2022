@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
+import ResetPassword from "../pages/ResetPassword";
 import Home from "../pages/Home";
 import Library from "../pages/Library";
 import SearchPage from "../pages/SearchPage";
@@ -12,6 +13,7 @@ import Upload from "./Upload";
 import UsersTable from "./UsersTable";
 import VideosTable from "./VideosTable";
 import AddCategory from "./AddCategory";
+import ForgottenPassword from "../pages/ForgottenPassword";
 
 export default function Routing() {
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -41,6 +43,11 @@ export default function Routing() {
       <Route path="/usersManagement" element={<UsersTable />} />
       <Route path="/videosManagement" element={<VideosTable />} />
       <Route path="/addCategory" element={<AddCategory />} />
+      <Route path="/forgotpassword" element={<ForgottenPassword />} />
+      <Route
+        path="/api/resetpassword/:passwordToken"
+        element={<ResetPassword />}
+      />
     </Routes>
   );
 }

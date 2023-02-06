@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS `User` (
   `hashedPassword` VARCHAR(255) NOT NULL,
   `is_admin` TINYINT NULL,
   `avatar` varchar(255) DEFAULT NULL,
+  `passwordToken` varchar(200),
   PRIMARY KEY (`id`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE)
 ENGINE = InnoDB;
@@ -65,8 +66,7 @@ CREATE TABLE IF NOT EXISTS `Category` (
 ENGINE = InnoDB;
 
 INSERT INTO `Category` (name,description,img) VALUES
-("Call of Duty","Call of Duty ou COD est une série de jeux vidéo de tir à la première personne sur la guerre.","https://static.fnac-static.com/multimedia/Images/FD/Comete/133214/CCP_IMG_ORIGINAL/1745091.jpg"),
-("Street Fighter","Street Fighter est une série de jeux vidéo de combat en un contre un développée par Capcom, dont le premier épisode est publié en 1987.Street Fighter est l'une des plus populaires séries de jeux vidéo de combat de l'histoire.","https://img.redbull.com/images/c_limit,w_1500,h_1000,f_auto,q_auto/redbullcom/2020/12/18/sdo59eiddric5pfm6wym/guide-debutant-jeux-combat-questions"),
+("Call of Duty","Call of Duty ou COD est une série de jeux vidéo de tir à la première personne sur la guerre.","https://hd2.tudocdn.net/913234?w=646&h=284"),
 ("TFT","Teamfight Tactics (abrégé TFT, parfois Combat Tactique (abrégé CT) en français) est un jeu vidéo de type auto battler développé et édité par Riot Games. Il prend place dans l'univers de League of Legends et est basé sur le jeu Dota Auto Chess (en), où le joueur affronte sept adversaires en ligne, qu'il doit combattre en formant une équipe afin d'être le dernier à rester en vie.","https://image.jeuxvideo.com/medias/156224/1562240888-2453-jaquette-avant.jpg"),
 ("League of Legends","League of Legends (abrégé LoL) est un jeu vidéo sorti en 2009 de type arène de bataille en ligne.Le mode principal du jeu voit s'affronter deux équipes de 5 joueurs en temps réel dans des parties d'une durée d'environ une demi-heure, chaque équipe occupant et défendant sa propre base sur la carte.","https://www.pedagojeux.fr/wp-content/uploads/2019/11/1280x720_LoL.jpg"),
 ("Valorant","Valorant est un jeu vidéo free-to-play de tir à la première personne en multijoueur développé et édité par Riot Games.Dans le mode de jeu principal, deux équipes de cinq joueurs s'affrontent et les agents utilisent un système économique pour acheter des utilitaires et des armes. Une équipe est en attaque et une est en défense : l'équipe attaquante dispose d'une bombe qu'elle doit poser sur un site. Si elle est suffisamment protégée et qu'elle explose, les attaquants gagnent un point. En revanche, si l'équipe en défense réussit à désamorcer la bombe ou si le temps est écoulé, ce sont eux qui gagnent un point.","https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt3f072336e3f3ade4/63096d7be4a8c30e088e7720/Valorant_2022_E5A2_PlayVALORANT_ContentStackThumbnail_1200x625_MB01.png"),
@@ -88,11 +88,6 @@ CREATE TABLE IF NOT EXISTS `comment` (
     REFERENCES `origins_digital`.`Videos` (`id`)
 )
 ENGINE = InnoDB;
-
-
-
-
-
 
 /* On reactive la verification des clés étrangères*/
 SET foreign_key_checks = 1;

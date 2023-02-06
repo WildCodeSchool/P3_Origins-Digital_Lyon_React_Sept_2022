@@ -1,12 +1,12 @@
 .slider-container {
-  h2 {
-    margin: 0.4rem;
-  }
   overflow: hidden;
   padding: 2%;
   // parametres du carroussel entier //
+  @media screen and (min-width: 1200px) {
+  }
   .slider-wrapper {
-    display: block;
+    width: 100%;
+    display: flex;
     white-space: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -18,8 +18,8 @@
     .slider-item {
       justify-content: center;
       align-items: center;
-      width: 200px;
-      height: 100px;
+      width: 48vw;
+      height: 15vh;
       display: inline-flex;
       border-radius: 5px;
       margin-right: 15px;
@@ -27,6 +27,16 @@
       &:last-child {
         margin-right: 15px;
       }
+      @media screen and (min-width: 1200px) {
+        width: 22vw;
+        height: 18vh;
+      }
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    .slider-wrapper {
+      scrollbar-width: 5px;
+      scrollbar-color: blue;
     }
   }
 }
