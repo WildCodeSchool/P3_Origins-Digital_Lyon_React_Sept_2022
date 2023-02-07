@@ -120,6 +120,7 @@ function Register() {
               setUserRegistered({ ...userRegistered, email: e.target.value })
             }
             type="email"
+            pattern={emailPattern}
             className="loginInput"
             required
             minLength={2}
@@ -137,6 +138,7 @@ function Register() {
               setUserRegistered({ ...userRegistered, password: e.target.value })
             }
             type="password"
+            pattern={pattern}
             className="loginInput"
             required
             minLength={8}
@@ -151,6 +153,7 @@ function Register() {
           </label>
           <input
             type="password"
+            pattern={pattern}
             className="loginInput"
             onChange={(e) => setConfirmPassword(e.target.value)}
             required

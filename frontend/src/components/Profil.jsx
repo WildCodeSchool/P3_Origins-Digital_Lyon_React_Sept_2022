@@ -201,7 +201,6 @@ function Profil() {
               minLength={2}
               maxLength={100}
               placeholder="Entrez votre Nom"
-              id="lastname"
               name="lastname"
               className="container-input"
               onChange={(e) => newUserLastname(e)}
@@ -218,7 +217,6 @@ function Profil() {
               minLength={2}
               maxLength={100}
               placeholder="Entrez votre Prenom"
-              id="firstname"
               name="firstname"
               className="container-input"
               onChange={(e) => newUserFirstname(e)}
