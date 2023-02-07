@@ -52,6 +52,38 @@ function Upload() {
   const videoRef = useRef(null);
   const imgRef = useRef(null);
 
+  const [errorImg, setError] = useState(null);
+  const [errorVideo, setErrorvideo] = useState(null);
+
+  const validateImage = () => {
+    const selectedImg = imgRef.current.files[0];
+    if (selectedImg && selectedImg.size > 10000000) {
+      setError("La taille du fichier est trop volumineux : Max:10Mo");
+    } else if (
+      selectedImg &&
+      !["image/jpeg", "image/jpg", "image/png"].includes(selectedImg.type)
+    ) {
+      setError(
+        "Format inccorect, seul les formats JPEG, JPG et PNG sont acceptée"
+      );
+    } else {
+      setError(null);
+    }
+  };
+  const validateVideo = () => {
+    const selectedVideo = videoRef.current.files[0];
+    if (selectedVideo && selectedVideo.size > 2000000000) {
+      setErrorvideo("La taille du fichier est trop volumineux : Max 2G");
+    } else if (
+      selectedVideo &&
+      !["video/mp4", "video/quicktime"].includes(selectedVideo.type)
+    ) {
+      setErrorvideo("Format inccorect, seul les formats Video sont acceptée");
+    } else {
+      setErrorvideo(null);
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (videoRef.current.files[0] && imgRef.current.files[0]) {
@@ -106,11 +138,21 @@ function Upload() {
             <label htmlFor="video" className="form-label">
               Vidéo
             </label>
-            <input type="file" ref={videoRef} id="video" required="required" />
+            <input
+              type="file"
+              ref={videoRef}
+              id="video"
+              required="required"
+              onChange={validateVideo}
+            />
             <div className="file-dummy">
-              <div className="success">
-                Votre fichier a bien été sélectionnée
-              </div>
+              {errorVideo !== null ? (
+                <div style={{ color: "red" }}>{errorVideo}</div>
+              ) : (
+                <div className="success">
+                  "Votre fichier a bien été sélectionnée"
+                </div>
+              )}
               <div className="default">Sélectionner une vidéo</div>
             </div>
           </div>
@@ -118,11 +160,21 @@ function Upload() {
             <label htmlFor="img" className="form-label">
               Image
             </label>
-            <input type="file" ref={imgRef} id="img" required="required" />
+            <input
+              type="file"
+              ref={imgRef}
+              id="img"
+              required="required"
+              onChange={validateImage}
+            />
             <div className="file-dummy">
-              <div className="success">
-                Votre fichier a bien été sélectionnée
-              </div>
+              {errorImg !== null ? (
+                <div style={{ color: "red" }}>{errorImg}</div>
+              ) : (
+                <div className="success">
+                  Votre fichier a bien été sélectionnée
+                </div>
+              )}
               <div className="default">Sélectionner une image</div>
             </div>
           </div>
@@ -134,8 +186,11 @@ function Upload() {
               onChange={(e) => setName(e.target.value)}
               type="text"
               id="name"
+              title="Nom trop court"
               className="form-controll"
-              required="required"
+              required
+              minLength={3}
+              maxLength={100}
             />
           </div>
           <div className="form-group">
@@ -146,7 +201,9 @@ function Upload() {
               onChange={(e) => setCategoryId(e.target.value)}
               id="category"
               className="form-controll "
-              required="required"
+              required
+              minLength={3}
+              maxLength={100}
             >
               <option>---------Selectionnez une catégorie----------</option>
               {categoryList.map((cat) => (
@@ -164,7 +221,9 @@ function Upload() {
               onChange={(e) => setDescription(e.target.value)}
               id="description"
               className="form-controll "
-              required="required"
+              required
+              minLength={3}
+              maxLength={100}
             />
           </div>
           <div className="form-group">
@@ -175,16 +234,27 @@ function Upload() {
               onChange={(e) => setPromote(e.target.value)}
               id="promote"
               className="form-controll "
-              required="required"
+              required
+              maxLength={1}
             >
               <option value={1}>Oui</option>
               <option value={0}>Non</option>
             </select>
           </div>
           <div className="form-group">
-            <button className="containerbtn" type="submit">
-              Télécharger
-            </button>
+            {errorImg || errorVideo !== null ? (
+              <button
+                className="containerbtn"
+                type="button"
+                style={{ background: "red", color: "white" }}
+              >
+                Télécharger
+              </button>
+            ) : (
+              <button className="containerbtn" type="submit">
+                Télécharger
+              </button>
+            )}
           </div>
         </form>
         <Navbar />

@@ -44,6 +44,13 @@ function Profil() {
     lastname: user.lastname,
     email: user.email,
   });
+  const setter = () => {
+    setNewUserInfos({
+      firstname: user.firstname,
+      lastname: user.lastname,
+      email: user.email,
+    });
+  };
 
   const body = JSON.stringify(newUserInfos);
 
@@ -162,6 +169,7 @@ function Profil() {
             type="button"
             onClick={() => {
               setModifyInfos(false);
+              setter();
               changeUserStatus(user.id);
               saveInfosChangeToast();
             }}
@@ -186,17 +194,31 @@ function Profil() {
               Nom
             </label>
             <input
-              className="container-input"
               type="text"
+              value={newUserInfos.lastname}
+              required
+              title='Veuillez entrer une adresse mail valide. Exemple: "exemple@mail.fr'
+              minLength={2}
+              maxLength={100}
+              placeholder="Entrez votre Nom"
+              name="lastname"
+              className="container-input"
               onChange={(e) => newUserLastname(e)}
             />
 
-            <label htmlFor="mail" name="email">
+            <label htmlFor="firstname" name="firstname">
               Prénom
             </label>
+
             <input
-              className="container-input"
               type="text"
+              value={newUserInfos.firstname}
+              required
+              minLength={2}
+              maxLength={100}
+              placeholder="Entrez votre Prenom"
+              name="firstname"
+              className="container-input"
               onChange={(e) => newUserFirstname(e)}
             />
 
@@ -204,8 +226,16 @@ function Profil() {
               Email
             </label>
             <input
-              className="container-input"
               type="text"
+              value={newUserInfos.email}
+              pattern="(/^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+.$/gm"
+              required
+              title='Veuillez entrer une adresse mail valide. Exemple: "exemple@mail.fr'
+              minLength={6}
+              maxLength={100}
+              id="email"
+              name="email"
+              className="container-input"
               onChange={(e) => newUseremail(e)}
             />
           </div>
