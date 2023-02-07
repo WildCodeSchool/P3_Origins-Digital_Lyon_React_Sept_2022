@@ -186,17 +186,31 @@ function Profil() {
               Nom
             </label>
             <input
-              className="container-input"
               type="text"
+              required
+              title='Veuillez entrer une adresse mail valide. Exemple: "exemple@mail.fr'
+              minLength={2}
+              maxLength={320}
+              placeholder="Entrez votre Nom"
+              id="lastname"
+              name="lastname"
+              className="container-input"
               onChange={(e) => newUserLastname(e)}
             />
 
-            <label htmlFor="mail" name="email">
+            <label htmlFor="firstname" name="firstname">
               Prénom
             </label>
+
             <input
-              className="container-input"
               type="text"
+              required
+              minLength={2}
+              maxLength={320}
+              placeholder="Entrez votre Prenom"
+              id="firstname"
+              name="firstname"
+              className="container-input"
               onChange={(e) => newUserFirstname(e)}
             />
 
@@ -204,8 +218,15 @@ function Profil() {
               Email
             </label>
             <input
-              className="container-input"
               type="text"
+              pattern="(/^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+.$/gm"
+              required
+              title='Veuillez entrer une adresse mail valide. Exemple: "exemple@mail.fr'
+              minLength={6}
+              maxLength={320}
+              placeholder="Entrez votre addresse email"
+              id="email"
+              name="email"
               onChange={(e) => newUseremail(e)}
             />
           </div>

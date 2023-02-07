@@ -24,11 +24,7 @@ function Register() {
     email: Joi.string().regex(RegExp(emailPattern)).max(75).required(),
     firstname: Joi.string().alphanum().min(3).max(30).required(),
     lastname: Joi.string().alphanum().min(3).max(30).required(),
-    password: Joi.string()
-      .regex(RegExp(pattern)) // you have to put it in this way and it will work :)
-      .required()
-      .min(8)
-      .max(20),
+    password: Joi.string().regex(RegExp(pattern)).required().min(8).max(20),
   });
 
   const navigate = useNavigate();
