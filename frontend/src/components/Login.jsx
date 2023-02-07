@@ -78,6 +78,9 @@ function Login() {
             type="email"
             className="loginInput"
             id="email"
+            required
+            minLength={2}
+            maxLength={100}
           />
         </div>
         <div className="inputContainer">
@@ -89,6 +92,9 @@ function Login() {
             type="password"
             className="loginInput"
             id="password"
+            required
+            minLength={8}
+            maxLength={100}
           />
         </div>
         <button className="loginButton" type="submit" onClick={loginToast}>
