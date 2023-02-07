@@ -93,7 +93,7 @@ function Login() {
             className="loginInput"
             id="password"
             required
-            minLength={8}
+            minLength={4}
             maxLength={100}
           />
         </div>
