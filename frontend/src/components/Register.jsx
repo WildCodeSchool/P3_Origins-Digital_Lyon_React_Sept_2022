@@ -90,6 +90,9 @@ function Register() {
             type="firstname"
             className="loginInput"
             id="firstname"
+            required
+            minLength={2}
+            maxLength={100}
           />
         </div>
         <div className="inputContainer">
@@ -100,9 +103,12 @@ function Register() {
             onChange={(e) =>
               setUserRegistered({ ...userRegistered, lastname: e.target.value })
             }
-            type="lastname"
             className="loginInput"
             id="lastname"
+            required
+            minLength={2}
+            maxLength={100}
+            name="lastname"
           />
         </div>
         <div className="inputContainer">
@@ -115,7 +121,11 @@ function Register() {
             }
             type="email"
             className="loginInput"
+            required
+            minLength={2}
+            maxLength={100}
             id="email"
+            name="email"
           />
         </div>
         <div className="inputContainer">
@@ -128,6 +138,11 @@ function Register() {
             }
             type="password"
             className="loginInput"
+            required
+            minLength={8}
+            maxLength={100}
+            id="password"
+            name="password"
           />
         </div>
         <div className="inputContainer">
@@ -138,6 +153,12 @@ function Register() {
             type="password"
             className="loginInput"
             onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+            title='Veuillez entrer une adresse mail valide. Exemple: "exemple@mail.fr'
+            minLength={8}
+            maxLength={100}
+            id="passxord"
+            name="passxord"
           />
         </div>
         <p className="error-message">{errorMessage}</p>

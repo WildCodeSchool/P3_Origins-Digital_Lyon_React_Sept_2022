@@ -199,7 +199,7 @@ function Profil() {
               required
               title='Veuillez entrer une adresse mail valide. Exemple: "exemple@mail.fr'
               minLength={2}
-              maxLength={320}
+              maxLength={100}
               placeholder="Entrez votre Nom"
               id="lastname"
               name="lastname"
@@ -216,7 +216,7 @@ function Profil() {
               value={newUserInfos.firstname}
               required
               minLength={2}
-              maxLength={320}
+              maxLength={100}
               placeholder="Entrez votre Prenom"
               id="firstname"
               name="firstname"
@@ -234,7 +234,7 @@ function Profil() {
               required
               title='Veuillez entrer une adresse mail valide. Exemple: "exemple@mail.fr'
               minLength={6}
-              maxLength={320}
+              maxLength={100}
               id="email"
               name="email"
               className="container-input"
