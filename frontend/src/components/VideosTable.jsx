@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState, useContext } from "react";
+import Modal from "react-modal";
 import CurrentUserContext from "../../contexts/userContext";
 import Navbar from "./Navbar";
 import ReturnPageButton from "./ReturnPageButton";
@@ -7,6 +8,15 @@ import VideoBox from "./VideoBox";
 
 export default function UsersTable() {
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [getVideoId, setGetVideoId] = useState(0);
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
   const [videosList, setVideosList] = useState([]);
   const { token } = useContext(CurrentUserContext);
   const [search, setSearch] = useState("");
@@ -41,9 +51,18 @@ export default function UsersTable() {
 
   const updatePromote = (video) => {
     axios
-      .post(`${BACKEND_URL}/api/videos/promote/${video.id}`, {
-        promote: !video.promote,
-      })
+      .post(
+        `${BACKEND_URL}/api/videos/promote/${video.id}`,
+        {
+          promote: !video.promote,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      )
       .then((res) => {
         if (res) {
           axios
@@ -70,8 +89,8 @@ export default function UsersTable() {
             .filter((video) => video.name.toLowerCase().includes(search))
 
             .map((video) => (
-              <div className="video-list">
-                <ul key={video.id} className="video-info">
+              <div className="video-list" key={video.id}>
+                <ul className="video-info" key={video.id}>
                   <VideoBox video={video} className="video-box-manage" />
                 </ul>
                 <ul className="video-manage">
@@ -81,7 +100,8 @@ export default function UsersTable() {
                     <button
                       type="button"
                       onClick={() => {
-                        deleteVideo(video.id);
+                        openModal();
+                        setGetVideoId(video.id);
                       }}
                     >
                       Supprimer
@@ -115,7 +135,8 @@ export default function UsersTable() {
                       <button
                         type="button"
                         onClick={() => {
-                          deleteVideo(video.id);
+                          openModal();
+                          setGetVideoId(video.id);
                         }}
                       >
                         Supprimer
@@ -139,6 +160,38 @@ export default function UsersTable() {
         </div>
       )}
       <Navbar />
+      <Modal
+        ariaHideApp={false}
+        isOpen={modalIsOpen}
+        contentLabel="Modal"
+        style={{
+          content: {
+            height: "auto",
+            bottom: "auto",
+            width: "80vw",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+          },
+        }}
+      >
+        <p>Voulez-vous vraiment supprimer cet utilisateur ?</p>
+        <div className="modal-buttons">
+          <button type="button" onClick={closeModal} className="close_btn">
+            Fermer
+          </button>
+          <button
+            className="delete_btn"
+            type="button"
+            onClick={() => {
+              deleteVideo(getVideoId);
+              closeModal();
+            }}
+          >
+            Supprimer
+          </button>
+        </div>
+      </Modal>
     </div>
   );
 }

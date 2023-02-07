@@ -44,6 +44,13 @@ function Profil() {
     lastname: user.lastname,
     email: user.email,
   });
+  const setter = () => {
+    setNewUserInfos({
+      firstname: user.firstname,
+      lastname: user.lastname,
+      email: user.email,
+    });
+  };
 
   const body = JSON.stringify(newUserInfos);
 
@@ -162,6 +169,7 @@ function Profil() {
             type="button"
             onClick={() => {
               setModifyInfos(false);
+              setter();
               changeUserStatus(user.id);
               saveInfosChangeToast();
             }}
@@ -181,73 +189,73 @@ function Profil() {
         )}
 
         {modifyInfos ? (
-          <ul>
-            <li>
-              <label htmlFor="mail" name="email">
-                Nom
-              </label>
-              <input
-                className="container-input"
-                type="text"
-                onChange={(e) => newUserLastname(e)}
-              />
-            </li>
-            <li>
-              <label htmlFor="mail" name="email">
-                Prénom
-              </label>
-              <input
-                className="container-input"
-                type="text"
-                onChange={(e) => newUserFirstname(e)}
-              />
-            </li>
-            <li>
-              <label htmlFor="mail" name="email">
-                Email
-              </label>
-              <input
-                className="container-input"
-                type="text"
-                onChange={(e) => newUseremail(e)}
-              />
-            </li>
-          </ul>
-        ) : (
-          <ul className="containerul">
-            <li>{user.lastname}</li>
-            <li>{user.firstname}</li>
-            <li>{user.email}</li>
-          </ul>
-        )}
+          <div className="modify-info">
+            <label htmlFor="mail" name="email">
+              Nom
+            </label>
+            <input
+              type="text"
+              value={newUserInfos.lastname}
+              required
+              title='Veuillez entrer une adresse mail valide. Exemple: "exemple@mail.fr'
+              minLength={2}
+              maxLength={100}
+              placeholder="Entrez votre Nom"
+              name="lastname"
+              className="container-input"
+              onChange={(e) => newUserLastname(e)}
+            />
+
+            <label htmlFor="firstname" name="firstname">
+              Prénom
+            </label>
+
+            <input
+              type="text"
+              value={newUserInfos.firstname}
+              required
+              minLength={2}
+              maxLength={100}
+              placeholder="Entrez votre Prenom"
+              name="firstname"
+              className="container-input"
+              onChange={(e) => newUserFirstname(e)}
+            />
+
+            <label htmlFor="mail" name="email">
+              Email
+            </label>
+            <input
+              type="text"
+              value={newUserInfos.email}
+              pattern="(/^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+.$/gm"
+              required
+              title='Veuillez entrer une adresse mail valide. Exemple: "exemple@mail.fr'
+              minLength={6}
+              maxLength={100}
+              id="email"
+              name="email"
+              className="container-input"
+              onChange={(e) => newUseremail(e)}
+            />
+          </div>
+        ) : null}
         {user.is_admin === 1 ? (
-          <div>
+          <div className="admin-button">
             <button onClick={() => navigate("/upload")} type="button">
               Upload des videos
             </button>
             <button onClick={() => navigate("/videosManagement")} type="button">
               Gestion des videos
             </button>
-          </div>
-        ) : (
-          ""
-        )}
-        {user.is_admin === 1 ? (
-          <div>
+
             <button onClick={() => navigate("/addcategory")} type="button">
               Ajouter des Catégories
             </button>
-            <button onClick={() => navigate("/videosManagement")} type="button">
-              Gestion des videos
+            <button type="button" onClick={() => navigate("/usersManagement")}>
+              Gestion des Utilisateurs
             </button>
           </div>
-        ) : (
-          ""
-        )}
-        {user.is_admin ? (
-          <button type="button" onClick={() => navigate("/usersManagement")}>
-            Gestion des Utilisateurs
-          </button>
         ) : null}
         <button
           onClick={() => {

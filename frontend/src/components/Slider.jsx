@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import VideoBox from "./VideoBox";
 
 function Slider() {
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
@@ -16,16 +17,13 @@ function Slider() {
   }, [setVideosSlider]);
   return (
     <div className="slider-container">
-      <h2>Category</h2>
+      <h2>Suggestion</h2>
 
       <div className="slider-wrapper">
         {videosSlider.map((video) => (
-          <img
-            key={video.id}
-            className="slider-item"
-            src={`${BACKEND_URL}/api/videos/${video.img}`}
-            alt="imgOfSlider"
-          />
+          <div key={video.id}>
+            <VideoBox video={video} />
+          </div>
         ))}
       </div>
     </div>
