@@ -3,8 +3,8 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useCurrentUserContext } from "../../contexts/userContext";
-import loginImg from "../asset/image/loginImg.jpeg";
 import logo from "../asset/image/logo.svg";
+import fondLogin from "../asset/image/imageOrange.png";
 
 function Login() {
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
@@ -60,9 +60,9 @@ function Login() {
   };
 
   return (
-    <>
-      <div>
-        <img className="loginImg" src={loginImg} alt="loginImg" />
+    <div>
+      <div className="containerIMG">
+        <img className="logImg" src={fondLogin} alt="" />
       </div>
       <div className="loginLogoContainer">
         <img className="loginLogo" src={logo} alt="logo" />
@@ -70,13 +70,18 @@ function Login() {
       <h2 className="loginTitle">Connectez-vous</h2>
       <form className="formContainer" onSubmit={handleSubmit}>
         <div className="inputContainer">
-          <label htmlFor="email" className="form-label">
-            Email
-          </label>
+          <div className="tfrfr">
+            <div className="headerline" />
+            <label htmlFor="email" className="form_mail">
+              Email
+            </label>
+            <div className="headerline" />
+          </div>
+
           <input
             onChange={(e) => setEmail(e.target.value)}
             type="email"
-            className="loginInput"
+            className="loginmail"
             id="email"
             required
             minLength={2}
@@ -84,9 +89,14 @@ function Login() {
           />
         </div>
         <div className="inputContainer">
-          <label htmlFor="password" className="form-label">
-            Password
-          </label>
+          <div className="tfrfr">
+            <div className="headerLine" />
+            <label htmlFor="password" className="form_pass">
+              Password
+            </label>
+            <div className="headerLine" />
+          </div>
+
           <input
             onChange={(e) => setPassword(e.target.value)}
             type="password"
@@ -115,7 +125,7 @@ function Login() {
           </button>
         </Link>
       </div>
-    </>
+    </div>
   );
 }
 

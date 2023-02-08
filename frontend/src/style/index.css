@@ -1,7 +1,7 @@
 /*Fonts*/
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@1,200&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap");
-/*Colors var*/
+@import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap"); /*Colors var*/
 /*Mixin functions*/
 /*Base style*/
 * {
@@ -12,12 +12,12 @@
 
 body {
   background: #010d18;
-  font-family: "Nunito", sans-serif;
+  font-family: "Questrial";
   color: #ffffff;
 }
 body ::-webkit-scrollbar {
   height: 10px;
-  background-color: #00284d;
+  background-color: #011c33;
   border-radius: 5px;
 }
 body ::-webkit-scrollbar-thumb {
@@ -106,17 +106,32 @@ li {
 }
 
 .home-container {
+  height: 1000px;
   margin-bottom: 7.5vh;
+}
+.home-container .testctn {
+  position: absolute;
+  z-index: -1;
+  overflow: hidden;
+  bottom: 6vh;
+}
+.home-container .testctn .imgctn {
+  max-width: 500%;
+  position: relative;
+  left: -95vh;
+  z-index: -1;
+  opacity: 0.2;
 }
 
 .navigation {
-  background: #010d18;
+  background: #011c33;
   border-top: 1px solid rgba(255, 255, 255, 0.4);
   position: fixed;
   bottom: 0;
   height: 7vh;
   width: 100%;
   z-index: 10;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .navigation ul {
   display: flex;
@@ -159,7 +174,7 @@ li {
   content: "";
   height: 8px;
   width: 0;
-  background: rgb(232, 10, 40);
+  background: orangered;
   position: absolute;
   border-radius: 10px;
   bottom: 0px;
@@ -196,13 +211,12 @@ li {
   height: 15vh;
   width: 15vh;
   position: absolute;
-  top: 18vh;
   left: 16vh;
   background-color: #010d18;
   border: 1px solid #010d18;
   border-radius: 2vh;
   box-shadow: slategray;
-  border-color: #00284d;
+  border-color: #011c33;
 }
 .loginLogoContainer .loginLogo {
   position: absolute;
@@ -212,18 +226,23 @@ li {
   width: 128px;
 }
 
-.loginImg, .container-img {
-  height: 30vh;
-  width: 100%;
-  border-radius: 2vh;
-  border: solid 2px;
-  border-color: #00284d;
+.containerIMG {
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+  bottom: 4vh;
+}
+.containerIMG .logImg {
+  position: relative;
+  max-width: 100%;
+  opacity: 0.2;
+  height: 100vh;
 }
 
 .loginTitle {
   color: #ffffff;
   text-align: center;
-  margin-top: 4vh;
+  margin-top: 25vh;
   margin-bottom: 5vh;
 }
 
@@ -236,24 +255,24 @@ li {
   justify-content: space-between;
 }
 
-.loginInput, .container-input {
+.loginInput, .container-input, .formContainer .inputContainer .loginmail {
   height: 6vh;
   width: 80vw;
   color: #ffffff;
   padding-left: 2%;
   position: relative;
 }
-.loginInput:focus, .container-input:focus {
+.loginInput:focus, .container-input:focus, .formContainer .inputContainer .loginmail:focus {
   outline: none;
   border-bottom: 1px solid #006dce;
 }
-.loginInput:focus::-moz-placeholder, .container-input:focus::-moz-placeholder {
+.loginInput:focus::-moz-placeholder, .container-input:focus::-moz-placeholder, .formContainer .inputContainer .loginmail:focus::-moz-placeholder {
   color: transparent;
 }
-.loginInput:focus:-ms-input-placeholder, .container-input:focus:-ms-input-placeholder {
+.loginInput:focus:-ms-input-placeholder, .container-input:focus:-ms-input-placeholder, .formContainer .inputContainer .loginmail:focus:-ms-input-placeholder {
   color: transparent;
 }
-.loginInput:focus::placeholder, .container-input:focus::placeholder {
+.loginInput:focus::placeholder, .container-input:focus::placeholder, .formContainer .inputContainer .loginmail:focus::placeholder {
   color: transparent;
 }
 
@@ -264,8 +283,8 @@ li {
   border: none;
   color: #ffffff;
   font-size: 3vh;
-  font-family: "Nunito", sans-serif;
-  background-color: #006dce;
+  font-family: "Questrial";
+  background-color: orangered;
   cursor: pointer;
   margin-top: 6vh;
   position: relative;
@@ -312,9 +331,50 @@ li {
   border: none;
   background: none;
   color: #ffffff;
-  font-family: "Nunito", sans-serif;
+  font-family: "Questrial";
   font-size: large;
   text-decoration: underline;
+}
+
+.formContainer .inputContainer .form_mail {
+  font-size: large;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  left: 7vh;
+  padding-bottom: 2vh;
+}
+.formContainer .inputContainer .form_pass {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  left: 7vh;
+  padding-bottom: 2vh;
+  padding-top: 3vh;
+  font-size: large;
+}
+
+.tfrfr {
+  display: flex;
+  justify-content: center;
+}
+.tfrfr .headerline {
+  position: relative;
+  left: 7vh;
+  height: 1px;
+  flex: 1;
+  background-color: orangered;
+  top: 1vh;
+  opacity: 0.33;
+}
+.tfrfr .headerLine {
+  position: relative;
+  left: 7vh;
+  height: 1px;
+  flex: 1;
+  background-color: orangered;
+  top: 4vh;
+  opacity: 0.33;
 }
 
 .pageContainer {
@@ -403,10 +463,10 @@ h2 {
   height: 100%;
   width: 100%;
   margin-bottom: 2px;
-  color: #00284d;
+  color: #011c33;
   border: 1px solid;
   border-radius: 1rem;
-  box-shadow: rgb(232, 10, 40) 0px 3px 8px;
+  box-shadow: orangered 0px 3px 8px;
 }
 
 h5 {
@@ -441,7 +501,7 @@ h5 {
   align-items: center;
   border: 1px solid;
   border-radius: 1rem;
-  box-shadow: rgb(232, 10, 40) 0px 3px 8px;
+  box-shadow: orangered 0px 3px 8px;
 }
 .fav .favVideoContainer img {
   height: 100%;
@@ -623,10 +683,11 @@ h5 {
 .header-container {
   height: 8.2vh;
   width: 100%;
-  border-bottom: 1px solid rgba(0, 40, 77, 0.4);
-  background: #00284d;
+  border-bottom: 1px solid rgba(1, 28, 51, 0.4);
+  background: #011c33;
   display: flex;
   justify-content: flex-start;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .comment {
@@ -664,7 +725,7 @@ h5 {
   color: #ffffff;
 }
 .comment .comment-form input:focus {
-  outline: 1px solid #00284d;
+  outline: 1px solid #011c33;
 }
 .comment .comment-form input:focus::-moz-placeholder {
   color: transparent;
@@ -785,7 +846,7 @@ h5 {
   border: 1px solid #010d18;
   border-radius: 2vh;
   box-shadow: slategray;
-  border-color: #00284d;
+  border-color: #011c33;
 }
 .loginLogoContainer .loginLogo {
   bottom: 1vh;
@@ -803,7 +864,7 @@ h5 {
   width: 100%;
   border-radius: 2vh;
   border: solid 2px;
-  border-color: #00284d;
+  border-color: #011c33;
 }
 
 .inputContainer {
@@ -811,7 +872,7 @@ h5 {
   flex-direction: column;
   justify-content: space-between;
 }
-.inputContainer .loginInput, .inputContainer .container-input {
+.inputContainer .loginInput, .inputContainer .container-input, .formContainer .inputContainer .loginmail {
   height: 6vh;
   width: 80vw;
   border-radius: 8px;
@@ -821,17 +882,17 @@ h5 {
   padding-left: 2%;
   position: relative;
 }
-.inputContainer .loginInput:focus, .inputContainer .container-input:focus {
+.inputContainer .loginInput:focus, .inputContainer .container-input:focus, .formContainer .inputContainer .loginmail:focus {
   outline: none;
   border-bottom: 1px solid #006dce;
 }
-.inputContainer .loginInput:focus::-moz-placeholder, .inputContainer .container-input:focus::-moz-placeholder {
+.inputContainer .loginInput:focus::-moz-placeholder, .inputContainer .container-input:focus::-moz-placeholder, .formContainer .inputContainer .loginmail:focus::-moz-placeholder {
   color: transparent;
 }
-.inputContainer .loginInput:focus:-ms-input-placeholder, .inputContainer .container-input:focus:-ms-input-placeholder {
+.inputContainer .loginInput:focus:-ms-input-placeholder, .inputContainer .container-input:focus:-ms-input-placeholder, .formContainer .inputContainer .loginmail:focus:-ms-input-placeholder {
   color: transparent;
 }
-.inputContainer .loginInput:focus::placeholder, .inputContainer .container-input:focus::placeholder {
+.inputContainer .loginInput:focus::placeholder, .inputContainer .container-input:focus::placeholder, .formContainer .inputContainer .loginmail:focus::placeholder {
   color: transparent;
 }
 
@@ -842,8 +903,8 @@ h5 {
   border: none;
   color: #ffffff;
   font-size: 3vh;
-  font-family: "Nunito", sans-serif;
-  background-color: #006dce;
+  font-family: "Questrial";
+  background-color: orangered;
   cursor: pointer;
   margin-top: 6vh;
 }
@@ -858,7 +919,7 @@ h5 {
   border: none;
   background: none;
   color: #ffffff;
-  font-family: "Nunito", sans-serif;
+  font-family: "Questrial";
   font-size: large;
   margin-left: 1vh;
   text-decoration: underline;
@@ -874,7 +935,7 @@ h5 {
 .carrouselContainer {
   border-radius: 0.5rem;
   border: solid 1px;
-  border-color: #00284d;
+  border-color: #011c33;
   margin: auto;
   margin-bottom: 2rem;
 }
@@ -894,7 +955,7 @@ h5 {
   text-align: left !important;
   border-radius: 0 !important;
   margin-left: -50% !important;
-  font-family: "Nunito", sans-serif !important;
+  font-family: "Questrial" !important;
   opacity: 0.9 !important;
   padding-left: 15px !important;
 }
@@ -924,7 +985,7 @@ h5 {
   width: 100%;
 }
 .profil-container .profil-info button {
-  background: linear-gradient(180deg, #00284d 0%, rgba(1, 28, 51, 0) 100%);
+  background: linear-gradient(180deg, #011c33 0%, rgba(1, 28, 51, 0) 100%);
   border-radius: 8px;
   display: block;
   margin: auto;
@@ -979,6 +1040,9 @@ h5 {
   margin: auto;
   margin-bottom: 0;
 }
+.profil-container .avatar-container .avatar .containerAvatar {
+  border-radius: 50vh;
+}
 .profil-container .avatar-container .avatar img {
   max-height: 100px;
   max-width: 100px;
@@ -994,7 +1058,7 @@ h5 {
 }
 
 .containerbtn-profil {
-  background: linear-gradient(175deg, #00284d 0%, rgba(1, 28, 51, 0) 100%);
+  background: linear-gradient(175deg, #011c33 0%, rgba(1, 28, 51, 0) 100%);
   border-radius: 8px;
 }
 
@@ -1011,7 +1075,7 @@ h5 {
 }
 
 .container-input {
-  background: #00284d;
+  background: #011c33;
   border: none;
   width: 70%;
   height: 100%;
@@ -2023,13 +2087,13 @@ body.video-react-full-window .video-react-fullscreen {
   margin-bottom: 7.5vh;
   border-collapse: collapse;
   width: 100vw;
-  box-shadow: 0 5px 15px #00284d;
+  box-shadow: 0 5px 15px #011c33;
 }
 .user-table-container .user-table .user-list {
   height: 18vh;
   display: flex;
   justify-content: space-between;
-  box-shadow: 0 3px 10px #00284d;
+  box-shadow: 0 3px 10px #011c33;
 }
 .user-table-container .user-table .user-list .user-info {
   position: relative;
@@ -2078,7 +2142,7 @@ body.video-react-full-window .video-react-fullscreen {
 .video-table {
   border-collapse: collapse;
   width: 100vw;
-  box-shadow: 0 5px 15px #00284d;
+  box-shadow: 0 5px 15px #011c33;
   margin-bottom: 7.5vh;
 }
 .video-table .video-list {
@@ -2158,7 +2222,7 @@ body.video-react-full-window .video-react-fullscreen {
 }
 .upload-container .file-area input[type=file]:valid + .file-dummy {
   border-color: rgba(0, 225, 255, 0.4);
-  background-color: #00284d;
+  background-color: #011c33;
 }
 .upload-container .file-area input[type=file]:valid + .file-dummy .success {
   display: inline-block;
@@ -2199,7 +2263,7 @@ body.video-react-full-window .video-react-fullscreen {
 }
 .upload-container .form-controll:valid {
   outline: none;
-  background-color: #00284d;
+  background-color: #011c33;
 }
 .upload-container button {
   padding: 8px 30px;
@@ -2256,7 +2320,7 @@ body.video-react-full-window .video-react-fullscreen {
 }
 .upload-container .file-area input[type=file]:valid + .file-dummy {
   border-color: rgba(0, 225, 255, 0.4);
-  background-color: #00284d;
+  background-color: #011c33;
 }
 .upload-container .file-area input[type=file]:valid + .file-dummy .success {
   display: inline-block;
@@ -2297,7 +2361,7 @@ body.video-react-full-window .video-react-fullscreen {
 }
 .upload-container .form-controll:valid {
   outline: none;
-  background-color: #00284d;
+  background-color: #011c33;
 }
 .upload-container button {
   padding: 8px 30px;

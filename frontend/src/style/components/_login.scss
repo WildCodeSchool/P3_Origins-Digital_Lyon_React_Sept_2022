@@ -11,7 +11,6 @@
   height: 15vh;
   width: 15vh;
   position: absolute;
-  top: 18vh;
   left: 16vh;
   background-color: $black;
   border: 1px solid $black;
@@ -26,19 +25,23 @@
     width: 128px;
   }
 }
-
-.loginImg {
-  height: 30vh;
-  width: 100%;
-  border-radius: 2vh;
-  border: solid 2px;
-  border-color: $color-2;
+.containerIMG {
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+  bottom: 4vh;
+  .logImg {
+    position: relative;
+    max-width: 100%;
+    opacity: 0.2;
+    height: 100vh;
+  }
 }
 
 .loginTitle {
   color: $white;
   text-align: center;
-  margin-top: 4vh;
+  margin-top: 25vh;
   margin-bottom: 5vh;
 }
 
@@ -74,7 +77,7 @@
   color: $white;
   font-size: 3vh;
   font-family: $font-1;
-  background-color: $color-1;
+  background-color: orangered;
   cursor: pointer;
   margin-top: 6vh;
   position: relative;
@@ -123,5 +126,52 @@
     font-family: $font-1;
     font-size: large;
     text-decoration: underline;
+  }
+}
+
+.formContainer {
+  .inputContainer {
+    .form_mail {
+      font-size: large;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      left: 7vh;
+      padding-bottom: 2vh;
+    }
+    .loginmail {
+      @extend .loginInput;
+    }
+    .form_pass {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      left: 7vh;
+      padding-bottom: 2vh;
+      padding-top: 3vh;
+      font-size: large;
+    }
+  }
+}
+.tfrfr {
+  display: flex;
+  justify-content: center;
+  .headerline {
+    position: relative;
+    left: 7vh;
+    height: 1px;
+    flex: 1;
+    background-color: orangered;
+    top: 1vh;
+    opacity: 0.33;
+  }
+  .headerLine {
+    position: relative;
+    left: 7vh;
+    height: 1px;
+    flex: 1;
+    background-color: orangered;
+    top: 4vh;
+    opacity: 0.33;
   }
 }
