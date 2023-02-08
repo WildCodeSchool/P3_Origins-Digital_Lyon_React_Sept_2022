@@ -24,11 +24,7 @@ function Register() {
     email: Joi.string().regex(RegExp(emailPattern)).max(75).required(),
     firstname: Joi.string().alphanum().min(3).max(30).required(),
     lastname: Joi.string().alphanum().min(3).max(30).required(),
-    password: Joi.string()
-      .regex(RegExp(pattern)) // you have to put it in this way and it will work :)
-      .required()
-      .min(8)
-      .max(20),
+    password: Joi.string().regex(RegExp(pattern)).required().min(8).max(20),
   });
 
   const navigate = useNavigate();
@@ -94,6 +90,9 @@ function Register() {
             type="firstname"
             className="loginInput"
             id="firstname"
+            required
+            minLength={2}
+            maxLength={100}
           />
         </div>
         <div className="inputContainer">
@@ -104,9 +103,12 @@ function Register() {
             onChange={(e) =>
               setUserRegistered({ ...userRegistered, lastname: e.target.value })
             }
-            type="lastname"
             className="loginInput"
             id="lastname"
+            required
+            minLength={2}
+            maxLength={100}
+            name="lastname"
           />
         </div>
         <div className="inputContainer">
@@ -118,8 +120,13 @@ function Register() {
               setUserRegistered({ ...userRegistered, email: e.target.value })
             }
             type="email"
+            pattern={emailPattern}
             className="loginInput"
+            required
+            minLength={2}
+            maxLength={100}
             id="email"
+            name="email"
           />
         </div>
         <div className="inputContainer">
@@ -131,7 +138,13 @@ function Register() {
               setUserRegistered({ ...userRegistered, password: e.target.value })
             }
             type="password"
+            pattern={pattern}
             className="loginInput"
+            required
+            minLength={8}
+            maxLength={100}
+            id="password"
+            name="password"
           />
         </div>
         <div className="inputContainer">
@@ -140,8 +153,15 @@ function Register() {
           </label>
           <input
             type="password"
+            pattern={pattern}
             className="loginInput"
             onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+            title='Veuillez entrer une adresse mail valide. Exemple: "exemple@mail.fr'
+            minLength={8}
+            maxLength={100}
+            id="passxord"
+            name="passxord"
           />
         </div>
         <p className="error-message">{errorMessage}</p>

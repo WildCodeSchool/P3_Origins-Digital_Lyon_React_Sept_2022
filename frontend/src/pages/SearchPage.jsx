@@ -28,6 +28,8 @@ export default function SearchPage({ selectedCategory, setSelectedCategory }) {
             className="search"
             type="text"
             placeholder="Rechercher"
+            minLength={2}
+            maxLength={100}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
