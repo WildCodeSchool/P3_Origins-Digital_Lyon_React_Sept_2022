@@ -104,10 +104,10 @@ export default function UsersTable() {
           onChange={(e) => setSearchOption(e.target.value)}
           id="search-option"
         >
-          <option value="firstname">firstname</option>
-          <option value="lastname">lastname</option>
-          <option value="email">email</option>
-          <option value="id">id</option>
+          <option value="firstname">Prénom</option>
+          <option value="lastname">Nom</option>
+          <option value="email">Email</option>
+          <option value="id">#id</option>
         </select>
       </div>
 
