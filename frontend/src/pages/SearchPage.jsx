@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useContext, useState, useEffect } from "react";
-import ReturnPageButton from "../components/ReturnPageButton";
 import CurrentVideosContext from "../../contexts/videosContext";
 import Navbar from "../components/Navbar";
 import VideoBox from "../components/VideoBox";
@@ -20,7 +19,6 @@ export default function SearchPage({ selectedCategory, setSelectedCategory }) {
   }, [setVideos]);
   return (
     <div className="pageContainer">
-      <ReturnPageButton />
       <h2>Recherche</h2>
       <form className="center">
         <input
@@ -49,9 +47,6 @@ export default function SearchPage({ selectedCategory, setSelectedCategory }) {
           </select>
         </label>
       </form>
-      <div>
-        <h2 className="little-title">Parcourir tout </h2>
-      </div>
       <div>
         {search !== "" ? (
           <div className="searchpage-container">

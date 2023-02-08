@@ -21,7 +21,7 @@ $normalfont: 1.28%;
 @mixin libBox {
   border: 1px solid;
   border-radius: 1rem;
-  box-shadow: $color-3 0px 3px 8px;
+  box-shadow: $color-2 0px 3px 4px;
 }
 
 @mixin flex-col-center {

@@ -12,7 +12,6 @@ padding-top: 15%;
       margin-top: 3vh;
       height: 6vh;
       width: 87%;
-      padding: 10px;
       color: $white;
       border: 2px solid #052e52;
     }
@@ -46,6 +45,7 @@ padding-top: 15%;
     }
   }
   .avatar-container {
+    margin-top: 15%;
     height: 5vh;
     width: 100%;
     display: flex;
@@ -53,15 +53,17 @@ padding-top: 15%;
     justify-content: center;
     flex-direction: column;
     padding-bottom: 2%;
+    @media screen and (min-width: 1000px) {
+      margin-top: 3%;
+      
+    }
     .avatar {
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
       width: 100%;
-      padding: 5px;
       border-radius: 10px;
-      margin: auto;
       margin-bottom: 1%;
       .containerAvatar {
         border-radius: 50vh;

@@ -353,6 +353,7 @@ li {
 }
 
 .pageContainer {
+  padding-top: 10%;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -441,7 +442,7 @@ h2 {
   color: #011c33;
   border: 1px solid;
   border-radius: 1rem;
-  box-shadow: #f4301b 0px 3px 8px;
+  box-shadow: #011c33 0px 3px 4px;
 }
 
 h5 {
@@ -476,7 +477,7 @@ h5 {
   align-items: center;
   border: 1px solid;
   border-radius: 1rem;
-  box-shadow: #f4301b 0px 3px 8px;
+  box-shadow: #011c33 0px 3px 4px;
 }
 .fav .favVideoContainer img {
   height: 100%;
@@ -920,11 +921,11 @@ h5 {
   }
 }
 .carrouselContainer .legend {
-  background-color: rgba(1, 13, 24, 0.7) !important;
+  background-color: transparent !important;
   height: 15% !important;
   width: 100% !important;
-  font-size: 1rem !important;
-  text-align: left !important;
+  font-size: 1.8rem !important;
+  text-align: center !important;
   border-radius: 0 !important;
   margin-left: -50% !important;
   font-family: "Questrial" !important;
@@ -964,7 +965,6 @@ h5 {
   margin-top: 3vh;
   height: 6vh;
   width: 87%;
-  padding: 10px;
   color: #ffffff;
   border: 2px solid #052e52;
 }
@@ -994,6 +994,7 @@ h5 {
   margin-top: 10px;
 }
 .profil-container .avatar-container {
+  margin-top: 15%;
   height: 5vh;
   width: 100%;
   display: flex;
@@ -1002,15 +1003,18 @@ h5 {
   flex-direction: column;
   padding-bottom: 2%;
 }
+@media screen and (min-width: 1000px) {
+  .profil-container .avatar-container {
+    margin-top: 3%;
+  }
+}
 .profil-container .avatar-container .avatar {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  padding: 5px;
   border-radius: 10px;
-  margin: auto;
   margin-bottom: 1%;
 }
 .profil-container .avatar-container .avatar .containerAvatar {
