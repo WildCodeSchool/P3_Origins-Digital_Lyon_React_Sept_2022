@@ -3,8 +3,8 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useCurrentUserContext } from "../../contexts/userContext";
-import loginImg from "../asset/image/loginImg.jpeg";
 import logo from "../asset/image/logo.svg";
+import fondLogin from "../asset/image/imageOrange.png";
 
 function Login() {
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
@@ -60,9 +60,9 @@ function Login() {
   };
 
   return (
-    <>
-      <div>
-        <img className="loginImg" src={loginImg} alt="loginImg" />
+    <div>
+      <div className="containerIMG">
+        <img className="logImg" src={fondLogin} alt="" />
       </div>
       <div className="loginLogoContainer">
         <img className="loginLogo" src={logo} alt="logo" />
@@ -114,7 +114,7 @@ function Login() {
           </button>
         </Link>
       </div>
-    </>
+    </div>
   );
 }
 
