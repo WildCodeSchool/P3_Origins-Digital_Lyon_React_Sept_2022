@@ -173,7 +173,7 @@ li {
   content: "";
   height: 8px;
   width: 0;
-  background: rgb(244, 48, 27);
+  background: #f4301b;
   position: absolute;
   border-radius: 10px;
   bottom: 0px;
@@ -237,7 +237,7 @@ li {
 }
 .loginInput:focus, .container-input:focus, .formContainer .inputContainer .loginmail:focus {
   outline: none;
-  border-bottom: 1px solid rgb(244, 48, 27);
+  border-bottom: 1px solid #f4301b;
 }
 .loginInput:focus::-moz-placeholder, .container-input:focus::-moz-placeholder, .formContainer .inputContainer .loginmail:focus::-moz-placeholder {
   color: transparent;
@@ -257,7 +257,7 @@ li {
   color: #ffffff;
   font-size: 3vh;
   font-family: "Questrial";
-  background-color: rgb(244, 48, 27);
+  background-color: #f4301b;
   cursor: pointer;
   margin-top: 6vh;
   position: relative;
@@ -339,7 +339,7 @@ li {
 .tfrfr .headerline {
   position: relative;
   height: 1px;
-  background-color: rgb(244, 48, 27);
+  background-color: #f4301b;
   top: 1vh;
   opacity: 0.33;
 }
@@ -347,7 +347,7 @@ li {
   position: relative;
   height: 1px;
   flex: 1;
-  background-color: rgb(244, 48, 27);
+  background-color: #f4301b;
   top: 4vh;
   opacity: 0.33;
 }
@@ -441,7 +441,7 @@ h2 {
   color: #011c33;
   border: 1px solid;
   border-radius: 1rem;
-  box-shadow: rgb(244, 48, 27) 0px 3px 8px;
+  box-shadow: #f4301b 0px 3px 8px;
 }
 
 h5 {
@@ -476,7 +476,7 @@ h5 {
   align-items: center;
   border: 1px solid;
   border-radius: 1rem;
-  box-shadow: rgb(244, 48, 27) 0px 3px 8px;
+  box-shadow: #f4301b 0px 3px 8px;
 }
 .fav .favVideoContainer img {
   height: 100%;
@@ -527,7 +527,7 @@ h5 {
 @media screen and (min-width: 1200px) {
   .slider-container .slider-wrapper {
     scrollbar-width: 5px;
-    scrollbar-color: rgb(244, 48, 27);
+    scrollbar-color: #f4301b;
   }
 }
 
@@ -856,7 +856,7 @@ h5 {
 }
 .inputContainer .loginInput:focus, .inputContainer .container-input:focus, .formContainer .inputContainer .loginmail:focus {
   outline: none;
-  border-bottom: 1px solid rgb(244, 48, 27);
+  border-bottom: 1px solid #f4301b;
 }
 .inputContainer .loginInput:focus::-moz-placeholder, .inputContainer .container-input:focus::-moz-placeholder, .formContainer .inputContainer .loginmail:focus::-moz-placeholder {
   color: transparent;
@@ -876,7 +876,7 @@ h5 {
   color: #ffffff;
   font-size: 3vh;
   font-family: "Questrial";
-  background-color: rgb(244, 48, 27);
+  background-color: #f4301b;
   cursor: pointer;
   margin-top: 6vh;
 }
@@ -1049,7 +1049,7 @@ h5 {
 }
 
 .container-input {
-  background: rgb(244, 48, 27);
+  background: #f4301b;
   border: none;
   width: 70%;
   height: 100%;
