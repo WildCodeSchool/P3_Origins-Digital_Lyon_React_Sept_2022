@@ -4,7 +4,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import CurrentUserContext from "../../contexts/userContext";
 import defaultAvatar from "../asset/image/defaultAvatar.jpeg";
-import Imglog from "../asset/image/img1.png";
 
 function Profil() {
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
@@ -140,9 +139,6 @@ function Profil() {
   };
   return (
     <div className="profil-container">
-      <div>
-        <img className="container-img" src={Imglog} alt="img" />
-      </div>
       <div className="avatar-container">
         <div className="avatar">
           <img

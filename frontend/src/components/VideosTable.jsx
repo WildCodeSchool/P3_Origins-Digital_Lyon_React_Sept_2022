@@ -87,7 +87,6 @@ export default function UsersTable() {
         <div className="video-table">
           {videosList
             .filter((video) => video.name.toLowerCase().includes(search))
-
             .map((video) => (
               <div className="video-list" key={video.id}>
                 <ul className="video-info" key={video.id}>
@@ -124,7 +123,7 @@ export default function UsersTable() {
           <div>
             {videosList.map((video) => {
               return (
-                <div className="video-list">
+                <div className="video-list" key={video.id}>
                   <ul key={video.id} className="video-info">
                     <VideoBox video={video} className="video-box-manage" />
                   </ul>

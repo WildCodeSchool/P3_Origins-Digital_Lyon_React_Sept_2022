@@ -118,7 +118,7 @@ export default function UsersTable() {
 
             .map((user) => (
               <div className="user-list" key={user.id}>
-                <ul className="user-info">
+                <ul className="user-info" key={user.id}>
                   <li>{user.firstname}</li>
                   <li>{user.lastname}</li>
                   <li>{user.email}</li>

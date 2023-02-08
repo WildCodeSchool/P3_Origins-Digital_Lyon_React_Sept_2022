@@ -33,12 +33,14 @@ function VideoPlay({ video }) {
   }, []);
 
   useEffect(() => {
-    axios
-      .get(`${BACKEND_URL}/api/category/${videoPlayed.category_id}`)
-      .then((response) => {
-        setCategory(response.data);
-      })
-      .catch((err) => console.error(err));
+    if (videoPlayed.category_id) {
+      axios
+        .get(`${BACKEND_URL}/api/category/${videoPlayed.category_id}`)
+        .then((response) => {
+          setCategory(response.data);
+        })
+        .catch((err) => console.error(err));
+    }
   }, [videoPlayed]);
 
   const toggleFavorite = async (userId, videoId) => {

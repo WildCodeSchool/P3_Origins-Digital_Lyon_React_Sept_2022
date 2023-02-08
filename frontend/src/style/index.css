@@ -106,17 +106,16 @@ li {
 }
 
 .home-container {
-  height: 1000px;
+  height: 100%;
   margin-bottom: 7.5vh;
 }
 .home-container .testctn {
   position: absolute;
   z-index: -1;
   overflow: hidden;
-  bottom: 6vh;
 }
 .home-container .testctn .imgctn {
-  max-width: 500%;
+  width: 100%;
   position: relative;
   left: -95vh;
   z-index: -1;
@@ -174,7 +173,7 @@ li {
   content: "";
   height: 8px;
   width: 0;
-  background: orangered;
+  background: rgb(244, 48, 27);
   position: absolute;
   border-radius: 10px;
   bottom: 0px;
@@ -204,55 +203,29 @@ li {
 .loginContainer {
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
-.loginLogoContainer {
+.headPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2%;
+  padding-bottom: 5%;
+}
+.headPage .loginLogoContainer {
   height: 15vh;
-  width: 15vh;
-  position: absolute;
-  left: 16vh;
   background-color: #010d18;
   border: 1px solid #010d18;
   border-radius: 2vh;
   box-shadow: slategray;
   border-color: #011c33;
 }
-.loginLogoContainer .loginLogo {
-  position: absolute;
-  bottom: 1vh;
-  left: 0rem;
-  height: 120px;
-  width: 128px;
+.headPage .loginLogoContainer .loginLogo {
+  width: 100%;
+  height: 100%;
 }
-
-.containerIMG {
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-  bottom: 4vh;
-}
-.containerIMG .logImg {
-  position: relative;
-  max-width: 100%;
-  opacity: 0.2;
-  height: 100vh;
-}
-
-.loginTitle {
-  color: #ffffff;
-  text-align: center;
-  margin-top: 25vh;
-  margin-bottom: 5vh;
-}
-
-.inputContainer {
-  position: relative;
-  max-width: 50%;
-  left: 5vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.headPage .loginTitle {
+  padding: 2%;
 }
 
 .loginInput, .container-input, .formContainer .inputContainer .loginmail {
@@ -264,7 +237,7 @@ li {
 }
 .loginInput:focus, .container-input:focus, .formContainer .inputContainer .loginmail:focus {
   outline: none;
-  border-bottom: 1px solid #006dce;
+  border-bottom: 1px solid rgb(244, 48, 27);
 }
 .loginInput:focus::-moz-placeholder, .container-input:focus::-moz-placeholder, .formContainer .inputContainer .loginmail:focus::-moz-placeholder {
   color: transparent;
@@ -284,11 +257,10 @@ li {
   color: #ffffff;
   font-size: 3vh;
   font-family: "Questrial";
-  background-color: orangered;
+  background-color: rgb(244, 48, 27);
   cursor: pointer;
   margin-top: 6vh;
   position: relative;
-  left: 7vh;
 }
 
 .passwordContainer {
@@ -334,45 +306,48 @@ li {
   font-family: "Questrial";
   font-size: large;
   text-decoration: underline;
+  cursor: pointer;
 }
 
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.formContainer .inputContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .formContainer .inputContainer .form_mail {
   font-size: large;
   position: relative;
   display: flex;
   justify-content: center;
-  left: 7vh;
   padding-bottom: 2vh;
 }
 .formContainer .inputContainer .form_pass {
   position: relative;
   display: flex;
   justify-content: center;
-  left: 7vh;
   padding-bottom: 2vh;
   padding-top: 3vh;
   font-size: large;
 }
 
-.tfrfr {
-  display: flex;
-  justify-content: center;
-}
 .tfrfr .headerline {
   position: relative;
-  left: 7vh;
   height: 1px;
-  flex: 1;
-  background-color: orangered;
+  background-color: rgb(244, 48, 27);
   top: 1vh;
   opacity: 0.33;
 }
 .tfrfr .headerLine {
   position: relative;
-  left: 7vh;
   height: 1px;
   flex: 1;
-  background-color: orangered;
+  background-color: rgb(244, 48, 27);
   top: 4vh;
   opacity: 0.33;
 }
@@ -466,7 +441,7 @@ h2 {
   color: #011c33;
   border: 1px solid;
   border-radius: 1rem;
-  box-shadow: orangered 0px 3px 8px;
+  box-shadow: rgb(244, 48, 27) 0px 3px 8px;
 }
 
 h5 {
@@ -501,7 +476,7 @@ h5 {
   align-items: center;
   border: 1px solid;
   border-radius: 1rem;
-  box-shadow: orangered 0px 3px 8px;
+  box-shadow: rgb(244, 48, 27) 0px 3px 8px;
 }
 .fav .favVideoContainer img {
   height: 100%;
@@ -552,7 +527,7 @@ h5 {
 @media screen and (min-width: 1200px) {
   .slider-container .slider-wrapper {
     scrollbar-width: 5px;
-    scrollbar-color: blue;
+    scrollbar-color: rgb(244, 48, 27);
   }
 }
 
@@ -840,7 +815,7 @@ h5 {
 .loginLogoContainer {
   height: 15vh;
   width: 15vh;
-  top: 18vh;
+  top: 6vh;
   left: 16vh;
   background-color: #010d18;
   border: 1px solid #010d18;
@@ -849,10 +824,8 @@ h5 {
   border-color: #011c33;
 }
 .loginLogoContainer .loginLogo {
-  bottom: 1vh;
-  left: 0rem;
-  height: 120px;
-  width: 128px;
+  height: 100%;
+  width: 100%;
 }
 .loginLogoContainer p {
   width: 100vw;
@@ -879,12 +852,11 @@ h5 {
   background-color: #011c33;
   border-color: #012748;
   color: #ffffff;
-  padding-left: 2%;
   position: relative;
 }
 .inputContainer .loginInput:focus, .inputContainer .container-input:focus, .formContainer .inputContainer .loginmail:focus {
   outline: none;
-  border-bottom: 1px solid #006dce;
+  border-bottom: 1px solid rgb(244, 48, 27);
 }
 .inputContainer .loginInput:focus::-moz-placeholder, .inputContainer .container-input:focus::-moz-placeholder, .formContainer .inputContainer .loginmail:focus::-moz-placeholder {
   color: transparent;
@@ -904,7 +876,7 @@ h5 {
   color: #ffffff;
   font-size: 3vh;
   font-family: "Questrial";
-  background-color: orangered;
+  background-color: rgb(244, 48, 27);
   cursor: pointer;
   margin-top: 6vh;
 }
@@ -979,7 +951,7 @@ h5 {
 .profil-container {
   background-color: #010d18;
   width: 100vw;
-  margin-bottom: 8.5vh;
+  padding-top: 15%;
 }
 .profil-container .profil-info {
   width: 100%;
@@ -1028,6 +1000,7 @@ h5 {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding-bottom: 2%;
 }
 .profil-container .avatar-container .avatar {
   display: flex;
@@ -1038,16 +1011,17 @@ h5 {
   padding: 5px;
   border-radius: 10px;
   margin: auto;
-  margin-bottom: 0;
+  margin-bottom: 1%;
 }
 .profil-container .avatar-container .avatar .containerAvatar {
   border-radius: 50vh;
 }
 .profil-container .avatar-container .avatar img {
-  max-height: 100px;
-  max-width: 100px;
+  max-height: 20vh;
+  max-width: 20vw;
   margin: auto;
-  border-radius: 50px;
+  border-radius: 50%;
+  padding-bottom: 1%;
 }
 .profil-container .avatar-container .avatar form {
   display: flex;
@@ -1075,7 +1049,7 @@ h5 {
 }
 
 .container-input {
-  background: #011c33;
+  background: rgb(244, 48, 27);
   border: none;
   width: 70%;
   height: 100%;

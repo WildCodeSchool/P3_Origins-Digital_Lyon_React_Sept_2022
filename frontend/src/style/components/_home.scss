@@ -1,13 +1,12 @@
 .home-container {
-  height: 1000px;
+  height: 100%;
   margin-bottom: 7.5vh;
   .testctn {
     position: absolute;
     z-index: -1;
     overflow: hidden;
-    bottom: 6vh;
     .imgctn {
-      max-width: 500%;
+      width: 100%;
       position: relative;
       left: -95vh;
       z-index: -1;

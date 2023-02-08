@@ -36,7 +36,7 @@ function CategoryTable() {
   };
 
   return (
-    <div>
+    <>
       <h1 className="tableTitle">Category List</h1>
       <table>
         <thead>
@@ -46,14 +46,12 @@ function CategoryTable() {
                 <h3 className="content">{col}</h3>
               </td>
             ))}
-            <div className="modifContainer">
-              <td className="modifTd">
-                <h3>Modifier</h3>
-              </td>
-              <td className="modifTd">
-                <h3>Supprimer</h3>
-              </td>
-            </div>
+            <td className="modifTd">
+              <h3>Modifier</h3>
+            </td>
+            <td className="modifTd">
+              <h3>Supprimer</h3>
+            </td>
           </tr>
         </thead>
         <tbody>
@@ -141,7 +139,7 @@ function CategoryTable() {
           ))}
         </tbody>
       </table>
-    </div>
+    </>
   );
 }
 

@@ -4,7 +4,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useCurrentUserContext } from "../../contexts/userContext";
 import logo from "../asset/image/logo.svg";
-import fondLogin from "../asset/image/imageOrange.png";
 
 function Login() {
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
@@ -61,21 +60,18 @@ function Login() {
 
   return (
     <div>
-      <div className="containerIMG">
-        <img className="logImg" src={fondLogin} alt="" />
+      <div className="headPage">
+        <div className="loginLogoContainer">
+          <img className="loginLogo" src={logo} alt="logo" />
+        </div>
+        <h2 className="loginTitle">Connectez-vous</h2>
       </div>
-      <div className="loginLogoContainer">
-        <img className="loginLogo" src={logo} alt="logo" />
-      </div>
-      <h2 className="loginTitle">Connectez-vous</h2>
       <form className="formContainer" onSubmit={handleSubmit}>
         <div className="inputContainer">
           <div className="tfrfr">
-            <div className="headerline" />
             <label htmlFor="email" className="form_mail">
               Email
             </label>
-            <div className="headerline" />
           </div>
 
           <input
@@ -90,11 +86,9 @@ function Login() {
         </div>
         <div className="inputContainer">
           <div className="tfrfr">
-            <div className="headerLine" />
             <label htmlFor="password" className="form_pass">
               Password
             </label>
-            <div className="headerLine" />
           </div>
 
           <input
