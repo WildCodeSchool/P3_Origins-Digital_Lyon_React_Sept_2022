@@ -112,6 +112,7 @@ function Comment({ currentVideoComments, setCurrentVideoComments }) {
               <img
                 src={`${BACKEND_URL}/api/avatars/${videosComments.avatar}`}
                 alt={`${videosComments.firstname}'s avatar`}
+                onError={handleOnError}
               />
               <h4>{videosComments.firstname}</h4>
             </div>
