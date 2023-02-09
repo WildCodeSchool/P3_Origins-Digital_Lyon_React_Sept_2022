@@ -40,7 +40,7 @@ padding: 2%;
   position: relative;
   &:focus {
     outline: none;
-    border-bottom: 1px solid $color-3;
+    border-bottom: 1px solid $color-1;
     &::placeholder {
       color: transparent;
     }
@@ -55,7 +55,7 @@ padding: 2%;
   color: $white;
   font-size: 3vh;
   font-family: $font-1;
-  background-color: $color-3;
+  background-color: $color-1;
   cursor: pointer;
   margin-top: 6vh;
   position: relative;
@@ -140,7 +140,7 @@ padding: 2%;
   .headerline {
     position: relative;
     height: 1px;
-    background-color: $color-3;
+    background-color: $color-1;
     top: 1vh;
     opacity: 0.33;
   }
@@ -148,7 +148,7 @@ padding: 2%;
     position: relative;
     height: 1px;
     flex: 1;
-    background-color: $color-3;
+    background-color: $color-1;
     top: 4vh;
     opacity: 0.33;
   }

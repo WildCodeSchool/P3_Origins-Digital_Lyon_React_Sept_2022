@@ -4,7 +4,6 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ReturnPageButton from "./ReturnPageButton";
 import Navbar from "./Navbar";
-import CategoryTable from "./CategoryTable";
 
 function AddCategory() {
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
@@ -51,8 +50,8 @@ function AddCategory() {
 
   return (
     <>
+      <ReturnPageButton />
       <div className="upload-container">
-        <ReturnPageButton />
         <h2>
           <strong> Ajout de Catégorie</strong>
         </h2>
@@ -104,7 +103,6 @@ function AddCategory() {
             </button>
           </div>
         </form>
-        <CategoryTable />
         <Navbar />
       </div>
       <ToastContainer />

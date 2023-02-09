@@ -4,7 +4,7 @@
   border-color: $color-2;
   margin: auto;
   margin-bottom: 2rem;
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1100px) {
     height: 70vh;
     width: 95vw;
     margin: auto;
@@ -12,28 +12,28 @@
   }
 
   .legend {
-    background-color: transparent !important;
+    background-color: rgba(3, 3, 3, 0.738) !important;
     height: 15% !important;
     width: 100% !important;
-    font-size: 1.8rem !important;
-    text-align: center !important;
+    font-size: 0.9rem !important;
+    text-align: left !important;
     border-radius: 0 !important;
     margin-left: -50% !important;
     font-family: $font-1 !important;
     opacity: 0.9 !important;
     padding-left: 15px !important;
 
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1100px) {
       font-size: 4rem !important;
       height: 15% !important;
-      text-align: center !important;
+      text-align: left !important;
       padding: 10px !important;
     }
   }
 
   .carrouselImg {
     border-radius: 1rem;
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1100px) {
       height: 70vh;
     }
   }

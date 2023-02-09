@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Joi from "joi-browser";
 import Navbar from "./Navbar";
-import loginImg from "../asset/image/loginImg.jpeg";
 import logo from "../asset/image/logo.svg";
 
 function Register() {
@@ -16,27 +14,11 @@ function Register() {
     lastname: "",
     password: "",
   });
-  const pattern = "^[a-zA-Z0-9]{3,30}$";
-
-  const emailPattern = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$";
-
-  const schema = Joi.object({
-    email: Joi.string().regex(RegExp(emailPattern)).max(75).required(),
-    firstname: Joi.string().alphanum().min(3).max(30).required(),
-    lastname: Joi.string().alphanum().min(3).max(30).required(),
-    password: Joi.string().regex(RegExp(pattern)).required().min(8).max(20),
-  });
 
   const navigate = useNavigate();
   const handleForm = (e) => {
     e.preventDefault();
-    const result = schema.validate(userRegistered);
-    if (result.error) {
-      setErrorMessage(
-        "Votre mot de passe doit contenir au moin 8 Caractère dont une majuscule et un chiffre"
-      );
-      return;
-    }
+
     if (confirmPassword === userRegistered.password) {
       const myHeaders = new Headers();
       myHeaders.append("Content-Type", "application/json");
@@ -69,11 +51,10 @@ function Register() {
 
   return (
     <div>
-      <div>
-        <img className="loginImg" src={loginImg} alt="loginImg" />
-      </div>
-      <div className="loginLogoContainer">
-        <img className="loginLogo" src={logo} alt="logo" />
+      <div className="headPage">
+        <div className="loginLogoContainer">
+          <img className="loginLogo" src={logo} alt="logo" />
+        </div>
       </div>
       <form className="formContainer" onSubmit={handleForm}>
         <div className="inputContainer">
@@ -120,11 +101,11 @@ function Register() {
               setUserRegistered({ ...userRegistered, email: e.target.value })
             }
             type="email"
-            pattern={emailPattern}
             className="loginInput"
             required
             minLength={2}
             maxLength={100}
+            title='Veuillez entrer une adresse mail valide. Exemple: "exemple@mail.fr'
             id="email"
             name="email"
           />
@@ -138,7 +119,6 @@ function Register() {
               setUserRegistered({ ...userRegistered, password: e.target.value })
             }
             type="password"
-            pattern={pattern}
             className="loginInput"
             required
             minLength={8}
@@ -153,11 +133,9 @@ function Register() {
           </label>
           <input
             type="password"
-            pattern={pattern}
             className="loginInput"
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
-            title='Veuillez entrer une adresse mail valide. Exemple: "exemple@mail.fr'
             minLength={8}
             maxLength={100}
             id="passxord"

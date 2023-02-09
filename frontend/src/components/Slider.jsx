@@ -9,7 +9,7 @@ function Slider() {
 
   useEffect(() => {
     axios
-      .get(`${BACKEND_URL}/api/videos/promote`)
+      .get(`${BACKEND_URL}/api/favoris/1`)
       .then((response) => {
         setVideosSlider(response.data);
       })

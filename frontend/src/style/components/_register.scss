@@ -41,7 +41,7 @@
     position: relative;
     &:focus {
       outline: none;
-      border-bottom: 1px solid $color-3;
+      border-bottom: 1px solid $color-1;
       &::placeholder {
         color: transparent;
       }
@@ -57,7 +57,7 @@
   color: $white;
   font-size: 3vh;
   font-family: $font-1;
-  background-color: $color-3;
+  background-color: $color-1;
   cursor: pointer;
   margin-top: 6vh;
 }

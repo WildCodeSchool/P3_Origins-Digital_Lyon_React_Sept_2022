@@ -128,8 +128,8 @@ function Upload() {
 
   return (
     <>
+      <ReturnPageButton />
       <div className="upload-container">
-        <ReturnPageButton />
         <h2>
           <strong> Upload De Vidéo</strong>
         </h2>
@@ -223,7 +223,7 @@ function Upload() {
               className="form-controll "
               required
               minLength={3}
-              maxLength={100}
+              maxLength={1000}
             />
           </div>
           <div className="form-group">

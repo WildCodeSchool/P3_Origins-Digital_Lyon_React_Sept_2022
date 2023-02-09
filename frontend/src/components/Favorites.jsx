@@ -5,7 +5,7 @@ import favorite from "../asset/image/favorite.png";
 export default function Favorites() {
   return (
     <div className="fav">
-      <h2>Favoris</h2>
+      <h2>Mes favoris</h2>
       <NavLink to="/favorites">
         <div className="favContainer">
           <div role="navigation" className="favVideoContainer">

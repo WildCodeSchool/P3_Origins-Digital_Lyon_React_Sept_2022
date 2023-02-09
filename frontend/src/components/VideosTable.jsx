@@ -73,58 +73,24 @@ export default function UsersTable() {
   };
 
   return (
-    <div className="video-table-container">
+    <div>
       <ReturnPageButton />
-      <h3>Liste vidéos</h3>
-      <input
-        className="search-video"
-        type="text"
-        placeholder="Rechercher une vidéo"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      {search !== "" ? (
-        <div className="video-table">
-          {videosList
-            .filter((video) => video.name.toLowerCase().includes(search))
-            .map((video) => (
-              <div className="video-list" key={video.id}>
-                <ul className="video-info" key={video.id}>
-                  <VideoBox video={video} className="video-box-manage" />
-                </ul>
-                <ul className="video-manage">
-                  <li>#{video.id}</li>
-
-                  <li>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        openModal();
-                        setGetVideoId(video.id);
-                      }}
-                    >
-                      Supprimer
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        updatePromote(video);
-                      }}
-                    >
-                      {video.promote ? "Oui" : "Non"}
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            ))}
-        </div>
-      ) : (
-        <div className="video-table">
-          <div>
-            {videosList.map((video) => {
-              return (
+      <div className="video-table-container">
+        <h2>Liste vidéos</h2>
+        <input
+          className="search-video"
+          type="text"
+          placeholder="Rechercher une vidéo"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        {search !== "" ? (
+          <div className="video-table">
+            {videosList
+              .filter((video) => video.name.toLowerCase().includes(search))
+              .map((video) => (
                 <div className="video-list" key={video.id}>
-                  <ul key={video.id} className="video-info">
+                  <ul className="video-info" key={video.id}>
                     <VideoBox video={video} className="video-box-manage" />
                   </ul>
                   <ul className="video-manage">
@@ -140,8 +106,6 @@ export default function UsersTable() {
                       >
                         Supprimer
                       </button>
-
-                      <h5>Mise en avant</h5>
                       <button
                         type="button"
                         onClick={() => {
@@ -153,44 +117,82 @@ export default function UsersTable() {
                     </li>
                   </ul>
                 </div>
-              );
-            })}
+              ))}
           </div>
-        </div>
-      )}
-      <Navbar />
-      <Modal
-        ariaHideApp={false}
-        isOpen={modalIsOpen}
-        contentLabel="Modal"
-        style={{
-          content: {
-            height: "auto",
-            bottom: "auto",
-            width: "80vw",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-          },
-        }}
-      >
-        <p>Voulez-vous vraiment supprimer cet utilisateur ?</p>
-        <div className="modal-buttons">
-          <button type="button" onClick={closeModal} className="close_btn">
-            Fermer
-          </button>
-          <button
-            className="delete_btn"
-            type="button"
-            onClick={() => {
-              deleteVideo(getVideoId);
-              closeModal();
-            }}
-          >
-            Supprimer
-          </button>
-        </div>
-      </Modal>
+        ) : (
+          <div className="video-table">
+            <div>
+              {videosList.map((video) => {
+                return (
+                  <div className="video-list" key={video.id}>
+                    <ul key={video.id} className="video-info">
+                      <VideoBox video={video} className="video-box-manage" />
+                    </ul>
+                    <ul className="video-manage">
+                      <li>#{video.id}</li>
+
+                      <li>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            openModal();
+                            setGetVideoId(video.id);
+                          }}
+                        >
+                          Supprimer
+                        </button>
+
+                        <h5>Mise en avant</h5>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            updatePromote(video);
+                          }}
+                        >
+                          {video.promote ? "Oui" : "Non"}
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+        <Navbar />
+        <Modal
+          ariaHideApp={false}
+          isOpen={modalIsOpen}
+          contentLabel="Modal"
+          style={{
+            content: {
+              height: "auto",
+              bottom: "auto",
+              width: "80vw",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+            },
+          }}
+        >
+          <p>Voulez-vous vraiment supprimer cet utilisateur ?</p>
+          <div className="modal-buttons">
+            <button type="button" onClick={closeModal} className="close_btn">
+              Fermer
+            </button>
+            <button
+              className="delete_btn"
+              type="button"
+              onClick={() => {
+                deleteVideo(getVideoId);
+                closeModal();
+              }}
+            >
+              Supprimer
+            </button>
+          </div>
+        </Modal>
+      </div>
     </div>
   );
 }

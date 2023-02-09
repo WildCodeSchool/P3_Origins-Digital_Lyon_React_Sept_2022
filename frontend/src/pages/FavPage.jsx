@@ -66,7 +66,7 @@ export default function FavPage() {
     <div className="favorite-page-container">
       <ReturnPageButton />
 
-      <h2>Favoris</h2>
+      <h2>Mes favoris</h2>
       <div className="favorite-container">
         {favortieVideos.map((video) => (
           <div className="favorite-box" key={video.id}>
